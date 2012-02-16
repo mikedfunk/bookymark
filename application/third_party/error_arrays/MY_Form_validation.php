@@ -4,10 +4,10 @@
  * 
  * Description
  * 
- * @license		Commercial
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
- * @link		http://xulonpress.com
- * @email		webmaster@xulonpress.com
+ * @link		http://mikefunk.com
+ * @email		mike@mikefunk.com
  * 
  * @file		MY_Form_validation.php
  * @version		1.0
@@ -57,4 +57,4 @@ class MY_Form_validation extends CI_Form_validation {
     }
 }
 /* End of file MY_Form_validation.php */
-/* Location: ./xulonpress/application/core/MY_Form_validation.php */
+/* Location: ./bookymark/application/third_party/error_arrays/MY_Form_validation.php */

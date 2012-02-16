@@ -6,7 +6,11 @@
         <div class="page-header">
           <h1>Please Login</h1>
           </div><!--page-header-->
-<div class="alert_wrap"></div>
+<div class="alert_wrap">
+<?php if ($message == 'logged_out'): ?>
+<div class="alert alert-error fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Please login to continue.</div>
+<?php endif; ?>
+</div>
 <div class="control-group form_item">
             <?=form_label('Email Address:', 'email_address_field', array('class' => 'control-label'))?>
             <div class="controls">

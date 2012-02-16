@@ -2,9 +2,9 @@
 <html lang="en" class="">
   <head>
     <meta charset="utf-8">
-    <title>Bookymark! Save your bookmarks</title>
-    <meta name="description" content="Xulon Press' internal book publishing system.">
-    <meta name="author" content="Xulon Press">
+    <title><?=(isset($title)?$title:'Bookymark! Save your bookmarks.')?></title>
+    <meta name="description" content="<?=(isset($description)?$description:'')?>">
+    <meta name="author" content="<?=(isset($author)?$author:'')?>">
     
     <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -23,6 +23,7 @@ $this->carabiner->css('cache/styles.css');
 $this->carabiner->js('scripts/jquery-1.7.min.js');
 $this->carabiner->js('scripts/actions.js');
 $this->carabiner->js('scripts/scripts.js');
+$this->carabiner->js('twitter_bootstrap/js/bootstrap-alert.js');
 $this->carabiner->display();
 ?>
 
@@ -48,7 +49,7 @@ $this->carabiner->display();
 <div class="footer">
 <hr />
 <div class="container">
-<p>&copy;2012 Mike Funk. All Rights Reserved.</p>
+<p>&copy;<?=date('Y')?> Mike Funk. All Rights Reserved.</p>
 </div><!--container-->
 </div><!--footer-->
 </footer>

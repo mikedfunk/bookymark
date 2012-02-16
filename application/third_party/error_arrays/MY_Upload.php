@@ -4,10 +4,10 @@
  * 
  * Add get errors array
  * 
- * @license		Commercial
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
- * @link		http://xulonpress.com
- * @email		webmaster@xulonpress.com
+ * @link		http://mikefunk.com
+ * @email		mike@mikefunk.com
  * 
  * @file		MY_Upload.php
  * @version		1.0
@@ -40,4 +40,4 @@ class MY_Upload extends CI_Upload {
 	}
 }
 /* End of file MY_Upload.php */
-/* Location: ./booktrack/application/libraries/MY_Upload.php */
+/* Location: ./bookymark/application/third_party/error_arrays/MY_Upload.php */

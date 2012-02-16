@@ -4,10 +4,10 @@
  * 
  * Description
  * 
- * @license		Copyright Xulon Press, Inc. All Rights Reserved.
- * @author		Xulon Press
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @author		Mike Funk
  * @link		http://codeigniter.com/user_guide/libraries/pagination.html
- * @email		info@xulonpress.com
+ * @email		mike@mikefunk.com
  * 
  * @file		pagination.php
  * @version		1.0
@@ -58,4 +58,4 @@ $config['anchor_class'] = 'follow_link';
 // --------------------------------------------------------------------------
 
 /* End of file pagination.php */
-/* Location: ./booktrack/application/config/pagination.php */
+/* Location: ./bookymark/application/config/pagination.php */

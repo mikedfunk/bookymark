@@ -4,10 +4,10 @@
  * 
  * Description
  * 
- * @license		Copyright Xulon Press, Inc. All Rights Reserved.
- * @author		Xulon Press
- * @link		http://xulonpress.com
- * @email		info@xulonpress.com
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @author		Mike Funk
+ * @link		http://mikefunk.com
+ * @email		mike@mikefunk.com
  * 
  * @file		home.php
  * @version		1.0
@@ -70,12 +70,14 @@ class home extends CI_Controller
 	 * login function.
 	 * 
 	 * @access public
+	 * @param string $message (default: '')
 	 * @return void
 	 */
-	public function login()
+	public function login($message = '')
 	{
 		$this->load->helper('form');
 		$this->load->helper('cookie');
+		$this->_data['message'] = $message;
 		$this->_data['header'] = $this->load->view('header_only_view', $this->_data, TRUE);
 		$this->_data['content'] = $this->load->view('login_view', $this->_data, TRUE);
 		$this->load->view('template_view', $this->_data);

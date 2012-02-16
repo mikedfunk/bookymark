@@ -4,7 +4,7 @@
  * 
  * Description
  * 
- * @license		Copyright Mike Funk. All Rights Reserved.
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
  * @link		http://mikefunk.com
  * @email		mike@mikefunk.com
@@ -62,6 +62,43 @@ class bookmarks extends CI_Controller
 		// set style and script dirs
 		$this->_data['style_dir'] = $fcpath . $this->config->item('style_dir', 'carabiner');
 		$this->_data['script_dir'] = $fcpath . $this->config->item('script_dir', 'carabiner');
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _remap function.
+	 * 
+	 * @access public
+	 * @param string $method
+	 * @return void
+	 */
+	public function _remap($method)
+	{
+		$this->load->helper('url');
+		$this->load->model('home_model');
+		$this->load->library('session');
+		if ($this->home_model->login_check($this->session))
+		{
+			$this->$method();
+		}
+		else
+		{
+			redirect('home/login/logged_out');
+		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * index function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function index()
+	{
+		$this->list_bookmarks();
 	}
 	
 	// --------------------------------------------------------------------------
