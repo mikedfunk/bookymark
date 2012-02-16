@@ -11,20 +11,22 @@
 
 <?php
 // assets
-lessc::ccompile($style_dir.'twitter_bootstrap/less/bootstrap.less', $style_dir.'cache/bootstrap.css');
-$this->carabiner->css('cache/bootstrap.css');
+lessc::ccompile($fcpath.$this->carabiner->style_dir.'twitter_bootstrap/less/bootstrap.less', $fcpath.$this->carabiner->style_dir.'cache/bootstrap.css');
+// $this->carabiner->css('cache/bootstrap.css');
+// echo '1: '.$fcpath.$this->carabiner->style_dir.'twitter_bootstrap/less/bootstrap.less';
+// echo '2: '.$fcpath.$this->carabiner->style_dir.'cache/bootstrap.css';
 
-lessc::ccompile($style_dir.'styles/styles.less', $style_dir.'cache/styles.css');
+lessc::ccompile($fcpath.$this->carabiner->style_dir.'styles/styles.less', $fcpath.$this->carabiner->style_dir.'cache/styles.css');
 $this->carabiner->css('cache/styles.css');
 
 // remote jquery
 // $this->carabiner->js('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
 // local jquery
-$this->carabiner->js('scripts/jquery-1.7.min.js');
-$this->carabiner->js('scripts/actions.js');
-$this->carabiner->js('scripts/scripts.js');
-$this->carabiner->js('twitter_bootstrap/js/bootstrap-alert.js');
-$this->carabiner->display();
+// $this->carabiner->js('scripts/jquery-1.7.min.js');
+// $this->carabiner->js('scripts/actions.js');
+// $this->carabiner->js('scripts/scripts.js');
+// $this->carabiner->js('twitter_bootstrap/js/bootstrap-alert.js');
+// $this->carabiner->display();
 ?>
 
     <!-- HTML5 shim, for IE6-8 support of HTML elements -->

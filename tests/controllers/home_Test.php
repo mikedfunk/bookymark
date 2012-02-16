@@ -70,6 +70,16 @@ class home_Test extends CIUnit_TestCase
 		// Check if the content is OK
 		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
 		$this->assertNotEquals('', $out);
+		
+		// --------------------------------------------------------------------------
+		
+		// test
+		$this->_ci->login('logged_out');
+		$out = output();
+		
+		// Check if the content is OK
+		$this->assertSame(1, preg_match('/alert-error/i', $out));
+		$this->assertNotEquals('', $out);
 	}
 	
 	// --------------------------------------------------------------------------
