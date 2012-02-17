@@ -50,7 +50,12 @@ class bookmarks extends CI_Controller
 		parent::__construct();
 		
 		// load resources
-		$this->load->add_package_path('third_party/carabiner');
+		
+		// for testing to work
+		$fcpath = str_replace('application/third_party/CIUnit/', '', FCPATH);
+		$apppath = str_replace($fcpath, '', APPPATH);
+		
+		$this->load->add_package_path($fcpath.$apppath.'third_party/carabiner');
 		$this->load->library('carabiner');
 	}
 	
