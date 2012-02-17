@@ -28,6 +28,18 @@ class authentication_model extends CI_Model
 	// --------------------------------------------------------------------------
 	
 	/**
+	 * __construct function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function __construct()
+	{
+		$this->config->load('authentication_config');
+	}
+	// --------------------------------------------------------------------------
+	
+	/**
 	 * password_check function.
 	 * 
 	 * @access public
@@ -37,8 +49,10 @@ class authentication_model extends CI_Model
 	 */
 	public function password_check($email_address, $password)
 	{
+		$q = $this->_get_email_address_by_email_address($email_address);
+		
 		// check for existing email
-		if (!$this->email_address_check($email_address))
+		if ($q->num_rows() == 0)
 		{
 			return false;
 		}
@@ -53,7 +67,7 @@ class authentication_model extends CI_Model
 			
 			// check password and return match
 			$this->db->where('password', $password);
-			$q = $this->db->get('users');
+			$q = $this->db->get(config_item('users_table'));
 			if ($q->num_rows() == 0)
 			{
 				return false;
@@ -76,8 +90,7 @@ class authentication_model extends CI_Model
 	 */
 	public function email_address_check($email_address)
 	{
-		$this->db->where('email_address', $email_address);
-		$q = $this->db->get('users');
+		$q = $this->_get_email_address_by_email_address($email_address);
 		if ($q->num_rows() == 0)
 		{
 			return false;
@@ -86,6 +99,21 @@ class authentication_model extends CI_Model
 		{
 			return true;
 		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _get_email_address_by_email_address function.
+	 * 
+	 * @access private
+	 * @param mixed $email_address
+	 * @return void
+	 */
+	private function _get_email_address_by_email_address($email_address)
+	{
+		$this->db->where(config_item('username_field'), $email_address);
+		return $this->db->get(config_item('users_table'));
 	}
 	
 	// --------------------------------------------------------------------------

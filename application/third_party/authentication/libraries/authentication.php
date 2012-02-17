@@ -45,6 +45,7 @@ class authentication
 	{
 		$this->_ci =& get_instance();
 		$this->_ci->load->database();
+		$this->_ci->config->load('authentication_config');
 	}
 	
 	// --------------------------------------------------------------------------
@@ -64,12 +65,12 @@ class authentication
 		
 		// check for password match, else redirect
 		$chk = $this->_ci->auth_model->password_check(
-			$this->_ci->session->userdata('email_address'), 
-			$this->_ci->session->userdata('password')
+			$this->_ci->session->userdata(config_item('username_field')), 
+			$this->_ci->session->userdata(config_item('password_field'))
 		);
 		if (!$chk)
 		{
-			redirect('home/login/logged_out');
+			redirect(config_item('logged_out_redirect'));
 		}
 	}
 	
