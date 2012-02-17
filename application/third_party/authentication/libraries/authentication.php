@@ -35,6 +35,12 @@ class authentication
 	
 	// --------------------------------------------------------------------------
 	
+	/**
+	 * __construct function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
 	public function __construct()
 	{
 		$this->_ci =& get_instance();
@@ -56,10 +62,14 @@ class authentication
 		$this->_ci->load->library('session');
 		$this->_ci->load->helper('url');
 		
-		$chk = $this->_ci->auth_model->password_check($this->_ci->session->userdata('email_address'), $this->_ci->session->userdata('password'));
+		// check for password match, else redirect
+		$chk = $this->_ci->auth_model->password_check(
+			$this->_ci->session->userdata('email_address'), 
+			$this->_ci->session->userdata('password')
+		);
 		if (!$chk)
 		{
-			redirect('home/login');
+			redirect('home/login/logged_out');
 		}
 	}
 	

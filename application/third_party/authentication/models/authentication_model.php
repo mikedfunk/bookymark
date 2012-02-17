@@ -24,7 +24,7 @@
  * @extends CI_Model
  */
 class authentication_model extends CI_Model
-{
+{	
 	// --------------------------------------------------------------------------
 	
 	/**
@@ -37,39 +37,55 @@ class authentication_model extends CI_Model
 	 */
 	public function password_check($email_address, $password)
 	{
-		$q = $this->get_user_by_email_address($email_address);
-		if ($q->num_rows() == 0)
+		// check for existing email
+		if (!$this->email_address_check($email_address))
 		{
 			return false;
 		}
+		// if it exists, *then* check for matching password
 		else
-		{	
-			if ($q->num_rows() == 1)
-			{
-				$r = $q->row();
-				$salt = substr($r->password, 0, 64);
-			}
+		{
+			// set up values
+			$r = $q->row();
+			$salt = substr($r->password, 0, 64);
 			$this->load->helper('encrypt_helper');
 			$password = encrypt_this($password, $salt);
 			
+			// check password and return match
 			$this->db->where('password', $password);
-			$return = $this->db->get('users');
+			$q = $this->db->get('users');
+			if ($q->num_rows() == 0)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
 		}
 	}
 	
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * get_user_by_email_address function.
+	 * email_address_check function.
 	 * 
 	 * @access public
 	 * @param mixed $email_address
-	 * @return object
+	 * @return void
 	 */
-	public function get_user_by_email_address($email_address)
+	public function email_address_check($email_address)
 	{
 		$this->db->where('email_address', $email_address);
-		return $this->db->get('users');
+		$q = $this->db->get('users');
+		if ($q->num_rows() == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 	
 	// --------------------------------------------------------------------------
