@@ -52,6 +52,8 @@ class bookmarks extends CI_Controller
 		// load resources
 		$this->load->add_package_path(FCPATH_U.APPPATH_U.'third_party/carabiner');
 		$this->load->library('carabiner');
+		$this->load->helper('authentication_helper');
+		$this->output->enable_profiler(TRUE);
 	}
 	
 	// --------------------------------------------------------------------------

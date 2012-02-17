@@ -38,7 +38,6 @@ function encrypt_this($password, $salt = '')
 		$CI->load->helper('string');
 		$salt = random_string('alnum', 64);
 	}
-	// return $this->_hash($salt, $password);
 	
 	// Prefix the password with the salt
 	$hash = $salt . $password;
@@ -46,10 +45,13 @@ function encrypt_this($password, $salt = '')
 	for ( $i = 0; $i < 53; $i ++ ) {
 		$hash = hash('sha256', $hash);
 	}
+	
 	// Prefix the hash with the salt so we can find it back later
 	$hash = $salt . $hash;
+	
 	// set the session variable for the salt
-	return $hash;
+	// return $hash;
+	return $password;
 }
 
 // --------------------------------------------------------------------------

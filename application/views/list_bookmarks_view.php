@@ -9,7 +9,14 @@
             <div class="page-header">
                 <h1>My Bookymarks</h1>
             </div><!--page-header-->
-
+			<div class="notification_wrap">
+<?php
+// login success notification
+if ($this->input->get('notification') == 'login_success'):
+?>
+			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>You have been logged in.</div>
+<?php endif; ?>
+			</div><!--notification_wrap-->
             <p><a class="btn btn-success">Add Bookymark</a></p><?php
             // loop through bookmarks
             if ($bookmarks->num_rows() > 0):

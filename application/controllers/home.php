@@ -56,6 +56,7 @@ class home extends CI_Controller
 		// load resources
 		$this->load->add_package_path($fcpath.$apppath.'third_party/carabiner');
 		$this->load->library('carabiner');
+		$this->output->enable_profiler(TRUE);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -88,7 +89,94 @@ class home extends CI_Controller
 	public function login_validation()
 	{
 		$this->load->library('form_validation');
+		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|callback__email_address_check');
+		$this->form_validation->set_rules('password', 'Password', 'required|callback__password_check');
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			echo validation_errors();
+		}
+		else
+		{
+			$this->_do_login();
+		}
 	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _email_address_check function.
+	 * 
+	 * @access public
+	 * @param mixed $input
+	 * @return void
+	 */
+	public function _email_address_check($input)
+	{
+		$this->load->model('authentication_model', 'auth_model');
+		
+		// if there's a user by this name return true
+		$this->form_validation->set_message('_email_address_check', 'User not found.');
+		return $this->auth_model->username_check($input);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _password_check function.
+	 * 
+	 * @access public
+	 * @param mixed $input
+	 * @return void
+	 */
+	public function _password_check($input)
+	{
+		$this->load->model('authentication_model', 'auth_model');
+		
+		// if there's a user with this password return true
+		$this->form_validation->set_message('_password_check', 'Incorrect password.');
+		return $this->auth_model->password_check($input, $this->input->post('password'));
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _do_login function.
+	 * 
+	 * @access private
+	 * @return void
+	 */
+	private function _do_login()
+	{
+		$this->load->library('authentication');
+		$success = $this->authentication->do_login();
+		if ($success)
+		{
+			// echo 'logged in';
+			$this->load->library('session');
+			$this->load->helper('url');
+			redirect($this->session->userdata('home_page'));
+		}
+		else
+		{
+			echo 'login failed';
+		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * logout function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function logout()
+	{
+		$this->load->library('authentication');
+		$this->authentication->do_logout();
+	}
+	
 	// --------------------------------------------------------------------------
 }
 /* End of file home.php */

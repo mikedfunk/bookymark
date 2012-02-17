@@ -7,9 +7,21 @@
           <h1>Please Login</h1>
           </div><!--page-header-->
 <div class="alert_wrap">
-<?php if ($message == 'logged_out'): ?>
+
+<?php
+// logged out notification
+if ($this->input->get('notification') == 'logged_out'):
+?>
 <div class="alert alert-error fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Please login to continue.</div>
 <?php endif; ?>
+
+<?php
+// logout success notification
+if ($this->input->get('notification') == 'logout_success'):
+?>
+<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>You have been logged out.</div>
+<?php endif; ?>
+
 </div>
 <div class="control-group form_item">
             <?=form_label('Email Address:', 'email_address_field', array('class' => 'control-label'))?>
