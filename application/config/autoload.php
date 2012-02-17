@@ -63,7 +63,7 @@
 |
 */
 
-$autoload['packages'] = array();
+$autoload['packages'] = array(APPPATH.'third_party/error_arrays');
 
 
 /*
