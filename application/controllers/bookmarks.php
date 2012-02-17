@@ -68,18 +68,9 @@ class bookmarks extends CI_Controller
 		$this->load->helper('url');
 		$this->load->model('home_model');
 		$this->load->library('session');
-// 		$this->session->set_userdata(array(
-// 			'email_address' => 'test',
-// 			'password' => 'test'
-// 		));
-		if ($this->home_model->login_check($this->session))
-		{
-			$this->$method();
-		}
-		else
-		{
-			redirect('home/login/logged_out');
-		}
+		$this->load->library('authentication');
+		$this->authentication->restrict_access();
+		$this->$method();
 	}
 	
 	// --------------------------------------------------------------------------
