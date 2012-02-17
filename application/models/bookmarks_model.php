@@ -31,27 +31,30 @@ class bookmarks_model extends CI_Model
 	 * bookmarks_table function.
 	 * 
 	 * @access public
-	 * @param array $opts an array of options
+	 * @param string $limit (default: '')
+	 * @param string $page (default: '')
+	 * @param string $sort_by (default: '')
+	 * @param string $sort_dir (default: 'asc')
+	 * @param string $filter (default: '')
+	 * @param bool $ids_only (default: false)
 	 * @return void
 	 */
-	public function bookmarks_table($pass = array())
+	public function bookmarks_table($limit = '', $page = '', $sort_by = '', $sort_dir = 'asc', $filter = '', $ids_only = false)
 	{
-		// if there's no get_post
-		if ($pass == false) {$pass = array();}
-		
-		// merge options
-		$opts = array(
-			'limit' => '',
-			'page' => '',
-			'sort_by' => '',
-			'sort_dir' => 'asc',
-			'filter' => '',
-			'ids_only' => false
-		);
-		$opts = array_merge($opts, $pass);
+		// options can be passed as array	
+		if (is_array($limit))
+		{
+			$arr = $limit;
+			$limit = (isset($arr['limit']) ? $arr['limit'] : '');
+			$page = (isset($arr['page']) ? $arr['page'] : '');
+			$sort_by = (isset($arr['sort_by']) ? $arr['sort_by'] : '');
+			$sort_dir = (isset($arr['sort_dir']) ? $arr['sort_dir'] : 'asc');
+			$filter = (isset($arr['filter']) ? $arr['filter'] : '');
+			$ids_only = (isset($arr['ids_only']) ? $arr['ids_only'] : false);
+		}
 		
 		// select
-		if ($opts['ids_only'])
+		if ($ids_only)
 		{
 			$this->db->select('id');
 		}
@@ -61,9 +64,9 @@ class bookmarks_model extends CI_Model
 		}
 		
 		// sort
-		if ($opts['sort_by'] != '' && $opts['sort_by'] != false)
+		if ($sort_by != '' && $sort_by != false)
 		{
-			$this->db->order_by($opts['sort_by'], $opts['sort_dir']);
+			$this->db->order_by($sort_by, $sort_dir);
 		} 
 		else 
 		{
@@ -71,9 +74,9 @@ class bookmarks_model extends CI_Model
 		}
 		
 		// limit and offset
-		if ($opts['page'] != '' || $opts['limit'] != '')
+		if ($page != '' || $limit != '')
 		{
-			$this->db->limit($opts['limit'], $opts['page']);
+			$this->db->limit($limit, $page);
 		}
 		
 		return $this->db->get('bookmarks');
