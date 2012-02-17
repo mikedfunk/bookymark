@@ -117,6 +117,7 @@ class bookmarks extends CI_Controller
 		$this->_data['bookmarks'] = $this->bookmarks_model->bookmarks_table($opts);
 		
 		// load view
+		$this->_data['title'] = 'Your Bookymarks | Bookymark';
 		$this->_data['header'] = $this->load->view('header_only_view', $this->_data, TRUE);
 		$this->_data['content'] = $this->load->view('list_bookmarks_view', $this->_data, TRUE);
 		$this->load->view('template_view', $this->_data);

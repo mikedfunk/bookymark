@@ -73,6 +73,7 @@ class home extends CI_Controller
 		$this->load->helper('form');
 		$this->load->helper('cookie');
 		$this->_data['message'] = $message;
+		$this->_data['title'] = 'Login | Bookymark';
 		$this->_data['header'] = $this->load->view('header_only_view', $this->_data, TRUE);
 		$this->_data['content'] = $this->load->view('login_view', $this->_data, TRUE);
 		$this->load->view('template_view', $this->_data);
