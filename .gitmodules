@@ -15,3 +15,6 @@
 [submodule "application/third_party/carabiner"]
 	path = application/third_party/carabiner
 	url = git@github.com:mikedfunk/carabiner.git
+[submodule "application/third_party/authentication"]
+	path = application/third_party/authentication
+	url = git://github.com/mikedfunk/CI-Authentication.git

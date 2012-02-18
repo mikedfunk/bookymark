@@ -32,7 +32,12 @@ if (validation_errors() != ''):
 <div class="control-group form_item <?=(form_error('email_address') != '' ? 'error' : '')?>">
             <?=form_label('Email Address:', 'email_address_field', array('class' => 'control-label'))?>
             <div class="controls">
-              <?=form_input(array('name' => 'email_address', 'id' => 'email_address_field', 'class' => 'span3', 'value' => get_cookie('email_address')))?>
+<?php
+// form value
+if (set_value('email_address') != '') {$value = set_value('email_address');}
+else {$value = get_cookie('email_address');}
+?>
+              <?=form_input(array('name' => 'email_address', 'id' => 'email_address_field', 'class' => 'span3', 'value' => $value))?>
               <?=form_error('email_address')?>
             </div><!--controls-->
           </div><!--control-group-->
@@ -40,9 +45,24 @@ if (validation_errors() != ''):
 <div class="control-group form_item <?=(form_error('password') != '' ? 'error' : '')?>">
             <?=form_label('Password', 'password_field', array('class' => 'control-label'))?>
             <div class="controls">
-              <?=form_password(array('name' => 'password', 'id' => 'password_field', 'class' => 'span3', 'value' => get_cookie('password')))?>
+<?php
+// form value
+if (set_value('password') != '') {$value = set_value('password');}
+else {$value = get_cookie('password');}
+?>
+              <?=form_password(array('name' => 'password', 'id' => 'password_field', 'class' => 'span3', 'value' => $value))?>
               <?=form_error('password')?>
             </div><!--controls-->
+</div><!--control-group-->
+
+<div class="control-group form_item">
+<div class="controls">
+<?php
+// set whether box is checked
+$checkbox = form_checkbox(array('name' => 'remember_me', 'id' => 'remember_me_field', 'value' => '1', 'checked' => get_cookie('remember_me')));
+?>
+<?=form_label($checkbox . ' <span>Remember Me</span>', 'remember_me_field', array('class' => 'checkbox'))?>
+</div><!--controls-->
 </div><!--control-group-->
 
           <fieldset class="form-actions">

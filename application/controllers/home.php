@@ -72,6 +72,8 @@ class home extends CI_Controller
 		$this->load->helper('form');
 		$this->load->helper('cookie');
 		$this->load->library('form_validation');
+		$this->load->library('authentication');
+		$this->authentication->remember_me();
 		
 		// form validation
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|callback__email_address_check');
@@ -86,7 +88,6 @@ class home extends CI_Controller
 		else
 		{
 			// redirect to configured home page
-			$this->load->library('authentication');
 			$this->authentication->do_login();
 			redirect($this->session->userdata('home_page'));
 		}
