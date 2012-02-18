@@ -71,7 +71,7 @@ endif;
 <div class="footer">
 <hr />
 <div class="container">
-<p>&copy;<?=date('Y')?> Mike Funk. All Rights Reserved.</p>
+<p><a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</p>
 </div><!--container-->
 </div><!--footer-->
 </footer>
