@@ -23,3 +23,16 @@ $(function(){$('body').on('click.alert.data-api',dismiss,Alert.prototype.close)}
 $(function()
 {});
 
+var notify=function(text,type)
+{text=text.replace(/\&amp\;/g,'&');text=$("<div/>").html(text).text();type=type||'error';var template='<div class="alert alert-'+type+' fade in hide" data-dismiss="alert"><a class="close" href="#">&times;</a>'+text+'</div>';$('.alert_wrap').append(template);$('body').scrollTop('0');$('.notification_wrap > .alert:last').fadeIn('fast');}
+var loading_in=function($this)
+{if($this!==undefined)
+{var the_html=$this.html();$this.data('the_content',the_html);$this.addClass('disabled');$this.html('Loading...');}}
+var loading_out=function($this)
+{if($this!==undefined)
+{var content=$this.data('the_content');$this.html(content);$this.removeClass('disabled');}}
+$.ajaxSetup({error:function(xhr,ajaxOptions,thrownError)
+{if(xhr.status===404)
+{notify('Error: page not found.');}
+else if(xhr.status===500)
+{notify('Uh oh! A communications error occurred. <a href="mailto:mfunk@xulonpress.com" class="follow_link">Let Mike know</a>!');}}});

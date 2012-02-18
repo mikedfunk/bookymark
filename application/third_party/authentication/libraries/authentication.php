@@ -138,6 +138,7 @@ class authentication
 		$this->_ci->load->helper('encrypt_helper');
 		$this->_ci->load->helper('string');
 		$this->_ci->load->library('session');
+		$this->_ci->load->helper('url');
 		
 		// set session vars, redirect to admin home
 		$q = $this->_ci->auth_model->get_user_by_username($this->_ci->input->post(config_item('username_field')));
@@ -155,9 +156,9 @@ class authentication
 		$this->_ci->session->set_userdata($user);
 		
 		// log errors
-		if (!$check) {log_message('error', 'Authentication: error editing user.');}
+		if (!$check) {log_message('error', 'Authentication: error editing user during login.');}
 		
-		if ($check) { return true; } else { return false; }
+		redirect($this->_ci->session->userdata(config_item('home_page_field')));
 	}
 
 	// --------------------------------------------------------------------------

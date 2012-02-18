@@ -65,41 +65,30 @@ class home extends CI_Controller
 	 * login function.
 	 * 
 	 * @access public
-	 * @param string $message (default: '')
 	 * @return void
 	 */
-	public function login($message = '')
+	public function login()
 	{
 		$this->load->helper('form');
 		$this->load->helper('cookie');
-		$this->_data['message'] = $message;
-		$this->_data['title'] = 'Login | Bookymark';
-		$this->_data['header'] = $this->load->view('header_only_view', $this->_data, TRUE);
-		$this->_data['content'] = $this->load->view('login_view', $this->_data, TRUE);
-		$this->load->view('template_view', $this->_data);
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * login_validation function.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function login_validation()
-	{
 		$this->load->library('form_validation');
+		
+		// form validation
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|callback__email_address_check');
 		$this->form_validation->set_rules('password', 'Password', 'required|callback__password_check');
-		
 		if ($this->form_validation->run() == FALSE)
 		{
-			echo validation_errors();
+			// load view
+			$this->_data['title'] = 'Login | Bookymark';
+			$this->_data['content'] = $this->load->view('login_view', $this->_data, TRUE);
+			$this->load->view('template_view', $this->_data);
 		}
 		else
 		{
-			$this->_do_login();
+			// redirect to configured home page
+			$this->load->library('authentication');
+			$this->authentication->do_login();
+			redirect($this->session->userdata('home_page'));
 		}
 	}
 	
@@ -137,31 +126,6 @@ class home extends CI_Controller
 		// if there's a user with this password return true
 		$this->form_validation->set_message('_password_check', 'Incorrect password.');
 		return $this->auth_model->password_check($input, $this->input->post('password'));
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * _do_login function.
-	 * 
-	 * @access private
-	 * @return void
-	 */
-	private function _do_login()
-	{
-		$this->load->library('authentication');
-		$success = $this->authentication->do_login();
-		if ($success)
-		{
-			// echo 'logged in';
-			$this->load->library('session');
-			$this->load->helper('url');
-			redirect($this->session->userdata('home_page'));
-		}
-		else
-		{
-			echo 'login failed';
-		}
 	}
 	
 	// --------------------------------------------------------------------------
