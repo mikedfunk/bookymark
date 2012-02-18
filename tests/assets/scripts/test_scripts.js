@@ -1,7 +1,7 @@
 /**
  * test_scripts
  * 
- * Description
+ * tests all javascript in scripts.js.
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk

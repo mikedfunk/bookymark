@@ -1,9 +1,23 @@
-<html>
-<head>
-    <title></title>
-</head>
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * list_bookmarks_view
+ * 
+ * Shows a list of bookmarks paginated.
+ * 
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @author		Mike Funk
+ * @link		http://mikefunk.com
+ * @email		mike@mikefunk.com
+ * 
+ * @file		list_bookmarks_view.php
+ * @version		1.0
+ * @date		02/18/2012
+ * 
+ * Copyright (c) 2012
+ */
 
-<body>
+// --------------------------------------------------------------------------
+?>
     <section>
         <div class="container">
             <div class="page-header">
@@ -54,5 +68,6 @@ if ($this->input->get('notification') == 'login_success'):
             ?>
         </div><!--container-->
     </section>
-</body>
-</html>
+<?php
+/* End of file list_bookmarks_view.php */
+/* Location: ./bookymark/application/views/list_bookmarks_view.php */

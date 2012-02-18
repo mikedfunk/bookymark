@@ -2,7 +2,7 @@
 /**
  * home_Test
  * 
- * Description
+ * tests all methods in controllers/home.php.
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk

@@ -1,3 +1,23 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * login_view
+ * 
+ * The login form.
+ * 
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @author		Mike Funk
+ * @link		http://mikefunk.com
+ * @email		mike@mikefunk.com
+ * 
+ * @file		login_view.php
+ * @version		1.0
+ * @date		02/18/2012
+ * 
+ * Copyright (c) 2012
+ */
+
+// --------------------------------------------------------------------------
+?>
 <section>
 <div class="container">
 <?php /*<div class="row">
@@ -73,3 +93,6 @@ $checkbox = form_checkbox(array('name' => 'remember_me', 'id' => 'remember_me_fi
 </div><!--row--> */ ?>
 </div><!--container-->
 </section>
+<?php
+/* End of file login_view.php */
+/* Location: ./bookymark/application/views/login_view.php */

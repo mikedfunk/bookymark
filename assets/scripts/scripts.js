@@ -1,7 +1,7 @@
 /**
  * scripts.js
  * 
- * Description
+ * Functions activated by actions.js.
  * 
  * @license		Copyright Mike Funk. All Rights Reserved.
  * @author		Mike Funk

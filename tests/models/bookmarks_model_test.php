@@ -2,7 +2,7 @@
 /**
  * bookmarks_model_test
  * 
- * Description
+ * tests all methods in models/bookmarks_model.php.
  * 
  * @license		Copyright Mike Funk. All Rights Reserved.
  * @author		Mike Funk

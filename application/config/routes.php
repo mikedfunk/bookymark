@@ -65,7 +65,7 @@
 */
 
 $route['default_controller'] = "bookmarks";
-$route['404_override'] = '';
+$route['404_override'] = 'error';
 
 
 /* End of file routes.php */

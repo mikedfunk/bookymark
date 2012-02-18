@@ -1,7 +1,7 @@
 /**
  * actions.js
  * 
- * Description
+ * Listeners which call functions.
  * 
  * @license		Copyright Mike Funk. All Rights Reserved.
  * @author		Mike Funk

@@ -2,7 +2,7 @@
 /**
  * bookmarks
  * 
- * Description
+ * All methods for bookmarks. All methods are restricted via _remap().
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
@@ -41,6 +41,8 @@ class bookmarks extends CI_Controller
 	
 	/**
 	 * __construct function.
+	 *
+	 * loads common resources
 	 * 
 	 * @access public
 	 * @return void
@@ -50,9 +52,6 @@ class bookmarks extends CI_Controller
 		parent::__construct();
 		
 		// load resources
-		$this->load->add_package_path(FCPATH_U.APPPATH_U.'third_party/carabiner');
-		$this->load->library('carabiner');
-		$this->load->helper('authentication_helper');
 		$this->output->enable_profiler(TRUE);
 	}
 	
@@ -60,6 +59,8 @@ class bookmarks extends CI_Controller
 	
 	/**
 	 * _remap function.
+	 *
+	 * requires login to continue, else redirects.
 	 * 
 	 * @access public
 	 * @param string $method
@@ -67,9 +68,6 @@ class bookmarks extends CI_Controller
 	 */
 	public function _remap($method)
 	{
-		$this->load->helper('url');
-		$this->load->model('home_model');
-		$this->load->library('session');
 		$this->load->library('authentication');
 		$this->authentication->restrict_access();
 		$this->$method();
@@ -79,6 +77,8 @@ class bookmarks extends CI_Controller
 	
 	/**
 	 * index function.
+	 *
+	 * shortcut to list bookmarks
 	 * 
 	 * @access public
 	 * @return void
@@ -98,12 +98,14 @@ class bookmarks extends CI_Controller
 	 */
 	public function list_bookmarks()
 	{	
+		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
+		$this->load->library(array('pagination', 'carabiner'));
+		$this->load->helper(array('url', 'authentication_helper'));
+		$this->config->load('pagination');
 		
 		// pagination
-		$this->load->library('pagination');
-		$this->config->load('pagination');
 		$opts = $this->input->get();
 		unset($opts['page']);
 		$q = $this->bookmarks_model->bookmarks_table($opts);
@@ -117,7 +119,7 @@ class bookmarks extends CI_Controller
 		$this->_data['bookmarks'] = $this->bookmarks_model->bookmarks_table($opts);
 		
 		// load view
-		$this->_data['title'] = 'Your Bookymarks | Bookymark';
+		$this->_data['title'] = 'My Bookymarks | Bookymark';
 		$this->_data['content'] = $this->load->view('list_bookmarks_view', $this->_data, TRUE);
 		$this->load->view('template_view', $this->_data);
 	}

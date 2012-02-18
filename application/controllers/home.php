@@ -2,7 +2,7 @@
 /**
  * home
  * 
- * Description
+ * Where everything goes that doesn't require login.
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
@@ -49,13 +49,7 @@ class home extends CI_Controller
 	{
 		parent::__construct();
 		
-		// for testing to work
-		$fcpath = str_replace('application/third_party/CIUnit/', '', FCPATH);
-		$apppath = str_replace($fcpath, '', APPPATH);
-		
 		// load resources
-		$this->load->add_package_path($fcpath.$apppath.'third_party/carabiner');
-		$this->load->library('carabiner');
 		$this->output->enable_profiler(TRUE);
 	}
 	
@@ -69,10 +63,8 @@ class home extends CI_Controller
 	 */
 	public function login()
 	{
-		$this->load->helper('form');
-		$this->load->helper('cookie');
-		$this->load->library('form_validation');
-		$this->load->library('authentication');
+		$this->load->helper(array('form', 'cookie', 'url'));
+		$this->load->library(array('form_validation', 'authentication', 'carabiner'));
 		$this->authentication->remember_me();
 		
 		// form validation

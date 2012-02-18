@@ -1,3 +1,23 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * template_view
+ * 
+ * The wrapper view for pretty much everything.
+ * 
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @author		Mike Funk
+ * @link		http://mikefunk.com
+ * @email		mike@mikefunk.com
+ * 
+ * @file		template_view.php
+ * @version		1.0
+ * @date		02/18/2012
+ * 
+ * Copyright (c) 2012
+ */
+
+// --------------------------------------------------------------------------
+?>
 <!DOCTYPE html>
 <html lang="en" class="">
   <head>
@@ -49,7 +69,7 @@ $this->carabiner->display();
 <div class="navbar-inner">
     <div class="fill">
       <div class="container">
-        <a class="brand" href="#/admin/home">Bookymark <?php /*<sup>&reg;</sup> */ ?></a>
+        <a class="brand" href="<?=base_url()?>">Bookymark <?php /*<sup>&reg;</sup> */ ?></a>
 <?php
 // logged in text
 if (is_callable('auth_username')):
@@ -78,3 +98,6 @@ endif;
 <a href="https://github.com/mikedfunk/bookymark"><img style="position: fixed; z-index: 9999; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/e6bef7a091f5f3138b8cd40bc3e114258dd68ddf/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub"></a>
   </body>
 </html>
+<?php
+/* End of file template_view.php */
+/* Location: ./bookymark/application/views/template_view.php */

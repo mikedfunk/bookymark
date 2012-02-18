@@ -2,7 +2,7 @@
 /**
  * MY Form Validation
  * 
- * Description
+ * Gets an array of errors.
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
