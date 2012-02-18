@@ -2,7 +2,7 @@
 /**
  * MY_Form_validation
  * 
- * Description
+ * Set form_validation error prefixes globally
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
