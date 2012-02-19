@@ -64,7 +64,7 @@
 |
 */
 
-$route['default_controller'] = "bookmarks";
+$route['default_controller'] = "home";
 $route['404_override'] = 'error';
 
 

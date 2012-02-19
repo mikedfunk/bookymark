@@ -56,6 +56,28 @@ class home extends CI_Controller
 	// --------------------------------------------------------------------------
 	
 	/**
+	 * index function.
+	 *
+	 * the home page.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function index()
+	{
+		// load resources
+		$this->load->helper('url');
+		$this->load->library('carabiner');
+		
+		// load view
+		$this->_data['title'] = 'Home | Bookymark';
+		$this->_data['content'] = $this->load->view('home_view', $this->_data, TRUE);
+		$this->load->view('template_view', $this->_data);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
 	 * login function.
 	 *
 	 * shows login form, handles validaton, 
@@ -65,6 +87,7 @@ class home extends CI_Controller
 	 */
 	public function login()
 	{
+		// load resources
 		$this->load->database();
 		$this->load->model('authentication_model', 'auth_model');
 		$this->load->helper(array('form', 'cookie', 'url'));

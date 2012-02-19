@@ -43,6 +43,7 @@ $this->carabiner->js('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.j
 // local jquery
 // $this->carabiner->js('scripts/jquery-1.7.min.js');
 $this->carabiner->js('twitter_bootstrap/js/bootstrap-alert.js');
+$this->carabiner->js('twitter_bootstrap/js/bootstrap-carousel.js');
 $this->carabiner->js('scripts/actions.js');
 $this->carabiner->js('scripts/scripts.js');
 $this->carabiner->display();
