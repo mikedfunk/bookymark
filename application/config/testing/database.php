@@ -76,8 +76,8 @@ $active_record = TRUE;
 
 $db['local']['hostname'] = '127.0.0.1';
 $db['local']['username'] = 'root';
-$db['local']['password'] = '';
-$db['local']['database'] = 'db_name_test'; // must have _test on the end
+$db['local']['password'] = 'Pass7155';
+$db['local']['database'] = 'mikedfunk_db_test';  // must have _test on the end
 $db['local']['dbdriver'] = 'mysql';
 $db['local']['dbprefix'] = '';
 $db['local']['pconnect'] = TRUE;

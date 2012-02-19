@@ -57,18 +57,22 @@ class home extends CI_Controller
 	
 	/**
 	 * login function.
+	 *
+	 * shows login form, handles validaton, 
 	 * 
 	 * @access public
 	 * @return void
 	 */
 	public function login()
 	{
+		$this->load->database();
+		$this->load->model('authentication_model', 'auth_model');
 		$this->load->helper(array('form', 'cookie', 'url'));
 		$this->load->library(array('form_validation', 'authentication', 'carabiner'));
 		$this->authentication->remember_me();
 		
 		// form validation
-		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|callback__email_address_check');
+		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|callback__email_address_check');
 		$this->form_validation->set_rules('password', 'Password', 'required|callback__password_check');
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -81,7 +85,6 @@ class home extends CI_Controller
 		{
 			// redirect to configured home page
 			$this->authentication->do_login();
-			redirect($this->session->userdata('home_page'));
 		}
 	}
 	
@@ -89,36 +92,132 @@ class home extends CI_Controller
 	
 	/**
 	 * _email_address_check function.
+	 *
+	 * checks for an email in the db and checks to make sure registration link
+	 * has been clicked.
 	 * 
 	 * @access public
-	 * @param mixed $input
+	 * @param mixed $email_address
 	 * @return void
 	 */
-	public function _email_address_check($input)
+	public function _email_address_check($email_address)
 	{
-		$this->load->model('authentication_model', 'auth_model');
-		
-		// if there's a user by this name return true
-		$this->form_validation->set_message('_email_address_check', 'User not found.');
-		return $this->auth_model->username_check($input);
+		if (!$this->auth_model->username_check($email_address))
+		{
+			$this->form_validation->set_message('_email_address_check', 'Email address not found.');
+			return false;
+		}
+		else
+		{
+			// if there's a confirm string, fail
+			if (!$this->auth_model->confirm_string_check($email_address))
+			{
+				$this->form_validation->set_message('_email_address_check', 'Please click the registration link sent to your email.');
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
 	}
 	
 	// --------------------------------------------------------------------------
 	
 	/**
 	 * _password_check function.
+	 *
+	 * checks to ensure password matches username in db.
 	 * 
 	 * @access public
-	 * @param mixed $input
+	 * @param mixed $password
 	 * @return void
 	 */
-	public function _password_check($input)
+	public function _password_check($password)
 	{
-		$this->load->model('authentication_model', 'auth_model');
+		$chk = $this->auth_model->password_check($this->input->post('email_address'), $password);
+		if (!$chk)
+		{
+			$this->form_validation->set_message('_password_check', 'Incorrect password.');
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * register function.
+	 *
+	 * displays register form, handles validation, runs authentication library 
+	 * method on success.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function register()
+	{
+		$this->load->database();
+		$this->load->helper(array('form', 'cookie', 'url'));
+		$this->load->library(array('form_validation', 'authentication', 'carabiner'));
 		
-		// if there's a user with this password return true
-		$this->form_validation->set_message('_password_check', 'Incorrect password.');
-		return $this->auth_model->password_check($input, $this->input->post('password'));
+		// form validation
+		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|is_unique[users.email_address]');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]');
+		if ($this->form_validation->run() == FALSE)
+		{
+			// load view
+			$this->_data['title'] = 'Register | Bookymark';
+			$this->_data['content'] = $this->load->view('register_view', $this->_data, TRUE);
+			$this->load->view('template_view', $this->_data);
+		}
+		else
+		{
+			// redirect to configured home page
+			$this->authentication->do_register();
+		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * register_success function.
+	 *
+	 * shows register success view.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function register_success()
+	{
+		$this->load->helper('url');
+		$this->load->library('carabiner');
+		
+		// load view
+		$this->_data['title'] = 'Almost done! | Bookymark';
+		$this->_data['content'] = $this->load->view('register_success_view', $this->_data, TRUE);
+		$this->load->view('template_view', $this->_data);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * confirm_register function.
+	 *
+	 * runs confirm_register method of authentication library.
+	 * 
+	 * @access public
+	 * @param mixed $confirm_string
+	 * @return void
+	 */
+	public function confirm_register($confirm_string)
+	{
+		$this->load->library('authentication');
+		$this->authentication->do_confirm_register($confirm_string);
 	}
 	
 	// --------------------------------------------------------------------------

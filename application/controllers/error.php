@@ -29,6 +29,8 @@ class error extends CI_Controller
 	
 	/**
 	 * index function.
+	 *
+	 * show a 404 error.
 	 * 
 	 * @access public
 	 * @return void

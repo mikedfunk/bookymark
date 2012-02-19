@@ -1,0 +1,2 @@
+<h1>Bookymark Registration</h1>
+<p>Thank you for registering for Bookymark. To complete your registration, please click this <a href="<?=$confirm_register_url?>" target="_blank">registration link</a>.</p>

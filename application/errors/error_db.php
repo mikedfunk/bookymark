@@ -26,6 +26,7 @@ $data = array(
 );
 $_ci->load->add_package_path(FCPATH_U . APPPATH_U . 'third_party/carabiner');
 $_ci->load->library('carabiner');
+$_ci->load->helper('url');
 
 // load views
 $data['content'] = $_ci->load->view('error_view', $data, TRUE);
