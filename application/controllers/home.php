@@ -133,9 +133,12 @@ class home extends CI_Controller
 		else
 		{
 			// if there's a confirm string, fail
-			if (!$this->auth_model->confirm_string_check($email_address))
+			$q = $this->auth_model->get_user_by_username($email_address);
+			$r = $q->row();
+			// if (!$this->auth_model->confirm_string_check($email_address))
+			if ($r->confirm_string != '')
 			{
-				$this->form_validation->set_message('_email_address_check', 'Please click the registration link sent to your email.');
+				$this->form_validation->set_message('_email_address_check', 'Please click the registration link sent to your email. <a href="'.base_url().'home/resend_register_email/'.$r->confirm_string.'">Or resend it</a>.');
 				return false;
 			}
 			else
@@ -203,6 +206,21 @@ class home extends CI_Controller
 			// redirect to configured home page
 			$this->authentication->do_register();
 		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * resend_register_email function.
+	 * 
+	 * @access public
+	 * @param mixed $confirm_string
+	 * @return void
+	 */
+	public function resend_register_email($confirm_string)
+	{
+		$this->load->library('authentication');
+		$this->authentication->resend_register_email($confirm_string);
 	}
 	
 	// --------------------------------------------------------------------------
