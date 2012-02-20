@@ -53,24 +53,10 @@ class bookmarks extends CI_Controller
 		
 		// load resources
 		$this->output->enable_profiler(TRUE);
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * _remap function.
-	 *
-	 * requires login to continue, else redirects.
-	 * 
-	 * @access public
-	 * @param string $method
-	 * @return void
-	 */
-	public function _remap($method)
-	{
+		
+		// restrict access
 		$this->load->library('authentication');
 		$this->authentication->restrict_access();
-		$this->$method();
 	}
 	
 	// --------------------------------------------------------------------------
