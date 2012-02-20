@@ -85,6 +85,7 @@ CREATE TABLE `users` (
   `email_address` varchar(300) DEFAULT NULL,
   `password` varchar(300) DEFAULT NULL,
   `role_id` int(11) DEFAULT NULL,
+  `confirm_string` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
