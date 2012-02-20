@@ -343,10 +343,8 @@ class home extends CI_Controller
 	 */
 	public function confirm_reset_password()
 	{
-		$username = $this->input->get('email_address');
-		$encrypted_username = $this->input->get('string');
 		$this->load->library('authentication');
-		$this->authentication->do_confirm_reset_password($username, $encrypted_username);
+		$this->authentication->do_confirm_reset_password();
 	}
 	
 	// --------------------------------------------------------------------------
