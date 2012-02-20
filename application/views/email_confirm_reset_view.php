@@ -1,0 +1,2 @@
+<h1>Bookymark: New password</h1>
+<p>You have requested to reset your password and confirmed your request. Your new password is <strong><?=$new_password?></strong>. Please login with it <a href="<?=base_url().'home/login'?>">here</a>.</p>

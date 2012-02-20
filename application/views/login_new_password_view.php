@@ -22,47 +22,12 @@
 <div class="container">
 <?php /*<div class="row">
 <div class="span16"> */ ?>
-<?=form_open('home/login', array('id' => 'login_form', 'class' => 'form-horizontal'))?>
+<?=form_open('home/login_new_password', array('id' => 'login_form', 'class' => 'form-horizontal'))?>
         <div class="page-header">
           <h1>Please Login</h1>
           </div><!--page-header-->
 <div class="alert_wrap">
-
-<?php
-// logged out notification
-if ($this->input->get('notification') == 'logged_out'):
-?>
-<div class="alert alert-error fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Please login to continue.</div>
-<?php endif; ?>
-
-<?php
-// logout success notification
-if ($this->input->get('notification') == 'logout_success'):
-?>
-<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>You have been logged out.</div>
-<?php endif; ?>
-
-<?php
-// confirm success notification
-if ($this->input->get('notification') == 'confirm_success'):
-?>
-<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Registration confirmed. Please login.</div>
-<?php endif; ?>
-
-<?php
-// confirm fail notification
-if ($this->input->get('notification') == 'confirm_fail'):
-?>
-<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Registration confirmation failed. Please try logging in. If that does not work, please try registering again.</div>
-<?php endif; ?>
-
-<?php
-// confirm success notification
-if ($this->input->get('notification') == 'confirm_reset_success'):
-?>
-<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Password reset. Your new password has been emailed to you. Please retrieve it and login.</div>
-<?php endif; ?>
-
+<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Password reset. Your new password has been emailed to you. Please retrieve it and login.</div><!--alert-->
 <?php
 // validation errors notification
 if (validation_errors() != ''):
@@ -83,9 +48,22 @@ else {$value = get_cookie('email_address');}
               <?=form_error('email_address')?>
             </div><!--controls-->
           </div><!--control-group-->
+
+<div class="control-group form_item <?=(form_error('temp_password') != '' ? 'error' : '')?>">
+            <?=form_label('Temporary Password', 'temp_password_field', array('class' => 'control-label'))?>
+            <div class="controls">
+<?php
+// form value
+if (set_value('temp_password') != '') {$value = set_value('temp_password');}
+else {$value = '';}
+?>
+              <?=form_password(array('name' => 'temp_password', 'id' => 'temp_password_field', 'class' => 'span3', 'value' => $value))?>
+              <?=form_error('temp_password')?>
+            </div><!--controls-->
+</div><!--control-group-->
           
 <div class="control-group form_item <?=(form_error('password') != '' ? 'error' : '')?>">
-            <?=form_label('Password', 'password_field', array('class' => 'control-label'))?>
+            <?=form_label('New Password', 'password_field', array('class' => 'control-label'))?>
             <div class="controls">
 <?php
 // form value
@@ -94,6 +72,19 @@ else {$value = get_cookie('password');}
 ?>
               <?=form_password(array('name' => 'password', 'id' => 'password_field', 'class' => 'span3', 'value' => $value))?>
               <?=form_error('password')?>
+            </div><!--controls-->
+</div><!--control-group-->
+
+<div class="control-group form_item <?=(form_error('confirm_password') != '' ? 'error' : '')?>">
+            <?=form_label('Confirm New Password', 'confirm_password_field', array('class' => 'control-label'))?>
+            <div class="controls">
+<?php
+// form value
+if (set_value('confirm_password') != '') {$value = set_value('confirm_password');}
+else {$value = '';}
+?>
+              <?=form_password(array('name' => 'confirm_password', 'id' => 'confirm_password_field', 'class' => 'span3', 'value' => $value))?>
+              <?=form_error('confirm_password')?>
             </div><!--controls-->
 </div><!--control-group-->
 

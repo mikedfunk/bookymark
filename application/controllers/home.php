@@ -114,6 +114,44 @@ class home extends CI_Controller
 	// --------------------------------------------------------------------------
 	
 	/**
+	 * login_new_password function.
+	 *
+	 * shows login_new_password form, handles validaton, 
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function login_new_password()
+	{
+		// load resources
+		$this->load->database();
+		$this->load->model('authentication_model', 'auth_model');
+		$this->load->helper(array('form', 'cookie', 'url'));
+		$this->load->library(array('form_validation', 'authentication', 'carabiner'));
+		$this->authentication->remember_me();
+		
+		// form validation
+		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|callback__email_address_check');
+		$this->form_validation->set_rules('temp_password', 'Temporary Password', 'required|callback__password_check');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required');
+		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]');
+		if ($this->form_validation->run() == FALSE)
+		{
+			// load view
+			$this->_data['title'] = 'Login | Bookymark';
+			$this->_data['content'] = $this->load->view('login_new_password_view', $this->_data, TRUE);
+			$this->load->view('template_view', $this->_data);
+		}
+		else
+		{
+			// redirect to configured home page
+			$this->authentication->do_login();
+		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
 	 * _email_address_check function.
 	 *
 	 * checks for an email in the db and checks to make sure registration link
@@ -127,7 +165,7 @@ class home extends CI_Controller
 	{
 		if (!$this->auth_model->username_check($email_address))
 		{
-			$this->form_validation->set_message('_email_address_check', 'Email address not found.');
+			$this->form_validation->set_message('_email_address_check', 'Email address not found. <a href="' . base_url() . 'home/register">Want to Register?</a>');
 			return false;
 		}
 		else
@@ -164,7 +202,7 @@ class home extends CI_Controller
 		$chk = $this->auth_model->password_check($this->input->post('email_address'), $password);
 		if (!$chk)
 		{
-			$this->form_validation->set_message('_password_check', 'Incorrect password.');
+			$this->form_validation->set_message('_password_check', 'Incorrect password. <a href="'.base_url().'home/request_reset_password/?email_address='.$this->input->post('email_address').'">Forgot your password?</a>');
 			return false;
 		}
 		else
@@ -259,6 +297,56 @@ class home extends CI_Controller
 	{
 		$this->load->library('authentication');
 		$this->authentication->do_confirm_register($confirm_string);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * request_reset_password function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function request_reset_password()
+	{
+		$email_address = $this->input->get('email_address');
+		$this->load->library('authentication');
+		$this->authentication->do_request_reset_password($email_address);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * request_reset_success function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function request_reset_success()
+	{
+		$this->load->helper('url');
+		$this->load->library('carabiner');
+		
+		// load view
+		$this->_data['title'] = 'Almost done! | Bookymark';
+		$this->_data['content'] = $this->load->view('request_reset_success_view', $this->_data, TRUE);
+		$this->load->view('template_view', $this->_data);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * confirm_reset_password function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function confirm_reset_password()
+	{
+		$username = $this->input->get('email_address');
+		$encrypted_username = $this->input->get('string');
+		$this->load->library('authentication');
+		$this->authentication->do_confirm_reset_password($username, $encrypted_username);
 	}
 	
 	// --------------------------------------------------------------------------

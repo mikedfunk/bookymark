@@ -1,0 +1,2 @@
+<h1>Bookymark: Request to reset password</h1>
+<p>You have requested to reset your password. To confirm your request, click this <a href="<?=$confirm_reset_url?>" target="_blank">confirmation link</a>. If you do not wish to reset your password, simply take no action.</p>
