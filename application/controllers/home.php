@@ -71,7 +71,7 @@ class home extends CI_Controller
 		
 		// load view
 		$this->_data['title'] = 'Home | Bookymark';
-		$this->_data['content'] = $this->load->view('home_view', $this->_data, TRUE);
+		$this->_data['content'] = $this->load->view('home/home_view', $this->_data, TRUE);
 		$this->load->view('template_view', $this->_data);
 	}
 	
@@ -101,7 +101,7 @@ class home extends CI_Controller
 		{
 			// load view
 			$this->_data['title'] = 'Login | Bookymark';
-			$this->_data['content'] = $this->load->view('login_view', $this->_data, TRUE);
+			$this->_data['content'] = $this->load->view('home/login_view', $this->_data, TRUE);
 			$this->load->view('template_view', $this->_data);
 		}
 		else
@@ -139,7 +139,7 @@ class home extends CI_Controller
 		{
 			// load view
 			$this->_data['title'] = 'Login | Bookymark';
-			$this->_data['content'] = $this->load->view('login_new_password_view', $this->_data, TRUE);
+			$this->_data['content'] = $this->load->view('home/login_new_password_view', $this->_data, TRUE);
 			$this->load->view('template_view', $this->_data);
 		}
 		else
@@ -236,7 +236,7 @@ class home extends CI_Controller
 		{
 			// load view
 			$this->_data['title'] = 'Register | Bookymark';
-			$this->_data['content'] = $this->load->view('register_view', $this->_data, TRUE);
+			$this->_data['content'] = $this->load->view('home/register_view', $this->_data, TRUE);
 			$this->load->view('template_view', $this->_data);
 		}
 		else
@@ -278,7 +278,7 @@ class home extends CI_Controller
 		
 		// load view
 		$this->_data['title'] = 'Almost done! | Bookymark';
-		$this->_data['content'] = $this->load->view('register_success_view', $this->_data, TRUE);
+		$this->_data['content'] = $this->load->view('home/register_success_view', $this->_data, TRUE);
 		$this->load->view('template_view', $this->_data);
 	}
 	
@@ -329,7 +329,7 @@ class home extends CI_Controller
 		
 		// load view
 		$this->_data['title'] = 'Almost done! | Bookymark';
-		$this->_data['content'] = $this->load->view('request_reset_success_view', $this->_data, TRUE);
+		$this->_data['content'] = $this->load->view('home/request_reset_success_view', $this->_data, TRUE);
 		$this->load->view('template_view', $this->_data);
 	}
 	
