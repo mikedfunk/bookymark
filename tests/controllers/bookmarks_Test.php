@@ -123,68 +123,6 @@ class bookmarks_Test extends CIUnit_TestCase
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * test__remap function.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function test__remap()
-	{
-		// test
-		$this->_ci->_remap('list_bookmarks');
-		$out = output();
-		
-		// Check if the content is OK
-		// $this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
-		$this->assertEquals('', $out);
-		
-		// --------------------------------------------------------------------------
-		
-		// insert user
-		$email_address = 'test'.uniqid();
-		$password = 'test'.uniqid();
-		$data = array(
-			'email_address' => $email_address,
-			'password' => $password
-		);
-		
-		$this->assertTrue($this->_ci->db->insert('users', $data));
-		$user_id = $this->_ci->db->insert_id();
-		
-		// add bookmark
-		$data = array(
-			'url' => 'http://test.com',
-			'description' => 'test description'
-		);
-		$this->assertTrue($this->_ci->db->insert('bookmarks', $data));
-		$bookmark_id = $this->_ci->db->insert_id();
-		
-		// set userdata
-		$this->_ci->load->library('session');
-		$this->_ci->session->set_userdata($data);
-		
-		// test
-		$this->_ci->_remap('list_bookmarks');
-		$out = output();
-		
-		// Check if the content is OK
-		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
-		$this->assertNotEquals('', $out);
-		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->_ci->db->delete('users');
-		
-		// delete bookmark
-		$this->_ci->db->where('id', $bookmark_id);
-		$this->assertTrue($this->_ci->db->delete('bookmarks'));
-		
-		$this->_ci->session->sess_destroy();
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
 	 * test_list_bookmarks function.
 	 * 
 	 * @access public
@@ -193,7 +131,7 @@ class bookmarks_Test extends CIUnit_TestCase
 	public function test_list_bookmarks()
 	{
 		// test
-		$this->_ci->list_bookmarks();
+		$this->_ci->table();
 		$out = output();
 		
 		// Check if the content is OK
@@ -210,7 +148,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		$bookmark_id = $this->_ci->db->insert_id();
 		
 		// test
-		$this->_ci->list_bookmarks();
+		$this->_ci->table();
 		$out = output();
 		
 		// delete bookmark

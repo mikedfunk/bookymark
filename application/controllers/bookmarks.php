@@ -71,19 +71,21 @@ class bookmarks extends CI_Controller
 	 */
 	public function index()
 	{
-		$this->list_bookmarks();
+		$this->list();
 	}
 	
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * list_bookmarks function.
+	 * table function.
 	 * 
 	 * @access public
 	 * @return void
 	 */
-	public function list_bookmarks()
+	public function table()
 	{	
+		$this->authentication->restrict_access('can_list_bookmarks');
+		
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
@@ -95,7 +97,7 @@ class bookmarks extends CI_Controller
 		$opts = $this->input->get();
 		unset($opts['page']);
 		$q = $this->bookmarks_model->bookmarks_table($opts);
-		$config['base_url'] = 'list_bookmarks?';
+		$config['base_url'] = 'table?';
 		$config['total_rows'] = $this->data['total_rows'] = $q->num_rows();
 		$this->pagination->initialize($config);
 		
@@ -107,6 +109,30 @@ class bookmarks extends CI_Controller
 		// load view
 		$this->_data['title'] = 'My Bookymarks | Bookymark';
 		$this->_data['content'] = $this->load->view('bookmarks/list_bookmarks_view', $this->_data, TRUE);
+		$this->load->view('template_view', $this->_data);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * add function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function add()
+	{
+		$this->authentication->restrict_access('can_add_bookmarks');
+		
+		// load resources
+		$this->load->database();
+		$this->load->model('bookmarks_model');
+		$this->load->library('carabiner');
+		$this->load->helper(array('url', 'authentication_helper'));
+		
+		// set data and load view
+		$this->_data['title'] = 'Add Bookymark | Bookymark';
+		$this->_data['content'] = $this->load->view('bookmarks/bookmark_view', $this->_data, TRUE);
 		$this->load->view('template_view', $this->_data);
 	}
 	

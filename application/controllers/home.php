@@ -362,6 +362,25 @@ class home extends CI_Controller
 	}
 	
 	// --------------------------------------------------------------------------
+	
+	/**
+	 * access_denied function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function access_denied()
+	{
+		$this->load->helper('url');
+		$this->load->library('carabiner');
+		
+		// load view
+		$this->_data['title'] = 'Access Denied | Bookymark';
+		$this->_data['content'] = $this->load->view('home/access_denied_view', $this->_data, TRUE);
+		$this->load->view('template_view', $this->_data);
+	}
+	
+	// --------------------------------------------------------------------------
 }
 /* End of file home.php */
 /* Location: ./bookymark/application/controllers/home.php */

@@ -60,7 +60,7 @@ class bookmarks_model extends CI_Model
 		}
 		else
 		{
-			$this->db->select('url, description');
+			$this->db->select('id, url, description');
 		}
 		
 		// sort

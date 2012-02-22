@@ -31,18 +31,25 @@ if ($this->input->get('notification') == 'login_success'):
 			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>You have been logged in.</div>
 <?php endif; ?>
 			</div><!--notification_wrap-->
-            <p><a class="btn btn-success">Add Bookymark</a></p><?php
+<?php
+// if permission allows
+if ($this->session->userdata('can_add_bookmarks')):
+?>
+            <p><a href="<?=base_url()?>bookmarks/add" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add Bookymark</a></p>
+<?php endif; ?>
+            <?php
             // loop through bookmarks
             if ($bookmarks->num_rows() > 0):
                 $result = $bookmarks->result();
             ?>
 
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>URL</th>
 
                         <th>Description</th>
+                        <th>&nbsp;</th>
                     </tr>
                 </thead><?php 
                     foreach ($result as $item):
@@ -52,6 +59,19 @@ if ($this->input->get('notification') == 'login_success'):
                     <td><?=$item->url?></td>
 
                     <td><?=$item->description?></td>
+                    <td><div class="actions pull-right">
+<?php
+// if permission allows
+if ($this->session->userdata('can_edit_bookmarks')):
+?>
+                    <a href="<?=base_url()?>bookmarks/edit/<?=$item->id?>" class="btn btn-mini"><i class="icon-edit"></i> Edit</a> 
+<?php endif; 
+// if permission allows
+if ($this->session->userdata('can_delete_bookmarks')):
+?>       
+                    <a href="<?=base_url()?>bookmarks/delete/<?=$item->id?>" class="btn btn-mini"><i class="icon-trash"></i> Delete</a>
+<?php endif; ?>
+                    </div><!--actions--></td>
                 </tr><?php 
                     endforeach;
                 ?>
