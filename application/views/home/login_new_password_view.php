@@ -37,7 +37,7 @@ if (validation_errors() != ''):
 
 </div>
 <div class="control-group form_item <?=(form_error('email_address') != '' ? 'error' : '')?>">
-            <?=form_label('Email Address:', 'email_address_field', array('class' => 'control-label'))?>
+            <?=form_label('Email Address: *', 'email_address_field', array('class' => 'control-label'))?>
             <div class="controls">
 <?php
 // form value
@@ -50,7 +50,7 @@ else {$value = get_cookie('email_address');}
           </div><!--control-group-->
 
 <div class="control-group form_item <?=(form_error('temp_password') != '' ? 'error' : '')?>">
-            <?=form_label('Temporary Password', 'temp_password_field', array('class' => 'control-label'))?>
+            <?=form_label('Temporary Password: *', 'temp_password_field', array('class' => 'control-label'))?>
             <div class="controls">
 <?php
 // form value
@@ -63,7 +63,7 @@ else {$value = '';}
 </div><!--control-group-->
           
 <div class="control-group form_item <?=(form_error('password') != '' ? 'error' : '')?>">
-            <?=form_label('New Password', 'password_field', array('class' => 'control-label'))?>
+            <?=form_label('New Password: *', 'password_field', array('class' => 'control-label'))?>
             <div class="controls">
 <?php
 // form value
@@ -76,7 +76,7 @@ else {$value = get_cookie('password');}
 </div><!--control-group-->
 
 <div class="control-group form_item <?=(form_error('confirm_password') != '' ? 'error' : '')?>">
-            <?=form_label('Confirm New Password', 'confirm_password_field', array('class' => 'control-label'))?>
+            <?=form_label('Confirm New Password: *', 'confirm_password_field', array('class' => 'control-label'))?>
             <div class="controls">
 <?php
 // form value

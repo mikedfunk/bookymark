@@ -94,15 +94,6 @@ class home extends CI_Controller
 		$this->load->library(array('form_validation', 'authentication', 'carabiner', 'alerts'));
 		$this->authentication->remember_me();
 		
-		// debug
-		log_message('error', '------- MIKE -------> flashdata: ');
-		foreach ($this->session->all_flashdata() as $key => $val)
-		{
-		log_message('error', '------- MIKE -------> key: '.$key.' val: '.$val);
-		}
-		
-		
-		
 		// form validation
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|callback__email_address_check');
 		$this->form_validation->set_rules('password', 'Password', 'required|callback__password_check');

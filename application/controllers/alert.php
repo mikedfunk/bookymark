@@ -28,6 +28,16 @@ class alert extends CI_Controller
 	// --------------------------------------------------------------------------
 	
 	/**
+	 * _data
+	 * 
+	 * @var mixed
+	 * @access private
+	 */
+	private $_data;
+	
+	// --------------------------------------------------------------------------
+	
+	/**
 	 * index function.
 	 * 
 	 * @access public
@@ -36,14 +46,14 @@ class alert extends CI_Controller
 	public function index()
 	{
 		// load resources
-		$this->load->library(array('carabiner', 'session', 'alerts');
+		$this->load->library(array('carabiner', 'session', 'alerts'));
 		$this->load->helper('url');
 		$this->load->library();
 		
 		// load content and view
+		$this->_data['content'] = $this->load->view('alert_view', $this->_data, TRUE);
 		$this->_data['title'] = 'Alert | Bookymark';
-		$data['content'] = $this->load->view('alert_view', '', TRUE);
-		$this->load->view('template');
+		$this->load->view('template_view', $this->_data);
 	}
 	
 	// --------------------------------------------------------------------------

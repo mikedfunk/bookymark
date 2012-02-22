@@ -19,7 +19,7 @@
 <section>
 <div class="container">
 <div class="page-header">
-<h1><?=(isset($title) ? $title : 'Alert')?></h1>
+<h1><?=(isset($title) ? $title : 'Notice')?></h1>
 </div><!--page-header-->
 <?php
 if (isset($message)):
@@ -27,7 +27,7 @@ if (isset($message)):
 <p><?=$message?></p>
 <?php
 else:
-	$this->alerts->display_all();
+	echo $this->alerts->display_all();
 endif;
 ?>
 </div><!--container-->

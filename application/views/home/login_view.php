@@ -35,9 +35,9 @@ if (validation_errors() != ''):
 <div class="alert alert-error fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Please correct the highlighted errors.</div>
 <?php endif; ?>
 
-</div>
+</div><!--alert-wrap-->
 <div class="control-group form_item <?=(form_error('email_address') != '' ? 'error' : '')?>">
-            <?=form_label('Email Address:', 'email_address_field', array('class' => 'control-label'))?>
+            <?=form_label('Email Address: *', 'email_address_field', array('class' => 'control-label'))?>
             <div class="controls">
 <?php
 // form value
@@ -50,7 +50,7 @@ else {$value = get_cookie('email_address');}
           </div><!--control-group-->
           
 <div class="control-group form_item <?=(form_error('password') != '' ? 'error' : '')?>">
-            <?=form_label('Password', 'password_field', array('class' => 'control-label'))?>
+            <?=form_label('Password: *', 'password_field', array('class' => 'control-label'))?>
             <div class="controls">
 <?php
 // form value
