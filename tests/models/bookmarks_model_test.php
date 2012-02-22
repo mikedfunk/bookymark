@@ -89,12 +89,13 @@ class bookmarks_model_test extends CIUnit_TestCase
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * test_bookmarks_table function.
+	 * test_list_items function.
 	 * 
+	 * @group models
 	 * @access public
 	 * @return void
 	 */
-	public function test_bookmarks_table()
+	public function test_list_items()
 	{
 		// add bookmark
 		$data = array(
@@ -109,7 +110,7 @@ class bookmarks_model_test extends CIUnit_TestCase
 			'ids_only' => true,
 			'sort_by' => 'id'
 		);
-		$q = $this->_ci->bookmarks_model->bookmarks_table($opts);
+		$q = $this->_ci->bookmarks_model->list_items($opts);
 		$this->assertGreaterThan(0, $q->num_rows());
 		
 		// delete bookmark

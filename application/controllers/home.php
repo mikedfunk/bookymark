@@ -50,7 +50,7 @@ class home extends CI_Controller
 		parent::__construct();
 		
 		// load resources
-		$this->output->enable_profiler(TRUE);
+		// $this->output->enable_profiler(TRUE);
 	}
 	
 	// --------------------------------------------------------------------------

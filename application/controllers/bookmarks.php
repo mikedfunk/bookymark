@@ -52,7 +52,7 @@ class bookmarks extends CI_Controller
 		parent::__construct();
 		
 		// load resources
-		$this->output->enable_profiler(TRUE);
+		// $this->output->enable_profiler(TRUE);
 		
 		// restrict access
 		$this->load->library('authentication');
@@ -63,14 +63,14 @@ class bookmarks extends CI_Controller
 	/**
 	 * index function.
 	 *
-	 * shortcut to list bookmarks
+	 * shortcut to list_items
 	 * 
 	 * @access public
 	 * @return void
 	 */
 	public function index()
 	{
-		$this->list();
+		$this->list_items();
 	}
 	
 	// --------------------------------------------------------------------------

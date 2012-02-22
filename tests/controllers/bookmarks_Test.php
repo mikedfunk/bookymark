@@ -71,6 +71,7 @@ class bookmarks_Test extends CIUnit_TestCase
 	/**
 	 * test_index function.
 	 * 
+	 * @group controllers
 	 * @access public
 	 * @return void
 	 */
@@ -123,15 +124,16 @@ class bookmarks_Test extends CIUnit_TestCase
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * test_list_bookmarks function.
+	 * test_list_items function.
 	 * 
+	 * @group controllers
 	 * @access public
 	 * @return void
 	 */
-	public function test_list_bookmarks()
+	public function test_list_items()
 	{
 		// test
-		$this->_ci->table();
+		$this->_ci->list_items();
 		$out = output();
 		
 		// Check if the content is OK
@@ -148,7 +150,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		$bookmark_id = $this->_ci->db->insert_id();
 		
 		// test
-		$this->_ci->table();
+		$this->_ci->list_items();
 		$out = output();
 		
 		// delete bookmark
