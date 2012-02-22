@@ -56,7 +56,6 @@ class bookmarks extends CI_Controller
 		
 		// restrict access
 		$this->load->library('authentication');
-		$this->authentication->restrict_access();
 	}
 	
 	// --------------------------------------------------------------------------
