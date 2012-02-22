@@ -21,7 +21,7 @@
     <section>
         <div class="container">
             <div class="page-header">
-                <h1>My Bookymarks</h1>
+                <h1>My Bookymarks <small>Hover over a row for more options</small></h1>
             </div><!--page-header-->
 			<div class="notification_wrap">
 

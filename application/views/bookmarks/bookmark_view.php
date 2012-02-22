@@ -21,7 +21,7 @@
 <section>
 <div class="container">
 <div class="page-header">
-<h1><?=(isset($item) ? 'Edit' : 'Add')?> Bookmark</h1>
+<h1><?=(isset($item) ? 'Edit' : 'Add')?> Bookmark <small>Items with a * are required</small></h1>
 </div><!--page-header-->
 <?php
 $hidden = (isset($item) ? array('id' => $item->id) : '');
@@ -29,7 +29,7 @@ $hidden = (isset($item) ? array('id' => $item->id) : '');
 <?=form_open('', array('class' => 'form-horizontal'), $hidden)?>
 
 <div class="control-group form_item <?=(form_error('url') != '' ? 'error' : '')?>">
-            <?=form_label('URL:', 'url_field', array('class' => 'control-label'))?>
+            <?=form_label('URL: *', 'url_field', array('class' => 'control-label'))?>
             <div class="controls">
 <?php
 // form value
