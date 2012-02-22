@@ -211,6 +211,16 @@ class bookmarks extends CI_Controller
 	}
 	
 	// --------------------------------------------------------------------------
+	
+	public function test()
+	{
+		$this->load->library('session');
+		$this->session->set_flashdata('dork', 'butt');
+		$this->session->set_flashdata('dork', 'butt2');
+		print_r($this->session->all_flashdata());
+	}
+	
+	// --------------------------------------------------------------------------
 }
 /* End of file bookmarks.php */
 /* Location: ./bookymark/application/controllers/bookmarks.php */

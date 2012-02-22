@@ -1,15 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * error_view
+ * alert_view
  * 
- * The inner error view called from the errors/error_404.php template.
+ * The inner alert view called from the errors/error_404.php template.
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
  * @link		http://mikefunk.com
  * @email		mike@mikefunk.com
  * 
- * @file		error_view.php
+ * @file		alert_view.php
  * @version		1.0
  * @date		02/18/2012
  * 
@@ -19,11 +19,19 @@
 <section>
 <div class="container">
 <div class="page-header">
-<h1><?=$title?></h1>
+<h1><?=(isset($title) ? $title : 'Alert')?></h1>
 </div><!--page-header-->
+<?php
+if (isset($message)):
+?>
 <p><?=$message?></p>
+<?php
+else:
+	$this->alerts->display_all();
+endif;
+?>
 </div><!--container-->
 </section>
 <?php
-/* End of file error_view.php */
-/* Location: ./base_codeigniter_app/application/views/error_view.php */
+/* End of file alert_view.php */
+/* Location: ./base_codeigniter_app/application/views/alert_view.php */

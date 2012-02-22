@@ -91,8 +91,17 @@ class home extends CI_Controller
 		$this->load->database();
 		$this->load->model('authentication_model', 'auth_model');
 		$this->load->helper(array('form', 'cookie', 'url'));
-		$this->load->library(array('form_validation', 'authentication', 'carabiner'));
+		$this->load->library(array('form_validation', 'authentication', 'carabiner', 'alerts'));
 		$this->authentication->remember_me();
+		
+		// debug
+		log_message('error', '------- MIKE -------> flashdata: ');
+		foreach ($this->session->all_flashdata() as $key => $val)
+		{
+		log_message('error', '------- MIKE -------> key: '.$key.' val: '.$val);
+		}
+		
+		
 		
 		// form validation
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|callback__email_address_check');
@@ -127,7 +136,7 @@ class home extends CI_Controller
 		$this->load->database();
 		$this->load->model('authentication_model', 'auth_model');
 		$this->load->helper(array('form', 'cookie', 'url'));
-		$this->load->library(array('form_validation', 'authentication', 'carabiner'));
+		$this->load->library(array('form_validation', 'authentication', 'carabiner', 'alerts'));
 		$this->authentication->remember_me();
 		
 		// form validation
@@ -264,27 +273,6 @@ class home extends CI_Controller
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * register_success function.
-	 *
-	 * shows register success view.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function register_success()
-	{
-		$this->load->helper('url');
-		$this->load->library('carabiner');
-		
-		// load view
-		$this->_data['title'] = 'Almost done! | Bookymark';
-		$this->_data['content'] = $this->load->view('home/register_success_view', $this->_data, TRUE);
-		$this->load->view('template_view', $this->_data);
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
 	 * confirm_register function.
 	 *
 	 * runs confirm_register method of authentication library.
@@ -317,25 +305,6 @@ class home extends CI_Controller
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * request_reset_success function.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function request_reset_success()
-	{
-		$this->load->helper('url');
-		$this->load->library('carabiner');
-		
-		// load view
-		$this->_data['title'] = 'Almost done! | Bookymark';
-		$this->_data['content'] = $this->load->view('home/request_reset_success_view', $this->_data, TRUE);
-		$this->load->view('template_view', $this->_data);
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
 	 * confirm_reset_password function.
 	 * 
 	 * @access public
@@ -359,44 +328,6 @@ class home extends CI_Controller
 	{
 		$this->load->library('authentication');
 		$this->authentication->do_logout();
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * access_denied function.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function access_denied()
-	{
-		$this->load->helper('url');
-		$this->load->library('carabiner');
-		
-		// load view
-		$this->_data['title'] = 'Access Denied | Bookymark';
-		$this->_data['content'] = $this->load->view('home/access_denied_view', $this->_data, TRUE);
-		$this->load->view('template_view', $this->_data);
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * item_not_found function.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function item_not_found()
-	{
-		$this->load->helper('url');
-		$this->load->library('carabiner');
-		
-		// load view
-		$this->_data['title'] = 'Access Denied | Bookymark';
-		$this->_data['content'] = $this->load->view('home/item_not_found_view', $this->_data, TRUE);
-		$this->load->view('template_view', $this->_data);
 	}
 	
 	// --------------------------------------------------------------------------

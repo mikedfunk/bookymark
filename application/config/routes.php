@@ -65,7 +65,7 @@
 */
 
 $route['default_controller'] = "home";
-$route['404_override'] = 'error';
+$route['404_override'] = 'notify/error_404';
 
 
 /* End of file routes.php */

@@ -27,42 +27,7 @@
           <h1>Please Login</h1>
           </div><!--page-header-->
 <div class="alert_wrap">
-
-<?php
-// logged out notification
-if ($this->input->get('notification') == 'logged_out'):
-?>
-<div class="alert alert-error fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Please login to continue.</div>
-<?php endif; ?>
-
-<?php
-// logout success notification
-if ($this->input->get('notification') == 'logout_success'):
-?>
-<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>You have been logged out.</div>
-<?php endif; ?>
-
-<?php
-// confirm success notification
-if ($this->input->get('notification') == 'confirm_success'):
-?>
-<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Registration confirmed. Please login.</div>
-<?php endif; ?>
-
-<?php
-// confirm fail notification
-if ($this->input->get('notification') == 'confirm_fail'):
-?>
-<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Registration confirmation failed. Please try logging in. If that does not work, please try registering again.</div>
-<?php endif; ?>
-
-<?php
-// confirm success notification
-if ($this->input->get('notification') == 'confirm_reset_success'):
-?>
-<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Password reset. Your new password has been emailed to you. Please retrieve it and login.</div>
-<?php endif; ?>
-
+<?=$this->alerts->display_all()?>
 <?php
 // validation errors notification
 if (validation_errors() != ''):

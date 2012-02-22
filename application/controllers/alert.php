@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * error
+ * alert
  * 
  * shows a 404 error with all ci object stuff available.
  * 
@@ -19,23 +19,44 @@
 // --------------------------------------------------------------------------
 
 /**
- * error class.
+ * alert class.
  * 
  * @extends CI_Controller
  */
-class error extends CI_Controller
+class alert extends CI_Controller
 {
 	// --------------------------------------------------------------------------
 	
 	/**
 	 * index function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function index()
+	{
+		// load resources
+		$this->load->library(array('carabiner', 'session', 'alerts');
+		$this->load->helper('url');
+		$this->load->library();
+		
+		// load content and view
+		$this->_data['title'] = 'Alert | Bookymark';
+		$data['content'] = $this->load->view('alert_view', '', TRUE);
+		$this->load->view('template');
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * error_404 function.
 	 *
 	 * show a 404 error.
 	 * 
 	 * @access public
 	 * @return void
 	 */
-	public function index()
+	public function error_404()
 	{
 		$this->load->library('uri');
 		$this->load->helper('url');
@@ -44,5 +65,5 @@ class error extends CI_Controller
 	
 	// --------------------------------------------------------------------------
 }
-/* End of file error.php */
-/* Location: ./bookymark/application/controllers/error.php */
+/* End of file alert.php */
+/* Location: ./bookymark/application/controllers/alert.php */

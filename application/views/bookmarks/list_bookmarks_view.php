@@ -25,40 +25,7 @@
             </div><!--page-header-->
 			<div class="notification_wrap">
 
-<?php
-// login success notification
-if ($this->input->get('notification') == 'login_success'):
-?>
-			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>You have been logged in.</div>
-<?php endif; ?>
-
-<?php
-// add notification
-if ($this->input->get('notification') == 'added'):
-?>
-			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Bookmark added.</div>
-<?php endif; ?>
-
-<?php
-// add notification
-if ($this->input->get('notification') == 'edited'):
-?>
-			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Bookmark edited.</div>
-<?php endif; ?>
-
-<?php
-// add notification
-if ($this->input->get('notification') == 'deleted'):
-?>
-			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Bookmark deleted.</div>
-<?php endif; ?>
-
-<?php
-// add notification
-if ($this->input->get('notification') == 'cancelled'):
-?>
-			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Action cancelled.</div>
-<?php endif; ?>
+<?=$this->alerts->display_all()?>
 
 			</div><!--notification_wrap-->
 <?php
