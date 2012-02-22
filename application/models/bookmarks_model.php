@@ -128,6 +128,21 @@ class bookmarks_model extends CI_Model
 	}
 	
 	// --------------------------------------------------------------------------
+	
+	/**
+	 * delete_item function.
+	 * 
+	 * @access public
+	 * @param mixed $id
+	 * @return void
+	 */
+	public function delete_item($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->delete('bookmarks');
+	}
+	
+	// --------------------------------------------------------------------------
 }
 /* End of file bookmarks_model.php */
 /* Location: ./bookymark/application/models/bookmarks_model.php */

@@ -48,6 +48,13 @@ if ($this->input->get('notification') == 'edited'):
 
 <?php
 // add notification
+if ($this->input->get('notification') == 'deleted'):
+?>
+			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Bookmark deleted.</div>
+<?php endif; ?>
+
+<?php
+// add notification
 if ($this->input->get('notification') == 'cancelled'):
 ?>
 			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Action cancelled.</div>

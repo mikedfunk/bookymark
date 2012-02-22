@@ -189,6 +189,29 @@ class bookmarks extends CI_Controller
 	}
 	
 	// --------------------------------------------------------------------------
+	
+	/**
+	 * delete_item function.
+	 * 
+	 * @access public
+	 * @param mixed $id
+	 * @return void
+	 */
+	public function delete_item($id)
+	{
+		$this->authentication->restrict_access('can_delete_bookmarks');
+		
+		// load resources
+		$this->load->database();
+		$this->load->model('bookmarks_model');
+		$this->load->helper('url');
+		
+		// delete item and redirect
+		$this->bookmarks_model->delete_item($id);
+		redirect('bookmarks/list_items?notification=deleted');
+	}
+	
+	// --------------------------------------------------------------------------
 }
 /* End of file bookmarks.php */
 /* Location: ./bookymark/application/controllers/bookmarks.php */
