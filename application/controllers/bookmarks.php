@@ -142,6 +142,8 @@ class bookmarks extends CI_Controller
 		else
 		{
 			// add and redirect
+			$this->load->library('alerts');
+			$this->alerts->set_success('Bookmark added.');
 			$this->bookmarks_model->add_item($this->input->post());
 			redirect('bookmarks/list_items?notification=added');
 		}
@@ -182,6 +184,8 @@ class bookmarks extends CI_Controller
 		else
 		{
 			// edit and redirect
+			$this->load->library('alerts');
+			$this->alerts->set_success('Bookmark edited.');
 			$this->bookmarks_model->edit_item($this->input->post());
 			redirect('bookmarks/list_items?notification=edited');
 		}
@@ -206,18 +210,10 @@ class bookmarks extends CI_Controller
 		$this->load->helper('url');
 		
 		// delete item and redirect
+		$this->load->library('alerts');
+		$this->alerts->set_success('Bookmark deleted.');
 		$this->bookmarks_model->delete_item($id);
 		redirect('bookmarks/list_items?notification=deleted');
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	public function test()
-	{
-		$this->load->library('session');
-		$this->session->set_flashdata('dork', 'butt');
-		$this->session->set_flashdata('dork', 'butt2');
-		print_r($this->session->all_flashdata());
 	}
 	
 	// --------------------------------------------------------------------------
