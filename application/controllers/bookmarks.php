@@ -187,7 +187,7 @@ class bookmarks extends CI_Controller
 			$this->load->library('alerts');
 			$this->alerts->set_success('Bookmark edited.');
 			$this->bookmarks_model->edit_item($this->input->post());
-			redirect('bookmarks/list_items?notification=edited');
+			redirect('bookmarks/list_items');
 		}
 	}
 	
@@ -213,7 +213,7 @@ class bookmarks extends CI_Controller
 		$this->load->library('alerts');
 		$this->alerts->set_success('Bookmark deleted.');
 		$this->bookmarks_model->delete_item($id);
-		redirect('bookmarks/list_items?notification=deleted');
+		redirect('bookmarks/list_items');
 	}
 	
 	// --------------------------------------------------------------------------

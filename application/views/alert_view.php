@@ -18,10 +18,20 @@
 ?>
 <section>
 <div class="container">
+<?php
+if (isset($title)):
+?>
 <div class="page-header">
-<h1><?=(isset($title) ? $title : 'Notice')?></h1>
+<h1><?=$title?></h1>
 </div><!--page-header-->
 <?php
+elseif ($this->session->flashdata('alert_page_title') != ''):
+?>
+<div class="page-header">
+<h1><?=$this->session->flashdata('alert_page_title')?></h1>
+</div><!--page-header-->
+<?php
+endif;
 if (isset($message)):
 ?>
 <p><?=$message?></p>
