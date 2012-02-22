@@ -112,7 +112,7 @@ $checkbox = form_checkbox(array('name' => 'remember_me', 'id' => 'remember_me_fi
 </div><!--control-group-->
 
           <fieldset class="form-actions">
-          <button type="submit" class="btn btn-primary login save_and_back">Login</button>
+          <button type="submit" class="btn btn-primary">Login</button>
           </fieldset><!--form-actions-->
 </form>
 

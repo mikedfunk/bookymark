@@ -24,18 +24,41 @@
                 <h1>My Bookymarks</h1>
             </div><!--page-header-->
 			<div class="notification_wrap">
+
 <?php
 // login success notification
 if ($this->input->get('notification') == 'login_success'):
 ?>
 			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>You have been logged in.</div>
 <?php endif; ?>
+
+<?php
+// add notification
+if ($this->input->get('notification') == 'added'):
+?>
+			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Bookmark added.</div>
+<?php endif; ?>
+
+<?php
+// add notification
+if ($this->input->get('notification') == 'edited'):
+?>
+			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Bookmark edited.</div>
+<?php endif; ?>
+
+<?php
+// add notification
+if ($this->input->get('notification') == 'cancelled'):
+?>
+			<div class="alert alert-success fade in" data-dismiss="alert"><a class="close" href="#">&times;</a>Action cancelled.</div>
+<?php endif; ?>
+
 			</div><!--notification_wrap-->
 <?php
 // if permission allows
 if ($this->session->userdata('can_add_bookmarks')):
 ?>
-            <p><a href="<?=base_url()?>bookmarks/add" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add Bookymark</a></p>
+            <p><a href="<?=base_url()?>bookmarks/add_item" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add Bookymark</a></p>
 <?php endif; ?>
             <?php
             // loop through bookmarks
@@ -64,12 +87,12 @@ if ($this->session->userdata('can_add_bookmarks')):
 // if permission allows
 if ($this->session->userdata('can_edit_bookmarks')):
 ?>
-                    <a href="<?=base_url()?>bookmarks/edit/<?=$item->id?>" class="btn btn-mini"><i class="icon-edit"></i> Edit</a> 
+                    <a href="<?=base_url()?>bookmarks/edit_item/<?=$item->id?>" class="btn btn-mini"><i class="icon-edit"></i> Edit</a> 
 <?php endif; 
 // if permission allows
 if ($this->session->userdata('can_delete_bookmarks')):
 ?>       
-                    <a href="<?=base_url()?>bookmarks/delete/<?=$item->id?>" class="btn btn-mini"><i class="icon-trash"></i> Delete</a>
+                    <a href="<?=base_url()?>bookmarks/delete_item/<?=$item->id?>" class="btn btn-mini"><i class="icon-trash"></i> Delete</a>
 <?php endif; ?>
                     </div><!--actions--></td>
                 </tr><?php 

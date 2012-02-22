@@ -28,7 +28,7 @@ class bookmarks_model extends CI_Model
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * bookmarks_table function.
+	 * list_items function.
 	 * 
 	 * @access public
 	 * @param string $limit (default: '')
@@ -37,9 +37,9 @@ class bookmarks_model extends CI_Model
 	 * @param string $sort_dir (default: 'asc')
 	 * @param string $filter (default: '')
 	 * @param bool $ids_only (default: false)
-	 * @return void
+	 * @return bool
 	 */
-	public function bookmarks_table($limit = '', $page = '', $sort_by = '', $sort_dir = 'asc', $filter = '', $ids_only = false)
+	public function list_items($limit = '', $page = '', $sort_by = '', $sort_dir = 'asc', $filter = '', $ids_only = false)
 	{
 		// options can be passed as array	
 		if (is_array($limit))
@@ -80,6 +80,51 @@ class bookmarks_model extends CI_Model
 		}
 		
 		return $this->db->get('bookmarks');
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * get_item function.
+	 * 
+	 * @access public
+	 * @param mixed $id
+	 * @return void
+	 */
+	public function get_item($id)
+	{
+		$this->db->select('id, url, description');
+		$this->db->where('id', $id);
+		return $this->db->get('bookmarks');
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * edit_item function.
+	 * 
+	 * @access public
+	 * @param array $post
+	 * @return bool
+	 */
+	public function edit_item($post)
+	{
+		$this->db->where('id', $post['id']);
+		return $this->db->update('bookmarks', $post);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * add_item function.
+	 * 
+	 * @access public
+	 * @param array $post
+	 * @return bool
+	 */
+	public function add_item($post)
+	{
+		return $this->db->insert('bookmarks', $post);
 	}
 	
 	// --------------------------------------------------------------------------

@@ -381,6 +381,25 @@ class home extends CI_Controller
 	}
 	
 	// --------------------------------------------------------------------------
+	
+	/**
+	 * item_not_found function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function item_not_found()
+	{
+		$this->load->helper('url');
+		$this->load->library('carabiner');
+		
+		// load view
+		$this->_data['title'] = 'Access Denied | Bookymark';
+		$this->_data['content'] = $this->load->view('home/item_not_found_view', $this->_data, TRUE);
+		$this->load->view('template_view', $this->_data);
+	}
+	
+	// --------------------------------------------------------------------------
 }
 /* End of file home.php */
 /* Location: ./bookymark/application/controllers/home.php */

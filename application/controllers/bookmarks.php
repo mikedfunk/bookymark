@@ -77,12 +77,12 @@ class bookmarks extends CI_Controller
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * table function.
+	 * list_items function.
 	 * 
 	 * @access public
 	 * @return void
 	 */
-	public function table()
+	public function list_items()
 	{	
 		$this->authentication->restrict_access('can_list_bookmarks');
 		
@@ -96,15 +96,15 @@ class bookmarks extends CI_Controller
 		// pagination
 		$opts = $this->input->get();
 		unset($opts['page']);
-		$q = $this->bookmarks_model->bookmarks_table($opts);
-		$config['base_url'] = 'table?';
+		$q = $this->bookmarks_model->list_items($opts);
+		$config['base_url'] = 'list_items?';
 		$config['total_rows'] = $this->data['total_rows'] = $q->num_rows();
 		$this->pagination->initialize($config);
 		
 		// get bookmarks
 		$get = (is_array($this->input->get()) ? $this->input->get() : array());
 		$opts = array_merge($get, array('limit' => $this->config->item('per_page')));
-		$this->_data['bookmarks'] = $this->bookmarks_model->bookmarks_table($opts);
+		$this->_data['bookmarks'] = $this->bookmarks_model->list_items($opts);
 		
 		// load view
 		$this->_data['title'] = 'My Bookymarks | Bookymark';
@@ -115,25 +115,77 @@ class bookmarks extends CI_Controller
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * add function.
+	 * add_item function.
 	 * 
 	 * @access public
 	 * @return void
 	 */
-	public function add()
+	public function add_item()
 	{
 		$this->authentication->restrict_access('can_add_bookmarks');
 		
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
-		$this->load->library('carabiner');
-		$this->load->helper(array('url', 'authentication_helper'));
+		$this->load->library(array('carabiner', 'form_validation'));
+		$this->load->helper(array('url', 'authentication_helper', 'form'));
 		
-		// set data and load view
-		$this->_data['title'] = 'Add Bookymark | Bookymark';
-		$this->_data['content'] = $this->load->view('bookmarks/bookmark_view', $this->_data, TRUE);
-		$this->load->view('template_view', $this->_data);
+		// form validation
+		$this->form_validation->set_rules('url', 'URL', 'trim|required');
+		$this->form_validation->set_rules('description', 'Description', 'trim');
+		if ($this->form_validation->run() == FALSE)
+		{
+			// load view
+			$this->_data['title'] = 'Add Bookymark | Bookymark';
+			$this->_data['content'] = $this->load->view('bookmarks/bookmark_view', $this->_data, TRUE);
+			$this->load->view('template_view', $this->_data);
+		}
+		else
+		{
+			// add and redirect
+			$this->bookmarks_model->add_item($this->input->post());
+			redirect('bookmarks/list_items?notification=added');
+		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * edit_item function.
+	 * 
+	 * @access public
+	 * @param int $id
+	 * @return void
+	 */
+	public function edit_item($id)
+	{
+		$this->authentication->restrict_access('can_edit_bookmarks');
+		
+		// load resources
+		$this->load->database();
+		$this->load->model('bookmarks_model');
+		$this->load->library(array('carabiner', 'form_validation'));
+		$this->load->helper(array('url', 'authentication_helper', 'form'));
+		
+		// form validation
+		$this->form_validation->set_rules('url', 'URL', 'trim|required');
+		$this->form_validation->set_rules('description', 'Description', 'trim');
+		if ($this->form_validation->run() == FALSE)
+		{
+			// load view
+			$q = $this->bookmarks_model->get_item($id);
+			if ($q->num_rows() == 0) {redirect('home/item_not_found');}
+			$this->_data['item'] = $q->row();
+			$this->_data['title'] = 'Edit Bookymark | Bookymark';
+			$this->_data['content'] = $this->load->view('bookmarks/bookmark_view', $this->_data, TRUE);
+			$this->load->view('template_view', $this->_data);
+		}
+		else
+		{
+			// edit and redirect
+			$this->bookmarks_model->edit_item($this->input->post());
+			redirect('bookmarks/list_items?notification=edited');
+		}
 	}
 	
 	// --------------------------------------------------------------------------
