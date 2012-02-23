@@ -20,14 +20,7 @@
 
 $config['mailtype'] = 'html';
 
-$config['protocol'] = 'smtp';
-$config['smtp_host'] = 'ssl://smtp.googlemail.com';
-$config['smtp_port'] = '465';
-$config['smtp_user'] = 'mikedfunk@gmail.com';//also valid for Google Apps Accounts
-$config['smtp_pass'] = 'mrcgzkvqtjhzmvpq';
-$config['charset'] = 'utf-8';
-$config['mailtype'] = 'html';
-$config['newline'] = '\r\n';
+$config['protocol'] = 'mail';
 
 // --------------------------------------------------------------------------
 
