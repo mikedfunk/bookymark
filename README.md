@@ -2,8 +2,8 @@ Setup
 ----------------
 
 1. Run ```setup.sql``` 
-2. update ```development/database.php```
-3. set the following directories to writable: ```assets/cache```, ```application/cache```, ```application/db_cache```
+2. Update ```development/database.php```
+3. Set the following directories to writable: ```assets/cache```, ```application/cache```, ```application/db_cache```
 
 About
 ----------------
@@ -20,4 +20,3 @@ Bookymark is a sample application created for a few reasons:
 * No pressure to compete with other services or be successful
 * No ever-growing roadmap of features, just the basics
 * Eventually port the complete application to other languages and frameworks as an exercise
-
