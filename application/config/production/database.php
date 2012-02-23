@@ -90,10 +90,10 @@ $db['local']['swap_pre'] = '';
 $db['local']['autoinit'] = TRUE;
 $db['local']['stricton'] = FALSE;
 
-$db['remote']['hostname'] = '127.0.0.1';
-$db['remote']['username'] = 'root';
-$db['remote']['password'] = '';
-$db['remote']['database'] = 'db_name';
+$db['remote']['hostname'] = 'tunnel.pagodabox.com:3306';
+$db['remote']['username'] = 'carmina';
+$db['remote']['password'] = 'eTGWOfAE';
+$db['remote']['database'] = 'mikedfunk_db';
 $db['remote']['dbdriver'] = 'mysql';
 $db['remote']['dbprefix'] = '';
 $db['remote']['pconnect'] = TRUE;
