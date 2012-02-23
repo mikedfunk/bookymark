@@ -10,7 +10,6 @@ About
 
 Bookymark is a sample application created for a few reasons:
 
-* Show a sample of my code
 * Share an example of CodeIgniter best practices
 * Get your help on what are better practices
 * Practice new techniques
