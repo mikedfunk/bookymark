@@ -119,6 +119,128 @@ class bookmarks_model_test extends CIUnit_TestCase
 	}
 	
 	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_get_item function.
+	 * 
+	 * @group models
+	 * @access public
+	 * @return void
+	 */
+	public function test_get_item()
+	{
+		// add bookmark
+		$data = array(
+			'url' => 'http://test.com',
+			'description' => 'test description'
+		);
+		$this->assertTrue($this->_ci->db->insert('bookmarks', $data));
+		$bookmark_id = $this->_ci->db->insert_id();
+		
+		// test
+		$q = $this->_ci->bookmarks_model->get_item($bookmark_id);
+		$this->assertGreaterThan(0, $q->num_rows());
+		
+		// delete bookmark
+		$this->_ci->db->where('id', $bookmark_id);
+		$this->_ci->db->delete('bookmarks');
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_edit_item function.
+	 * 
+	 * @group models
+	 * @access public
+	 * @return void
+	 */
+	public function test_edit_item()
+	{
+		// add bookmark
+		$data = array(
+			'url' => 'http://test.com',
+			'description' => 'test description'
+		);
+		$this->assertTrue($this->_ci->db->insert('bookmarks', $data));
+		$bookmark_id = $this->_ci->db->insert_id();
+		
+		// test
+		$new_data = array(
+			'id' => $bookmark_id,
+			'description' => 'new'
+		);
+		$this->assertTrue($this->_ci->bookmarks_model->edit_item($new_data));
+		
+		// get item, test
+		$this->_ci->db->where('id', $bookmark_id);
+		$q = $this->_ci->db->get('bookmarks');
+		$r = $q->row();
+		$this->assertEquals($r->description, 'new');
+		
+		// delete bookmark
+		$this->_ci->db->where('id', $bookmark_id);
+		$this->_ci->db->delete('bookmarks');
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_add_item function.
+	 * 
+	 * @group models
+	 * @access public
+	 * @return void
+	 */
+	public function test_add_item()
+	{
+		// add bookmark
+		$data = array(
+			'url' => 'http://test.com',
+			'description' => 'test description'
+		);
+		$this->assertTrue($this->_ci->bookmarks_model->add_item($data));
+		$bookmark_id = $this->_ci->db->insert_id();
+		
+		// get item, test
+		$this->_ci->db->where('id', $bookmark_id);
+		$q = $this->_ci->db->get('bookmarks');
+		$this->assertEquals($q->num_rows(), 1);
+		
+		// delete bookmark
+		$this->_ci->db->where('id', $bookmark_id);
+		$this->_ci->db->delete('bookmarks');
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_delete_item function.
+	 * 
+	 * @group models
+	 * @access public
+	 * @return void
+	 */
+	public function test_delete_item()
+	{
+		// add bookmark
+		$data = array(
+			'url' => 'http://test.com',
+			'description' => 'test description'
+		);
+		$this->assertTrue($this->_ci->db->insert('bookmarks', $data));
+		$bookmark_id = $this->_ci->db->insert_id();
+		
+		// test
+		$this->assertTrue($this->_ci->bookmarks_model->delete_item($bookmark_id));
+		
+		// get item, test
+		$this->_ci->db->where('id', $bookmark_id);
+		$q = $this->_ci->db->get('bookmarks');
+		$this->assertEquals($q->num_rows(), 0);
+	}
+	
+	// --------------------------------------------------------------------------
 }
 /* End of file bookmarks_model_test.php */
 /* Location: ./bookymark/tests/models/bookmarks_model_test.php */

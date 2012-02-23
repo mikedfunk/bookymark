@@ -40,6 +40,26 @@ class bookmarks_Test extends CIUnit_TestCase
 	// --------------------------------------------------------------------------
 	
 	/**
+	 * _user_id
+	 * 
+	 * @var mixed
+	 * @access private
+	 */
+	private $_user_id;
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _role_id
+	 * 
+	 * @var mixed
+	 * @access private
+	 */
+	private $_role_id;
+	
+	// --------------------------------------------------------------------------
+	
+	/**
 	 * setUp function.
 	 * 
 	 * @access public
@@ -51,6 +71,27 @@ class bookmarks_Test extends CIUnit_TestCase
 		
 		// Set the tested controller
 		$this->_ci = set_controller('bookmarks');
+		$this->_ci->load->library('session');
+		$this->_ci->load->database();
+		
+		// create role that can edit books
+		$role['title'] = 'test';
+		$role['can_edit_bookmarks'] = 1;
+		$role['can_add_bookmarks'] = 1;
+		$role['can_delete_bookmarks'] = 1;
+		$this->assertTrue($this->_ci->db->insert('roles', $role));
+		$role_id = $this->_role_id = $this->_ci->db->insert_id();
+		
+		// create a user
+		$user['email_address'] = 'test';
+		$user['password'] = uniqid();
+		$user['role_id'] = $role_id;
+		$this->assertTrue($this->_ci->db->insert('users', $user));
+		$user_id = $this->_user_id = $this->_ci->db->insert_id();
+		
+		// add user to session (for login test)
+		$user['id'] = $user_id;
+		$this->_ci->session->set_userdata($user);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -64,6 +105,18 @@ class bookmarks_Test extends CIUnit_TestCase
 	public function tearDown()
 	{
 		parent::tearDown();
+		
+		// remove role
+ 		$this->_ci->db->where('id', $this->_role_id);
+ 		$this->assertTrue($this->_ci->db->delete('roles'));
+ 		$this->assertEquals($this->_ci->db->affected_rows(), 1);
+ 		
+ 		// remove user and unset userdata
+ 		$this->_ci->db->where('id', $this->_user_id);
+ 		$this->assertTrue($this->_ci->db->delete('users'));
+ 		$this->assertEquals($this->_ci->db->affected_rows(), 1);
+ 		// $this->_ci->session->unset_userdata(array('email_address', 'password', 'id'));
+ 		$this->_ci->session->sess_destroy();
 	}
 	
 	// --------------------------------------------------------------------------
@@ -138,6 +191,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		
 		// Check if the content is OK
 		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
+		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
 		$this->assertNotEquals('', $out);
 		
 		// add a record and try again
@@ -156,6 +210,93 @@ class bookmarks_Test extends CIUnit_TestCase
 		// delete bookmark
 		$this->_ci->db->where('id', $bookmark_id);
 		$this->assertTrue($this->_ci->db->delete('bookmarks'));
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_add_item function.
+	 * 
+	 * @group controllers
+	 * @access public
+	 * @return void
+	 */
+	public function test_add_item()
+	{
+		// test
+		$this->_ci->add_item();
+		$out = output();
+		
+		// Check if the content is OK
+		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
+		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
+		$this->assertNotEquals('', $out);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_edit_item function.
+	 * 
+	 * @group controllers
+	 * @access public
+	 * @return void
+	 */
+	public function test_edit_item()
+	{
+		// add bookmark
+		$data = array(
+			'url' => 'http://test.com',
+			'description' => 'test description'
+		);
+		$this->assertTrue($this->_ci->db->insert('bookmarks', $data));
+		$bookmark_id = $this->_ci->db->insert_id();
+		
+		// test
+		$this->_ci->edit_item($bookmark_id);
+		$out = output();
+		
+		// Check if the content is OK
+		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
+		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
+		$this->assertNotEquals('', $out);
+		
+		// delete bookmark
+		$this->_ci->db->where('id', $bookmark_id);
+		$this->assertTrue($this->_ci->db->delete('bookmarks'));
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_delete_item function.
+	 * 
+	 * @group controllers
+	 * @access public
+	 * @return void
+	 */
+	public function test_delete_item()
+	{
+		// add bookmark
+		$data = array(
+			'url' => 'http://test.com',
+			'description' => 'test description'
+		);
+		$this->assertTrue($this->_ci->db->insert('bookmarks', $data));
+		$bookmark_id = $this->_ci->db->insert_id();
+		
+		// test
+		$this->_ci->delete_item($bookmark_id);
+		$out = output();
+		
+		// Check if the content is OK. It should be empty.
+		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
+		$this->assertEquals('', $out);
+		
+		// ensure item is deleted
+		$this->_ci->db->where('id', $bookmark_id);
+		$q = $this->_ci->db->get('bookmarks');
+		$this->assertEquals(0, $q->num_rows());
 	}
 	
 	// --------------------------------------------------------------------------
