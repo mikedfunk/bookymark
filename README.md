@@ -1,7 +1,9 @@
 Setup
 ----------------
 
-Run ```setup.sql```, update ```development/database.php``` and navigate to the root and you should be good to go.
+1. Run ```setup.sql``` 
+2. update ```development/database.php```
+3. set the following directories to writable: ```assets/cache```, ```application/cache```, ```application/db_cache```
 
 About
 ----------------
