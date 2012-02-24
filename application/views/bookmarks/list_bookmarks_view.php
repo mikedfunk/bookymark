@@ -70,18 +70,18 @@ if ($this->session->userdata('can_delete_bookmarks')):
 <?php endif; ?>
                     </div><!--actions--></td>
                 </tr><?php 
-                    endforeach;
+                    endforeach; // foreach result as item
                 ?>
             </table>
 			<?=$this->pagination->create_links()?>
             <?php
-            else:
+            else: // else bookmarks num rows is zero
             ?>
 
             <div class="alert alert-error ">
                 No bookymarks found. Add one!
             </div><?php
-            endif; 
+            endif; // if ($bookmarks->num_rows() > 0):
             ?>
         </div><!--container-->
     </section>

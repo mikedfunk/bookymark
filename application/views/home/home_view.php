@@ -60,6 +60,8 @@
 <p>Bookymark is a simple bookmarking tool that lets you add, edit, delete, and list bookmarks. It's nothing compared to Delicious.com but the intention is not to compete. It's just to show a code sample of some CodeIgniter best practices.</p>
 <h2>Want to take it for a spin?</h2>
 <p><a class="btn btn-large btn-primary" href="<?=base_url()?>home/register">Register</a> <a class="btn btn-large" href="<?=base_url()?>home/login">Login</a></p>
+<hr />
+<p>Prefer SSL?<br /> <a class="btn btn-mini" href="https://bookymark.pagodabox.com/home/register"><i class="icon-lock"></i> Register</a> <a class="btn btn-mini" href="https://bookymark.pagodabox.com/home/login"><i class="icon-lock"></i> Login</a></p>
 </div><!--span-->
 
 </div><!--row-->

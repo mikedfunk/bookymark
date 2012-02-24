@@ -88,7 +88,7 @@ class bookmarks extends CI_Controller
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
-		$this->load->library(array('pagination', 'carabiner'));
+		$this->load->library(array('pagination', 'carabiner', 'table'));
 		$this->load->helper(array('url', 'authentication_helper'));
 		$this->config->load('pagination');
 		

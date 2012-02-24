@@ -48,7 +48,6 @@ class alert extends CI_Controller
 		// load resources
 		$this->load->library(array('carabiner', 'session', 'alerts'));
 		$this->load->helper('url');
-		$this->load->library();
 		
 		// load content and view
 		$this->_data['content'] = $this->load->view('alert_view', $this->_data, TRUE);
