@@ -10,8 +10,10 @@
             <directory>../application/config</directory>
             <directory>../application/core</directory>
             <directory>../application/libraries/less_css</directory>
-            <directory>../application/third_party/CIUnit</directory>
-            <directory>../application/third_party/carabiner</directory>
+            <directory>../application/views</directory>
+            <directory>../application/third_party</directory>
+            <file>../application/third_party/authentication/libraries/Authentication.php</file>
+            <file>../application/third_party/authentication/third_party/alerts/libraries/Alerts.php</file>
             <file>../application/third_party/carabiner/libraries/Carabiner.php</file>
             <file>../application/third_party/carabiner/libraries/Cssmin.php</file>
             <file>../application/third_party/carabiner/libraries/Curl.php</file>
