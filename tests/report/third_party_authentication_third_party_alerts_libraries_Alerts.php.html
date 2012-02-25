@@ -512,7 +512,7 @@
 <span class="lineNum" id="container88"><a name="88"></a><a href="#88" id="line88">      88</a> </span>                :      */                                                                             
 <span class="lineNum" id="container89"><a name="89"></a><a href="#89" id="line89">      89</a> </span>                :     public function set_success($msg, $key = '')                                    
 <span class="lineNum" id="container90"><a name="90"></a><a href="#90" id="line90">      90</a> </span>                :     {                                                                               
-<span class="lineNum" id="container91"><a name="91"></a><a href="#91" id="line91">      91</a> </span><span class="lineCov">              7 :         return $this-&gt;_set_item('success', $msg, $key);                             </span>
+<span class="lineNum" id="container91"><a name="91"></a><a href="#91" id="line91">      91</a> </span><span class="lineCov">             11 :         return $this-&gt;_set_item('success', $msg, $key);                             </span>
 <span class="lineNum" id="container92"><a name="92"></a><a href="#92" id="line92">      92</a> </span>                :     }                                                                               
 <span class="lineNum" id="container93"><a name="93"></a><a href="#93" id="line93">      93</a> </span>                :                                                                                     
 <span class="lineNum" id="container94"><a name="94"></a><a href="#94" id="line94">      94</a> </span>                :     // --------------------------------------------------------------------------   
@@ -638,18 +638,18 @@
 <span class="lineNum" id="container214"><a name="214"></a><a href="#214" id="line214">     214</a> </span>                :     private function _set_item($type, $msg, $key = '')                              
 <span class="lineNum" id="container215"><a name="215"></a><a href="#215" id="line215">     215</a> </span>                :     {                                                                               
 <span class="lineNum" id="container216"><a name="216"></a><a href="#216" id="line216">     216</a> </span>                :         // retrive the flashdata, add to the array, set it again                    
-<span class="lineNum" id="container217"><a name="217"></a><a href="#217" id="line217">     217</a> </span><span class="lineCov">              7 :         $arr = $this-&gt;_ci-&gt;session-&gt;flashdata($type);                               </span>
-<span class="lineNum" id="container218"><a name="218"></a><a href="#218" id="line218">     218</a> </span><span class="lineCov">              7 :         if ($arr == FALSE || $arr == '') { $arr = array(); }                        </span>
-<span class="lineNum" id="container219"><a name="219"></a><a href="#219" id="line219">     219</a> </span><span class="lineCov">              7 :         if ($key == '')                                                             </span>
-<span class="lineNum" id="container220"><a name="220"></a><a href="#220" id="line220">     220</a> </span><span class="lineCov">              7 :         {                                                                           </span>
-<span class="lineNum" id="container221"><a name="221"></a><a href="#221" id="line221">     221</a> </span><span class="lineCov">              7 :             $arr[] = $msg;                                                          </span>
-<span class="lineNum" id="container222"><a name="222"></a><a href="#222" id="line222">     222</a> </span><span class="lineCov">              7 :         }                                                                           </span>
+<span class="lineNum" id="container217"><a name="217"></a><a href="#217" id="line217">     217</a> </span><span class="lineCov">             11 :         $arr = $this-&gt;_ci-&gt;session-&gt;flashdata($type);                               </span>
+<span class="lineNum" id="container218"><a name="218"></a><a href="#218" id="line218">     218</a> </span><span class="lineCov">             11 :         if ($arr == FALSE || $arr == '') { $arr = array(); }                        </span>
+<span class="lineNum" id="container219"><a name="219"></a><a href="#219" id="line219">     219</a> </span><span class="lineCov">             11 :         if ($key == '')                                                             </span>
+<span class="lineNum" id="container220"><a name="220"></a><a href="#220" id="line220">     220</a> </span><span class="lineCov">             11 :         {                                                                           </span>
+<span class="lineNum" id="container221"><a name="221"></a><a href="#221" id="line221">     221</a> </span><span class="lineCov">             11 :             $arr[] = $msg;                                                          </span>
+<span class="lineNum" id="container222"><a name="222"></a><a href="#222" id="line222">     222</a> </span><span class="lineCov">             11 :         }                                                                           </span>
 <span class="lineNum" id="container223"><a name="223"></a><a href="#223" id="line223">     223</a> </span>                :         else                                                                        
 <span class="lineNum" id="container224"><a name="224"></a><a href="#224" id="line224">     224</a> </span>                :         {                                                                           
 <span class="lineNum" id="container225"><a name="225"></a><a href="#225" id="line225">     225</a> </span><span class="lineNoCov">              0 :             $arr[$key] = $msg;                                                      </span>
 <span class="lineNum" id="container226"><a name="226"></a><a href="#226" id="line226">     226</a> </span>                :         }                                                                           
-<span class="lineNum" id="container227"><a name="227"></a><a href="#227" id="line227">     227</a> </span><span class="lineCov">              7 :         $this-&gt;_ci-&gt;session-&gt;set_flashdata($type, serialize($arr));                 </span>
-<span class="lineNum" id="container228"><a name="228"></a><a href="#228" id="line228">     228</a> </span><span class="lineCov">              7 :     }                                                                               </span>
+<span class="lineNum" id="container227"><a name="227"></a><a href="#227" id="line227">     227</a> </span><span class="lineCov">             11 :         $this-&gt;_ci-&gt;session-&gt;set_flashdata($type, serialize($arr));                 </span>
+<span class="lineNum" id="container228"><a name="228"></a><a href="#228" id="line228">     228</a> </span><span class="lineCov">             11 :     }                                                                               </span>
 <span class="lineNum" id="container229"><a name="229"></a><a href="#229" id="line229">     229</a> </span>                :                                                                                     
 <span class="lineNum" id="container230"><a name="230"></a><a href="#230" id="line230">     230</a> </span>                :     // --------------------------------------------------------------------------   
 <span class="lineNum" id="container231"><a name="231"></a><a href="#231" id="line231">     231</a> </span>                :                                                                                     
@@ -819,7 +819,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.1.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.8</a> and PHPUnit 3.6.10 at Sat Feb 25 17:17:16 EST 2012.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.1.2</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.8</a> and PHPUnit 3.6.10 at Sat Feb 25 17:57:14 EST 2012.</td></tr>
     </table>
 
     <br />
@@ -850,8 +850,8 @@
           "footer": ""
         },
         "panel91": {
-          "header": "7 tests cover line 91",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 91",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel200": {
@@ -860,43 +860,43 @@
           "footer": ""
         },
         "panel217": {
-          "header": "7 tests cover line 217",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 217",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel218": {
-          "header": "7 tests cover line 218",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 218",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel219": {
-          "header": "7 tests cover line 219",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 219",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel220": {
-          "header": "7 tests cover line 220",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 220",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel221": {
-          "header": "7 tests cover line 221",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 221",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel222": {
-          "header": "7 tests cover line 222",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 222",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel227": {
-          "header": "7 tests cover line 227",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 227",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel228": {
-          "header": "7 tests cover line 228",
-          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li></ul>",
+          "header": "11 tests cover line 228",
+          "body": "<ul><li class=\"testPassed\">bookmarks_Test::test_add_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_edit_item_validated</li><li class=\"testPassed\">bookmarks_Test::test_delete_item</li><li class=\"testPassed\">home_Test::test_register_validation</li><li class=\"testPassed\">home_Test::test_login_validation</li><li class=\"testPassed\">home_Test::test_login_new_password_validation</li><li class=\"testPassed\">home_Test::test_logout</li><li class=\"testPassed\">home_Test::test_resend_register_email</li><li class=\"testPassed\">home_Test::test_confirm_register</li><li class=\"testPassed\">home_Test::test_request_reset_password</li><li class=\"testPassed\">home_Test::test_confirm_reset_password</li></ul>",
           "footer": ""
         },
         "panel243": {
