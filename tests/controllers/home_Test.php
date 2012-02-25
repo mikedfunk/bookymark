@@ -98,6 +98,64 @@ class home_Test extends CIUnit_TestCase
 	// --------------------------------------------------------------------------
 	
 	/**
+	 * test_register function.
+	 * 
+	 * @group controllers
+	 * @access public
+	 * @return void
+	 */
+	public function test_register()
+	{
+		// test
+		$this->_ci->register();
+		$out = output();
+		
+		// Check if the content is OK
+		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
+		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
+		$this->assertNotEquals('', $out);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_register_validation function.
+	 * 
+	 * @group controllers
+	 * @access public
+	 * @return void
+	 */
+	public function test_register_validation()
+	{
+		// setup user
+		$email_address = 'test'.uniqid().'@test.com';
+		$_POST = array(
+			'email_address' => $email_address,
+			'password' => 'TEST',
+			'confirm_password' => 'TEST'
+		);
+		
+		// test
+		$this->_ci->register();
+		$out = output();
+		
+		// Check if the content is OK
+		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
+		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
+		
+		// check the db
+		$q = $this->_ci->db->get_where('users', array('email_address' => $email_address));
+		$this->assertGreaterThan(0, $q->num_rows());
+		
+		// delete user
+		$this->_ci->db->where('email_address', $email_address);
+		$this->assertTrue($this->_ci->db->delete('users'));
+		unset($_POST);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
 	 * test_login_validation function.
 	 * 
 	 * @group controllers
@@ -132,6 +190,7 @@ class home_Test extends CIUnit_TestCase
 		// delete user
 		$this->_ci->db->where('id', $user_id);
 		$this->assertTrue($this->_ci->db->delete('users'));
+		unset($_POST);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -193,6 +252,7 @@ class home_Test extends CIUnit_TestCase
 		// delete user
 		$this->_ci->db->where('id', $user_id);
 		$this->assertTrue($this->_ci->db->delete('users'));
+		unset($_POST);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -233,31 +293,29 @@ class home_Test extends CIUnit_TestCase
 		// delete user
 		$this->_ci->db->where('id', $user_id);
 		$this->assertTrue($this->_ci->db->delete('users'));
+		unset($_POST);
 	}
 	
 	// --------------------------------------------------------------------------
 	
 	/**
-	 * test_login_fail function.
+	 * test_logout function.
 	 * 
 	 * @group controllers
 	 * @access public
 	 * @return void
 	 */
-	public function test_login_fail()
+	public function test_logout()
 	{
-		$_POST = array(
-			'email_address' => 'aaa@aaa.com',
-			'password' => 'aaaaa'
-		);
 		// test
-		$this->_ci->login();
+		$this->_ci->logout();
 		$out = output();
+		print_r($this->_ci->session->all_userdata());
 		
 		// Check if the content is OK
-		$this->assertSame(1, preg_match('/(error|notice)(?:")/i', $out));
-		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
-		$this->assertNotEquals('', $out);
+		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
+		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
+		$this->assertEquals('', $out);
 	}
 	
 	// --------------------------------------------------------------------------

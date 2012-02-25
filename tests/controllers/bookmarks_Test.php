@@ -79,6 +79,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		$role['can_edit_bookmarks'] = 1;
 		$role['can_add_bookmarks'] = 1;
 		$role['can_delete_bookmarks'] = 1;
+		$role['can_list_bookmarks'] = 1;
 		$this->assertTrue($this->_ci->db->insert('roles', $role));
 		$role_id = $this->_role_id = $this->_ci->db->insert_id();
 		
@@ -91,6 +92,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		
 		// add user to session (for login test)
 		$user['id'] = $user_id;
+		$user = array_merge($role, $user);
 		$this->_ci->session->set_userdata($user);
 	}
 	
@@ -236,6 +238,31 @@ class bookmarks_Test extends CIUnit_TestCase
 	// --------------------------------------------------------------------------
 	
 	/**
+	 * test_add_item_validated function.
+	 * 
+	 * @group controllers
+	 * @access public
+	 * @return void
+	 */
+	public function test_add_item_validated()
+	{
+		$_POST = array(
+			'url' => 'test',
+			'description' => 'test'
+		);
+		
+		// test
+		$this->_ci->add_item();
+		$out = output();
+		
+		// notification success, no php errors
+		$this->assertEquals($this->_ci->session->userdata('flash:new:success'), 'a:1:{i:0;s:15:"Bookmark added.";}');
+		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
 	 * test_edit_item function.
 	 * 
 	 * @group controllers
@@ -260,6 +287,50 @@ class bookmarks_Test extends CIUnit_TestCase
 		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
 		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
 		$this->assertNotEquals('', $out);
+		
+		// delete bookmark
+		$this->_ci->db->where('id', $bookmark_id);
+		$this->assertTrue($this->_ci->db->delete('bookmarks'));
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_edit_item_validated function.
+	 * 
+	 * @group controllers
+	 * @access public
+	 * @return void
+	 */
+	public function test_edit_item_validated()
+	{
+		// add bookmark
+		$data = array(
+			'url' => 'http://test.com',
+			'description' => 'test description'
+		);
+		$this->assertTrue($this->_ci->db->insert('bookmarks', $data));
+		$bookmark_id = $this->_ci->db->insert_id();
+		
+		// set update post
+		$new_url = 'test'.uniqid();
+		$_POST = array(
+			'id' => $bookmark_id,
+			'url' => $new_url,
+			'description' => 'test'
+		);
+		
+		// test
+		$this->_ci->edit_item($bookmark_id);
+		$out = output();
+		
+		// notification success, no php errors
+		$this->assertEquals($this->_ci->session->userdata('flash:new:success'), 'a:1:{i:0;s:16:"Bookmark edited.";}');
+		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
+		$q = $this->_ci->db->get_where('bookmarks', array('id' => $bookmark_id));
+		$this->assertGreaterThan(0, $q->num_rows());
+		$r = $q->row();
+		$this->assertEquals($r->url, $new_url);
 		
 		// delete bookmark
 		$this->_ci->db->where('id', $bookmark_id);
