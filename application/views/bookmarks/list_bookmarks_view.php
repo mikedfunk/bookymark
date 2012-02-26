@@ -25,7 +25,7 @@
             </div><!--page-header-->
 			<div class="notification_wrap">
 
-<?=$this->alerts->display_all()?>
+<?=$this->alerts->display()?>
 
 			</div><!--notification_wrap-->
 <?php
