@@ -27,7 +27,7 @@
           <h1>Please Login</h1>
           </div><!--page-header-->
 <div class="alert_wrap">
-<?=$this->alerts->display_all()?>
+<?=$this->alerts->display()?>
 <?php
 // validation errors notification
 if (validation_errors() != ''):

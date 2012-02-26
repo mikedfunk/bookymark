@@ -151,9 +151,9 @@ class bookmarks extends CI_Controller
 		{
 			// add and redirect
 			$this->load->library('alerts');
-			$this->alerts->set_success('Bookmark added.');
+			$this->alerts->set('success', 'Bookmark added.');
 			$this->bookmarks_model->add_item($this->input->post());
-			redirect('bookmarks/list_items?notification=added');
+			redirect('bookmarks/list_items');
 		}
 	}
 	
@@ -175,7 +175,7 @@ class bookmarks extends CI_Controller
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
-		$this->load->library(array('carabiner', 'form_validation'));
+		$this->load->library(array('carabiner', 'form_validation', 'alerts'));
 		$this->load->helper(array('url', 'authentication_helper', 'form'));
 		
 		// form validation
@@ -185,7 +185,11 @@ class bookmarks extends CI_Controller
 		{
 			// load view
 			$q = $this->bookmarks_model->get_item($id);
-			if ($q->num_rows() == 0) {redirect('home/item_not_found');}
+			if ($q->num_rows() == 0) 
+			{
+				$this->alerts->set('error', 'Item not found.');
+				redirect('alert');
+			}
 			$this->_data['item'] = $q->row();
 			$this->_data['title'] = 'Edit Bookymark | Bookymark';
 			$this->_data['content'] = $this->load->view('bookmarks/bookmark_view', $this->_data, TRUE);
@@ -194,8 +198,7 @@ class bookmarks extends CI_Controller
 		else
 		{
 			// edit and redirect
-			$this->load->library('alerts');
-			$this->alerts->set_success('Bookmark edited.');
+			$this->alerts->set('success', 'Bookmark edited.');
 			$this->bookmarks_model->edit_item($this->input->post());
 			redirect('bookmarks/list_items');
 		}
@@ -223,7 +226,7 @@ class bookmarks extends CI_Controller
 		
 		// delete item and redirect
 		$this->load->library('alerts');
-		$this->alerts->set_success('Bookmark deleted.');
+		$this->alerts->set('success', 'Bookmark deleted.');
 		$this->bookmarks_model->delete_item($id);
 		redirect('bookmarks/list_items');
 	}

@@ -40,7 +40,7 @@ if (isset($message)):
 <p><?=$message?></p>
 <?php
 else:
-	echo $this->alerts->display_all();
+	echo $this->alerts->display();
 endif;
 ?>
 </div><!--container-->
