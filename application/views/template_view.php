@@ -36,7 +36,11 @@
 // $this->carabiner->css('twitter_bootstrap/less/bootstrap.less');
 $this->carabiner->css('twitter_bootstrap/docs/assets/css/bootstrap.css');
 $this->carabiner->css('twitter_bootstrap/docs/assets/css/bootstrap-responsive.css');
-$this->carabiner->css('styles/styles.less');
+
+// $this->carabiner->css('styles/styles.less');
+require_once(FCPATH_U.APPPATH_U.'third_party/carabiner/libraries/less_php/lessc.inc.php');
+lessc::ccompile(FCPATH_U.'assets/styles/styles.less', FCPATH_U.'assets/cache/styles.css');
+$this->carabiner->css('cache/styles.css');
 
 // remote jquery
 $this->carabiner->js('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
