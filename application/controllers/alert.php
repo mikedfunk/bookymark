@@ -2,7 +2,7 @@
 /**
  * alert
  * 
- * shows a 404 error with all ci object stuff available.
+ * shows alerts such as 404 errors or flashdata alerts.
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
@@ -39,6 +39,8 @@ class alert extends CI_Controller
 	
 	/**
 	 * index function.
+	 *
+	 * shows alert from flashdata.
 	 * 
 	 * @access public
 	 * @return void

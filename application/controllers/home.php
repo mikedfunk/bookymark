@@ -30,9 +30,9 @@ class home extends CI_Controller
 	/**
 	 * _data
 	 *
-	 * holds all data for views
+	 * holds all data for views.
 	 * 
-	 * @var mixed
+	 * @var array
 	 * @access private
 	 */
 	private $_data;
@@ -50,7 +50,10 @@ class home extends CI_Controller
 		parent::__construct();
 		
 		// load resources
-		// $this->output->enable_profiler(TRUE);
+		if (ENVIRONMENT == 'development')
+		{
+			$this->output->enable_profiler(TRUE);
+		}
 	}
 	
 	// --------------------------------------------------------------------------
@@ -80,7 +83,7 @@ class home extends CI_Controller
 	/**
 	 * login function.
 	 *
-	 * shows login form, handles validaton, 
+	 * shows login form, handles validation.
 	 * 
 	 * @access public
 	 * @return void
@@ -116,7 +119,7 @@ class home extends CI_Controller
 	/**
 	 * login_new_password function.
 	 *
-	 * shows login_new_password form, handles validaton, 
+	 * shows login_new_password form, handles validation.
 	 * 
 	 * @access public
 	 * @return void
@@ -158,8 +161,8 @@ class home extends CI_Controller
 	 * has been clicked.
 	 * 
 	 * @access public
-	 * @param mixed $email_address
-	 * @return void
+	 * @param string $email_address
+	 * @return bool
 	 */
 	public function _email_address_check($email_address)
 	{
@@ -194,8 +197,8 @@ class home extends CI_Controller
 	 * checks to ensure password matches username in db.
 	 * 
 	 * @access public
-	 * @param mixed $password
-	 * @return void
+	 * @param string $password
+	 * @return bool
 	 */
 	public function _password_check($password)
 	{
@@ -250,9 +253,11 @@ class home extends CI_Controller
 	
 	/**
 	 * resend_register_email function.
+	 *
+	 * resends register email based on confirm_string, redirects to configured page.
 	 * 
 	 * @access public
-	 * @param mixed $confirm_string
+	 * @param string $confirm_string
 	 * @return void
 	 */
 	public function resend_register_email($confirm_string)
@@ -266,10 +271,11 @@ class home extends CI_Controller
 	/**
 	 * confirm_register function.
 	 *
-	 * runs confirm_register method of authentication library.
+	 * verifies confirm link, clears confirm_string column for that user, sets
+	 *  flashdata for success notice, redirects to login page.
 	 * 
 	 * @access public
-	 * @param mixed $confirm_string
+	 * @param string $confirm_string
 	 * @return void
 	 */
 	public function confirm_register($confirm_string)
@@ -282,6 +288,8 @@ class home extends CI_Controller
 	
 	/**
 	 * request_reset_password function.
+	 *
+	 * send email confirmation to user, redirects to configured page.
 	 * 
 	 * @access public
 	 * @return void
@@ -297,6 +305,9 @@ class home extends CI_Controller
 	
 	/**
 	 * confirm_reset_password function.
+	 *
+	 * validates whether encryption of passed email and encrypted string match,
+	 * emails temp password and redirects to configured page (login new password)
 	 * 
 	 * @access public
 	 * @return void
@@ -311,6 +322,9 @@ class home extends CI_Controller
 	
 	/**
 	 * logout function.
+	 *
+	 * destroys the session, unsets userdata, sets flashdata, redirects to 
+	 * configured page (login page).
 	 * 
 	 * @access public
 	 * @return void

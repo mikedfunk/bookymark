@@ -29,6 +29,8 @@ class MY_Form_validation extends CI_Form_validation
 	
     /**
      * __construct function.
+     *
+     * set prefix and suffix
      * 
      * @access public
      * @return void

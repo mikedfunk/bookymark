@@ -29,6 +29,8 @@ class bookmarks_model extends CI_Model
 	
 	/**
 	 * list_items function.
+	 *
+	 * show all items with optional parameters.
 	 * 
 	 * @access public
 	 * @param string $limit (default: '')
@@ -37,7 +39,7 @@ class bookmarks_model extends CI_Model
 	 * @param string $sort_dir (default: 'asc')
 	 * @param string $filter (default: '')
 	 * @param bool $ids_only (default: false)
-	 * @return bool
+	 * @return object
 	 */
 	public function list_items($limit = '', $page = '', $sort_by = '', $sort_dir = 'asc', $filter = '', $ids_only = false)
 	{
@@ -86,10 +88,12 @@ class bookmarks_model extends CI_Model
 	
 	/**
 	 * get_item function.
+	 *
+	 * get a specific item by id.
 	 * 
 	 * @access public
-	 * @param mixed $id
-	 * @return void
+	 * @param int $id
+	 * @return object
 	 */
 	public function get_item($id)
 	{
@@ -102,6 +106,8 @@ class bookmarks_model extends CI_Model
 	
 	/**
 	 * edit_item function.
+	 *
+	 * edits an item based on a post array.
 	 * 
 	 * @access public
 	 * @param array $post
@@ -117,6 +123,8 @@ class bookmarks_model extends CI_Model
 	
 	/**
 	 * add_item function.
+	 *
+	 * adds an item based on a post array.
 	 * 
 	 * @access public
 	 * @param array $post
@@ -131,10 +139,12 @@ class bookmarks_model extends CI_Model
 	
 	/**
 	 * delete_item function.
+	 *
+	 * deletes an item based on a passed id.
 	 * 
 	 * @access public
-	 * @param mixed $id
-	 * @return void
+	 * @param int $id
+	 * @return bool
 	 */
 	public function delete_item($id)
 	{

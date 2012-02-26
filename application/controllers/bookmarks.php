@@ -2,7 +2,7 @@
 /**
  * bookmarks
  * 
- * All methods for bookmarks. All methods are restricted via _remap().
+ * All methods for bookmarks. All methods are restricted via __construct().
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
@@ -30,7 +30,7 @@ class bookmarks extends CI_Controller
 	/**
 	 * _data
 	 *
-	 * holds all data for views
+	 * holds all data for views.
 	 * 
 	 * @var mixed
 	 * @access private
@@ -42,7 +42,7 @@ class bookmarks extends CI_Controller
 	/**
 	 * __construct function.
 	 *
-	 * loads common resources
+	 * loads common resources.
 	 * 
 	 * @access public
 	 * @return void
@@ -51,11 +51,14 @@ class bookmarks extends CI_Controller
 	{
 		parent::__construct();
 		
-		// load resources
-		// $this->output->enable_profiler(TRUE);
-		
 		// restrict access
 		$this->load->library('authentication');
+		
+		// load resources
+		if (ENVIRONMENT == 'development')
+		{
+			$this->output->enable_profiler(TRUE);
+		}
 	}
 	
 	// --------------------------------------------------------------------------
@@ -63,7 +66,7 @@ class bookmarks extends CI_Controller
 	/**
 	 * index function.
 	 *
-	 * shortcut to list_items
+	 * shortcut to list_items.
 	 * 
 	 * @access public
 	 * @return void
@@ -77,6 +80,9 @@ class bookmarks extends CI_Controller
 	
 	/**
 	 * list_items function.
+	 *
+	 * shows all items with pagination and links to edit and delete if permissions
+	 * allow.
 	 * 
 	 * @access public
 	 * @return void
@@ -115,6 +121,8 @@ class bookmarks extends CI_Controller
 	
 	/**
 	 * add_item function.
+	 *
+	 * shows add item form, handles validation, adds item and redirects.
 	 * 
 	 * @access public
 	 * @return void
@@ -153,6 +161,8 @@ class bookmarks extends CI_Controller
 	
 	/**
 	 * edit_item function.
+	 *
+	 * shows edit item form, handles validation, edits item and redirects.
 	 * 
 	 * @access public
 	 * @param int $id
@@ -195,9 +205,11 @@ class bookmarks extends CI_Controller
 	
 	/**
 	 * delete_item function.
+	 *
+	 * deletes item by passed id, redirects.
 	 * 
 	 * @access public
-	 * @param mixed $id
+	 * @param int $id
 	 * @return void
 	 */
 	public function delete_item($id)
