@@ -2,7 +2,7 @@
 /**
  * bookmarks_Test
  * 
- * tests the bookmarks class
+ * tests the bookmarks class.
  * 
  * @license		Copyright Mike Funk. All Rights Reserved.
  * @author		Mike Funk

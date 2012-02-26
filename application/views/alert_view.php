@@ -2,7 +2,8 @@
 /**
  * alert_view
  * 
- * The inner alert view called from the errors/error_404.php template.
+ * The inner alert view called from the errors/error_404.php template and 
+ * methods from the alert controller.
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
@@ -15,6 +16,8 @@
  * 
  * Copyright (c) 2012
  */
+ 
+ // --------------------------------------------------------------------------
 ?>
 <section>
 <div class="container">
