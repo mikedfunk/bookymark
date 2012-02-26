@@ -116,7 +116,10 @@ class bookmarks_model extends CI_Model
 	public function edit_item($post)
 	{
 		$this->db->where('id', $post['id']);
-		return $this->db->update('bookmarks', $post);
+		$return = $this->db->update('bookmarks', $post);
+		$this->db->cache_delete('bookmarks/list_items');
+		$this->db->cache_delete('bookmarks/edit_item');
+		return $return;
 	}
 	
 	// --------------------------------------------------------------------------
@@ -132,7 +135,9 @@ class bookmarks_model extends CI_Model
 	 */
 	public function add_item($post)
 	{
-		return $this->db->insert('bookmarks', $post);
+		$return = $this->db->insert('bookmarks', $post);
+		$this->db->cache_delete('bookmarks/list_items');
+		return $return;
 	}
 	
 	// --------------------------------------------------------------------------
@@ -149,7 +154,10 @@ class bookmarks_model extends CI_Model
 	public function delete_item($id)
 	{
 		$this->db->where('id', $id);
-		return $this->db->delete('bookmarks');
+		$return = $this->db->delete('bookmarks');
+		$this->db->cache_delete('bookmarks/list_items');
+		$this->db->cache_delete('bookmarks/edit_item');
+		return $return;
 	}
 	
 	// --------------------------------------------------------------------------
