@@ -19,7 +19,7 @@
 // --------------------------------------------------------------------------
 
 /**
- * bookmarks_model class.
+ * bookmarks_model class. 
  * 
  * @extends CI_Model
  */
