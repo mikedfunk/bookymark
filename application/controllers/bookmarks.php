@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * bookmarks
+ * bookmarks 
  * 
  * All methods for bookmarks. All methods are restricted via __construct().
  * 
