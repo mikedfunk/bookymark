@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * alerts_config
+ * alerts config
  * 
  * The HTML for alerts
  * 
@@ -9,8 +9,8 @@
  * @link		http://mikefunk.com
  * @email		mike@mikefunk.com
  * 
- * @file		alerts_config.php
- * @version		1.0
+ * @file		alerts.php
+ * @version		1.1.2
  * @date		02/22/2012
  * 
  * Copyright (c) 2012
@@ -34,5 +34,7 @@ $config['after_warning'] = '';
 $config['after_info'] = '';
 $config['after_no_type'] = '';
 
-/* End of file alerts_config.php */
-/* Location: ./ci_authentication/config/alerts_config.php */
+// --------------------------------------------------------------------------
+
+/* End of file ci_alerts.php */
+/* Location: ./bookymark/application/config/ci_alerts.php */
