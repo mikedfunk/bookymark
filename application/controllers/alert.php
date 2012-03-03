@@ -58,23 +58,6 @@ class alert extends CI_Controller
 	}
 	
 	// --------------------------------------------------------------------------
-	
-	/**
-	 * error_404 function.
-	 *
-	 * show a 404 error.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function error_404()
-	{
-		$this->load->library('uri');
-		$this->load->helper('url');
-		show_404($this->uri->uri_string());
-	}
-	
-	// --------------------------------------------------------------------------
 }
 /* End of file alert.php */
 /* Location: ./bookymark/application/controllers/alert.php */
