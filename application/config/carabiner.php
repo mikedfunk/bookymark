@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
-* Carabiner 1.45 configuration file.
+* Carabiner 1.5.1 configuration file.
 * CodeIgniter-library for Asset Management
 */
 
