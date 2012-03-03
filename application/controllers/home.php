@@ -10,7 +10,7 @@
  * @email		mike@mikefunk.com
  * 
  * @file		home.php
- * @version		1.0
+ * @version		1.1.0
  * @date		02/14/2012
  * 
  * Copyright (c) 2012
@@ -50,7 +50,7 @@ class home extends CI_Controller
 		parent::__construct();
 		
 		// load resources
-		$this->load->spark(array('ci_authentication/1.1.3', 'ci_alerts/1.1.2'));
+		$this->load->spark(array('ci_authentication/1.1.5', 'ci_alerts/1.1.2', 'carabiner/1.5.2'));
 		if (ENVIRONMENT == 'development')
 		{
 			$this->output->enable_profiler(TRUE);
