@@ -48,8 +48,8 @@ class MY_Loader extends CI_Loader
         if(!defined('SPARKPATH'))
         {
             // define('SPARKPATH', 'sparks/');
-            // @link https://bitbucket.org/kenjis/my-ciunit/wiki/Home
-            define('SPARKPATH', BASEPATH . '../../sparks/');
+            // @link http://mikefunk.com/?p=27
+            define('SPARKPATH', APPPATH . '../sparks/');
         }
 
         $this->_is_lt_210 = (is_callable(array('CI_Loader', 'ci_autoloader'))
