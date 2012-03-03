@@ -51,8 +51,8 @@ class bookmarks extends CI_Controller
 	{
 		parent::__construct();
 		
-		// restrict access
-		$this->load->library('authentication');
+		// load sparks
+		$this->load->spark(array('ci_authentication/1.1.2', 'ci_alerts/1.1.1'));
 		
 		// load resources
 		if (ENVIRONMENT == 'development')
@@ -89,13 +89,13 @@ class bookmarks extends CI_Controller
 	 */
 	public function list_items()
 	{	
-		$this->authentication->restrict_access('can_list_bookmarks');
+		$this->ci_authentication->restrict_access('can_list_bookmarks');
 		
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
 		$this->load->library(array('pagination', 'carabiner', 'table'));
-		$this->load->helper(array('url', 'authentication_helper'));
+		$this->load->helper(array('url', 'ci_authentication_helper'));
 		$this->config->load('pagination');
 		
 		// pagination
@@ -129,13 +129,13 @@ class bookmarks extends CI_Controller
 	 */
 	public function add_item()
 	{
-		$this->authentication->restrict_access('can_add_bookmarks');
+		$this->ci_authentication->restrict_access('can_add_bookmarks');
 		
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
 		$this->load->library(array('carabiner', 'form_validation'));
-		$this->load->helper(array('url', 'authentication_helper', 'form'));
+		$this->load->helper(array('url', 'ci_authentication_helper', 'form'));
 		
 		// form validation
 		$this->form_validation->set_rules('url', 'URL', 'trim|required');
@@ -150,8 +150,8 @@ class bookmarks extends CI_Controller
 		else
 		{
 			// add and redirect
-			$this->load->library('alerts');
-			$this->alerts->set('success', 'Bookmark added.');
+			$this->load->library('ci_alerts');
+			$this->ci_alerts->set('success', 'Bookmark added.');
 			$this->bookmarks_model->add_item($this->input->post());
 			redirect('bookmarks/list_items');
 		}
@@ -170,13 +170,13 @@ class bookmarks extends CI_Controller
 	 */
 	public function edit_item($id)
 	{
-		$this->authentication->restrict_access('can_edit_bookmarks');
+		$this->ci_authentication->restrict_access('can_edit_bookmarks');
 		
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
-		$this->load->library(array('carabiner', 'form_validation', 'alerts'));
-		$this->load->helper(array('url', 'authentication_helper', 'form'));
+		$this->load->library(array('carabiner', 'form_validation', 'ci_alerts'));
+		$this->load->helper(array('url', 'ci_authentication_helper', 'form'));
 		
 		// form validation
 		$this->form_validation->set_rules('url', 'URL', 'trim|required');
@@ -187,7 +187,7 @@ class bookmarks extends CI_Controller
 			$q = $this->bookmarks_model->get_item($id);
 			if ($q->num_rows() == 0) 
 			{
-				$this->alerts->set('error', 'Item not found.');
+				$this->ci_alerts->set('error', 'Item not found.');
 				redirect('alert');
 			}
 			$this->_data['item'] = $q->row();
@@ -198,7 +198,7 @@ class bookmarks extends CI_Controller
 		else
 		{
 			// edit and redirect
-			$this->alerts->set('success', 'Bookmark edited.');
+			$this->ci_alerts->set('success', 'Bookmark edited.');
 			$this->bookmarks_model->edit_item($this->input->post());
 			redirect('bookmarks/list_items');
 		}
@@ -217,7 +217,7 @@ class bookmarks extends CI_Controller
 	 */
 	public function delete_item($id)
 	{
-		$this->authentication->restrict_access('can_delete_bookmarks');
+		$this->ci_authentication->restrict_access('can_delete_bookmarks');
 		
 		// load resources
 		$this->load->database();
@@ -225,8 +225,8 @@ class bookmarks extends CI_Controller
 		$this->load->helper('url');
 		
 		// delete item and redirect
-		$this->load->library('alerts');
-		$this->alerts->set('success', 'Bookmark deleted.');
+		$this->load->library('ci_alerts');
+		$this->ci_alerts->set('success', 'Bookmark deleted.');
 		$this->bookmarks_model->delete_item($id);
 		redirect('bookmarks/list_items');
 	}
