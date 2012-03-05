@@ -1,23 +1,3 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
- * email_template_view
- * 
- * the html email wrapper.
- * 
- * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @author		Mike Funk
- * @link		http://mikefunk.com
- * @email		mike@mikefunk.com
- * 
- * @file		email_template_view.php
- * @version		1.1.0
- * @date		02/26/2012
- * 
- * Copyright (c) 2012
- */
- 
-// --------------------------------------------------------------------------
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -170,6 +150,3 @@
 <!-- End of wrapper table -->
 </body>
 </html>
-<?php
-/* End of file email_template_view.php */
-/* Location: ./bookymark/application/views/email/email_template_view.php */
