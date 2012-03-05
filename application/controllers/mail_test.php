@@ -56,9 +56,7 @@ class mail_test extends CI_Controller
 		$to      = 'mikedfunk@gmail.com';
 		$subject = 'the subject';
 		$message = 'hello';
-		$headers = 'From: admin@bookymark.com' . "\r\n" .
-		    'Reply-To: admin@bookymark.com' . "\r\n" .
-		    'X-Mailer: PHP/' . phpversion();
+		$headers = 'From: admin@bookymark.com';
 		
 		if (mail($to, $subject, $message, $headers))
 		{
@@ -108,7 +106,14 @@ class mail_test extends CI_Controller
 		$headers .= 'From: Bookymark <admin@bookymark.com>' . "\r\n";
 		
 		// Mail it
-		mail($to, $subject, $message, $headers);
+		if (mail($to, $subject, $message, $headers))
+		{
+			echo "mail test 3 successful \n\n";
+		}
+		else
+		{
+			echo "ERROR sending mail 3 \n\n";
+		}
 	}
 	
 	// --------------------------------------------------------------------------
