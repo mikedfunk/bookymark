@@ -50,6 +50,65 @@ class mail_test extends CI_Controller
 		$this->email->send();
 		
 		echo $this->email->print_debugger();
+		
+		// --------------------------------------------------------------------------
+		
+		$to      = 'mikedfunk@gmail.com';
+		$subject = 'the subject';
+		$message = 'hello';
+		$headers = 'From: admin@bookymark.com' . "\r\n" .
+		    'Reply-To: admin@bookymark.com' . "\r\n" .
+		    'X-Mailer: PHP/' . phpversion();
+		
+		if (mail($to, $subject, $message, $headers))
+		{
+			echo "mail test 2 successful \n\n";
+		}
+		else
+		{
+			echo "ERROR sending mail 2 \n\n";
+		}
+		
+		// --------------------------------------------------------------------------
+		
+		// multiple recipients
+		$to  = 'mikedfunk@gmail.com';
+		
+		// subject
+		$subject = 'Birthday Reminders for August';
+		
+		// message
+		$message = '
+		<html>
+		<head>
+		  <title>Birthday Reminders for August</title>
+		</head>
+		<body>
+		  <p>Here are the birthdays upcoming in August!</p>
+		  <table>
+		    <tr>
+		      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
+		    </tr>
+		    <tr>
+		      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
+		    </tr>
+		    <tr>
+		      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
+		    </tr>
+		  </table>
+		</body>
+		</html>
+		';
+		
+		// To send HTML mail, the Content-type header must be set
+		$headers  = 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+		
+		// Additional headers
+		$headers .= 'From: Bookymark <admin@bookymark.com>' . "\r\n";
+		
+		// Mail it
+		mail($to, $subject, $message, $headers);
 	}
 	
 	// --------------------------------------------------------------------------
