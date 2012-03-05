@@ -41,9 +41,6 @@ class mail_test extends CI_Controller
 	<title>Bookymark</title>
 </head>
 <body>
-<table cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
-	<tr>
-		<td valign="top"> 
 		<table cellpadding="5" cellspacing="0" border="0" align="center">
 			<tr>
 				<td width="800" valign="top">
@@ -52,9 +49,6 @@ class mail_test extends CI_Controller
 				</td>
 			</tr>
 		</table>
-		</td>
-	</tr>
-</table>  
 </body>
 </html>';
 
