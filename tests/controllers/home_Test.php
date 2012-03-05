@@ -85,6 +85,10 @@ class home_Test extends CIUnit_TestCase
 	 */
 	public function test_login()
 	{
+		// for some reason I have to load this here. Not sure why, everything seems
+		// to autoload everywhere else.
+		$this->_ci->load->library('ci_authentication');
+		
 		// test
 		$this->_ci->login();
 		$out = output();

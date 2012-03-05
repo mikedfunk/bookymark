@@ -1,4 +1,3 @@
-
 CI Authentication
 ============================
 
@@ -8,12 +7,12 @@ Setup
 ----------------------------
 
 1. Install sparks on [GetSparks.org](http://getsparks.org)
-2. Edit **config/authentication.php** with the proper stuff like redirect urls, etc.
+2. [Install this spark](http://getsparks.org/packages/ci_authentication/versions/HEAD/show)
+2. Edit **config/ci_authentication.php** with the proper stuff like redirect urls, etc.
 3. Import **setup.sql** in PHPMyAdmin or something
-4. Load the spark: ```$this->load->spark('ci_authentication/1.1.5');```
-5. Load the library: ```$this->load->library('ci_authentication');```
+4. Load the spark: ```$this->load->spark('ci_authentication/1.1.8');```
 
-*NOTE: If cloning this directly, be sure to also clone [CI Alerts](https://github.com/mikedfunk/CI-Alerts) version 1.1.2 as a spark and load it. CI Alerts are required for CI Authentication. The spark format requires this already as a dependency.*
+*NOTE: If cloning this directly, be sure to also clone [CI Alerts](https://github.com/mikedfunk/CI-Alerts) version 1.1.4 as a spark and load it. CI Alerts are required for CI Authentication. The spark format requires this already as a dependency.*
 
 Restrict
 ----------------------------
@@ -77,7 +76,7 @@ It will:
 3. set the role id
 4. set a new confirm string
 5. add the user
-6. email the user with a confirm registration link (email view, template, from, subject, etc. are all configurable in authentication_config.php)
+6. email the user with a confirm registration link (email view, template, from, subject, etc. are all configurable in **config/ci_authentication.php**)
 7. In case you need it, sets the title for the error page based on config value
 8. redirect to the configured registration success url
 
