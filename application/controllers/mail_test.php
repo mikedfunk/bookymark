@@ -39,7 +39,7 @@ class mail_test extends CI_Controller
 		
 		$this->email->initialize(array('mailtype' => 'text'));
 
-		$this->email->from('your@example.com', 'Your Name');
+		$this->email->from('admin@bookymark.com', 'Your Name');
 		$this->email->to('mikedfunk@gmail.com'); 
 // 		$this->email->cc('another@another-example.com'); 
 // 		$this->email->bcc('them@their-example.com'); 
