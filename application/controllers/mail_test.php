@@ -41,7 +41,25 @@ class mail_test extends CI_Controller
 	<title>Bookymark</title>
 </head>
 <body>
-<p>test body</p>
+<!-- Wrapper/Container Table: Use a wrapper table to control the width and the background color consistently of your email. Use this approach instead of setting attributes on the body tag. -->
+<table cellpadding="0" cellspacing="0" border="0" id="backgroundTable">
+	<tr>
+		<td valign="top"> 
+		<!-- Tables are the most common way to format your email consistently. Set your table widths inside cells and in most cases reset cellpadding, cellspacing, and border to zero. Use nested tables as a way to space effectively in your message. -->
+		<table cellpadding="5" cellspacing="0" border="0" align="center">
+			<tr>
+				<td width="800" valign="top">
+					<h1>Bookymark Registration</h1>
+<p>Thank you for registering for Bookymark. To complete your registration, please click this <a href="http://bookymark.com/home/confirm_register/JeAGuuy8ARt8mXJDjqg5" target="_blank">registration link</a>.</p>
+				</td>
+			</tr>
+		</table>
+		<!-- End example table -->
+
+		</td>
+	</tr>
+</table>  
+<!-- End of wrapper table -->
 </body>
 </html>';
 
