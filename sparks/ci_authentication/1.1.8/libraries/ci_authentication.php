@@ -291,9 +291,12 @@ class ci_authentication
 	private function _send_register_email($user_array)
 	{
 		$this->_ci->load->helper('url');
-		$this->_ci->load->library(array('email', 'session'));
+		$this->_ci->load->library(array('email', 'session', 'ci_alerts'));
 		
-		// url, content
+		// from, to, url, content
+		$this->_ci->email->from(config_item('register_email_from'), config_item('register_email_from_name'));
+		$this->_ci->email->to($user_array[config_item('username_field')]);
+		
 		$confirm_string = $user_array[config_item('confirm_string_field')];
 		$data['confirm_register_url'] = base_url() . config_item('confirm_register_url') . '/' . $confirm_string;
 		$data['content'] = $msg = $this->_ci->load->view(config_item('email_register_view'), $data, TRUE);
@@ -305,25 +308,14 @@ class ci_authentication
 		}
 		
 		// subject, msg, send
-		$this->_ci->email->from(config_item('register_email_from'), config_item('register_email_from_name'));
-		$this->_ci->email->to($user_array[config_item('username_field')]);
 		$this->_ci->email->subject(config_item('register_email_subject'));
 		$this->_ci->email->message($msg);
-		
-		// debug
-		$this->_ci->email->from(config_item('register_email_from'), config_item('register_email_from_name'));
-		$this->_ci->email->to('mikedfunk@gmail.com');
-		$this->_ci->email->subject('reg subject');
-		// $this->_ci->email->message('msg');
-		
 		$this->_ci->email->send();
-		echo $msg . '---------------------';
-		echo $this->_ci->email->print_debugger();
 		
 		// redirect to register_success view
 		$this->_ci->ci_alerts->set('success', config_item('register_success_message'));
 		$this->_ci->session->set_flashdata('alert_page_title', config_item('register_success_title'));
-		// redirect(config_item('register_success_url'));
+		redirect(config_item('register_success_url'));
 	}
 	
 	// --------------------------------------------------------------------------
