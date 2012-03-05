@@ -35,13 +35,13 @@ class mail_test extends CI_Controller
 	 */
 	public function index()
 	{
-		$msg = 'dork';
+		$msg = 'test msg';
 
 		// subject, msg, send
 		$this->load->library('email');
-		$this->email->from('admin@bookymark.com');
-		$this->email->to('mikedf.unk@gmail.com');
-		$this->email->subject('dork subject');
+		$this->email->from('testo@bookymark.com');
+		$this->email->to('mikedf.u.nk@gmail.com');
+		$this->email->subject('test subject');
 		$this->email->message($msg);
 		$this->email->send();
 		
