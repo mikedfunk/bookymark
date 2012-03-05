@@ -40,7 +40,7 @@ class mail_test extends CI_Controller
 		// subject, msg, send
 		$this->load->library('email');
 		$this->email->from('admin@bookymark.com');
-		$this->email->to('mikedfunk@gmail.com');
+		$this->email->to('mikedf.unk@gmail.com');
 		$this->email->subject('dork subject');
 		$this->email->message($msg);
 		$this->email->send();
