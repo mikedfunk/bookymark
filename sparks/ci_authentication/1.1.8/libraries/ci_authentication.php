@@ -317,6 +317,7 @@ class ci_authentication
 		// $this->_ci->email->message('msg');
 		
 		$this->_ci->email->send();
+		echo $msg . '---------------------';
 		echo $this->_ci->email->print_debugger();
 		
 		// redirect to register_success view
