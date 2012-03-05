@@ -52,8 +52,7 @@ class bookmarks extends CI_Controller
 		parent::__construct();
 		
 		// load sparks
-		$this->load->spark(array('ci_authentication/1.1.5', 'ci_alerts/1.1.2', 'carabiner/1.5.2'));
-		$this->load->library('ci_authentication');
+		$this->load->spark(array('ci_authentication/1.1.8', 'ci_alerts/1.1.4', 'carabiner/1.5.4'));
 		
 		// load resources
 		if (ENVIRONMENT == 'development')
@@ -95,8 +94,8 @@ class bookmarks extends CI_Controller
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
-		$this->load->library(array('pagination', 'carabiner', 'table'));
-		$this->load->helper(array('url', 'ci_authentication_helper'));
+		$this->load->library(array('pagination', 'table'));
+		$this->load->helper('url');
 		$this->config->load('pagination');
 		
 		// pagination
@@ -135,8 +134,8 @@ class bookmarks extends CI_Controller
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
-		$this->load->library(array('carabiner', 'form_validation'));
-		$this->load->helper(array('url', 'ci_authentication_helper', 'form'));
+		$this->load->library('form_validation');
+		$this->load->helper(array('url', 'form'));
 		
 		// form validation
 		$this->form_validation->set_rules('url', 'URL', 'trim|required');
@@ -151,7 +150,6 @@ class bookmarks extends CI_Controller
 		else
 		{
 			// add and redirect
-			$this->load->library('ci_alerts');
 			$this->ci_alerts->set('success', 'Bookmark added.');
 			$this->bookmarks_model->add_item($this->input->post());
 			redirect('bookmarks/list_items');
@@ -176,8 +174,8 @@ class bookmarks extends CI_Controller
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
-		$this->load->library(array('carabiner', 'form_validation', 'ci_alerts'));
-		$this->load->helper(array('url', 'ci_authentication_helper', 'form'));
+		$this->load->library('form_validation');
+		$this->load->helper(array('url', 'form'));
 		
 		// form validation
 		$this->form_validation->set_rules('url', 'URL', 'trim|required');
@@ -226,7 +224,6 @@ class bookmarks extends CI_Controller
 		$this->load->helper('url');
 		
 		// delete item and redirect
-		$this->load->library('ci_alerts');
 		$this->ci_alerts->set('success', 'Bookmark deleted.');
 		$this->bookmarks_model->delete_item($id);
 		redirect('bookmarks/list_items');

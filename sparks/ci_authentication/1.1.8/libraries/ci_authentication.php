@@ -10,10 +10,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		ci_authentication.php
- * @version		1.1.5
- * @date		02/17/2012
- * 
- * Copyright (c) 2012
+ * @version		1.1.8
+ * @date		03/05/2012
  */
 
 // --------------------------------------------------------------------------
@@ -50,7 +48,7 @@ class ci_authentication
 		$this->_ci =& get_instance();
 		log_message('debug', 'CI Authentication: library initialized.');
 		
-		$this->_ci->load->spark('ci_alerts/1.1.2');
+		$this->_ci->load->spark('ci_alerts/1.1.4');
 		log_message('debug', 'CI Authentication: CI Alerts spark initialized.');
 	}
 	

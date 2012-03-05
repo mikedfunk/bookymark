@@ -48,8 +48,8 @@ class alert extends CI_Controller
 	public function index()
 	{
 		// load resources
-		$this->load->spark(array('ci_alerts/1.1.2', 'carabiner/1.5.2'));
-		$this->load->library(array('carabiner', 'session', 'ci_alerts'));
+		$this->load->spark(array('ci_alerts/1.1.4', 'carabiner/1.5.4'));
+		$this->load->library('session');
 		$this->load->helper('url');
 		
 		// load content and view

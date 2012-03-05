@@ -10,8 +10,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		
- * @version		1.1.5
- * @date		10/14/2011
+ * @version		1.1.8
+ * @date		03/05/2012
  * 
  * Copyright (c) 2011
  */

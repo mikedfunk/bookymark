@@ -50,7 +50,7 @@ class home extends CI_Controller
 		parent::__construct();
 		
 		// load resources
-		$this->load->spark(array('ci_authentication/1.1.5', 'ci_alerts/1.1.2', 'carabiner/1.5.2'));
+		$this->load->spark(array('ci_authentication/1.1.8', 'ci_alerts/1.1.4', 'carabiner/1.5.4'));
 		if (ENVIRONMENT == 'development')
 		{
 			$this->output->enable_profiler(TRUE);
@@ -71,7 +71,6 @@ class home extends CI_Controller
 	{
 		// load resources
 		$this->load->helper('url');
-		$this->load->library('carabiner');
 		
 		// load view
 		$this->_data['title'] = 'Home | Bookymark';
@@ -95,7 +94,7 @@ class home extends CI_Controller
 		$this->load->database();
 		$this->load->model('ci_authentication_model', 'auth_model');
 		$this->load->helper(array('form', 'cookie', 'url'));
-		$this->load->library(array('form_validation', 'ci_authentication', 'carabiner', 'ci_alerts'));
+		$this->load->library('form_validation');
 		$this->ci_authentication->remember_me();
 		
 		// form validation
@@ -131,7 +130,7 @@ class home extends CI_Controller
 		$this->load->database();
 		$this->load->model('ci_authentication_model', 'auth_model');
 		$this->load->helper(array('form', 'cookie', 'url'));
-		$this->load->library(array('form_validation', 'ci_authentication', 'carabiner', 'ci_alerts'));
+		$this->load->library('form_validation');
 		$this->ci_authentication->remember_me();
 		
 		// form validation
@@ -230,7 +229,7 @@ class home extends CI_Controller
 	{
 		$this->load->database();
 		$this->load->helper(array('form', 'cookie', 'url'));
-		$this->load->library(array('form_validation', 'ci_authentication', 'carabiner'));
+		$this->load->library('form_validation');
 		
 		// form validation
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|is_unique[users.email_address]');
@@ -263,7 +262,6 @@ class home extends CI_Controller
 	 */
 	public function resend_register_email($confirm_string)
 	{
-		$this->load->library('ci_authentication');
 		$this->ci_authentication->resend_register_email($confirm_string);
 	}
 	
@@ -281,7 +279,6 @@ class home extends CI_Controller
 	 */
 	public function confirm_register($confirm_string)
 	{
-		$this->load->library('ci_authentication');
 		$this->ci_authentication->do_confirm_register($confirm_string);
 	}
 	
@@ -298,7 +295,6 @@ class home extends CI_Controller
 	public function request_reset_password()
 	{
 		$email_address = $this->input->get('email_address');
-		$this->load->library('ci_authentication');
 		$this->ci_authentication->do_request_reset_password($email_address);
 	}
 	
@@ -315,7 +311,6 @@ class home extends CI_Controller
 	 */
 	public function confirm_reset_password()
 	{
-		$this->load->library('ci_authentication');
 		$this->ci_authentication->do_confirm_reset_password();
 	}
 	
@@ -332,7 +327,6 @@ class home extends CI_Controller
 	 */
 	public function logout()
 	{
-		$this->load->library('ci_authentication');
 		$this->ci_authentication->do_logout();
 	}
 	
