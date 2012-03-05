@@ -44,8 +44,7 @@ class mail_test extends CI_Controller
 		<table>
 			<tr>
 				<td>
-					<h1>Bookymark Registration</h1>
-<p>Thank you for registering for Bookymark. To complete your registration, please click this <a href="http://bookymark.com/home/confirm_register/JeAGuuy8ARt8mXJDjqg5" target="_blank">registration link</a>.</p>
+<p>Thank you for registering for Bookymark. To complete your registration, please click this <a href="http://bookymark.com/home/confirm_register/JeAGuuy8ARt8mXJDjqg5">registration link</a>.</p>
 				</td>
 			</tr>
 		</table>
