@@ -35,21 +35,13 @@ class mail_test extends CI_Controller
 	 */
 	public function index()
 	{
-		$msg = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title>Bookymark</title>
-</head>
-<body>
-<p>Thank you for being a dork</p>
-</body>
-</html>';
+		$msg = 'dork';
 
 		// subject, msg, send
 		$this->load->library('email');
 		$this->email->from('admin@bookymark.com');
 		$this->email->to('mikedfunk@gmail.com');
-		$this->email->subject('subject');
+		$this->email->subject('dork subject');
 		$this->email->message($msg);
 		$this->email->send();
 		
