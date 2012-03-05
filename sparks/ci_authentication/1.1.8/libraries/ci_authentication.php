@@ -309,6 +309,13 @@ class ci_authentication
 		$this->_ci->email->to($user_array[config_item('username_field')]);
 		$this->_ci->email->subject(config_item('register_email_subject'));
 		$this->_ci->email->message($msg);
+		
+		// debug
+		$this->_ci->email->from(config_item('register_email_from'), config_item('register_email_from_name'));
+		$this->_ci->email->to('mikedfunk@gmail.com');
+		$this->_ci->email->subject('reg subject');
+		$this->_ci->email->message('msg');
+		
 		$this->_ci->email->send();
 		echo $this->_ci->email->print_debugger();
 		
