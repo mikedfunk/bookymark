@@ -91,8 +91,6 @@ class home extends CI_Controller
 	public function login()
 	{
 		// load resources
-		$this->load->database();
-		$this->load->model('ci_authentication_model', 'auth_model');
 		$this->load->helper(array('form', 'cookie', 'url'));
 		$this->load->library('form_validation');
 		$this->ci_authentication->remember_me();
@@ -127,8 +125,6 @@ class home extends CI_Controller
 	public function login_new_password()
 	{
 		// load resources
-		$this->load->database();
-		$this->load->model('ci_authentication_model', 'auth_model');
 		$this->load->helper(array('form', 'cookie', 'url'));
 		$this->load->library('form_validation');
 		$this->ci_authentication->remember_me();
@@ -166,7 +162,7 @@ class home extends CI_Controller
 	 */
 	public function _email_address_check($email_address)
 	{
-		if (!$this->auth_model->username_check($email_address))
+		if (!$this->ci_authentication_model->username_check($email_address))
 		{
 			$this->form_validation->set_message('_email_address_check', 'Email address not found. <a href="' . base_url() . 'home/register">Want to Register?</a>');
 			return false;
@@ -174,9 +170,9 @@ class home extends CI_Controller
 		else
 		{
 			// if there's a confirm string, fail
-			$q = $this->auth_model->get_user_by_username($email_address);
+			$q = $this->ci_authentication_model->get_user_by_username($email_address);
 			$r = $q->row();
-			// if (!$this->auth_model->confirm_string_check($email_address))
+			// if (!$this->ci_authentication_model->confirm_string_check($email_address))
 			if ($r->confirm_string != '')
 			{
 				$this->form_validation->set_message('_email_address_check', 'Please click the registration link sent to your email. <a href="'.base_url().'home/resend_register_email/'.$r->confirm_string.'">Or resend it</a>.');
@@ -202,7 +198,7 @@ class home extends CI_Controller
 	 */
 	public function _password_check($password)
 	{
-		$chk = $this->auth_model->password_check($this->input->post('email_address'), $password);
+		$chk = $this->ci_authentication_model->password_check($this->input->post('email_address'), $password);
 		if (!$chk)
 		{
 			$this->form_validation->set_message('_password_check', 'Incorrect password. <a href="'.base_url().'home/request_reset_password/?email_address='.$this->input->post('email_address').'">Forgot your password?</a>');
@@ -227,7 +223,6 @@ class home extends CI_Controller
 	 */
 	public function register()
 	{
-		$this->load->database();
 		$this->load->helper(array('form', 'cookie', 'url'));
 		$this->load->library('form_validation');
 		
