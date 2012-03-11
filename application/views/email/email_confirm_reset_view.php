@@ -19,7 +19,7 @@
 // --------------------------------------------------------------------------
 ?>
 <h1>Bookymark: New password</h1>
-<p>You have requested to reset your password and confirmed your request. Your new password is <strong><?=$new_password?></strong>. Please login with it <a href="<?=base_url().'home/login'?>">here</a>.</p>
+<p>You have requested to reset your password and confirmed your request. Your new password is <strong><?=$new_password?></strong>. Please login with it <a href="<?=base_url().'auth/login'?>">here</a>.</p>
 <?php
 /* End of file email_confirm_reset_view.php */
 /* Location: ./bookymark/application/views/email/email_confirm_reset_view.php */

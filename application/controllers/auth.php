@@ -2,7 +2,7 @@
 /**
  * auth
  * 
- * Description
+ * Authentication controller methods
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
@@ -11,7 +11,7 @@
  * 
  * @file		auth.php
  * @version		1.0
- * @date		03/11/2012
+ * @date		03/08/2012
  * 
  * Copyright (c) 2012
  */
@@ -36,13 +36,11 @@ class auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->spark('ci_authentication/1.2.0');
-		$this->load->model('pages_model');
-		$this->load->library('tags');
-		$this->config->load('contest_config');
-		
-		// get all page urls for header
-		$this->_data['pages_menu'] = $this->pages_model->get_pages_menu();
+		$this->load->spark('ci_authentication/1.2.1');
+		if (ENVIRONMENT == 'development')
+		{
+			$this->output->enable_profiler(TRUE);
+		}
 	}
 	
 	// --------------------------------------------------------------------------
@@ -59,7 +57,8 @@ class auth extends CI_Controller
 	{
 		// load resources
 		$this->load->helper(array('cookie', 'url'));
-		$this->load->library(array('form_validation', 'carabiner'));
+		$this->load->library('form_validation');
+		$this->load->spark('carabiner/1.5.4');
 		$this->ci_authentication->remember_me();
 		
 		// form validation
@@ -70,12 +69,7 @@ class auth extends CI_Controller
 			// load view
 			$this->_data['title'] = 'Login';
 			$this->_data['content'] = $this->load->view('auth/login_view', $this->_data, TRUE);
-			
-			// parsing and replacing tags
-			$this->_data['url'] = __FUNCTION__;
-			$out = $this->load->view('template_view', $this->_data, TRUE);
-			$out = $this->tags->parse($out);
-			$this->output->set_output($out);
+			$out = $this->load->view('template_view', $this->_data);
 		}
 		else
 		{
@@ -98,7 +92,8 @@ class auth extends CI_Controller
 	{
 		// load resources
 		$this->load->helper(array('cookie', 'url'));
-		$this->load->library(array('form_validation', 'carabiner'));
+		$this->load->library('form_validation');
+		$this->load->spark('carabiner/1.5.4');
 		$this->ci_authentication->remember_me();
 		
 		// form validation
@@ -111,12 +106,7 @@ class auth extends CI_Controller
 			// load view
 			$this->_data['title'] = 'Login';
 			$this->_data['content'] = $this->load->view('auth/login_new_password_view', $this->_data, TRUE);
-			
-			// parsing and replacing tags
-			$this->_data['url'] = 'login';
-			$out = $this->load->view('template_view', $this->_data, TRUE);
-			$out = $this->tags->parse($out);
-			$this->output->set_output($out);
+			$out = $this->load->view('template_view', $this->_data);
 		}
 		else
 		{
@@ -201,7 +191,8 @@ class auth extends CI_Controller
 	public function register()
 	{
 		$this->load->helper(array('cookie', 'url'));
-		$this->load->library(array('form_validation', 'carabiner'));
+		$this->load->library('form_validation');
+		$this->load->spark('carabiner/1.5.4');
 		
 		// form validation
 		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|is_unique[users.email_address]');
@@ -212,12 +203,7 @@ class auth extends CI_Controller
 			// load view
 			$this->_data['title'] = 'Register';
 			$this->_data['content'] = $this->load->view('auth/register_view', $this->_data, TRUE);
-			
-			// parsing and replacing tags
-			$this->_data['url'] = __FUNCTION__;
-			$out = $this->load->view('template_view', $this->_data, TRUE);
-			$out = $this->tags->parse($out);
-			$this->output->set_output($out);
+			$out = $this->load->view('template_view', $this->_data);
 		}
 		else
 		{
@@ -319,17 +305,12 @@ class auth extends CI_Controller
 	{
 		// load resources
 		$this->load->helper('url');
-		$this->load->library('carabiner');
+		$this->load->spark('carabiner/1.5.4');
 		
 		// load content and view
 		$this->_data['title'] = 'Alert';
 		$this->_data['content'] = $this->load->view('auth/alert_view', $this->_data, TRUE);
-
-		// parsing and replacing tags
-		$this->_data['url'] = __FUNCTION__;
-		$out = $this->load->view('template_view', $this->_data, TRUE);
-		$out = $this->tags->parse($out);
-		$this->output->set_output($out);
+		$out = $this->load->view('template_view', $this->_data);
 	}
 	
 	// --------------------------------------------------------------------------

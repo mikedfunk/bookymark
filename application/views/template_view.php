@@ -80,7 +80,7 @@ $this->carabiner->display();
 if (is_callable('auth_username')):
 	if (auth_username() !== FALSE):
 ?>
-<p class="navbar-text pull-right"><i class="icon-user icon-white"></i> Logged in as <strong><?=auth_username()?></strong>. <i class="icon-share icon-white"></i> <a href="<?=base_url()?>home/logout">Logout</a></p>
+<p class="navbar-text pull-right"><i class="icon-user icon-white"></i> Logged in as <strong><?=auth_username()?></strong>. <i class="icon-share icon-white"></i> <a href="<?=base_url()?>auth/logout">Logout</a></p>
 <?php 
 	endif; 
 endif;

@@ -52,7 +52,7 @@ class bookmarks extends CI_Controller
 		parent::__construct();
 		
 		// load sparks
-		$this->load->spark(array('ci_authentication/1.1.8', 'ci_alerts/1.1.4', 'carabiner/1.5.4'));
+		$this->load->spark(array('ci_authentication/1.2.1', 'carabiner/1.5.4'));
 		
 		// load resources
 		if (ENVIRONMENT == 'development')

@@ -29,7 +29,7 @@ $config['users_table'] = 'users';
  * The table to pull roles from. If you don't have a separate roles table, 
  * leave this blank and it won't be joined in.
  */
-$config['roles_table'] = '';
+$config['roles_table'] = 'roles';
 
 // --------------------------------------------------------------------------
 /**
@@ -87,7 +87,7 @@ $config['login_with_encryption_key'] = TRUE;
  * If you don't have a login_success field in the db, use this to redirect
  * successful logins to this page.
  */
-$config['login_success_url'] = 'dashboard';
+$config['login_success_url'] = 'bookmarks';
 
 // --------------------------------------------------------------------------
 /**
@@ -149,7 +149,7 @@ $config['salt_length'] = 64;
 $config['register_email_from'] =
 $config['request_reset_email_from'] =
 $config['confirm_reset_email_from'] =
- 'admin@test.com';
+ 'admin@bookymark.com';
 
 // --------------------------------------------------------------------------
 /**
@@ -168,7 +168,7 @@ $config['confirm_reset_email_from_name'] =
  *
  * The reply-to email address for registration emails.
  */
-$config['register_email_subject'] = 'Registration';
+$config['register_email_subject'] = 'Bookymark: Registration';
 
 // --------------------------------------------------------------------------
 /**
@@ -176,7 +176,7 @@ $config['register_email_subject'] = 'Registration';
  *
  * The reply-to email address for request reset password email.
  */
-$config['request_reset_email_subject'] = 'Request for password reset';
+$config['request_reset_email_subject'] = 'Bookymark: Request for password reset';
 
 // --------------------------------------------------------------------------
 /**
@@ -184,7 +184,7 @@ $config['request_reset_email_subject'] = 'Request for password reset';
  *
  * The reply-to email address for confirm reset password email.
  */
-$config['confirm_reset_email_subject'] = 'New password';
+$config['confirm_reset_email_subject'] = 'Bookymark: New password';
 
 // --------------------------------------------------------------------------
 /**
@@ -224,7 +224,7 @@ $config['email_template_view'] = 'email/email_template_view';
  *
  * There to redirect when login_check fails.
  */
-$config['logged_out_url'] = 'home/login';
+$config['logged_out_url'] = 'auth/login';
 
 // --------------------------------------------------------------------------
 /**
@@ -232,7 +232,7 @@ $config['logged_out_url'] = 'home/login';
  *
  * There to redirect on logout.
  */
-$config['logout_success_url'] = 'home/login';
+$config['logout_success_url'] = 'auth/login';
 
 // --------------------------------------------------------------------------
 /**
@@ -240,7 +240,7 @@ $config['logout_success_url'] = 'home/login';
  *
  * There to redirect on register success.
  */
-$config['register_success_url'] = 'alert';
+$config['register_success_url'] = 'auth/alert';
 
 // --------------------------------------------------------------------------
 /**
@@ -249,7 +249,7 @@ $config['register_success_url'] = 'alert';
  * The url of the controller method that checks the confirmation email link.
  * without the trailing slash.
  */
-$config['confirm_register_url'] = 'home/confirm_register';
+$config['confirm_register_url'] = 'auth/confirm_register';
 
 // --------------------------------------------------------------------------
 /**
@@ -257,7 +257,7 @@ $config['confirm_register_url'] = 'home/confirm_register';
  *
  * Where to redirect on confirm success.
  */
-$config['confirm_register_success_url'] = 'home/login';
+$config['confirm_register_success_url'] = 'auth/login';
 
 // --------------------------------------------------------------------------
 /**
@@ -265,7 +265,7 @@ $config['confirm_register_success_url'] = 'home/login';
  *
  * Where to redirect on confirm fail.
  */
-$config['confirm_register_fail_url'] = 'home/login';
+$config['confirm_register_fail_url'] = 'auth/login';
 
 // --------------------------------------------------------------------------
 /**
@@ -273,7 +273,7 @@ $config['confirm_register_fail_url'] = 'home/login';
  *
  * The url for the reset password link. Without the trailing slash.
  */
-$config['confirm_reset_url'] = 'home/confirm_reset_password';
+$config['confirm_reset_url'] = 'auth/confirm_reset_password';
 
 // --------------------------------------------------------------------------
 /**
@@ -281,7 +281,7 @@ $config['confirm_reset_url'] = 'home/confirm_reset_password';
  *
  * Where to redirect on request reset password.
  */
-$config['request_reset_success_url'] = 'alert';
+$config['request_reset_success_url'] = 'auth/alert';
 
 // --------------------------------------------------------------------------
 /**
@@ -289,7 +289,7 @@ $config['request_reset_success_url'] = 'alert';
  *
  * Where to redirect on confirm reset password.
  */
-$config['confirm_reset_success_url'] = 'home/login_new_password';
+$config['confirm_reset_success_url'] = 'auth/login_new_password';
 
 // --------------------------------------------------------------------------
 /**
@@ -297,7 +297,7 @@ $config['confirm_reset_success_url'] = 'home/login_new_password';
  *
  * Where to redirect when a user reaches a page they do not have access to.
  */
-$config['access_denied_url'] = 'alert';
+$config['access_denied_url'] = 'auth/alert';
 
 // --------------------------------------------------------------------------
 /**
