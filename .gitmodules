@@ -7,3 +7,4 @@
 [submodule "tests/assets/scripts/jquery-hasEventListener"]
 	path = tests/assets/scripts/jquery-hasEventListener
 	url = git://github.com/sebastien-p/jquery.hasEventListener.git
+	
