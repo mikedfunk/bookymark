@@ -28,7 +28,7 @@ function auth_id()
 {
 	$_ci =& get_instance();
 	$_ci->load->library('session');
-	$_ci->config->load('ci_authentication');
+	// $_ci->config->load('ci_authentication');
 	
 	return $_ci->session->userdata(config_item('user_id_field'));
 }
@@ -47,7 +47,7 @@ function auth_username()
 {
 	$_ci =& get_instance();
 	$_ci->load->library('session');
-	$_ci->config->load('ci_authentication');
+	// $_ci->config->load('ci_authentication');
 	
 	return $_ci->session->userdata(config_item('username_field'));
 }
@@ -66,7 +66,7 @@ function auth_password()
 {
 	$_ci =& get_instance();
 	$_ci->load->library('session');
-	$_ci->config->load('ci_authentication');
+	// $_ci->config->load('ci_authentication');
 	
 	return $_ci->session->userdata(config_item('password_field'));
 }
@@ -84,7 +84,7 @@ function auth_password()
 function is_logged_in()
 {
 	$_ci =& get_instance();
-	$_ci->load->library('ci_authentication');
+	// $_ci->load->library('ci_authentication');
 	return $_ci->ci_authentication->is_logged_in();
 }
 

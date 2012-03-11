@@ -33,7 +33,7 @@
 function encrypt_this($password, $salt = '')
 {
 	$_ci =& get_instance();
-	$_ci->config->load('ci_authentication');
+	// $_ci->config->load('ci_authentication');
 	
 	// set the salt if not set
 	if ($salt == '') {

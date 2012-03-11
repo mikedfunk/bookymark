@@ -256,7 +256,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		$out = output();
 		
 		// notification success, no php errors
-		$this->assertEquals($this->_ci->session->userdata('flash:new:success'), 'a:1:{i:0;s:15:"Bookmark added.";}');
+		$this->assertEquals(serialize($this->_ci->session->userdata('flash:new:success')), 'a:1:{i:0;s:15:"Bookmark added.";}');
 		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
 	}
 	
@@ -325,7 +325,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		$out = output();
 		
 		// notification success, no php errors
-		$this->assertEquals($this->_ci->session->userdata('flash:new:success'), 'a:1:{i:0;s:16:"Bookmark edited.";}');
+		$this->assertEquals(serialize($this->_ci->session->userdata('flash:new:success')), 'a:1:{i:0;s:16:"Bookmark edited.";}');
 		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
 		$q = $this->_ci->db->get_where('bookmarks', array('id' => $bookmark_id));
 		$this->assertGreaterThan(0, $q->num_rows());
