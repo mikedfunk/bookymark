@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/mikedfunk/bookymark.png)](http://travis-ci.org/mikedfunk/bookymark)
+
 Setup
 ----------------
 

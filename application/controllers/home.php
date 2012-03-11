@@ -91,7 +91,7 @@ class home extends CI_Controller
 	public function login()
 	{
 		// load resources
-		$this->load->helper(array('form', 'cookie', 'url'));
+		$this->load->helper(array('cookie', 'url'));
 		$this->load->library('form_validation');
 		$this->ci_authentication->remember_me();
 		
@@ -125,7 +125,7 @@ class home extends CI_Controller
 	public function login_new_password()
 	{
 		// load resources
-		$this->load->helper(array('form', 'cookie', 'url'));
+		$this->load->helper(array('cookie', 'url'));
 		$this->load->library('form_validation');
 		$this->ci_authentication->remember_me();
 		
@@ -223,7 +223,7 @@ class home extends CI_Controller
 	 */
 	public function register()
 	{
-		$this->load->helper(array('form', 'cookie', 'url'));
+		$this->load->helper(array('cookie', 'url'));
 		$this->load->library('form_validation');
 		
 		// form validation
