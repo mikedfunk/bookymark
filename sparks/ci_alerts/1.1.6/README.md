@@ -44,8 +44,9 @@ Changelog
 
 **1.1.6**
 
-* Added config value on whether to remove duplicate alerts.
-* Added removing of duplicate alerts in ```set()``` method.
+* Added config value on whether to remove duplicate alerts
+* Added removing of duplicate alerts in ```set()``` method
+* Autoload ```config/ci_alerts.php```
 
 **1.1.5**
 

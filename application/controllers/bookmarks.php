@@ -10,10 +10,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		bookmarks.php
- * @version		1.1.0
- * @date		02/08/2012
- * 
- * Copyright (c) 2012
+ * @version		1.2.0
+ * @date		03/11/2012
  */
 
 // --------------------------------------------------------------------------
@@ -53,6 +51,7 @@ class bookmarks extends CI_Controller
 		
 		// load sparks
 		$this->load->spark(array('ci_authentication/1.2.1', 'carabiner/1.5.4'));
+		$this->load->library(array('ci_authentication', 'ci_alerts'));
 		
 		// load resources
 		if (ENVIRONMENT == 'development')

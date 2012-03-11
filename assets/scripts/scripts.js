@@ -3,16 +3,14 @@
  * 
  * Functions activated by actions.js.
  * 
- * @license		Copyright Mike Funk. All Rights Reserved.
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
  * @link		http://mikefunk.com
  * @email		mike@mikefunk.com
  * 
  * @file		scripts.js
- * @version		1.0
- * @date		02/08/2012
- * 
- * Copyright (c) 2012
+ * @version		1.2.0
+ * @date		03/11/2012
  */
 
 // --------------------------------------------------------------------------

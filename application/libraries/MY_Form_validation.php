@@ -10,8 +10,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		MY_Form_validation.php
- * @version		1.0
- * @date		03/05/2011
+ * @version		1.2.0
+ * @date		03/11/2012
  * 
  * Copyright (c) 2011
  */
@@ -59,4 +59,4 @@ class MY_Form_validation extends CI_Form_validation {
     }
 }
 /* End of file MY_Form_validation.php */
-/* Location: ./bookymark/application/third_party/error_arrays/MY_Form_validation.php */
+/* Location: ./bookymark/application/libraries/MY_Form_validation.php */

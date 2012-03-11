@@ -4,16 +4,14 @@
  * 
  * tests the bookmarks class.
  * 
- * @license		Copyright Mike Funk. All Rights Reserved.
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
  * @link		http://mikefunk.com
  * @email		mike@mikefunk.com
  * 
  * @file		bookmarks_Test.php
- * @version		1.0
- * @date		02/08/2012
- * 
- * Copyright (c) 2012
+ * @version		1.2.0
+ * @date		03/11/2012
  */
 
 // --------------------------------------------------------------------------
@@ -69,6 +67,8 @@ class bookmarks_Test extends CIUnit_TestCase
 	{
 		parent::setUp();
 		
+ 		$_POST = array();
+ 		
 		// Set the tested controller
 		$this->_ci = set_controller('bookmarks');
 		$this->_ci->load->library('session');

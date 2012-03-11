@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * auth_test
+ * auth_Test
  * 
  * Test all auth controller methods
  * 
@@ -9,21 +9,19 @@
  * @link		http://mikefunk.com
  * @email		mike@mikefunk.com
  * 
- * @file		auth_test.php
- * @version		1.0
+ * @file		auth_Test.php
+ * @version		1.2.0
  * @date		03/11/2012
- * 
- * Copyright (c) 2012
  */
 
 // --------------------------------------------------------------------------
 
 /**
- * auth_test class.
+ * auth_Test class.
  * 
  * @extends CIUnitTestCase
  */
-class auth_test extends CIUnitTestCase
+class auth_Test extends CIUnit_TestCase
 {
 	// --------------------------------------------------------------------------
 	
@@ -409,7 +407,7 @@ class auth_test extends CIUnitTestCase
 		$out = output();
 		
 		// check flashdata
-		$this->assertEquals($this->_ci->session->userdata('flash:new:success'), 'a:1:{i:0;s:25:"You have been logged out.";}');
+		$this->assertEquals(serialize($this->_ci->session->userdata('flash:new:success')), 'a:1:{i:0;s:25:"You have been logged out.";}');
 		
 		// Check if the content is OK
 		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
@@ -446,8 +444,8 @@ class auth_test extends CIUnitTestCase
 		$out = output();
 		
 		// check flashdata
-		$this->assertEquals($this->_ci->session->userdata(
-			'flash:new:success'), 
+		$this->assertEquals(
+			serialize($this->_ci->session->userdata('flash:new:success')), 
 			'a:1:{i:0;s:92:"A confirmation has been sent to your email address. Please click the link there to continue.";}'
 		);
 		
@@ -491,8 +489,8 @@ class auth_test extends CIUnitTestCase
 		$out = output();
 		
 		// check flashdata
-		$this->assertEquals($this->_ci->session->userdata(
-			'flash:new:success'), 
+		$this->assertEquals(
+			serialize($this->_ci->session->userdata('flash:new:success')), 
 			'a:1:{i:0;s:37:"Registration confirmed. Please login.";}'
 		);
 		
@@ -534,8 +532,8 @@ class auth_test extends CIUnitTestCase
 		$out = output();
 		
 		// check flashdata
-		$this->assertEquals($this->_ci->session->userdata(
-			'flash:new:success'), 
+		$this->assertEquals(
+			serialize($this->_ci->session->userdata('flash:new:success')), 
 			'a:1:{i:0;s:103:"A confirmation has been sent to your email address. Please click the link there to reset your password.";}'
 		);
 		
@@ -579,8 +577,8 @@ class auth_test extends CIUnitTestCase
 		$out = output();
 		
 		// check flashdata
-		$this->assertEquals($this->_ci->session->userdata(
-			'flash:new:success'), 
+		$this->assertEquals(
+			serialize($this->_ci->session->userdata('flash:new:success')), 
 			'a:1:{i:0;s:88:"Password reset. Your new password has been emailed to you. Please retrieve it and login.";}'
 		);
 		
@@ -598,5 +596,5 @@ class auth_test extends CIUnitTestCase
 	
 	// --------------------------------------------------------------------------
 }
-/* End of file auth_test.php */
-/* Location: ./bookymark/tests/controllers/auth_test.php */
+/* End of file auth_Test.php */
+/* Location: ./bookymark/tests/controllers/auth_Test.php */

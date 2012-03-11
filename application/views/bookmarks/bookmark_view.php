@@ -10,10 +10,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		bookmark_view.php
- * @version		1.1.0
- * @date		02/21/2012
- * 
- * Copyright (c) 2012
+ * @version		1.2.0
+ * @date		03/11/2012
  */
 
 // --------------------------------------------------------------------------

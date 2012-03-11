@@ -12,8 +12,6 @@
  * @file		auth.php
  * @version		1.2.1
  * @date		03/09/2012
- * 
- * Copyright (c) 2012
  */
 
 // --------------------------------------------------------------------------
@@ -120,7 +118,7 @@ class auth extends CI_Controller
 	{
 		if (!$this->ci_authentication_model->username_check($email_address))
 		{
-			$this->form_validation->set_message('_email_address_check', 'Email address not found. <a href="' . base_url() . 'auth/register">Want to Register?</a>');
+			$this->form_validation->set_message('_email_address_check', 'Email address not found. <a href="' . base_url() . 'home/register">Want to Register?</a>');
 			return false;
 		}
 		else
@@ -131,7 +129,7 @@ class auth extends CI_Controller
 			// if (!$this->ci_authentication_model->confirm_string_check($email_address))
 			if ($r->confirm_string != '')
 			{
-				$this->form_validation->set_message('_email_address_check', 'Please click the registration link sent to your email. <a href="'.base_url().'auth/resend_register_email/'.$r->confirm_string.'">Or resend it</a>.');
+				$this->form_validation->set_message('_email_address_check', 'Please click the registration link sent to your email. <a href="'.base_url().'home/resend_register_email/'.$r->confirm_string.'">Or resend it</a>.');
 				return false;
 			}
 			else
@@ -157,7 +155,7 @@ class auth extends CI_Controller
 		$chk = $this->ci_authentication_model->password_check($this->input->post('email_address'), $password);
 		if (!$chk)
 		{
-			$this->form_validation->set_message('_password_check', 'Incorrect password. <a href="'.base_url().'auth/request_reset_password/?email_address='.$this->input->post('email_address').'">Forgot your password?</a>');
+			$this->form_validation->set_message('_password_check', 'Incorrect password. <a href="'.base_url().'home/request_reset_password/?email_address='.$this->input->post('email_address').'">Forgot your password?</a>');
 			return false;
 		}
 		else
