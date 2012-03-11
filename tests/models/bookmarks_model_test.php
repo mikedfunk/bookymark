@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * bookmarks_model_test
+ * bookmarks_model_Test
  * 
  * tests all methods in models/bookmarks_model.php.
  * 
@@ -9,7 +9,7 @@
  * @link		http://mikefunk.com
  * @email		mike@mikefunk.com
  * 
- * @file		bookmarks_model_test.php
+ * @file		bookmarks_model_Test.php
  * @version		1.0
  * @date		02/08/2012
  * 
@@ -19,11 +19,11 @@
 // --------------------------------------------------------------------------
 
 /**
- * bookmarks_model_test class.
+ * bookmarks_model_Test class.
  * 
  * @extends CIUnit_TestCase
  */
-class bookmarks_model_test extends CIUnit_TestCase
+class bookmarks_model_Test extends CIUnit_TestCase
 {
 	// --------------------------------------------------------------------------
 	
@@ -238,9 +238,13 @@ class bookmarks_model_test extends CIUnit_TestCase
 		$this->_ci->db->where('id', $bookmark_id);
 		$q = $this->_ci->db->get('bookmarks');
 		$this->assertEquals($q->num_rows(), 0);
+		
+		// delete bookmark
+		$this->_ci->db->where('id', $bookmark_id);
+		$this->_ci->db->delete('bookmarks');
 	}
 	
 	// --------------------------------------------------------------------------
 }
-/* End of file bookmarks_model_test.php */
-/* Location: ./bookymark/tests/models/bookmarks_model_test.php */
+/* End of file bookmarks_model_Test.php */
+/* Location: ./bookymark/tests/models/bookmarks_model_Test.php */

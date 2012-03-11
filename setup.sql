@@ -6,8 +6,8 @@
 # http://code.google.com/p/sequel-pro/
 #
 # Host: 127.0.0.1 (MySQL 5.5.19)
-# Database: mikedfunk_db
-# Generation Time: 2012-02-17 21:24:42 -0500
+# Database: bookymark_test
+# Generation Time: 2012-03-11 13:33:50 -0400
 # ************************************************************
 
 
@@ -32,19 +32,6 @@ CREATE TABLE `bookmarks` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `bookmarks` WRITE;
-/*!40000 ALTER TABLE `bookmarks` DISABLE KEYS */;
-
-INSERT INTO `bookmarks` (`id`, `url`, `description`)
-VALUES
-	(1,'http://yahoo.com','it\'s yahoo!'),
-	(2,'http://yahoo.com','it\'s yahoo!'),
-	(3,'http://yahoo.com','it\'s yahoo!'),
-	(4,'http://yahoo.com','it\'s yahoo!'),
-	(5,'http://yahoo.com','it\'s yahoo!');
-
-/*!40000 ALTER TABLE `bookmarks` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table roles
@@ -64,15 +51,6 @@ CREATE TABLE `roles` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `roles` WRITE;
-/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-
-INSERT INTO `roles` (`id`, `title`, `home_page`, `can_list_bookmarks`, `can_view_bookmarks`, `can_edit_bookmarks`, `can_add_bookmarks`, `can_delete_bookmarks`)
-VALUES
-	(1,'Superuser','bookmarks/list_bookmarks?notification=login_success',1,1,1,1,1);
-
-/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table users
@@ -85,19 +63,11 @@ CREATE TABLE `users` (
   `email_address` varchar(300) DEFAULT NULL,
   `password` varchar(300) DEFAULT NULL,
   `role_id` int(11) DEFAULT NULL,
-  `confirm_string` varchar(300) DEFAULT NULL,
+  `confirm_string` varchar(100) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-
-INSERT INTO `users` (`id`, `email_address`, `password`, `role_id`)
-VALUES
-	(1,'test','test',1);
-
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 

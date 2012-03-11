@@ -253,11 +253,16 @@ class bookmarks_Test extends CIUnit_TestCase
 		
 		// test
 		$this->_ci->add_item();
+		$bookmark_id = $this->_ci->db->insert_id();
 		$out = output();
 		
 		// notification success, no php errors
 		$this->assertEquals(serialize($this->_ci->session->userdata('flash:new:success')), 'a:1:{i:0;s:15:"Bookmark added.";}');
 		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
+		
+		// delete item
+		$this->_ci->db->where('id', $bookmark_id);
+		$this->_ci->db->delete('bookmarks');
 	}
 	
 	// --------------------------------------------------------------------------
