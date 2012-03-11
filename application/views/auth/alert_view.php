@@ -11,10 +11,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		alert_view.php
- * @version		1.1.0
- * @date		02/18/2012
- * 
- * Copyright (c) 2012
+ * @version		1.2.0
+ * @date		03/11/2012
  */
  
  // --------------------------------------------------------------------------

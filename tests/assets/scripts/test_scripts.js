@@ -9,10 +9,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		test_scripts.js
- * @version		1.0
- * @date		02/07/2012
- * 
- * Copyright (c) 2012
+ * @version		1.2.0
+ * @date		03/11/2012
  */
 
 // --------------------------------------------------------------------------
