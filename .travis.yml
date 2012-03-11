@@ -13,7 +13,7 @@ before_script:
   - pyrus install http://pear.php-tools.net/get/vfsStream-0.11.2.tgz
   - phpenv rehash
   - mysql -e 'create database bookymark_test;'
-  - mysql -u root < setup.sql
+  - mysql -u root bookymark_test < setup.sql
 
 script:
   - cd tests
