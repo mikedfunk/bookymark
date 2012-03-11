@@ -12,14 +12,12 @@
  * @file		autoload.php
  * @version		1.1.6
  * @date		03/09/2012
- * 
- * Copyright (c) 2012
  */
 
 // --------------------------------------------------------------------------
 
 $autoload['libraries'] = array('ci_alerts');
-// $autoload['config'] = array('ci_alerts');
+$autoload['config'] = array('ci_alerts');
 
 // --------------------------------------------------------------------------
 

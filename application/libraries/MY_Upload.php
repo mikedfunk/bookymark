@@ -10,8 +10,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		MY_Upload.php
- * @version		1.0
- * @date		04/01/2011
+ * @version		1.2.0
+ * @date		03/11/2012
  * 
  * Copyright (c) 2011
  */
@@ -40,4 +40,4 @@ class MY_Upload extends CI_Upload {
 	}
 }
 /* End of file MY_Upload.php */
-/* Location: ./bookymark/application/third_party/error_arrays/MY_Upload.php */
+/* Location: ./bookymark/application/libraries/MY_Upload.php */

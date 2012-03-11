@@ -166,6 +166,8 @@ Change Log
 * Removed repetition in ```restrict_access()```, called ```is_logged_in()``` for login check
 * Fixed display bugs, formatting issues in README
 * Fixed bug in ```do_logout()```
+* Autoload ```config/ci_authentication.php```
+* Changed ```do_logout()``` to unset the username rather than the password
 
 **1.2.0**
 

@@ -12,8 +12,6 @@
  * @file		ci_alerts.php
  * @version		1.1.6
  * @date		03/09/2012
- * 
- * Copyright (c) 2012
  */
 
 // --------------------------------------------------------------------------
@@ -48,9 +46,6 @@ class ci_alerts
 		$this->_ci =& get_instance();
 		$this->_ci->load->library('session');
 		log_message('debug', 'CI Alerts: Library loaded.');
-		
-		$this->_ci->config->load('ci_alerts');
-		log_message('debug', 'CI Alerts: Config loaded.');
 	}
 	
 	// --------------------------------------------------------------------------
