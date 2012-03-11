@@ -1,23 +1,27 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * alerts config
+ * ci_alerts
  * 
- * The HTML for alerts
+ * The config file containing HTML for ci_alerts
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
  * @link		http://mikefunk.com
  * @email		mike@mikefunk.com
  * 
- * @file		alerts.php
- * @version		1.1.2
- * @date		02/22/2012
+ * @file		ci_alerts.php
+ * @version		1.1.6
+ * @date		03/09/2012
  * 
  * Copyright (c) 2012
  */
 
 // --------------------------------------------------------------------------
-
+/**
+ * alert html
+ * 
+ * The html wrapping around alerts
+ */
 $config['before_all'] = '';
 $config['before_each'] = '';
 $config['before_error'] = '<div class="alert alert-error fade in"><a class="close" href="#">&times;</a>';
@@ -35,6 +39,14 @@ $config['after_info'] = '';
 $config['after_no_type'] = '';
 
 // --------------------------------------------------------------------------
+/**
+ * remove_duplicates
+ * 
+ * Whether to remove duplicate alerts
+ */
+$config['remove_duplicates'] = TRUE;
+
+// --------------------------------------------------------------------------
 
 /* End of file ci_alerts.php */
-/* Location: ./bookymark/application/config/ci_alerts.php */
+/* Location: ./ci_authentication/config/ci_alerts.php */
