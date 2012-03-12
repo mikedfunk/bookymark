@@ -31,6 +31,16 @@ Bookymark is a sample application created for a few reasons:
 Change Log
 -----------------
 
+**1.3.0**
+
+* Enabled migration support
+ * Added initial migration
+ * Fixed migration config to CI 2.1.0 version
+ * Added initial migration
+ * Added maintenance/migrate method to migrate to latest version and notify
+ * Currently not testable as CIUnit crashes on migration lib load
+ * General cleanup
+
 **1.2.0**
 
 * Updated **ci_authentication** and **ci_alerts** sparks to the latest versions
