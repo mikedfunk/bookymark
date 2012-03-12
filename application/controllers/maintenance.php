@@ -4,16 +4,14 @@
  * 
  * Description
  * 
- * @license		Copyright Xulon Press, Inc. All Rights Reserved.
- * @author		Xulon Press
- * @link		http://xulonpress.com
- * @email		info@xulonpress.com
+ * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
+ * @author		Mike Funk
+ * @link		http://mikefunk.com
+ * @email		mike@mikefunk.com
  * 
  * @file		maintenance.php
- * @version		1.0
+ * @version		1.2.0
  * @date		03/11/2012
- * 
- * Copyright (c) 2012
  */
 
 // --------------------------------------------------------------------------
@@ -35,26 +33,37 @@ class maintenance extends CI_Controller
 	 */
 	public function migrate()
 	{
-		// limit access
-		$this->load->spark('access/0.0.4');
-		$this->access->prompt();
-		
+		// load resources
+		$this->load->spark(array('access/0.0.4', 'carabiner/1.5.4'));
+		$this->load->helper('url');
 		$this->load->library('migration');
 		
+		// limit access
+		$this->access->prompt();
+		
+		$data['content'] = '<section><div class="container">';
+		
 		// succeed
-		if ($this->migration->current())
+		
+		// "current" goes to the version in config/migration.php
+		// if ($this->migration->current())
+		
+		// "latest" disregards config and upgrades to the hightest version in
+		// migrations/. I imagine this is what will be used 90% of the time.
+		if ($this->migration->latest())
 		{
-			$data['content'] = '<div class="alert alert-success">';
+			$data['content'] .= '<div class="alert alert-success">';
 			$data['content'] .= 'Migration to latest version successful.';
 		}
 		// fail
 		else
 		{
-			$data['content'] = '<div class="alert alert-error">';
+			$data['content'] .= '<div class="alert alert-error">';
 			$data['content'] .= 'Migration failed.';
 		}
 		
-		$data['content'] .= '</div>';
+		// load view
+		$data['content'] .= '</div></div></section>';
 		$this->load->view('template_view', $data);
 	}
 	
