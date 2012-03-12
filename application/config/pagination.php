@@ -11,8 +11,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		pagination.php
- * @version		1.2.0
- * @date		03/11/2012
+ * @version		1.3.0
+ * @date		03/12/2012
  * 
  * Copyright (c) 2011
  */
