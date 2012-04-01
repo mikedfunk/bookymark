@@ -37,7 +37,8 @@ Change Log
  * Added initial migration
  * Fixed migration config to CI 2.1.0 version
  * Added initial migration
- * Added maintenance/migrate method to migrate to latest version and notify
+ * Added maintenance/migrate method to migrate to latest version and notify (protected via http authentication)
+ * Added [access spark](http://getsparks.org/packages/access/versions/HEAD/show).
  * Currently not testable as CIUnit crashes on migration lib load
  * General cleanup
 
