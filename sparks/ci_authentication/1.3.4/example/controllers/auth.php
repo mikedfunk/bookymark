@@ -2,7 +2,7 @@
 /**
  * auth
  * 
- * Authentication controller methods
+ * Where all the authentication methods live
  * 
  * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
  * @author		Mike Funk
@@ -10,8 +10,8 @@
  * @email		mike@mikefunk.com
  * 
  * @file		auth.php
- * @version		1.3.0
- * @date		03/12/2012
+ * @version		1.3.4
+ * @date		03/20/2012
  */
 
 // --------------------------------------------------------------------------
@@ -35,10 +35,6 @@ class auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->spark('ci_authentication/1.3.4');
-		if (ENVIRONMENT == 'development')
-		{
-			$this->output->enable_profiler(TRUE);
-		}
 	}
 	
 	// --------------------------------------------------------------------------
@@ -56,7 +52,6 @@ class auth extends CI_Controller
 		// load resources
 		$this->load->helper(array('cookie', 'url'));
 		$this->load->library('form_validation');
-		$this->load->spark('carabiner/1.5.4');
 		$this->ci_authentication->remember_me();
 		
 		// form validation
@@ -65,9 +60,7 @@ class auth extends CI_Controller
 		if ($this->form_validation->run() == FALSE)
 		{
 			// load view
-			$this->_data['title'] = 'Login';
-			$this->_data['content'] = $this->load->view('auth/login_view', $this->_data, TRUE);
-			$out = $this->load->view('template_view', $this->_data);
+			$this->load->view('auth/login_view', $data);
 		}
 		else
 		{
@@ -91,7 +84,6 @@ class auth extends CI_Controller
 		// load resources
 		$this->load->helper(array('cookie', 'url'));
 		$this->load->library('form_validation');
-		$this->load->spark('carabiner/1.5.4');
 		$this->ci_authentication->remember_me();
 		
 		// form validation
@@ -102,9 +94,7 @@ class auth extends CI_Controller
 		if ($this->form_validation->run() == FALSE)
 		{
 			// load view
-			$this->_data['title'] = 'Login';
-			$this->_data['content'] = $this->load->view('auth/login_new_password_view', $this->_data, TRUE);
-			$out = $this->load->view('template_view', $this->_data);
+			$this->load->view('auth/login_new_password_view', $data);
 		}
 		else
 		{
@@ -129,7 +119,7 @@ class auth extends CI_Controller
 	{
 		if (!$this->ci_authentication_model->username_check($email_address))
 		{
-			$this->form_validation->set_message('_email_address_check', 'Email address not found. <a href="' . base_url() . 'auth/register">Want to Register?</a>');
+			$this->form_validation->set_message('_email_address_check', 'Email address not found. <a href="' . base_url() . 'home/register">Want to Register?</a>');
 			return false;
 		}
 		else
@@ -140,7 +130,7 @@ class auth extends CI_Controller
 			// if (!$this->ci_authentication_model->confirm_string_check($email_address))
 			if ($r->confirm_string != '')
 			{
-				$this->form_validation->set_message('_email_address_check', 'Please click the registration link sent to your email. <a href="'.base_url().'auth/resend_register_email/'.$r->confirm_string.'">Or resend it</a>.');
+				$this->form_validation->set_message('_email_address_check', 'Please click the registration link sent to your email. <a href="'.base_url().'home/resend_register_email/'.$r->confirm_string.'">Or resend it</a>.');
 				return false;
 			}
 			else
@@ -166,7 +156,7 @@ class auth extends CI_Controller
 		$chk = $this->ci_authentication_model->password_check($this->input->post('email_address'), $password);
 		if (!$chk)
 		{
-			$this->form_validation->set_message('_password_check', 'Incorrect password. <a href="'.base_url().'auth/request_reset_password/?email_address='.$this->input->post('email_address').'">Forgot your password?</a>');
+			$this->form_validation->set_message('_password_check', 'Incorrect password. <a href="'.base_url().'home/request_reset_password/?email_address='.$this->input->post('email_address').'">Forgot your password?</a>');
 			return false;
 		}
 		else
@@ -190,23 +180,80 @@ class auth extends CI_Controller
 	{
 		$this->load->helper(array('cookie', 'url'));
 		$this->load->library('form_validation');
-		$this->load->spark('carabiner/1.5.4');
 		
 		// form validation
-		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|is_unique[users.email_address]');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required');
-		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[password]');
+		$this->form_validation->set_rules(config_item('username_field'), 'Email Address', 'trim|required|valid_email|is_unique[' . config_item('users_table') . '.' . config_item('username_field') . ']');
+		$this->form_validation->set_rules(config_item('password_field'), 'Password', 'trim|required');
+		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|matches[' . config_item('password_field') . ']');
 		if ($this->form_validation->run() == FALSE)
 		{
 			// load view
-			$this->_data['title'] = 'Register';
-			$this->_data['content'] = $this->load->view('auth/register_view', $this->_data, TRUE);
-			$out = $this->load->view('template_view', $this->_data);
+			$this->load->view('auth/register_view', $data);
 		}
 		else
 		{
 			// redirect to configured home page
 			$this->ci_authentication->do_register();
+		}
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * my_profile function.
+	 *
+	 * Displays user profile form for logged in user, edits user and redirects
+	 * on successful submit.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function my_profile()
+	{
+		$this->ci_authentication->restrict_access();
+		
+		$this->load->helper(array('cookie', 'url'));
+		$this->load->library(array('form_validation'));
+		
+		// form validation
+		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required');
+		$this->form_validation->set_rules('email_address', 'Email Address', 'trim|required|valid_email|callback__new_unique_email_check');
+		if ($this->input->post('password') !== '' && $this->input->post('password') !== FALSE)
+		{
+			$this->form_validation->set_rules('old_password', 'Current Password', 'trim|required|callback__password_check');
+			$this->form_validation->set_rules('password', 'New Password', 'trim|required');
+			$this->form_validation->set_rules('confirm_password', 'Confirm New Password', 'trim|required|matches[password]');
+		}
+		if ($this->form_validation->run() == FALSE)
+		{
+			// load view
+			$data['item_query'] = $this->ci_authentication_model->get_user_by_username(auth_username());
+			$this->load->view('auth/my_profile_view', $data);
+		}
+		// form val successful
+		else
+		{
+			// update the user
+			unset($_POST['old_password']);
+			unset($_POST['confirm_password']);
+			$post = $this->input->post();
+			
+			if ($this->input->post('password') == '')
+			{
+				unset($_POST['password']);
+				unset($post['password']);
+			}
+			else
+			{
+				$post['password'] = encrypt_this($this->input->post('password'));
+			}
+			$this->ci_authentication_model->edit_user_by_username($post);
+			
+			// set userdata, alert, redirect
+			$this->session->set_userdata($post);
+			$this->ci_alerts->set('success', 'Profile updated.');
+			redirect('auth/my_profile');
 		}
 	}
 	
@@ -303,15 +350,12 @@ class auth extends CI_Controller
 	{
 		// load resources
 		$this->load->helper('url');
-		$this->load->spark('carabiner/1.5.4');
 		
 		// load content and view
-		$this->_data['title'] = 'Alert';
-		$this->_data['content'] = $this->load->view('auth/alert_view', $this->_data, TRUE);
-		$out = $this->load->view('template_view', $this->_data);
+		$data['content'] = $this->load->view('auth/alert_view', $data);
 	}
 	
 	// --------------------------------------------------------------------------
 }
 /* End of file auth.php */
-/* Location: ./bookymark/application/controllers/auth.php */
+/* Location: ./ci_authentication/examples/controllers/auth.php */

@@ -49,6 +49,7 @@ class auth_Test extends CIUnit_TestCase
 		
 		// Set the tested controller
 		$this->_ci = set_controller('auth');
+		$this->_ci->load->library(array('ci_authentication', 'ci_alerts'));
 	}
 	
 	// --------------------------------------------------------------------------
@@ -145,32 +146,41 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test_login_validation()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
-		$salt = random_string('alnum', 64);
 		$email_address = 'test'.random_string('alnum', 5).'@test.com';
-		$password = encrypt_this('TEST', $salt);
+		$password = encrypt_this('TEST');
 		$post = $_POST = array(
 			'email_address' => $email_address,
-			'password' => $password
+			'password' => $password,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
 		
+		unset($_POST['role_id']);
 		$_POST['password'] = 'TEST';
 		
 		// test
 		$this->_ci->login();
 		$out = output();
+		echo $out;
 		
 		// Check if the content is OK
 		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
 		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
 		$this->assertEquals('', $out);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
 	}
 	
@@ -206,6 +216,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test_login_new_password_validation()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -213,11 +230,13 @@ class auth_Test extends CIUnit_TestCase
 		$password = encrypt_this('TEST', $salt);
 		$post = $_POST = array(
 			'email_address' => $email_address,
-			'password' => $password
+			'password' => $password,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
 		
+		unset($_POST['role_id']);
 		$_POST['password'] = $_POST['confirm_password'] = 'dork';
 		$_POST['temp_password'] = 'TEST';
 		
@@ -231,8 +250,8 @@ class auth_Test extends CIUnit_TestCase
 		$this->assertEquals('', $out);
 		
 		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
 	}
 	
@@ -247,6 +266,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test__email_address_check()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -254,7 +280,8 @@ class auth_Test extends CIUnit_TestCase
 		$password = encrypt_this('TEST', $salt);
 		$post = array(
 			'email_address' => $email_address,
-			'password' => $password
+			'password' => $password,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
@@ -263,9 +290,9 @@ class auth_Test extends CIUnit_TestCase
 		$chk = $this->_ci->_email_address_check($email_address);
 		$this->assertTrue($chk);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 	}
 	
 	// --------------------------------------------------------------------------
@@ -295,6 +322,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test__password_check()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -302,7 +336,8 @@ class auth_Test extends CIUnit_TestCase
 		$password = encrypt_this('TEST', $salt);
 		$post = array(
 			'email_address' => $email_address,
-			'password' => $password
+			'password' => $password,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
@@ -311,9 +346,9 @@ class auth_Test extends CIUnit_TestCase
 		$chk = $this->_ci->_password_check('TEST');
 		$this->assertTrue($chk);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
 	}
 	
@@ -328,6 +363,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test__password_check_fail()
 	{	
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -335,7 +377,8 @@ class auth_Test extends CIUnit_TestCase
 		$password = encrypt_this('TEST', $salt);
 		$post = array(
 			'email_address' => $email_address,
-			'password' => $password
+			'password' => $password,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
@@ -344,9 +387,9 @@ class auth_Test extends CIUnit_TestCase
 		$chk = $this->_ci->_password_check(uniqid());
 		$this->assertFalse($chk);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
 	}
 	
@@ -361,6 +404,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test_login_validation_not_confirmed()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -369,11 +419,13 @@ class auth_Test extends CIUnit_TestCase
 		$post = $_POST = array(
 			'confirm_string' => 'test',
 			'email_address' => $email_address,
-			'password' => $password
+			'password' => $password,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
 		
+		unset($_POST['role_id']);
 		$_POST['password'] = 'TEST';
 		
 		// test
@@ -385,9 +437,9 @@ class auth_Test extends CIUnit_TestCase
 		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
 		$this->assertNotEquals('', $out);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
 	}
 	
@@ -402,6 +454,9 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test_logout()
 	{
+		// empty userdata
+		unset($this->_ci->session->userdata);
+		
 		// test
 		$this->_ci->logout();
 		$out = output();
@@ -413,6 +468,9 @@ class auth_Test extends CIUnit_TestCase
 		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
 		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
 		$this->assertEquals('', $out);
+		
+		// empty userdata
+		unset($this->_ci->session->userdata);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -425,6 +483,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test_resend_register_email()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -434,7 +499,8 @@ class auth_Test extends CIUnit_TestCase
 		$post = array(
 			'email_address' => $email_address,
 			'password' => $password,
-			'confirm_string' => $confirm_string
+			'confirm_string' => $confirm_string,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
@@ -454,10 +520,11 @@ class auth_Test extends CIUnit_TestCase
 		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
 		$this->assertEquals('', $out);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
+		unset($this->_ci->session->userdata);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -470,6 +537,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test_confirm_register()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -479,7 +553,8 @@ class auth_Test extends CIUnit_TestCase
 		$post = array(
 			'email_address' => $email_address,
 			'password' => $password,
-			'confirm_string' => $confirm_string
+			'confirm_string' => $confirm_string,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
@@ -499,10 +574,11 @@ class auth_Test extends CIUnit_TestCase
 		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
 		$this->assertEquals('', $out);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
+		unset($this->_ci->session->userdata);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -515,6 +591,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test_request_reset_password()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -522,7 +605,8 @@ class auth_Test extends CIUnit_TestCase
 		$password = encrypt_this('TEST', $salt);
 		$post = array(
 			'email_address' => $email_address,
-			'password' => $password
+			'password' => $password,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
@@ -542,11 +626,12 @@ class auth_Test extends CIUnit_TestCase
 		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
 		$this->assertEquals('', $out);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
 		unset($_GET);
+		unset($this->_ci->session->userdata);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -559,6 +644,13 @@ class auth_Test extends CIUnit_TestCase
 	 */
 	public function test_confirm_reset_password()
 	{
+		// insert role
+		$post = array(
+			'title' => 'test'
+		);
+		$this->assertTrue($this->_ci->db->insert('roles', $post));
+		$role_id = $this->_ci->db->insert_id();
+		
 		// insert user
 		$this->_ci->load->helper(array('encrypt_helper', 'string'));
 		$salt = random_string('alnum', 64);
@@ -567,7 +659,8 @@ class auth_Test extends CIUnit_TestCase
 		$password = encrypt_this('TEST', $salt);
 		$post = array(
 			'email_address' => $email_address,
-			'password' => $password
+			'password' => $password,
+			'role_id' => $role_id
 		);
 		$this->_ci->db->insert('users', $post);
 		$user_id = $this->_ci->db->insert_id();
@@ -587,11 +680,12 @@ class auth_Test extends CIUnit_TestCase
 		$this->assertSame(0, preg_match('/A PHP Error has occurred/i', $out));
 		$this->assertEquals('', $out);
 		
-		// delete user
-		$this->_ci->db->where('id', $user_id);
-		$this->assertTrue($this->_ci->db->delete('users'));
+		// empty tables
+		$this->assertTrue($this->_ci->db->empty_table('users'));
+		$this->assertTrue($this->_ci->db->empty_table('roles'));
 		unset($_POST);
 		unset($_GET);
+		unset($this->_ci->session->userdata);
 	}
 	
 	// --------------------------------------------------------------------------

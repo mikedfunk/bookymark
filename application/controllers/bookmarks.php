@@ -50,13 +50,19 @@ class bookmarks extends CI_Controller
 		parent::__construct();
 		
 		// load sparks
-		$this->load->spark(array('ci_authentication/1.2.1', 'carabiner/1.5.4'));
-		$this->load->library(array('ci_authentication', 'ci_alerts'));
+		$this->load->spark(array('ci_authentication/1.3.4', 'carabiner/1.5.4'));
 		
 		// load resources
 		if (ENVIRONMENT == 'development')
 		{
 			$this->output->enable_profiler(TRUE);
+		}
+		
+		// load data
+		if (is_logged_in())
+		{
+			$q = $this->ci_authentication_model->get_user_by_username(auth_username());
+			$this->_data['user'] = $q->row();
 		}
 	}
 	
@@ -88,12 +94,14 @@ class bookmarks extends CI_Controller
 	 */
 	public function list_items()
 	{	
-		$this->ci_authentication->restrict_access('can_list_bookmarks');
+		$condition = (isset($this->_data['user']) ? $this->_data['user']->can_list_bookmarks : FALSE);
+		$this->ci_authentication->restrict_access($condition);
 		
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
 		$this->load->library(array('pagination', 'table'));
+		$this->load->spark('query_string_helper/1.2.1');
 		$this->load->helper('url');
 		$this->config->load('pagination');
 		
@@ -101,7 +109,7 @@ class bookmarks extends CI_Controller
 		$opts = $this->input->get();
 		unset($opts['page']);
 		$q = $this->bookmarks_model->list_items($opts);
-		$config['base_url'] = 'list_items?';
+		$config['base_url'] = base_url() . 'bookmarks/list_items?';
 		$config['total_rows'] = $this->data['total_rows'] = $q->num_rows();
 		$this->pagination->initialize($config);
 		
@@ -128,12 +136,14 @@ class bookmarks extends CI_Controller
 	 */
 	public function add_item()
 	{
-		$this->ci_authentication->restrict_access('can_add_bookmarks');
+		$condition = (isset($this->_data['user']) ? $this->_data['user']->can_add_bookmarks : FALSE);
+		$this->ci_authentication->restrict_access($condition);
 		
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
 		$this->load->library('form_validation');
+		$this->load->spark('query_string_helper/1.2.1');
 		$this->load->helper(array('url', 'form'));
 		
 		// form validation
@@ -168,12 +178,14 @@ class bookmarks extends CI_Controller
 	 */
 	public function edit_item($id)
 	{
-		$this->ci_authentication->restrict_access('can_edit_bookmarks');
+		$condition = (isset($this->_data['user']) ? $this->_data['user']->can_edit_bookmarks : FALSE);
+		$this->ci_authentication->restrict_access($condition);
 		
 		// load resources
 		$this->load->database();
 		$this->load->model('bookmarks_model');
 		$this->load->library('form_validation');
+		$this->load->spark('query_string_helper/1.2.1');
 		$this->load->helper(array('url', 'form'));
 		
 		// form validation
@@ -215,7 +227,8 @@ class bookmarks extends CI_Controller
 	 */
 	public function delete_item($id)
 	{
-		$this->ci_authentication->restrict_access('can_delete_bookmarks');
+		$condition = (isset($this->_data['user']) ? $this->_data['user']->can_delete_bookmarks : FALSE);
+		$this->ci_authentication->restrict_access($condition);
 		
 		// load resources
 		$this->load->database();

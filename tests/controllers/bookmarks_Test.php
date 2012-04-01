@@ -71,8 +71,10 @@ class bookmarks_Test extends CIUnit_TestCase
  		
 		// Set the tested controller
 		$this->_ci = set_controller('bookmarks');
-		$this->_ci->load->library('session');
 		$this->_ci->load->database();
+		$this->_ci->load->library(array('ci_authentication', 'ci_alerts', 'session'));
+		$this->_ci->load->helper(array('ci_authentication_helper', 'encrypt_helper'));
+		
 		
 		// create role that can edit books
 		$role['title'] = 'test';
@@ -263,6 +265,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		// delete item
 		$this->_ci->db->where('id', $bookmark_id);
 		$this->_ci->db->delete('bookmarks');
+		unset($this->_ci->session->userdata);
 	}
 	
 	// --------------------------------------------------------------------------

@@ -49,6 +49,7 @@ class home_Test extends CIUnit_TestCase
 		
 		// Set the tested controller
 		$this->_ci = set_controller('home');
+		$this->_ci->load->library(array('ci_authentication', 'ci_alerts'));
 	}
 	
 	// --------------------------------------------------------------------------

@@ -45,12 +45,14 @@ class bookmarks_model extends CI_Model
 		if (is_array($limit))
 		{
 			$arr = $limit;
-			$limit = (isset($arr['limit']) ? $arr['limit'] : '');
-			$page = (isset($arr['page']) ? $arr['page'] : '');
-			$sort_by = (isset($arr['sort_by']) ? $arr['sort_by'] : '');
-			$sort_dir = (isset($arr['sort_dir']) ? $arr['sort_dir'] : 'asc');
-			$filter = (isset($arr['filter']) ? $arr['filter'] : '');
-			$ids_only = (isset($arr['ids_only']) ? $arr['ids_only'] : false);
+			foreach ($arr as $key => $value)
+			{
+				$$key = $value;
+			}
+			if (!isset($arr['limit']))
+			{
+				$limit = FALSE;
+			}
 		}
 		
 		// select
@@ -77,6 +79,18 @@ class bookmarks_model extends CI_Model
 		if ($page != '' || $limit != '')
 		{
 			$this->db->limit($limit, $page);
+		}
+		
+		// filter
+		if ($filter != '') 
+		{
+			// trim spaces, convert entities
+			$filter = trim($filter);
+			$filter = htmlentities($filter, ENT_QUOTES, "UTF-8");
+			
+			$where = "(`bookmarks`.`url` LIKE '%".$filter."%'
+			OR `bookmarks`.`description` LIKE '%".$filter."%')";
+			$this->db->where($where);
 		}
 		
 		return $this->db->get('bookmarks');

@@ -26,12 +26,14 @@
 <?=$this->ci_alerts->display()?>
 
 			</div><!--notification_wrap-->
-<?php
-// if permission allows
-if ($this->session->userdata('can_add_bookmarks')):
-?>
-            <p><a href="<?=base_url()?>bookmarks/add_item" class="btn btn-primary"><i class="icon-plus icon-white"></i> Add Bookymark</a></p>
+			
+<form method="get" accept-charset="utf-8" action="<?=base_url() . uri_query_string()?>" class="form-inline well" />
+<?php if ($user->can_add_bookmarks): ?>
+<a class="btn btn-success pull-right" href="<?=base_url()?>bookmarks/add_item?return_url=<?=urlencode(uri_query_string())?>"><i class="icon-plus icon-white"></i> New Contest Entry</a>
 <?php endif; ?>
+<input type="text" name="filter" value="<?=$this->input->get('filter')?>" placeholder="Search..." id="filter_field" class="search-query" data-provide="typeahead" data-items="4" data-source='["dork"]'>
+<button type="submit" class="btn"><i class="icon-search"></i> Search</button>
+</form>
             <?php
             // loop through bookmarks
             if ($bookmarks->num_rows() > 0):
