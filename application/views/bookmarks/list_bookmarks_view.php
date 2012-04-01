@@ -59,12 +59,12 @@
                     <td><div class="actions pull-right">
 <?php
 // if permission allows
-if ($this->session->userdata('can_edit_bookmarks')):
+if ($user->can_edit_bookmarks):
 ?>
                     <a href="<?=base_url()?>bookmarks/edit_item/<?=$item->id?>" class="btn btn-mini"><i class="icon-edit"></i> Edit</a> 
 <?php endif; 
 // if permission allows
-if ($this->session->userdata('can_delete_bookmarks')):
+if ($user->can_delete_bookmarks):
 ?>       
                     <a href="<?=base_url()?>bookmarks/delete_item/<?=$item->id?>" class="btn btn-mini"><i class="icon-trash"></i> Delete</a>
 <?php endif; ?>
