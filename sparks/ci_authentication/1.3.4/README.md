@@ -180,7 +180,7 @@ Change Log
 * Added my_profile to example in views and auth controller
 * Uncommented dependency on ci_alerts
 
-**1.3.0**
+**1.3.1**
 
 * Feature release, no bugfixes.
 * Added ability to skip the confirmation email on registration and log the user right in. This can be toggled in ```config/ci_authentication.php``` with the property ```do_register_email```.

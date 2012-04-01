@@ -31,6 +31,14 @@ Bookymark is a sample application created for a few reasons:
 Change Log
 -----------------
 
+**1.3.1**
+
+* Added MY_Migration to enable configurable migration table
+* Updated all submodules
+* Updated Sparks system
+* Updated all sparks to latest versions
+* Updated tests to work with all this new stuff
+
 **1.3.0**
 
 * Enabled migration support

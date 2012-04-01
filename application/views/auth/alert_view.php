@@ -11,7 +11,7 @@
  * @email		mike@mikefunk.com
  * 
  * @file		alert_view.php
- * @version		1.3.0
+ * @version		1.3.1
  * @date		03/12/2012
  */
  
