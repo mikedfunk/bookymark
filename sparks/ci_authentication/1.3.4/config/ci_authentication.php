@@ -87,7 +87,15 @@ $config['login_with_encryption_key'] = TRUE;
  * If you don't have a login_success field in the db, use this to redirect
  * successful logins to this page.
  */
-$config['login_success_url'] = 'dashboard';
+$config['login_success_url'] = 'bookmarks/list_bookmarks';
+
+// --------------------------------------------------------------------------
+/**
+ * login_success_url_field
+ *
+ * The role field used to redirect successful logins to this page.
+ */
+$config['login_success_url_field'] = 'home_page';
 
 // --------------------------------------------------------------------------
 /**
