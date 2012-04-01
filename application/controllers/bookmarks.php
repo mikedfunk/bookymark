@@ -242,6 +242,23 @@ class bookmarks extends CI_Controller
 	}
 	
 	// --------------------------------------------------------------------------
+	
+	/**
+	 * cancel function.
+	 *
+	 * Sets flashdata and redirects.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function cancel()
+	{
+		$this->load->helper('url');
+		$this->ci_alerts->set('success', 'Action cancelled.');
+		redirect($this->input->get('redirect'));
+	}
+	
+	// --------------------------------------------------------------------------
 }
 /* End of file bookmarks.php */
 /* Location: ./bookymark/application/controllers/bookmarks.php */

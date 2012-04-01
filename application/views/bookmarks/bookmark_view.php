@@ -54,7 +54,7 @@ else {$value = (isset($item) ? $item->description : '');}
 
 <fieldset class="form-actions">
 <button type="submit" class="btn btn-success"><i class="icon-ok icon-white"></i> Save</button>
-<a href="<?=base_url()?>bookmarks/list_items?notification=cancelled" class="btn btn-danger"><i class="icon-remove icon-white"></i> Cancel</a>
+<a href="<?=base_url()?>bookmarks/cancel?redirect=bookmarks/list_items" class="btn btn-danger"><i class="icon-remove icon-white"></i> Cancel</a>
 </fieldset><!--form-actions-->
 </form>
 

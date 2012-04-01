@@ -343,6 +343,7 @@ class bookmarks_Test extends CIUnit_TestCase
 		// delete bookmark
 		$this->_ci->db->where('id', $bookmark_id);
 		$this->assertTrue($this->_ci->db->delete('bookmarks'));
+		unset($this->_ci->session->userdata);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -376,6 +377,35 @@ class bookmarks_Test extends CIUnit_TestCase
 		$this->_ci->db->where('id', $bookmark_id);
 		$q = $this->_ci->db->get('bookmarks');
 		$this->assertEquals(0, $q->num_rows());
+		unset($this->_ci->session->userdata);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * test_cancel function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function test_cancel()
+	{
+		unset($this->_ci->session->userdata);
+		
+		$_GET['redirect'] = 'test';
+		
+		// test
+		$this->_ci->cancel();
+		$out = output();
+		$this->assertSame(0, preg_match('/(error|notice)(?:")/i', $out));
+		$this->assertSame(0, preg_match('/A PHP Error was encountered/i', $out));
+		$this->assertEquals('', $out);
+		
+		$this->assertEquals($this->_ci->session->userdata('flash:new:success'), array('Action cancelled.'));
+		
+		// tear down
+		unset($_GET);
+		unset($this->_ci->session->userdata);
 	}
 	
 	// --------------------------------------------------------------------------
