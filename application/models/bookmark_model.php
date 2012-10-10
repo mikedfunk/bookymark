@@ -171,7 +171,7 @@ class bookmark_model extends MY_Model
 		// request via API, trigger after_get, return
 		$end = implode('/', $where);
 		$return = $this->request('GET', 'bookmarks/'.$end);
-		if (count($return) == 0)
+		if (count($return) == 0 || !is_object($return))
 		{
 			throw new Exception('API Error retrieving bookmarks');
 		}
@@ -249,7 +249,7 @@ class bookmark_model extends MY_Model
         {
         	// else delete via api
         	$result = $this->request('DELETE', 'bookmarks/'.$id);
-        	if (!isset($return->success))
+        	if (!isset($result->success))
             {
 	            throw new Exception('API Error deleting bookmark.');
             }
@@ -282,7 +282,7 @@ class bookmark_model extends MY_Model
         {
         	// edit via API, return success bool
             $result = $this->request('PUT', 'bookmarks/'.$primary_value, $data);
-            if (!isset($return->success))
+            if (!isset($result->success))
             {
 	            throw new Exception('API Error editing bookmark.');
             }
@@ -306,38 +306,32 @@ class bookmark_model extends MY_Model
 	 * @param string $method such as GET
 	 * @param string $path such as api/v2/bookmarks
 	 * @param array $params (default: array()) the get/put/post params
-	 * @return array
+	 * @return object
 	 */
+	
 	public function request($method, $path, $params = array())
-	{	
-		// set curl handler and options
+	{
+		// start up and set stuff
 		$path = 'api/v1/' . $path;
-		$curl = curl_init(config_item('api_base_url') . $path);
+		$this->load->spark('restclient/2.1.0');
+		$this->rest->initialize(array('server' => config_item('api_base_url')));
 		
-		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);
-		curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-
 		// set required headers
-		$headers = array();
-		$headers[] = 'User-Agent: Bookymark Application';
-		$headers[] = 'Accept: application/json; version=v1';
-		$headers[] = 'X-Access-Token: ' . config_item('api_access_token');
-
+		$this->rest->http_header('User-Agent', 'Bookymark Application');
+		$this->rest->http_header('X-Access-Token', config_item('api_access_token'));
+		$this->rest->format('application/json; version=v1');
 		$timestamp = time();
-		$headers[] = 'X-Request-Timestamp: ' . $timestamp;
+		$this->rest->http_header('X-Request-Timestamp', $timestamp);
 
 		// build signature and set header
 		$hash = $path . http_build_query($params);
 		$hash .= $timestamp . config_item('api_shared_secret');
 		$signature = sha1($hash);
-		$headers[] = 'X-Request-Signature: ' . $signature;
-
-		curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-
-		// execute and return
-		$result = curl_exec($curl);
-		return (object)json_decode($result);
+		$this->rest->http_header('X-Request-Signature', $signature);
+		
+		// request and respond
+		$method = strtolower(trim($method));
+		return (object)$this->rest->$method($path, $params);
 	}
 	
 	// --------------------------------------------------------------------------

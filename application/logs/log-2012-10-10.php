@@ -7537,3 +7537,2887 @@ DEBUG - 2012-10-10 07:30:53 --> Database Forge Class Initialized
 DEBUG - 2012-10-10 07:30:53 --> Current migration: 2
 DEBUG - 2012-10-10 07:30:54 --> Final output sent to browser
 DEBUG - 2012-10-10 07:30:54 --> Total execution time: 1.5324
+DEBUG - 2012-10-10 23:06:42 --> Config Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:06:42 --> URI Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Router Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Output Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Security Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Input Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:06:42 --> Language Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:06:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:06:42 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:06:42 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Current migration: 2
+DEBUG - 2012-10-10 23:06:42 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:06:42 --> Session Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:06:42 --> A session cookie was not found.
+DEBUG - 2012-10-10 23:06:42 --> Session routines successfully run
+DEBUG - 2012-10-10 23:06:42 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:06:42 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:06:42 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:06:42 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:06:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:06:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:06:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:06:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:06:42 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:06:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:06:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:06:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:06:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:06:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:06:42 --> Config Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:06:42 --> URI Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Router Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Output Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Security Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Input Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:06:42 --> Language Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:06:42 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:06:43 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:06:43 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Current migration: 2
+DEBUG - 2012-10-10 23:06:43 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:06:43 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:06:43 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:06:43 --> Session Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:06:43 --> Session routines successfully run
+DEBUG - 2012-10-10 23:06:43 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:06:43 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:06:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:06:43 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:06:43 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:06:43 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:06:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: cookie_helper
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:06:43 --> Form Validation Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Config file loaded: ../application/config/form_validation.php
+DEBUG - 2012-10-10 23:06:43 --> File loaded: ../application/views/auth/login.php
+ERROR - 2012-10-10 23:06:43 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:06:43 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:06:43 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:06:43 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:06:43 --> Final output sent to browser
+DEBUG - 2012-10-10 23:06:43 --> Total execution time: 0.1031
+DEBUG - 2012-10-10 23:06:43 --> Config Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:06:43 --> URI Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Router Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Output Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Security Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Input Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:06:43 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:06:43 --> Language Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:06:43 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:06:43 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:06:43 --> Current migration: 2
+DEBUG - 2012-10-10 23:06:43 --> REST Class Initialized
+ERROR - 2012-10-10 23:06:43 --> Severity: Notice  --> Undefined property: api_test::$curl /Library/WebServer/Documents/bookymark/sparks/restclient/2.1.0/libraries/Rest.php 68
+DEBUG - 2012-10-10 23:08:31 --> Config Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:08:31 --> URI Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Router Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Output Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Security Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Input Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:08:31 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:08:31 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:08:31 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:08:31 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:08:31 --> Language Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:08:31 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:08:31 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> Current migration: 2
+DEBUG - 2012-10-10 23:08:31 --> REST Class Initialized
+DEBUG - 2012-10-10 23:08:31 --> cURL Class Initialized
+ERROR - 2012-10-10 23:08:31 --> Severity: Notice  --> Array to string conversion /Library/WebServer/Documents/bookymark/sparks/curl/1.2.1/libraries/Curl.php 232
+ERROR - 2012-10-10 23:08:47 --> Severity: Notice  --> Undefined variable: curl /Library/WebServer/Documents/bookymark/application/controllers/api_test.php 48
+ERROR - 2012-10-10 23:08:47 --> Severity: Warning  --> curl_getinfo() expects parameter 1 to be resource, null given /Library/WebServer/Documents/bookymark/application/controllers/api_test.php 48
+DEBUG - 2012-10-10 23:08:47 --> Final output sent to browser
+DEBUG - 2012-10-10 23:08:47 --> Total execution time: 15.5140
+DEBUG - 2012-10-10 23:10:44 --> Config Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:10:44 --> URI Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Router Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Output Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Security Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Input Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:10:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:10:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:10:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:10:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:10:44 --> Language Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:10:44 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:10:44 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> Current migration: 2
+DEBUG - 2012-10-10 23:10:44 --> REST Class Initialized
+DEBUG - 2012-10-10 23:10:44 --> cURL Class Initialized
+ERROR - 2012-10-10 23:10:44 --> Severity: Notice  --> Undefined variable: curl /Library/WebServer/Documents/bookymark/application/controllers/api_test.php 48
+ERROR - 2012-10-10 23:10:45 --> Severity: Warning  --> curl_getinfo() expects parameter 1 to be resource, null given /Library/WebServer/Documents/bookymark/application/controllers/api_test.php 48
+DEBUG - 2012-10-10 23:10:45 --> Final output sent to browser
+DEBUG - 2012-10-10 23:10:45 --> Total execution time: 0.4440
+DEBUG - 2012-10-10 23:12:38 --> Config Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:12:38 --> URI Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Router Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Output Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Security Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Input Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:12:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:12:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:12:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:12:38 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:12:38 --> Language Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:12:38 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:12:38 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Current migration: 2
+DEBUG - 2012-10-10 23:12:38 --> REST Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:12:38 --> Final output sent to browser
+DEBUG - 2012-10-10 23:12:38 --> Total execution time: 0.4561
+DEBUG - 2012-10-10 23:13:29 --> Config Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:13:29 --> URI Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Router Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Output Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Security Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Input Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:13:29 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:13:29 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:13:29 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:13:29 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:13:29 --> Language Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:13:29 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:13:29 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Current migration: 2
+DEBUG - 2012-10-10 23:13:29 --> REST Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:13:29 --> Final output sent to browser
+DEBUG - 2012-10-10 23:13:29 --> Total execution time: 0.8830
+DEBUG - 2012-10-10 23:13:59 --> Config Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:13:59 --> URI Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Router Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Output Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Security Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Input Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:13:59 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:13:59 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:13:59 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:13:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:13:59 --> Language Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:13:59 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:13:59 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Current migration: 2
+DEBUG - 2012-10-10 23:13:59 --> REST Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:13:59 --> Final output sent to browser
+DEBUG - 2012-10-10 23:13:59 --> Total execution time: 0.0314
+DEBUG - 2012-10-10 23:15:16 --> Config Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:15:16 --> URI Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Router Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Output Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Security Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Input Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:15:16 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:15:16 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:15:16 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:15:16 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:15:16 --> Language Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:15:16 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:15:16 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Current migration: 2
+DEBUG - 2012-10-10 23:15:16 --> REST Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:15:16 --> Final output sent to browser
+DEBUG - 2012-10-10 23:15:16 --> Total execution time: 0.1105
+DEBUG - 2012-10-10 23:15:36 --> Config Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:15:36 --> URI Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Router Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Output Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Security Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Input Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:15:36 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:15:36 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:15:36 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:15:36 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:15:36 --> Language Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:15:36 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:15:36 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Current migration: 2
+DEBUG - 2012-10-10 23:15:36 --> REST Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:15:36 --> Final output sent to browser
+DEBUG - 2012-10-10 23:15:36 --> Total execution time: 0.0383
+DEBUG - 2012-10-10 23:16:11 --> Config Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:16:11 --> URI Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Router Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Output Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Security Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Input Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:16:11 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:16:11 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:16:11 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:16:11 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:16:11 --> Language Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:16:11 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:16:11 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Current migration: 2
+DEBUG - 2012-10-10 23:16:11 --> REST Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:16:11 --> Final output sent to browser
+DEBUG - 2012-10-10 23:16:11 --> Total execution time: 0.0772
+DEBUG - 2012-10-10 23:17:14 --> Config Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:17:14 --> URI Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Router Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Output Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Security Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Input Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:17:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:17:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:17:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:17:14 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:17:14 --> Language Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:17:14 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:17:14 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Current migration: 2
+DEBUG - 2012-10-10 23:17:14 --> REST Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Config Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:17:14 --> URI Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Router Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Output Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Security Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Input Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:17:14 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:17:14 --> Language Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:17:14 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:17:14 --> Final output sent to browser
+DEBUG - 2012-10-10 23:17:14 --> Total execution time: 0.1081
+DEBUG - 2012-10-10 23:19:25 --> Config Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:19:25 --> URI Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Router Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Output Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Security Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Input Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:25 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:25 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:25 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:25 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:19:25 --> Language Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:19:25 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:19:25 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Current migration: 2
+DEBUG - 2012-10-10 23:19:25 --> REST Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> params: Array
+(
+    [0] => User-Agent: Bookymark Application
+    [1] => Accept: application/json; version=v1
+    [2] => X-Access-Token: 4395dd07a3cfe84d9655bb2542907f3acd0024fe
+    [3] => X-Request-Timestamp: 1349903965
+    [4] => X-Request-Signature: 7b8f6eb6f00999bb18af4059feeae447cdb17c59
+)
+
+DEBUG - 2012-10-10 23:19:25 --> params: Array
+(
+    [0] => Accept
+)
+
+DEBUG - 2012-10-10 23:19:25 --> Config Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:19:25 --> URI Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Router Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Output Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Security Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Input Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:25 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:19:25 --> Language Class Initialized
+DEBUG - 2012-10-10 23:19:25 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:19:26 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:19:26 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:19:26 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:19:26 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:19:26 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:19:26 --> Final output sent to browser
+DEBUG - 2012-10-10 23:19:26 --> Total execution time: 0.0655
+DEBUG - 2012-10-10 23:19:44 --> Config Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:19:44 --> URI Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Router Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Output Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Security Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Input Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:19:44 --> Language Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:19:44 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:19:44 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Current migration: 2
+DEBUG - 2012-10-10 23:19:44 --> REST Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> params1: Array
+(
+    [0] => User-Agent: Bookymark Application
+    [1] => Accept: application/json; version=v1
+    [2] => X-Access-Token: 4395dd07a3cfe84d9655bb2542907f3acd0024fe
+    [3] => X-Request-Timestamp: 1349903984
+    [4] => X-Request-Signature: bdf7f6217362fa8f873506b0a9a36394592a8b12
+)
+
+DEBUG - 2012-10-10 23:19:44 --> params1: Array
+(
+    [0] => Accept
+)
+
+DEBUG - 2012-10-10 23:19:44 --> Config Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:19:44 --> URI Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Router Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Output Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Security Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Input Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:19:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:19:44 --> Language Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:19:44 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:19:44 --> Final output sent to browser
+DEBUG - 2012-10-10 23:19:44 --> Total execution time: 0.1616
+DEBUG - 2012-10-10 23:21:45 --> Config Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:21:45 --> URI Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Router Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Output Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Security Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Input Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:21:45 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:21:45 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:21:45 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:21:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:21:45 --> Language Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:21:45 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:21:45 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Current migration: 2
+DEBUG - 2012-10-10 23:21:45 --> REST Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> params1: Array
+(
+    [0] => Array
+        (
+            [0] => User-Agent: Bookymark Application
+            [1] => Accept: application/json; version=v1
+            [2] => X-Access-Token: 4395dd07a3cfe84d9655bb2542907f3acd0024fe
+            [3] => X-Request-Timestamp: 1349904105
+            [4] => X-Request-Signature: 153cd9549cb4cd7f70cb074ad2c3e439f9411de0
+        )
+
+)
+
+DEBUG - 2012-10-10 23:21:45 --> params1: Array
+(
+    [0] => Accept
+)
+
+ERROR - 2012-10-10 23:21:45 --> Severity: Notice  --> Array to string conversion /Library/WebServer/Documents/bookymark/sparks/curl/1.2.1/libraries/Curl.php 232
+DEBUG - 2012-10-10 23:21:45 --> Config Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:21:45 --> URI Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Router Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Output Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Security Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Input Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:21:45 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:21:45 --> Language Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:21:45 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:21:45 --> Final output sent to browser
+DEBUG - 2012-10-10 23:21:45 --> Total execution time: 0.1012
+DEBUG - 2012-10-10 23:22:07 --> Config Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:22:07 --> URI Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Router Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Output Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Security Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Input Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:22:07 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:22:07 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:22:07 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:22:07 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:22:07 --> Language Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:22:07 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:22:07 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Current migration: 2
+DEBUG - 2012-10-10 23:22:07 --> REST Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> params1: Array
+(
+    [0] => User-Agent: Bookymark Application
+    [1] => Accept: application/json; version=v1
+    [2] => X-Access-Token: 4395dd07a3cfe84d9655bb2542907f3acd0024fe
+    [3] => X-Request-Timestamp: 1349904127
+    [4] => X-Request-Signature: 2241e9aca294aff93bc0ffdfb434c1c1b190caa1
+)
+
+DEBUG - 2012-10-10 23:22:07 --> params1: Array
+(
+    [0] => Accept
+)
+
+DEBUG - 2012-10-10 23:22:07 --> Config Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:22:07 --> URI Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Router Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Output Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Security Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Input Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:22:07 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:22:07 --> Language Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:22:07 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:22:07 --> Final output sent to browser
+DEBUG - 2012-10-10 23:22:07 --> Total execution time: 0.0811
+DEBUG - 2012-10-10 23:25:47 --> Config Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:25:47 --> URI Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Router Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Output Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Security Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Input Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:25:47 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:25:47 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:25:47 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:25:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:25:47 --> Language Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:25:47 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:25:47 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Current migration: 2
+DEBUG - 2012-10-10 23:25:47 --> REST Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> params1: Array
+(
+    [0] => User-Agent: Bookymark Application
+    [1] => Accept: application/json; version=v1
+    [2] => X-Access-Token: 4395dd07a3cfe84d9655bb2542907f3acd0024fe
+    [3] => X-Request-Timestamp: 1349904347
+    [4] => X-Request-Signature: e8b00ddbab36818cf57175b119f5e08471e37694
+)
+
+DEBUG - 2012-10-10 23:25:47 --> params1: Array
+(
+    [0] => Accept
+)
+
+DEBUG - 2012-10-10 23:25:47 --> Config Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:25:47 --> URI Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Router Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Output Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Security Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Input Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:25:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:25:47 --> Language Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:25:47 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:25:47 --> Final output sent to browser
+DEBUG - 2012-10-10 23:25:47 --> Total execution time: 0.0786
+DEBUG - 2012-10-10 23:27:23 --> Config Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:27:23 --> URI Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Router Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Output Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Security Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Input Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:27:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:27:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:27:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:27:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:27:23 --> Language Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:27:23 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:27:23 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Current migration: 2
+DEBUG - 2012-10-10 23:27:23 --> REST Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> params1: Array
+(
+    [0] => User-Agent: Bookymark Application
+    [1] => Accept: application/json; version=v1
+    [2] => X-Access-Token: 4395dd07a3cfe84d9655bb2542907f3acd0024fe
+    [3] => X-Request-Timestamp: 1349904443
+    [4] => X-Request-Signature: ad238ba4de09c9ff052ee5eee7aab4ee89c68b8f
+)
+
+DEBUG - 2012-10-10 23:27:23 --> Config Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:27:23 --> URI Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Router Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Output Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Security Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Input Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:27:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:27:23 --> Language Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:27:23 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:27:23 --> Final output sent to browser
+DEBUG - 2012-10-10 23:27:23 --> Total execution time: 0.0989
+DEBUG - 2012-10-10 23:28:58 --> Config Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:28:58 --> URI Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Router Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Output Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Security Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Input Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:28:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:28:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:28:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:28:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:28:58 --> Language Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:28:58 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:28:58 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Current migration: 2
+DEBUG - 2012-10-10 23:28:58 --> REST Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> params1: Array
+(
+    [0] => User-Agent: Bookymark Application
+    [1] => Accept: application/json; version=v1
+    [2] => X-Access-Token: 4395dd07a3cfe84d9655bb2542907f3acd0024fe
+    [3] => X-Request-Timestamp: 1349904538
+    [4] => X-Request-Signature: 5b0c83b84caac69a1025d9bce0373f581f2cd02b
+)
+
+DEBUG - 2012-10-10 23:28:58 --> Config Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:28:58 --> URI Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Router Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Output Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Security Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Input Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:28:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:28:58 --> Language Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:28:58 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:28:58 --> Final output sent to browser
+DEBUG - 2012-10-10 23:28:58 --> Total execution time: 0.0959
+DEBUG - 2012-10-10 23:29:59 --> Config Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:29:59 --> URI Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> Router Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> Output Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> Security Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> Input Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:29:59 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:29:59 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:29:59 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:29:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:29:59 --> Language Class Initialized
+DEBUG - 2012-10-10 23:29:59 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:30:00 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:30:00 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Current migration: 2
+DEBUG - 2012-10-10 23:30:00 --> Config Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:30:00 --> URI Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Router Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Output Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Security Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Input Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:30:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:30:00 --> Language Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:30:00 --> Model Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:30:00 --> Model Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> Model Class Initialized
+DEBUG - 2012-10-10 23:30:00 --> development enviro
+DEBUG - 2012-10-10 23:30:00 --> Final output sent to browser
+DEBUG - 2012-10-10 23:30:00 --> Total execution time: 0.2307
+DEBUG - 2012-10-10 23:44:43 --> Config Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:44:43 --> URI Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Router Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Output Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Security Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Input Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:44:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:44:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:44:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:44:43 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:44:43 --> Language Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:44:43 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:44:43 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> Current migration: 2
+DEBUG - 2012-10-10 23:44:43 --> REST Class Initialized
+DEBUG - 2012-10-10 23:44:43 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Config Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:45:53 --> URI Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Router Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Output Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Security Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Input Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:45:53 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:45:53 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:45:53 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:45:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:45:53 --> Language Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:45:53 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:45:53 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Current migration: 2
+DEBUG - 2012-10-10 23:45:53 --> REST Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Config Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:45:53 --> URI Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Router Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Output Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Security Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Input Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:45:53 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:45:53 --> Language Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:45:53 --> Model Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:45:53 --> Model Class Initialized
+DEBUG - 2012-10-10 23:45:53 --> Model Class Initialized
+DEBUG - 2012-10-10 23:45:54 --> development enviro
+ERROR - 2012-10-10 23:45:54 --> Severity: Warning  --> json_decode() expects parameter 1 to be string, object given /Library/WebServer/Documents/bookymark/application/controllers/api_test.php 66
+DEBUG - 2012-10-10 23:45:54 --> Final output sent to browser
+DEBUG - 2012-10-10 23:45:54 --> Total execution time: 0.2158
+DEBUG - 2012-10-10 23:46:12 --> Config Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:46:12 --> URI Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Router Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Output Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Security Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Input Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:46:12 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:46:12 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:46:12 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:46:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:46:12 --> Language Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:46:12 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:46:12 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Current migration: 2
+DEBUG - 2012-10-10 23:46:12 --> REST Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Config Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:46:12 --> URI Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Router Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Output Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Security Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Input Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:46:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:46:12 --> Language Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:46:12 --> Model Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:46:12 --> Model Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> Model Class Initialized
+DEBUG - 2012-10-10 23:46:12 --> development enviro
+DEBUG - 2012-10-10 23:46:12 --> Final output sent to browser
+DEBUG - 2012-10-10 23:46:12 --> Total execution time: 0.1255
+DEBUG - 2012-10-10 23:48:14 --> Config Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:48:14 --> URI Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Router Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Output Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Security Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Input Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:14 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:48:14 --> Language Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:48:14 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:48:14 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Current migration: 2
+DEBUG - 2012-10-10 23:48:14 --> REST Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Config Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:48:14 --> URI Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Router Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Output Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Security Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Input Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:14 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:48:14 --> Language Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:48:14 --> Model Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:48:14 --> Model Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> Model Class Initialized
+DEBUG - 2012-10-10 23:48:14 --> development enviro
+ERROR - 2012-10-10 23:48:14 --> Severity: Notice  --> Undefined property: REST::$info /Library/WebServer/Documents/bookymark/application/controllers/api_test.php 47
+DEBUG - 2012-10-10 23:48:14 --> Final output sent to browser
+DEBUG - 2012-10-10 23:48:14 --> Total execution time: 0.0911
+DEBUG - 2012-10-10 23:48:23 --> Config Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:48:23 --> URI Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Router Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Output Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Security Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Input Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:48:23 --> Language Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:48:23 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:48:23 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Current migration: 2
+DEBUG - 2012-10-10 23:48:23 --> REST Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Config Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:48:23 --> URI Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Router Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Output Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Security Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Input Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:48:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:48:23 --> Language Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:48:23 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:48:24 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:48:24 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:48:24 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:48:24 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:48:24 --> Model Class Initialized
+DEBUG - 2012-10-10 23:48:24 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:48:24 --> Model Class Initialized
+DEBUG - 2012-10-10 23:48:24 --> Model Class Initialized
+DEBUG - 2012-10-10 23:48:24 --> development enviro
+DEBUG - 2012-10-10 23:48:24 --> Final output sent to browser
+DEBUG - 2012-10-10 23:48:24 --> Total execution time: 0.2114
+DEBUG - 2012-10-10 23:50:21 --> Config Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:50:21 --> URI Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Router Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Output Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Security Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Input Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:21 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:21 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:21 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:21 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:50:21 --> Language Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:50:21 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:50:21 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:50:21 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Current migration: 2
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:50:21 --> Session Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:50:21 --> Session routines successfully run
+DEBUG - 2012-10-10 23:50:21 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:50:21 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:50:21 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:50:21 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:50:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:21 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:50:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:21 --> Config Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:50:21 --> URI Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Router Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Output Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Security Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Input Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:21 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:21 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:21 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:21 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:50:21 --> Language Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:50:21 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:50:21 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Current migration: 2
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:50:21 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:50:21 --> Session Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:50:21 --> Session routines successfully run
+DEBUG - 2012-10-10 23:50:21 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:50:21 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:50:21 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:50:21 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: cookie_helper
+DEBUG - 2012-10-10 23:50:21 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:50:21 --> Form Validation Class Initialized
+DEBUG - 2012-10-10 23:50:21 --> Config file loaded: ../application/config/form_validation.php
+DEBUG - 2012-10-10 23:50:21 --> File loaded: ../application/views/auth/login.php
+ERROR - 2012-10-10 23:50:21 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:50:21 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:50:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:21 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:50:21 --> Final output sent to browser
+DEBUG - 2012-10-10 23:50:21 --> Total execution time: 0.0914
+DEBUG - 2012-10-10 23:50:23 --> Config Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:50:23 --> URI Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Router Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Output Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Security Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Input Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:50:23 --> Language Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:50:23 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:50:23 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Current migration: 2
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:50:23 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:50:23 --> Session Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:50:23 --> Session routines successfully run
+DEBUG - 2012-10-10 23:50:23 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:50:23 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:50:23 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:50:23 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: cookie_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:50:23 --> Form Validation Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../application/config/form_validation.php
+DEBUG - 2012-10-10 23:50:23 --> Language file loaded: language/english/form_validation_lang.php
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:50:23 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:50:23 --> Config Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:50:23 --> URI Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Router Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Output Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Security Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Input Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:50:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:50:23 --> Language Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:50:23 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:50:23 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:50:23 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Current migration: 2
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:50:23 --> Session Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:50:23 --> Session routines successfully run
+DEBUG - 2012-10-10 23:50:23 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:50:23 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:50:23 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:50:23 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:50:23 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:50:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:23 --> Model Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:50:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:23 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:50:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:23 --> REST Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> cURL Class Initialized
+ERROR - 2012-10-10 23:50:23 --> Severity: Notice  --> Undefined property: bookmarks::$api_base_url /Library/WebServer/Documents/bookymark/codeigniter/system/core/Model.php 51
+ERROR - 2012-10-10 23:50:23 --> Severity: Notice  --> Undefined property: bookmarks::$api_access_token /Library/WebServer/Documents/bookymark/codeigniter/system/core/Model.php 51
+ERROR - 2012-10-10 23:50:23 --> Severity: Notice  --> Undefined property: bookmarks::$api_shared_secret /Library/WebServer/Documents/bookymark/codeigniter/system/core/Model.php 51
+DEBUG - 2012-10-10 23:50:23 --> Config Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:50:23 --> URI Class Initialized
+DEBUG - 2012-10-10 23:50:23 --> Router Class Initialized
+ERROR - 2012-10-10 23:50:23 --> 404 Page Not Found --> api/v1
+ERROR - 2012-10-10 23:50:23 --> Severity: Warning  --> Invalid argument supplied for foreach() /Library/WebServer/Documents/bookymark/application/models/bookmark_model.php 178
+ERROR - 2012-10-10 23:50:23 --> Severity: Warning  --> Invalid argument supplied for foreach() /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 59
+DEBUG - 2012-10-10 23:50:23 --> File loaded: ../application/views/bookmarks/index.php
+ERROR - 2012-10-10 23:50:23 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:50:23 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:50:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:50:23 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:50:23 --> Final output sent to browser
+DEBUG - 2012-10-10 23:50:23 --> Total execution time: 0.1240
+DEBUG - 2012-10-10 23:51:27 --> Config Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:51:27 --> URI Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Router Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Output Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Security Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Input Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:51:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:51:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:51:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:51:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:51:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:51:27 --> Language Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:51:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:51:27 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:51:27 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Current migration: 2
+DEBUG - 2012-10-10 23:51:27 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:51:27 --> Session Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:51:27 --> Session routines successfully run
+DEBUG - 2012-10-10 23:51:27 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:51:27 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:51:27 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:51:27 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:51:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:51:27 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:51:27 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:51:27 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:51:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:51:27 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:51:27 --> REST Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Config Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:51:27 --> URI Class Initialized
+DEBUG - 2012-10-10 23:51:27 --> Router Class Initialized
+ERROR - 2012-10-10 23:51:27 --> 404 Page Not Found --> api/v1
+ERROR - 2012-10-10 23:51:27 --> Severity: Warning  --> Invalid argument supplied for foreach() /Library/WebServer/Documents/bookymark/application/models/bookmark_model.php 178
+ERROR - 2012-10-10 23:51:27 --> Severity: Warning  --> Invalid argument supplied for foreach() /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 59
+DEBUG - 2012-10-10 23:51:27 --> File loaded: ../application/views/bookmarks/index.php
+ERROR - 2012-10-10 23:51:27 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:51:27 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:51:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:51:27 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:51:27 --> Final output sent to browser
+DEBUG - 2012-10-10 23:51:27 --> Total execution time: 0.1224
+DEBUG - 2012-10-10 23:54:19 --> Config Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:54:19 --> URI Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Router Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Output Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Security Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Input Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:54:19 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:54:19 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:54:19 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:54:19 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:54:19 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:54:19 --> Language Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:54:19 --> Model Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Model Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:54:19 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:54:19 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Current migration: 2
+DEBUG - 2012-10-10 23:54:19 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:54:19 --> Session Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:54:19 --> Session routines successfully run
+DEBUG - 2012-10-10 23:54:19 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:54:19 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:54:19 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:54:19 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:54:19 --> Model Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:54:19 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:54:19 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:54:19 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:54:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:54:19 --> Model Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:54:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:54:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:54:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:54:19 --> REST Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Config Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:54:19 --> URI Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Router Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Output Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Security Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Input Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:54:19 --> Language Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:54:19 --> Model Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:54:19 --> Model Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> Model Class Initialized
+DEBUG - 2012-10-10 23:54:19 --> development enviro
+ERROR - 2012-10-10 23:54:19 --> Severity: Notice  --> Undefined property: stdClass::$url /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 61
+ERROR - 2012-10-10 23:54:19 --> Severity: Notice  --> Undefined property: stdClass::$description /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 62
+ERROR - 2012-10-10 23:54:19 --> Severity: Notice  --> Undefined property: stdClass::$id /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 70
+ERROR - 2012-10-10 23:54:19 --> Severity: Notice  --> Undefined property: stdClass::$id /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 71
+ERROR - 2012-10-10 23:54:19 --> Severity: Notice  --> Trying to get property of non-object /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 61
+ERROR - 2012-10-10 23:54:19 --> Severity: Notice  --> Trying to get property of non-object /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 62
+ERROR - 2012-10-10 23:54:19 --> Severity: Notice  --> Trying to get property of non-object /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 70
+ERROR - 2012-10-10 23:54:19 --> Severity: Notice  --> Trying to get property of non-object /Library/WebServer/Documents/bookymark/application/presenters/bookmark_presenter.php 71
+DEBUG - 2012-10-10 23:54:19 --> File loaded: ../application/views/bookmarks/index.php
+ERROR - 2012-10-10 23:54:19 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:54:19 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:54:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:54:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:54:19 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:54:19 --> Final output sent to browser
+DEBUG - 2012-10-10 23:54:19 --> Total execution time: 0.2275
+DEBUG - 2012-10-10 23:55:40 --> Config Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:55:40 --> URI Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Router Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Output Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Security Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Input Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:55:40 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:55:40 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:55:40 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:55:40 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:55:40 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:55:40 --> Language Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:55:40 --> Model Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Model Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:55:40 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:55:40 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Current migration: 2
+DEBUG - 2012-10-10 23:55:40 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:55:40 --> Session Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:55:40 --> Session routines successfully run
+DEBUG - 2012-10-10 23:55:40 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:55:40 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:55:40 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:55:40 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:55:40 --> Model Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:55:40 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:55:40 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:55:40 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:55:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:55:40 --> Model Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:55:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:55:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:55:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:55:40 --> REST Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Config Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:55:40 --> URI Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Router Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Output Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Security Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Input Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:55:40 --> Language Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:55:40 --> Model Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:55:40 --> Model Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> Model Class Initialized
+DEBUG - 2012-10-10 23:55:40 --> development enviro
+ERROR - 2012-10-10 23:55:40 --> Severity: 4096  --> Object of class stdClass could not be converted to string /Library/WebServer/Documents/bookymark/application/models/bookmark_model.php 334
+DEBUG - 2012-10-10 23:55:40 --> return: 
+DEBUG - 2012-10-10 23:56:02 --> Config Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:56:02 --> URI Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> Router Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> Output Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> Security Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> Input Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:56:02 --> Language Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:56:02 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:56:03 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:56:03 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:56:03 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Current migration: 2
+DEBUG - 2012-10-10 23:56:03 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:56:03 --> Session Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:56:03 --> Session routines successfully run
+DEBUG - 2012-10-10 23:56:03 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:56:03 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:56:03 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:56:03 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:56:03 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:56:03 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:56:03 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:56:03 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:56:03 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:56:03 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:56:03 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:56:03 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:56:03 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:56:03 --> REST Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Config Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:56:03 --> URI Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Router Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Output Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Security Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Input Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:56:03 --> Language Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:56:03 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:56:03 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:03 --> development enviro
+DEBUG - 2012-10-10 23:56:03 --> return: stdClass Object
+(
+    [_debug] => stdClass Object
+        (
+            [request] => stdClass Object
+                (
+                    [ip_address] => 127.0.0.1
+                    [uri_string] => api/v1/bookmarks/user_id/83
+                    [controller] => bookmarks
+                    [method] => show
+                    [access_token] => 4395dd07a3cfe84d9655bb2542907f3acd0024fe
+                    [user_agent] => Bookymark Application
+                )
+
+            [server] => stdClass Object
+                (
+                    [elapsed_time] => 0.0593
+                    [memory_usage] => 2.45MB
+                    [total_queries] => 3
+                )
+
+            [curl_guess] => curl -X GET -H 'Accept: application/json; version=v1' -H 'X-Access-Token: 4395dd07a3cfe84d9655bb2542907f3acd0024fe' -H 'X-Request-Timestamp: 1349906163' -H 'X-Request-Signature: 810267c46c7eaa58d2aaa0a71bec0828d2583492' http://bookymark.dev/api/v1/bookmarks/user_id/83
+        )
+
+    [result] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 181
+                    [url] => http://sdfsfdfs.com
+                    [description] => dfsfds
+                    [user_id] => 83
+                    [created_at] => 2012-10-10 03:28:22
+                    [updated_at] => 2012-10-10 03:28:22
+                )
+
+            [1] => stdClass Object
+                (
+                    [id] => 182
+                    [url] => http://asdfsdfdsa.com
+                    [description] => asdfdsaf
+                    [user_id] => 83
+                    [created_at] => 
+                    [updated_at] => 
+                )
+
+            [2] => stdClass Object
+                (
+                    [id] => 183
+                    [url] => http://sdfsdfdfsds.com
+                    [description] => sdffffff
+                    [user_id] => 83
+                    [created_at] => 
+                    [updated_at] => 
+                )
+
+            [3] => stdClass Object
+                (
+                    [id] => 185
+                    [url] => http://test.com
+                    [description] => 4949484
+                    [user_id] => 83
+                    [created_at] => 
+                    [updated_at] => 
+                )
+
+            [4] => stdClass Object
+                (
+                    [id] => 186
+                    [url] => http://test.com
+                    [description] => sdfsdf
+                    [user_id] => 83
+                    [created_at] => 2012-10-09 21:52:36
+                    [updated_at] => 2012-10-09 21:52:36
+                )
+
+            [5] => stdClass Object
+                (
+                    [id] => 188
+                    [url] => http://yahoo.com
+                    [description] => sdfsfd
+                    [user_id] => 83
+                    [created_at] => 2012-10-09 22:53:36
+                    [updated_at] => 2012-10-09 22:53:36
+                )
+
+            [6] => stdClass Object
+                (
+                    [id] => 189
+                    [url] => http://yahoo.com
+                    [description] => 33333
+                    [user_id] => 83
+                    [created_at] => 2012-10-09 22:55:33
+                    [updated_at] => 2012-10-09 22:55:33
+                )
+
+            [7] => stdClass Object
+                (
+                    [id] => 190
+                    [url] => http://yahoo.com
+                    [description] => 33333sss
+                    [user_id] => 83
+                    [created_at] => 2012-10-09 22:56:22
+                    [updated_at] => 2012-10-09 22:56:22
+                )
+
+            [8] => stdClass Object
+                (
+                    [id] => 191
+                    [url] => http://yahoo.com
+                    [description] => sfsdfdsf
+                    [user_id] => 83
+                    [created_at] => 2012-10-09 23:22:04
+                    [updated_at] => 2012-10-09 23:22:04
+                )
+
+            [9] => stdClass Object
+                (
+                    [id] => 192
+                    [url] => http://yahoo.com
+                    [description] => yaaay
+                    [user_id] => 83
+                    [created_at] => 2012-10-09 23:22:13
+                    [updated_at] => 2012-10-09 23:22:13
+                )
+
+            [10] => stdClass Object
+                (
+                    [id] => 194
+                    [url] => http://yahoo.com
+                    [description] => 1232312
+                    [user_id] => 83
+                    [created_at] => 2012-10-10 01:35:16
+                    [updated_at] => 2012-10-10 01:35:16
+                )
+
+            [11] => stdClass Object
+                (
+                    [id] => 195
+                    [url] => http://yahoo.com
+                    [description] => sdsd
+                    [user_id] => 83
+                    [created_at] => 2012-10-10 01:37:15
+                    [updated_at] => 2012-10-10 01:37:15
+                )
+
+            [12] => stdClass Object
+                (
+                    [id] => 196
+                    [url] => http://test.com
+                    [description] => dfo44o
+                    [user_id] => 83
+                    [created_at] => 2012-10-10 01:37:27
+                    [updated_at] => 2012-10-10 01:37:27
+                )
+
+        )
+
+)
+
+DEBUG - 2012-10-10 23:56:33 --> Config Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:56:33 --> URI Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Router Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Output Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Security Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Input Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:33 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:33 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:33 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:33 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:56:33 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:56:33 --> Language Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:56:33 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:56:33 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:56:33 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Current migration: 2
+DEBUG - 2012-10-10 23:56:33 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:56:33 --> Session Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:56:33 --> Session routines successfully run
+DEBUG - 2012-10-10 23:56:33 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:56:33 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:56:33 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:56:33 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:56:33 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:56:33 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:56:33 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:56:33 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:56:33 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:56:33 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:56:33 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:56:33 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:56:33 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:56:33 --> REST Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Config Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:56:33 --> URI Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Router Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Output Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Security Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Input Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:56:33 --> Language Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:56:33 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:56:33 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> Model Class Initialized
+DEBUG - 2012-10-10 23:56:33 --> return: Array
+(
+    [0] => stdClass Object
+        (
+            [id] => 181
+            [url] => http://sdfsfdfs.com
+            [description] => dfsfds
+            [user_id] => 83
+            [created_at] => 2012-10-10 03:28:22
+            [updated_at] => 2012-10-10 03:28:22
+        )
+
+    [1] => stdClass Object
+        (
+            [id] => 182
+            [url] => http://asdfsdfdsa.com
+            [description] => asdfdsaf
+            [user_id] => 83
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => stdClass Object
+        (
+            [id] => 183
+            [url] => http://sdfsdfdfsds.com
+            [description] => sdffffff
+            [user_id] => 83
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => stdClass Object
+        (
+            [id] => 185
+            [url] => http://test.com
+            [description] => 4949484
+            [user_id] => 83
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => stdClass Object
+        (
+            [id] => 186
+            [url] => http://test.com
+            [description] => sdfsdf
+            [user_id] => 83
+            [created_at] => 2012-10-09 21:52:36
+            [updated_at] => 2012-10-09 21:52:36
+        )
+
+    [5] => stdClass Object
+        (
+            [id] => 188
+            [url] => http://yahoo.com
+            [description] => sdfsfd
+            [user_id] => 83
+            [created_at] => 2012-10-09 22:53:36
+            [updated_at] => 2012-10-09 22:53:36
+        )
+
+    [6] => stdClass Object
+        (
+            [id] => 189
+            [url] => http://yahoo.com
+            [description] => 33333
+            [user_id] => 83
+            [created_at] => 2012-10-09 22:55:33
+            [updated_at] => 2012-10-09 22:55:33
+        )
+
+    [7] => stdClass Object
+        (
+            [id] => 190
+            [url] => http://yahoo.com
+            [description] => 33333sss
+            [user_id] => 83
+            [created_at] => 2012-10-09 22:56:22
+            [updated_at] => 2012-10-09 22:56:22
+        )
+
+    [8] => stdClass Object
+        (
+            [id] => 191
+            [url] => http://yahoo.com
+            [description] => sfsdfdsf
+            [user_id] => 83
+            [created_at] => 2012-10-09 23:22:04
+            [updated_at] => 2012-10-09 23:22:04
+        )
+
+    [9] => stdClass Object
+        (
+            [id] => 192
+            [url] => http://yahoo.com
+            [description] => yaaay
+            [user_id] => 83
+            [created_at] => 2012-10-09 23:22:13
+            [updated_at] => 2012-10-09 23:22:13
+        )
+
+    [10] => stdClass Object
+        (
+            [id] => 194
+            [url] => http://yahoo.com
+            [description] => 1232312
+            [user_id] => 83
+            [created_at] => 2012-10-10 01:35:16
+            [updated_at] => 2012-10-10 01:35:16
+        )
+
+    [11] => stdClass Object
+        (
+            [id] => 195
+            [url] => http://yahoo.com
+            [description] => sdsd
+            [user_id] => 83
+            [created_at] => 2012-10-10 01:37:15
+            [updated_at] => 2012-10-10 01:37:15
+        )
+
+    [12] => stdClass Object
+        (
+            [id] => 196
+            [url] => http://test.com
+            [description] => dfo44o
+            [user_id] => 83
+            [created_at] => 2012-10-10 01:37:27
+            [updated_at] => 2012-10-10 01:37:27
+        )
+
+)
+
+DEBUG - 2012-10-10 23:57:32 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:32 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:32 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:32 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:32 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:32 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:32 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:32 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:57:32 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:57:32 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Current migration: 2
+DEBUG - 2012-10-10 23:57:32 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:57:32 --> Session Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:57:32 --> Session routines successfully run
+DEBUG - 2012-10-10 23:57:32 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:57:32 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:57:32 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:57:32 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:57:32 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:32 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:57:32 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:57:32 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:57:32 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:32 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:32 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:32 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:57:32 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:32 --> REST Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:32 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:32 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:32 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:32 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:32 --> File loaded: ../application/views/bookmarks/index.php
+ERROR - 2012-10-10 23:57:32 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:57:32 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:57:32 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:32 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:32 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:57:32 --> Final output sent to browser
+DEBUG - 2012-10-10 23:57:32 --> Total execution time: 0.2016
+DEBUG - 2012-10-10 23:57:38 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:38 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:38 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:38 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:38 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:38 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:57:38 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:57:38 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Current migration: 2
+DEBUG - 2012-10-10 23:57:38 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:57:38 --> Session Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:57:38 --> Session routines successfully run
+DEBUG - 2012-10-10 23:57:38 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:57:38 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:57:38 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:57:38 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:57:38 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:38 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:57:38 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:57:38 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:57:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:38 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:38 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:57:38 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:57:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:38 --> File loaded: ../application/views/bookmarks/edit.php
+ERROR - 2012-10-10 23:57:38 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:57:38 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:57:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:38 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:38 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:57:38 --> Final output sent to browser
+DEBUG - 2012-10-10 23:57:38 --> Total execution time: 0.1500
+DEBUG - 2012-10-10 23:57:42 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:42 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:42 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:57:42 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:57:42 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Current migration: 2
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:57:42 --> Session Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:57:42 --> Session routines successfully run
+DEBUG - 2012-10-10 23:57:42 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:57:42 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:57:42 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:57:42 --> Form Validation Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../application/config/form_validation.php
+DEBUG - 2012-10-10 23:57:42 --> Language file loaded: language/english/form_validation_lang.php
+DEBUG - 2012-10-10 23:57:42 --> REST Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:42 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:42 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+ERROR - 2012-10-10 23:57:42 --> Severity: Warning  --> opendir(../application/db_cache/bookmarks+new): failed to open dir: No such file or directory /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 126
+DEBUG - 2012-10-10 23:57:42 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:42 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:42 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:57:42 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:57:42 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Current migration: 2
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:57:42 --> Session Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:57:42 --> Session routines successfully run
+DEBUG - 2012-10-10 23:57:42 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:57:42 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:57:42 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:57:42 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> REST Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:42 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:42 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:42 --> File loaded: ../application/views/bookmarks/index.php
+ERROR - 2012-10-10 23:57:42 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:57:42 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:42 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:57:42 --> Final output sent to browser
+DEBUG - 2012-10-10 23:57:42 --> Total execution time: 0.1665
+DEBUG - 2012-10-10 23:57:46 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:46 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:46 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:46 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:46 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:46 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:46 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:46 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:46 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:46 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:46 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:46 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:46 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:46 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:47 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:47 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:57:47 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:57:47 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> Current migration: 2
+DEBUG - 2012-10-10 23:57:47 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:57:47 --> Session Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:57:47 --> Session routines successfully run
+DEBUG - 2012-10-10 23:57:47 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:57:47 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:57:47 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:57:47 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:57:47 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:47 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:57:47 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:57:47 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:57:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:47 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:47 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:57:47 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:57:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:47 --> File loaded: ../application/views/bookmarks/edit.php
+ERROR - 2012-10-10 23:57:47 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:57:47 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:57:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:47 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:57:47 --> Final output sent to browser
+DEBUG - 2012-10-10 23:57:47 --> Total execution time: 0.0824
+DEBUG - 2012-10-10 23:57:52 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:52 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:52 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:57:52 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:57:52 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Current migration: 2
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:57:52 --> Session Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:57:52 --> Session routines successfully run
+DEBUG - 2012-10-10 23:57:52 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:57:52 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:57:52 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:57:52 --> Form Validation Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../application/config/form_validation.php
+DEBUG - 2012-10-10 23:57:52 --> Language file loaded: language/english/form_validation_lang.php
+DEBUG - 2012-10-10 23:57:52 --> REST Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:52 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:52 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+ERROR - 2012-10-10 23:57:52 --> Severity: Warning  --> opendir(../application/db_cache/bookmarks+new): failed to open dir: No such file or directory /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 126
+DEBUG - 2012-10-10 23:57:52 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:52 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:52 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:52 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:57:52 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:57:52 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Current migration: 2
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:57:52 --> Session Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:57:52 --> Session routines successfully run
+DEBUG - 2012-10-10 23:57:52 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:57:52 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:57:52 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:57:52 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> REST Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:52 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:52 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:52 --> File loaded: ../application/views/bookmarks/index.php
+ERROR - 2012-10-10 23:57:52 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:57:52 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:52 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:57:52 --> Final output sent to browser
+DEBUG - 2012-10-10 23:57:52 --> Total execution time: 0.1303
+DEBUG - 2012-10-10 23:57:58 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:58 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:58 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:57:58 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:58 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:58 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:57:58 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:57:58 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Current migration: 2
+DEBUG - 2012-10-10 23:57:58 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:57:58 --> Session Class Initialized
+DEBUG - 2012-10-10 23:57:58 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:57:59 --> Session routines successfully run
+DEBUG - 2012-10-10 23:57:59 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:57:59 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:57:59 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:57:59 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:57:59 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:59 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:57:59 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:57:59 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:57:59 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:59 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:57:59 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:59 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:57:59 --> REST Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Config Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:57:59 --> URI Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Router Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Output Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Security Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Input Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:57:59 --> Language Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:57:59 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:57:59 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Model Class Initialized
+DEBUG - 2012-10-10 23:57:59 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:59 --> File loaded: ../application/views/bookmarks/edit.php
+ERROR - 2012-10-10 23:57:59 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+ERROR - 2012-10-10 23:57:59 --> Severity: Warning  --> fopen(/Library/WebServer/Documents/bookymark/public/assets/cache/info.cache): failed to open stream: Permission denied /Library/WebServer/Documents/bookymark/codeigniter/system/helpers/file_helper.php 90
+DEBUG - 2012-10-10 23:57:59 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:59 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:57:59 --> File loaded: ../application/views/layouts/application.php
+DEBUG - 2012-10-10 23:57:59 --> Final output sent to browser
+DEBUG - 2012-10-10 23:57:59 --> Total execution time: 0.1718
+DEBUG - 2012-10-10 23:58:02 --> Config Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:58:02 --> URI Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Router Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Output Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Security Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Input Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:58:02 --> Language Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:58:02 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:58:02 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:58:02 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Current migration: 2
+DEBUG - 2012-10-10 23:58:02 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:58:02 --> Session Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:58:02 --> Session routines successfully run
+DEBUG - 2012-10-10 23:58:02 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:58:02 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:58:02 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:58:02 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:58:02 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:58:02 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:58:02 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:58:02 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:58:02 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:58:02 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:58:02 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:58:02 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:58:02 --> Form Validation Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Config file loaded: ../application/config/form_validation.php
+DEBUG - 2012-10-10 23:58:02 --> Language file loaded: language/english/form_validation_lang.php
+DEBUG - 2012-10-10 23:58:02 --> REST Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Config Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:58:02 --> URI Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Router Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Output Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Security Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Input Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:58:02 --> Language Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:58:02 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:58:02 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:02 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Config Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:58:43 --> URI Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Router Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Output Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Security Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Input Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:58:43 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:58:43 --> Language Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:58:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:58:43 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:58:43 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Current migration: 2
+DEBUG - 2012-10-10 23:58:43 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:58:43 --> Session Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:58:43 --> Session routines successfully run
+DEBUG - 2012-10-10 23:58:43 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:58:43 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:58:43 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:58:43 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:58:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:58:43 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:58:43 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:58:43 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:58:43 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:58:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:58:43 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:58:43 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:58:43 --> Form Validation Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Config file loaded: ../application/config/form_validation.php
+DEBUG - 2012-10-10 23:58:43 --> Language file loaded: language/english/form_validation_lang.php
+DEBUG - 2012-10-10 23:58:43 --> REST Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Config Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:58:43 --> URI Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Router Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Output Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Security Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Input Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:58:43 --> Language Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:58:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:58:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> Model Class Initialized
+DEBUG - 2012-10-10 23:58:43 --> return: stdClass Object
+(
+    [success] => 1
+)
+
+DEBUG - 2012-10-10 23:59:27 --> Config Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:59:27 --> URI Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Router Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Output Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Security Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Input Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> XSS Filtering completed
+DEBUG - 2012-10-10 23:59:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:59:27 --> Language Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:59:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Config file loaded: ../application/config/development/bookymark_api.php
+DEBUG - 2012-10-10 23:59:27 --> Language file loaded: language/english/migration_lang.php
+DEBUG - 2012-10-10 23:59:27 --> Database Forge Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Current migration: 2
+DEBUG - 2012-10-10 23:59:27 --> Config file loaded: ../sparks/ci_alerts/1.1.7/config/ci_alerts.php
+DEBUG - 2012-10-10 23:59:27 --> Session Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: string_helper
+DEBUG - 2012-10-10 23:59:27 --> Session routines successfully run
+DEBUG - 2012-10-10 23:59:27 --> CI Alerts: Library loaded.
+DEBUG - 2012-10-10 23:59:27 --> Config file loaded: ../sparks/ci_authentication/1.3.4/config/ci_authentication.php
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: ci_authentication_helper
+DEBUG - 2012-10-10 23:59:27 --> CI Authentication: library initialized.
+DEBUG - 2012-10-10 23:59:27 --> CI Authentication: CI Alerts spark initialized.
+DEBUG - 2012-10-10 23:59:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:59:27 --> Config file loaded: ../sparks/assets/1.5.1/config/assets.php
+DEBUG - 2012-10-10 23:59:27 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cssmin.php
+DEBUG - 2012-10-10 23:59:27 --> Config file loaded: ../sparks/assets/1.5.1/config/assets_cdn.php
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: file_helper
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: directory_helper
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: html_helper
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: assets_helper
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: partial_helper
+DEBUG - 2012-10-10 23:59:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:59:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> CI Authentication: model loaded.
+DEBUG - 2012-10-10 23:59:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:59:27 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: encrypt_helper
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: form_helper
+DEBUG - 2012-10-10 23:59:27 --> Form Validation Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Config file loaded: ../application/config/form_validation.php
+DEBUG - 2012-10-10 23:59:27 --> Language file loaded: language/english/form_validation_lang.php
+DEBUG - 2012-10-10 23:59:27 --> REST Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> cURL Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Config Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Hooks Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Utf8 Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> UTF-8 Support Enabled
+DEBUG - 2012-10-10 23:59:27 --> URI Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Router Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Output Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Security Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Input Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-10-10 23:59:27 --> Language Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Loader Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Database Driver Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Controller Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: url_helper
+DEBUG - 2012-10-10 23:59:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Helper loaded: inflector_helper
+DEBUG - 2012-10-10 23:59:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> Model Class Initialized
+DEBUG - 2012-10-10 23:59:27 --> return: stdClass Object
+(
+    [success] => 1
+)
+

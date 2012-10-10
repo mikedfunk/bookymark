@@ -41,7 +41,10 @@ class MY_Form_validation extends CI_Form_validation
     {
         parent::__construct();
         $this->_ci =& get_instance();
-        $this->_ci->config->load('form_validation');
+        if (file_exists(APPPATH . 'config/form_validation.php'))
+        {
+	        $this->_ci->config->load('form_validation');
+	    }
         $this->_error_prefix = (config_item('form_error_prefix') ? config_item('form_error_prefix') : '');
         $this->_error_suffix = (config_item('form_error_suffix') ? config_item('form_error_suffix') : '');
     }
