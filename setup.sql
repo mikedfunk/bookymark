@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 127.0.0.1 (MySQL 5.5.19)
-# Database: bookymark_test
-# Generation Time: 2012-03-11 13:33:50 -0400
+# Host: 127.0.0.1 (MySQL 5.5.27)
+# Database: bookymark
+# Generation Time: 2012-10-09 19:37:56 +0000
 # ************************************************************
 
 
@@ -20,54 +20,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table bookmarks
+# Dump of table api_clients
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `bookmarks`;
+DROP TABLE IF EXISTS `api_clients`;
 
-CREATE TABLE `bookmarks` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `url` varchar(300) DEFAULT NULL,
-  `description` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `api_clients` (
+  `access_token` varchar(40) DEFAULT NULL,
+  `shared_secret` varchar(40) DEFAULT NULL,
+  `throttle_count` int(11) DEFAULT NULL,
+  `throttled_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `api_clients` WRITE;
+/*!40000 ALTER TABLE `api_clients` DISABLE KEYS */;
 
+INSERT INTO `api_clients` (`access_token`, `shared_secret`, `throttle_count`, `throttled_at`)
+VALUES
+	('4395dd07a3cfe84d9655bb2542907f3acd0024fe','3c697e1314808f56bd44bc5ccb4765607b433715',51,'2012-10-09 20:50:24');
 
-# Dump of table roles
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `roles`;
-
-CREATE TABLE `roles` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(50) DEFAULT NULL,
-  `home_page` varchar(100) DEFAULT NULL,
-  `can_list_bookmarks` tinyint(1) DEFAULT '0',
-  `can_view_bookmarks` tinyint(1) DEFAULT '0',
-  `can_edit_bookmarks` tinyint(1) DEFAULT '0',
-  `can_add_bookmarks` tinyint(1) DEFAULT '0',
-  `can_delete_bookmarks` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table users
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `users`;
-
-CREATE TABLE `users` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `email_address` varchar(300) DEFAULT NULL,
-  `password` varchar(300) DEFAULT NULL,
-  `role_id` int(11) DEFAULT NULL,
-  `confirm_string` varchar(100) DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+/*!40000 ALTER TABLE `api_clients` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 

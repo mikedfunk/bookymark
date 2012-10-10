@@ -1,6 +1,30 @@
 web1: #component type & number
   name: bookymark            #component settings
   shared_writable_dirs:
-    - /assets/cache
+    - /public/assets/cache
     - /application/db_cache
     - /application/cache
+    - /application/logs
+  document_root: public/
+  php_version: 5.3.10
+  php_display_errors: "1"
+  php_date_timezone: "America/New_York"
+  php_max_input_time: 999
+  php_max_execution_time: 999
+  php_extensions:
+    - curl
+    - gd
+    - imagick
+    - json
+    - memcached
+    - mysqli
+    - mysql
+    - pdo_mysql
+    - pdo
+    - phar
+    - session
+    - simplexml
+    - soap
+    - xml
+  zend_extensions:
+    - xdebug

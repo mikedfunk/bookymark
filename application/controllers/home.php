@@ -1,39 +1,25 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 /**
- * home
- * 
- * Where everything goes that doesn't require login.
- * 
- * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @author		Mike Funk
- * @link		http://mikefunk.com
- * @email		mike@mikefunk.com
- * 
- * @file		home.php
- * @version		1.3.1
- * @date		03/12/2012
+ * the intro page
+ *
+ * @author Mike Funk
+ * @email mfunk@christianpublishing.com
+ *
+ * @file home.php
  */
+
+require_once(APPPATH . 'presenters/auth_presenter.php');
 
 // --------------------------------------------------------------------------
 
 /**
  * home class.
  * 
- * @extends CI_Controller
+ * @extends MY_Controller
  */
-class home extends CI_Controller
+class home extends MY_Controller
 {
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * _data
-	 *
-	 * holds all data for views.
-	 * 
-	 * @var array
-	 * @access private
-	 */
-	private $_data;
 	
 	// --------------------------------------------------------------------------
 	
@@ -48,11 +34,10 @@ class home extends CI_Controller
 		parent::__construct();
 		
 		// load resources
-		$this->load->spark('carabiner/1.5.4');
-		if (ENVIRONMENT == 'development')
-		{
-			$this->output->enable_profiler(TRUE);
-		}
+		$this->load->spark('assets/1.5.1');
+		$this->load->helper('partial');
+		$this->load->helper('url');
+		$this->data['auth'] = new Auth_presenter(false);
 	}
 	
 	// --------------------------------------------------------------------------
@@ -67,16 +52,9 @@ class home extends CI_Controller
 	 */
 	public function index()
 	{
-		// load resources
-		$this->load->helper('url');
-		
-		// load view
-		$this->_data['title'] = 'Home | Bookymark';
-		$this->_data['content'] = $this->load->view('home/home_view', $this->_data, TRUE);
-		$this->load->view('template_view', $this->_data);
 	}
 	
 	// --------------------------------------------------------------------------
 }
 /* End of file home.php */
-/* Location: ./bookymark/application/controllers/home.php */
+/* Location: ./application/controllers/home.php */

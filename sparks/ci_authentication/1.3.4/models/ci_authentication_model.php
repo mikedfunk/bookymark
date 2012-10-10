@@ -19,9 +19,9 @@
 /**
  * ci_authentication_model class.
  * 
- * @extends CI_Model
+ * @extends MY_Model
  */
-class ci_authentication_model extends CI_Model
+class ci_authentication_model extends MY_Model
 {	
 	// --------------------------------------------------------------------------
 	

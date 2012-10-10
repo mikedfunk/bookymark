@@ -1,264 +1,170 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
- * bookmarks 
- * 
- * All methods for bookmarks. All methods are restricted via __construct().
- * 
- * @license		http://www.apache.org/licenses/LICENSE-2.0  Apache License 2.0
- * @author		Mike Funk
- * @link		http://mikefunk.com
- * @email		mike@mikefunk.com
- * 
- * @file		bookmarks.php
- * @version		1.3.1
- * @date		03/12/2012
- */
-
-// --------------------------------------------------------------------------
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * bookmarks class.
- * 
- * @extends CI_Controller
+ * display bookmarks
+ *
+ * @author Mike Funk
+ * @email mfunk@christianpublishing.com
+ *
+ * @file bookmarks.php
  */
-class bookmarks extends CI_Controller
+
+require_once(APPPATH . 'presenters/bookmark_presenter.php');
+require_once(APPPATH . 'presenters/auth_presenter.php');
+
+class bookmarks extends MY_Controller
 {
+	public $before_filters = array('_authenticate_user');
+
 	// --------------------------------------------------------------------------
-	
-	/**
-	 * _data
-	 *
-	 * holds all data for views.
-	 * 
-	 * @var mixed
-	 * @access private
-	 */
-	private $_data;
-	
-	// --------------------------------------------------------------------------
-	
 	/**
 	 * __construct function.
 	 *
-	 * loads common resources.
-	 * 
 	 * @access public
 	 * @return void
 	 */
 	public function __construct()
 	{
 		parent::__construct();
-		
-		// load sparks
-		$this->load->spark(array('ci_authentication/1.3.4', 'carabiner/1.5.4'));
-		
-		// load resources
-		if (ENVIRONMENT == 'development')
-		{
-			$this->output->enable_profiler(TRUE);
-		}
-		
-		// load data
-		if (is_logged_in())
-		{
-			$q = $this->ci_authentication_model->get_user_by_username(auth_username());
-			$this->_data['user'] = $q->row();
-		}
+		$this->load->spark('ci_alerts/1.1.7');
+		$this->load->spark('ci_authentication/1.3.4');
+		$this->load->spark('assets/1.5.1');
+		$this->load->helper('partial');
+		$this->data['auth'] = new Auth_presenter(false);
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
-	 * index function.
+	 * show bookmarks for the logged in user.
 	 *
-	 * shortcut to list_items.
-	 * 
 	 * @access public
 	 * @return void
 	 */
 	public function index()
 	{
-		$this->list_items();
+		$this->data['bookmark'] = new Bookmark_presenter($this->bookmark->get_many_by('user_id', auth_id()));
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
-	 * list_items function.
+	 * _authenticate_user function.
 	 *
-	 * shows all items with pagination and links to edit and delete if permissions
-	 * allow.
-	 * 
-	 * @access public
+	 * @access protected
 	 * @return void
 	 */
-	public function list_items()
-	{	
-		$condition = (isset($this->_data['user']) ? $this->_data['user']->can_list_bookmarks : FALSE);
-		$this->ci_authentication->restrict_access($condition);
-		
-		// load resources
-		$this->load->database();
-		$this->load->model('bookmarks_model');
-		$this->load->library(array('pagination', 'table'));
-		$this->load->spark('query_string_helper/1.2.1');
-		$this->load->helper('url');
-		$this->config->load('pagination');
-		
-		// pagination
-		$opts = $this->input->get();
-		unset($opts['page']);
-		$q = $this->bookmarks_model->list_items($opts);
-		$config['base_url'] = base_url() . 'bookmarks/list_items?';
-		$config['total_rows'] = $this->data['total_rows'] = $q->num_rows();
-		$this->pagination->initialize($config);
-		
-		// get bookmarks
-		$get = (is_array($this->input->get()) ? $this->input->get() : array());
-		$opts = array_merge($get, array('limit' => $this->config->item('per_page')));
-		$this->_data['bookmarks'] = $this->bookmarks_model->list_items($opts);
-		
-		// load view
-		$this->_data['title'] = 'My Bookymarks | Bookymark';
-		$this->_data['content'] = $this->load->view('bookmarks/list_bookmarks_view', $this->_data, TRUE);
-		$this->load->view('template_view', $this->_data);
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * add_item function.
-	 *
-	 * shows add item form, handles validation, adds item and redirects.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function add_item()
+	protected function _authenticate_user()
 	{
-		$condition = (isset($this->_data['user']) ? $this->_data['user']->can_add_bookmarks : FALSE);
+		// restrict user
+		$q = $this->ci_authentication_model->get_user_by_username(auth_username());
+		if ($q->num_rows() == 0 && auth_username() != '')
+		{
+			throw new Exception('No users found with the email address ' . auth_username() . '.');
+		}
+		else if ($q->num_rows() > 1 && auth_username() != '')
+		{
+			throw new Exception('There is more than one user with the email address ' . auth_username() . '.');
+		}
+		$this->data['user'] = $q->row();
+		$condition = (isset($this->data['user']) ? $this->data['user']->can_list_bookmarks : FALSE);
 		$this->ci_authentication->restrict_access($condition);
-		
-		// load resources
-		$this->load->database();
-		$this->load->model('bookmarks_model');
-		$this->load->library('form_validation');
-		$this->load->spark('query_string_helper/1.2.1');
-		$this->load->helper(array('url', 'form'));
-		
-		// form validation
-		$this->form_validation->set_rules('url', 'URL', 'trim|required');
-		$this->form_validation->set_rules('description', 'Description', 'trim');
-		if ($this->form_validation->run() == FALSE)
-		{
-			// load view
-			$this->_data['title'] = 'Add Bookymark | Bookymark';
-			$this->_data['content'] = $this->load->view('bookmarks/bookmark_view', $this->_data, TRUE);
-			$this->load->view('template_view', $this->_data);
-		}
-		else
-		{
-			// add and redirect
-			$this->ci_alerts->set('success', 'Bookmark added.');
-			$this->bookmarks_model->add_item($this->input->post());
-			redirect('bookmarks/list_items');
-		}
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
-	 * edit_item function.
+	 * the form and action to create a bookmark.
 	 *
-	 * shows edit item form, handles validation, edits item and redirects.
-	 * 
 	 * @access public
-	 * @param int $id
 	 * @return void
 	 */
-	public function edit_item($id)
+	public function create_new()
 	{
-		$condition = (isset($this->_data['user']) ? $this->_data['user']->can_edit_bookmarks : FALSE);
-		$this->ci_authentication->restrict_access($condition);
-		
-		// load resources
-		$this->load->database();
-		$this->load->model('bookmarks_model');
-		$this->load->library('form_validation');
-		$this->load->spark('query_string_helper/1.2.1');
-		$this->load->helper(array('url', 'form'));
-		
-		// form validation
-		$this->form_validation->set_rules('url', 'URL', 'trim|required');
-		$this->form_validation->set_rules('description', 'Description', 'trim');
-		if ($this->form_validation->run() == FALSE)
+		$this->view = 'bookmarks/edit';
+		$this->load->helper('form');
+		if ($this->input->post())
 		{
-			// load view
-			$q = $this->bookmarks_model->get_item($id);
-			if ($q->num_rows() == 0) 
+			if ($this->bookmark->insert($this->input->post()))
 			{
-				$this->ci_alerts->set('error', 'Item not found.');
-				redirect('alert');
+				$this->ci_alerts->set('success', 'Bookmark added.');
+				redirect('bookmarks');
 			}
-			$this->_data['item'] = $q->row();
-			$this->_data['title'] = 'Edit Bookymark | Bookymark';
-			$this->_data['content'] = $this->load->view('bookmarks/bookmark_view', $this->_data, TRUE);
-			$this->load->view('template_view', $this->_data);
+		}
+		$this->data['bookmark'] = new Bookmark_presenter(false);
+	}
+
+	// --------------------------------------------------------------------------
+
+	/**
+	 * the form and action to edit a bookmark.
+	 *
+	 * @access public
+	 * @param mixed $id
+	 * @return void
+	 */
+	public function edit($id)
+	{
+		$this->load->helper('form');
+		if ($this->input->post())
+		{
+			if ($this->bookmark->update($this->input->post('id'), $this->input->post()))
+			{
+				$this->ci_alerts->set('success', 'Bookmark edited.');
+				redirect('bookmarks');
+			}
+		}
+
+		$result = $this->bookmark->get($id);
+		if (count((array)$result) == 0)
+		{
+			throw new Exception('Bookmark not found.');
+		}
+		$this->data['bookmark'] = new Bookmark_presenter($result);
+	}
+
+	// --------------------------------------------------------------------------
+
+	/**
+	 * delete action. On success, sets alert and redirects.
+	 *
+	 * @access public
+	 * @param mixed $id
+	 * @return void
+	 */
+	public function delete($id)
+	{
+		$this->ci_alerts->set('success', 'Bookmark deleted.');
+		if (!$this->bookmark->delete($id))
+		{
+			throw new Exception('There was en error deleting your bookmark.');
+		}
+		redirect('bookmarks');
+	}
+
+	// --------------------------------------------------------------------------
+
+	/**
+	 * checks for a valid url via form_validation.
+	 *
+	 * @access public
+	 * @param string $url
+	 * @return bool
+	 */
+	public function _url_check($url)
+	{
+		if (preg_match('%^((https?://)|(www\.))([a-z0-9-].?)+(:[0-9]+)?(/.*)?$%i', $url))
+		{
+			return true;
 		}
 		else
 		{
-			// edit and redirect
-			$this->ci_alerts->set('success', 'Bookmark edited.');
-			$this->bookmarks_model->edit_item($this->input->post());
-			redirect('bookmarks/list_items');
+			$this->form_validation->set_message('_url_check', 'Please enter a valid URL.');
+			return false;
 		}
 	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * delete_item function.
-	 *
-	 * deletes item by passed id, redirects.
-	 * 
-	 * @access public
-	 * @param int $id
-	 * @return void
-	 */
-	public function delete_item($id)
-	{
-		$condition = (isset($this->_data['user']) ? $this->_data['user']->can_delete_bookmarks : FALSE);
-		$this->ci_authentication->restrict_access($condition);
-		
-		// load resources
-		$this->load->database();
-		$this->load->model('bookmarks_model');
-		$this->load->helper('url');
-		
-		// delete item and redirect
-		$this->ci_alerts->set('success', 'Bookmark deleted.');
-		$this->bookmarks_model->delete_item($id);
-		redirect('bookmarks/list_items');
-	}
-	
-	// --------------------------------------------------------------------------
-	
-	/**
-	 * cancel function.
-	 *
-	 * Sets flashdata and redirects.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function cancel()
-	{
-		$this->load->helper('url');
-		$this->ci_alerts->set('success', 'Action cancelled.');
-		redirect($this->input->get('redirect'));
-	}
-	
+
 	// --------------------------------------------------------------------------
 }
 /* End of file bookmarks.php */
-/* Location: ./bookymark/application/controllers/bookmarks.php */
+/* Location: ./application/controllers/bookmarks.php */

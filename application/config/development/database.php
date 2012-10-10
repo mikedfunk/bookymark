@@ -1,29 +1,4 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * NOTICE OF LICENSE
- * 
- * Licensed under the Academic Free License version 3.0
- * 
- * This source file is subject to the Academic Free License (AFL 3.0) that is
- * bundled with this package in the files license_afl.txt / license_afl.rst.
- * It is also available through the world wide web at this URL:
- * http://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to obtain it
- * through the world wide web, please send an email to
- * licensing@ellislab.com so we can send you a copy immediately.
- *
- * @package		CodeIgniter
- * @author		EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2012, EllisLab, Inc. (http://ellislab.com/)
- * @license		http://opensource.org/licenses/AFL-3.0 Academic Free License (AFL 3.0)
- * @link		http://codeigniter.com
- * @since		Version 1.0
- * @filesource
- */
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -41,8 +16,8 @@
 |	['username'] The username used to connect to the database
 |	['password'] The password used to connect to the database
 |	['database'] The name of the database you want to connect to
-|	['dbdriver'] The database type. e.g.: mysql.  Currently supported:
-				 mysql, mysqli, pdo, postgre, odbc, mssql, sqlite, oci8
+|	['dbdriver'] The database type. ie: mysql.  Currently supported:
+				 mysql, mysqli, postgre, odbc, mssql, sqlite, oci8
 |	['dbprefix'] You can add an optional prefix, which will be added
 |				 to the table name when using the  Active Record class
 |	['pconnect'] TRUE/FALSE - Whether to use a persistent connection
@@ -62,7 +37,6 @@
 |	['autoinit'] Whether or not to automatically initialize the database.
 |	['stricton'] TRUE/FALSE - forces 'Strict Mode' connections
 |							- good for ensuring strict SQL while developing
-|	['failover'] array - A array with 0 or more data for connections if the main should fail.
 |
 | The $active_group variable lets you choose which connection group to
 | make active.  By default there is only one group (the 'default' group).
@@ -71,24 +45,10 @@
 | the active record class
 */
 
-$active_group = 'local';
+$active_group = 'development';
 $active_record = TRUE;
 
-$db['local']['hostname'] = '127.0.0.1';
-$db['local']['username'] = 'root';
-$db['local']['password'] = '';
-$db['local']['database'] = 'bookymark';
-$db['local']['dbdriver'] = 'mysql';
-$db['local']['dbprefix'] = '';
-$db['local']['pconnect'] = TRUE;
-$db['local']['db_debug'] = (ENVIRONMENT == 'production' ? FALSE : TRUE);
-$db['local']['cache_on'] = FALSE;
-$db['local']['cachedir'] = FCPATH.APPPATH.'db_cache/';
-$db['local']['char_set'] = 'utf8';
-$db['local']['dbcollat'] = 'utf8_general_ci';
-$db['local']['swap_pre'] = '';
-$db['local']['autoinit'] = TRUE;
-$db['local']['stricton'] = FALSE;
+require(APPPATH . 'config/database_groups.php');
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

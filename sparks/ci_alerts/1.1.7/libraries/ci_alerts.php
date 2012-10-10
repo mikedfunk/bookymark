@@ -63,7 +63,7 @@ class ci_alerts
 	public function set($type, $msg)
 	{
 		// retrive the flashdata, add to the array, set it again
-    $arr = $this->_ci->session->userdata($this->_ci->session->flashdata_key.':new:'.$type);
+		$arr = $this->_ci->session->userdata($this->_ci->session->flashdata_key.':new:'.$type);
 		if ($arr == FALSE || $arr == '') { $arr = array(); }
 		
 		// remove duplicates if configured to do so
