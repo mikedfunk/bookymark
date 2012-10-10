@@ -12,7 +12,7 @@
 /**
  * The API URL, the access token and shared secret
  */
-$config['api_base_url'] = 'https://mikedfunk.pagodabox.com/';
+$config['api_base_url'] = 'https://bookymark.pagodabox.com/';
 $config['api_access_token'] = '4395dd07a3cfe84d9655bb2542907f3acd0024fe';
 $config['api_shared_secret'] = '3c697e1314808f56bd44bc5ccb4765607b433715';
 
