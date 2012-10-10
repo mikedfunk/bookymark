@@ -42,9 +42,9 @@ $db['testing']['autoinit'] = TRUE;
 $db['testing']['stricton'] = FALSE;
 
 $db['production']['hostname'] = 'tunnel.pagodabox.com:3306';
-$db['production']['username'] = 'bao';
-$db['production']['password'] = 'dvYA90pj';
-$db['production']['database'] = 'brittanie';
+$db['production']['username'] = 'carmina';
+$db['production']['password'] = 'eTGWOfAE';
+$db['production']['database'] = 'mikedfunk_db';
 $db['production']['dbdriver'] = 'mysql';
 $db['production']['dbprefix'] = '';
 $db['production']['pconnect'] = TRUE;
