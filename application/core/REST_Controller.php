@@ -8,13 +8,26 @@
  */
 
 require_once(APPPATH.'libraries/api/exceptions.php');
+require_once(APPPATH.'libraries/api/manifest.php');
 
+/**
+ * REST_Controller class.
+ * 
+ * @extends CI_Controller
+ */
 class REST_Controller extends CI_Controller
 {
 	public $params = array();
+// 	public $formats = array(
+// 		'json' => 'application/json',
+// 		'php' => 'application/php'
+// 	);
 	public $formats = array(
+		'xml' => 'application/xml',
 		'json' => 'application/json',
-		'php' => 'application/php'
+		'serialize' => 'application/vnd.php.serialized',
+		'php' => 'text/plain',
+    	'csv' => 'text/csv'
 	);
 
 	public $status_code = 200;
@@ -26,6 +39,14 @@ class REST_Controller extends CI_Controller
 	const LIMIT = 9999;
 	const LIMIT_TIME = 3600;
 
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * __construct function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
 	public function __construct()
 	{
 		parent::__construct();
@@ -34,7 +55,17 @@ class REST_Controller extends CI_Controller
 		$this->_detect_method();
 		$this->_detect_response_type();
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * _remap function.
+	 * 
+	 * @access public
+	 * @param mixed $method
+	 * @param array $params (default: array())
+	 * @return void
+	 */
 	public function _remap($method, $params = array())
 	{
 		try
@@ -60,7 +91,16 @@ class REST_Controller extends CI_Controller
 			$this->respond($formatted_data);
 		}
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * respond function.
+	 * 
+	 * @access protected
+	 * @param string $data (default: '')
+	 * @return void
+	 */
 	protected function respond($data = '')
 	{
 		$this->output->set_status_header($this->status_code);
@@ -68,7 +108,15 @@ class REST_Controller extends CI_Controller
 
 		exit;
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * _detect_method function.
+	 * 
+	 * @access protected
+	 * @return void
+	 */
 	protected function _detect_method()
 	{
 		$method = strtoupper($_SERVER['REQUEST_METHOD']);
@@ -86,7 +134,15 @@ class REST_Controller extends CI_Controller
 			parse_str(file_get_contents('php://input'), $this->params);
 		}
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * _detect_response_type function.
+	 * 
+	 * @access protected
+	 * @return void
+	 */
 	protected function _detect_response_type()
 	{
 		$content_type = FALSE;
@@ -118,7 +174,15 @@ class REST_Controller extends CI_Controller
 			$this->response_format = $content_type;
 		}
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * authenticate function.
+	 * 
+	 * @access protected
+	 * @return void
+	 */
 	protected function authenticate()
 	{
 		$this->load->model('api_client_model', 'api_client');
@@ -143,7 +207,15 @@ class REST_Controller extends CI_Controller
 			}
 		}
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * throttle function.
+	 * 
+	 * @access protected
+	 * @return void
+	 */
 	protected function throttle()
 	{
 		$throttle_count = FALSE;
@@ -176,12 +248,20 @@ class REST_Controller extends CI_Controller
 			));
 		}
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * options function.
+	 * 
+	 * @access protected
+	 * @return void
+	 */
 	protected function options()
 	{
 		if (strtoupper($_SERVER['REQUEST_METHOD']) == 'OPTIONS')
 		{
-			$manifest = include(APPPATH . 'config/api_manifest.php');
+			include(APPPATH . 'config/api_manifest.php');
 
 			foreach ($manifest as $route => $endpoint)
 			{
@@ -195,7 +275,16 @@ class REST_Controller extends CI_Controller
 			}
 		}
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * format function.
+	 * 
+	 * @access protected
+	 * @param mixed $data
+	 * @return void
+	 */
 	protected function format($data)
 	{
 		// if (ENVIRONMENT == 'development')
@@ -206,10 +295,99 @@ class REST_Controller extends CI_Controller
 		$method = '_format_' . $this->response_format;
 		return call_user_func_array(array($this, $method), array( $data ));
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * _format_json function.
+	 * 
+	 * @access protected
+	 * @param mixed $object
+	 * @return void
+	 */
 	protected function _format_json($object) { return json_encode($object); }
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _format_php function.
+	 * 
+	 * @access protected
+	 * @param mixed $object
+	 * @return void
+	 */
 	protected function _format_php($object) { return serialize($object); }
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _format_xml function.
+	 * 
+	 * @access protected
+	 * @param mixed $object
+	 * @return void
+	 */
+	protected function _format_xml($object)
+	{
+		$this->load->library('format');
+		log_message('debug', 'xml: '.$this->format->to_xml($object));
+		return $this->format->to_xml($object);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _format_html function.
+	 * 
+	 * @access protected
+	 * @param mixed $object
+	 * @return void
+	 */
+	protected function _format_html($object)
+	{
+		$this->load->library('format');
+		return $this->format->to_html($object);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _format_csv function.
+	 * 
+	 * @access protected
+	 * @param mixed $object
+	 * @return void
+	 */
+	protected function _format_csv($object)
+	{
+		$this->load->library('format');
+		return $this->format->to_csv($object);
+	}
+	
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * _format_serialized function.
+	 * 
+	 * @access protected
+	 * @param mixed $object
+	 * @return void
+	 */
+	protected function _format_serialized($object)
+	{
+		$this->load->library('format');
+		return $this->format->to_serialized($object);
+	}
 
+	// --------------------------------------------------------------------------
+	
+	/**
+	 * add_debugging_info function.
+	 * 
+	 * @access protected
+	 * @param mixed $data
+	 * @return void
+	 */
 	protected function add_debugging_info($data)
 	{
 		$debugging_info = array(
@@ -235,7 +413,15 @@ class REST_Controller extends CI_Controller
 			'result' => $data
 		);
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * _guess_curl_command function.
+	 * 
+	 * @access protected
+	 * @return void
+	 */
 	protected function _guess_curl_command()
 	{
 		$cmd = 'curl -X ' . strtoupper($_SERVER['REQUEST_METHOD']);
@@ -262,7 +448,17 @@ class REST_Controller extends CI_Controller
 
 		return $cmd;
 	}
+	
+	// --------------------------------------------------------------------------
 
+	/**
+	 * _calculate_signature function.
+	 * 
+	 * @access protected
+	 * @param mixed $path
+	 * @param mixed $timestamp
+	 * @return void
+	 */
 	protected function _calculate_signature($path, $timestamp)
 	{
 		// $hash = $path . http_build_query($_GET) . http_build_query($this->params);
@@ -272,3 +468,5 @@ class REST_Controller extends CI_Controller
 		return sha1($hash);
 	}
 }
+/* End of file REST_Controller.php */
+/* Location: ./application/core/REST_Controller.php */

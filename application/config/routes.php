@@ -46,8 +46,10 @@ require_once(APPPATH.'libraries/pigeon.php');
 
 Pigeon::map(function($r)
 {
+	$r->options('bookmarks', 'bookmarks/index');
+	$r->options('bookmarks/(:any)', 'bookmarks/$2');
 	$r->get('bookmarks', 'bookmarks/index');
-	$r->get('bookmarks/(:any)', 'bookmarks/show/$2');
+	$r->get('bookmarks/(:any)/(:any)', 'bookmarks/show/$2/$3');
 	$r->post('bookmarks', 'bookmarks/create');
 	$r->put('bookmarks/(:num)', 'bookmarks/update/$2');
 	$r->delete('bookmarks/(:num)', 'bookmarks/delete/$2');
