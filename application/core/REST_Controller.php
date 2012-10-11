@@ -330,7 +330,6 @@ class REST_Controller extends CI_Controller
 	protected function _format_xml($object)
 	{
 		$this->load->library('format');
-		log_message('debug', 'xml: '.$this->format->to_xml($object));
 		return $this->format->to_xml($object);
 	}
 	

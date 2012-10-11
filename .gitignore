@@ -2,3 +2,5 @@
 public/assets/cache
 application/cache
 application/db_cache
+application/logs
+*.DS_Store
