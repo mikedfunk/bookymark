@@ -4,6 +4,11 @@
 
 A sample CodeIgniter application to save bookmarks. Working version is available at [bookymark.com](http://bookymark.com).
 
+## Requirements
+
+* PHP 5.3+
+* cURL
+
 ## Setup
 
 1. Create a database called **bookymark** and Run ```setup.sql```. If you want unit tests to pass, duplicate this database as **bookymark_test**.
