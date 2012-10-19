@@ -9,20 +9,20 @@
  * @file bookmark_presenter.php
  */
 
-require_once(APPPATH . 'presenters/presenter.php');
+require_once(APPPATH . 'libraries/presenter.php');
 
 /**
  * Bookmark_presenter class.
- * 
+ *
  * @extends Presenter
  */
 class Bookmark_presenter extends Presenter
 {
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * easiest way to check whether it's an add or edit form.
-	 * 
+	 *
 	 * @access public
 	 * @return string
 	 */
@@ -38,10 +38,10 @@ class Bookmark_presenter extends Presenter
 		}
 	}
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * show a table of bookmarks.
-	 * 
+	 *
 	 * @access public
 	 * @return string
 	 */
@@ -54,7 +54,7 @@ class Bookmark_presenter extends Presenter
 		else
 		{
 			$return = '<table class="table table-striped table-hover"><thead><th>URL</th><th>Description</th></thead><tbody>';
-			
+
 			// table rows
 			foreach($this->bookmark as $item)
 			{
@@ -77,23 +77,23 @@ class Bookmark_presenter extends Presenter
 			return $return;
 		}
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * display the url form field.
-	 * 
+	 *
 	 * @access public
 	 * @return string
 	 */
 	public function url_field()
 	{
 		$return = '';
-		
+
 		// form value
 		if (set_value('url') != '') {$value = set_value('url');}
 		else {$value = ($this->bookmark ? $this->bookmark->url : '');}
-		
+
 		$return .= '<div class="control-group form_item ' . (form_error('url') != '' ? 'error' : '') . '">'
 		. form_label('URL: *', 'url_field', array('class' => 'control-label'))
 		. '<div class="controls">'
@@ -103,24 +103,24 @@ class Bookmark_presenter extends Presenter
 		</div><!--control-group-->';
 		return $return;
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * display the description form field.
-	 * 
+	 *
 	 * @access public
 	 * @return string
 	 */
 	public function description_field()
 	{
 		$return = '';
-		
+
 		// form value
 		$value = set_value('description', ($this->bookmark ? $this->bookmark->description : ''));
 		// if (set_value('description') != false) {$value = set_value('description');}
 		// else {$value = (isset($this->bookmark) ? $this->bookmark->description : '');}
-		
+
 		$return .= '<div class="control-group form_item ' . (form_error('description') != '' ? 'error' : '') . '">'
 		. form_label('Description: *', 'description_field', array('class' => 'control-label'))
 		. '<div class="controls">'
@@ -130,12 +130,12 @@ class Bookmark_presenter extends Presenter
 		</div><!--control-group-->';
 		return $return;
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * open the form differently if it's an edit or insert form.
-	 * 
+	 *
 	 * @access public
 	 * @return string
 	 */
@@ -144,12 +144,12 @@ class Bookmark_presenter extends Presenter
 		$hidden = ($this->bookmark ? array('id' => $this->bookmark->id, 'user_id' => auth_id()) : array('user_id' => auth_id()));
 		return form_open('', array('class' => 'form-horizontal'), $hidden);
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * show "edit" or "new".
-	 * 
+	 *
 	 * @access public
 	 * @return string
 	 */
@@ -160,7 +160,7 @@ class Bookmark_presenter extends Presenter
 		$return .= '</li>';
 		return $return;
 	}
-	
+
 	// --------------------------------------------------------------------------
 }
 /* End of file bookmark_presenter.php */
