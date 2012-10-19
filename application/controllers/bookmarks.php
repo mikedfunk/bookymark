@@ -81,6 +81,7 @@ class bookmarks extends MY_Controller
 	 */
 	public function create_new()
 	{
+		$this->ci_authentication->restrict_access($this->data['user']->can_add_bookmarks);
 		$this->view = 'bookmarks/edit';
 		$this->load->helper('form');
 		if ($this->input->post())
@@ -105,6 +106,7 @@ class bookmarks extends MY_Controller
 	 */
 	public function edit($id)
 	{
+		$this->ci_authentication->restrict_access($this->data['user']->can_edit_bookmarks);
 		$this->load->helper('form');
 		if ($this->input->post())
 		{
@@ -134,6 +136,7 @@ class bookmarks extends MY_Controller
 	 */
 	public function delete($id)
 	{
+		$this->ci_authentication->restrict_access($this->data['user']->can_delete_bookmarks);
 		$this->ci_alerts->set('success', 'Bookmark deleted.');
 		if (!$this->bookmark->delete($id))
 		{
