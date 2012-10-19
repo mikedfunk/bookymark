@@ -29,7 +29,7 @@ class Migration_initial_setup extends MY_Migration
 		// --------------------------------------------------------------------------
 		// api_clients
 
-		$this->db_forge->add_key('id', true);
+		$this->dbforge->add_key('id', true);
 		$fields = array(
 			'access_token' => array(
 				'type' => 'varchar',
@@ -52,7 +52,7 @@ class Migration_initial_setup extends MY_Migration
 			)
 		);
 		$this->dbforge->add_field($fields);
-		$this->db_forge->create_table('api_clients');
+		$this->dbforge->create_table('api_clients');
 
 		// insert data
 		$data = array(
@@ -69,7 +69,7 @@ class Migration_initial_setup extends MY_Migration
 		// --------------------------------------------------------------------------
 		// users
 
-		$this->db_forge->add_key('id', true);
+		$this->dbforge->add_key('id', true);
 		$fields = array(
 			'email_address' => array(
 				'type' => 'varchar',
@@ -106,7 +106,7 @@ class Migration_initial_setup extends MY_Migration
 			)
 		);
 		$this->dbforge->add_field($fields);
-		$this->db_forge->create_table('users');
+		$this->dbforge->create_table('users');
 
 		// insert data
 		$data = array(
@@ -128,7 +128,7 @@ class Migration_initial_setup extends MY_Migration
 		// --------------------------------------------------------------------------
 		// roles
 
-		$this->db_forge->add_key('id', true);
+		$this->dbforge->add_key('id', true);
 		$fields = array(
 			'title' => array(
 				'type' => 'varchar',
@@ -180,7 +180,7 @@ class Migration_initial_setup extends MY_Migration
 			)
 		);
 		$this->dbforge->add_field($fields);
-		$this->db_forge->create_table('roles');
+		$this->dbforge->create_table('roles');
 
 		// insert data
 		$data = array(
@@ -212,7 +212,7 @@ class Migration_initial_setup extends MY_Migration
 		// --------------------------------------------------------------------------
 		// bookmarks
 
-		$this->db_forge->add_key('id', true);
+		$this->dbforge->add_key('id', true);
 		$fields = array(
 			'url' => array(
 				'type' => 'varchar',
@@ -239,7 +239,7 @@ class Migration_initial_setup extends MY_Migration
 			)
 		);
 		$this->dbforge->add_field($fields);
-		$this->db_forge->create_table('bookmarks');
+		$this->dbforge->create_table('bookmarks');
 
 		// insert data
 		$data = array(
