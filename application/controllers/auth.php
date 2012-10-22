@@ -9,7 +9,7 @@
  * @file auth.php
  */
 
-require_once(APPPATH . 'presenters/auth_presenter.php');
+require_once(APPPATH . 'presenters/Auth_presenter.php');
 
 class auth extends MY_Controller
 {

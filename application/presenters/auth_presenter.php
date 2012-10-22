@@ -6,10 +6,10 @@
  * @author Mike Funk
  * @email mfunk@christianpublishing.com
  *
- * @file auth_presenter.php
+ * @file Auth_presenter.php
  */
 
-require_once(APPPATH . 'libraries/presenter.php');
+require_once(APPPATH . 'libraries/Presenter.php');
 
 class Auth_presenter extends Presenter
 {
@@ -224,5 +224,5 @@ class Auth_presenter extends Presenter
 	// --------------------------------------------------------------------------
 }
 
-/* End of file auth_presenter.php */
-/* Location: ./application/presenters/auth_presenter.php */
+/* End of file Auth_presenter.php */
+/* Location: ./application/presenters/Auth_presenter.php */

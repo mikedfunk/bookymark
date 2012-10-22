@@ -9,51 +9,51 @@
  * @file home.php
  */
 
-require_once(APPPATH . 'presenters/auth_presenter.php');
+require_once(APPPATH . 'presenters/Auth_presenter.php');
 
 // --------------------------------------------------------------------------
 
 /**
  * home class.
- * 
+ *
  * @extends MY_Controller
  */
 class home extends MY_Controller
 {
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * __construct function.
-	 * 
+	 *
 	 * @access public
 	 * @return void
 	 */
 	public function __construct()
 	{
 		parent::__construct();
-		
+
 		// load resources
 		$this->load->spark('assets/1.5.1');
 		$this->load->helper('partial');
 		$this->load->helper('url');
 		$this->data['auth'] = new Auth_presenter(false);
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * index function.
 	 *
 	 * the home page.
-	 * 
+	 *
 	 * @access public
 	 * @return void
 	 */
 	public function index()
 	{
 	}
-	
+
 	// --------------------------------------------------------------------------
 }
 /* End of file home.php */

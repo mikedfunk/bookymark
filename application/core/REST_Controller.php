@@ -7,12 +7,12 @@
  * @link https://github.com/efendibooks/codeigniter-handbook-vol-2/blob/master/application/core/MY_Controller.php
  */
 
-require_once(APPPATH.'libraries/api/exceptions.php');
-require_once(APPPATH.'libraries/api/manifest.php');
+require_once(APPPATH.'libraries/api/Exceptions.php');
+require_once(APPPATH.'libraries/api/Manifest.php');
 
 /**
  * REST_Controller class.
- * 
+ *
  * @extends CI_Controller
  */
 class REST_Controller extends CI_Controller
@@ -40,10 +40,10 @@ class REST_Controller extends CI_Controller
 	const LIMIT_TIME = 3600;
 
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * __construct function.
-	 * 
+	 *
 	 * @access public
 	 * @return void
 	 */
@@ -55,12 +55,12 @@ class REST_Controller extends CI_Controller
 		$this->_detect_method();
 		$this->_detect_response_type();
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * _remap function.
-	 * 
+	 *
 	 * @access public
 	 * @param mixed $method
 	 * @param array $params (default: array())
@@ -91,12 +91,12 @@ class REST_Controller extends CI_Controller
 			$this->respond($formatted_data);
 		}
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * respond function.
-	 * 
+	 *
 	 * @access protected
 	 * @param string $data (default: '')
 	 * @return void
@@ -108,12 +108,12 @@ class REST_Controller extends CI_Controller
 
 		exit;
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * _detect_method function.
-	 * 
+	 *
 	 * @access protected
 	 * @return void
 	 */
@@ -134,12 +134,12 @@ class REST_Controller extends CI_Controller
 			parse_str(file_get_contents('php://input'), $this->params);
 		}
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * _detect_response_type function.
-	 * 
+	 *
 	 * @access protected
 	 * @return void
 	 */
@@ -174,12 +174,12 @@ class REST_Controller extends CI_Controller
 			$this->response_format = $content_type;
 		}
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * authenticate function.
-	 * 
+	 *
 	 * @access protected
 	 * @return void
 	 */
@@ -207,12 +207,12 @@ class REST_Controller extends CI_Controller
 			}
 		}
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * throttle function.
-	 * 
+	 *
 	 * @access protected
 	 * @return void
 	 */
@@ -248,12 +248,12 @@ class REST_Controller extends CI_Controller
 			));
 		}
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * options function.
-	 * 
+	 *
 	 * @access protected
 	 * @return void
 	 */
@@ -275,12 +275,12 @@ class REST_Controller extends CI_Controller
 			}
 		}
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * format function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $data
 	 * @return void
@@ -295,34 +295,34 @@ class REST_Controller extends CI_Controller
 		$method = '_format_' . $this->response_format;
 		return call_user_func_array(array($this, $method), array( $data ));
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * _format_json function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $object
 	 * @return void
 	 */
 	protected function _format_json($object) { return json_encode($object); }
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * _format_php function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $object
 	 * @return void
 	 */
 	protected function _format_php($object) { return serialize($object); }
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * _format_xml function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $object
 	 * @return void
@@ -332,12 +332,12 @@ class REST_Controller extends CI_Controller
 		$this->load->library('format');
 		return $this->format->to_xml($object);
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * _format_html function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $object
 	 * @return void
@@ -347,12 +347,12 @@ class REST_Controller extends CI_Controller
 		$this->load->library('format');
 		return $this->format->to_html($object);
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * _format_csv function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $object
 	 * @return void
@@ -362,12 +362,12 @@ class REST_Controller extends CI_Controller
 		$this->load->library('format');
 		return $this->format->to_csv($object);
 	}
-	
+
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * _format_serialized function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $object
 	 * @return void
@@ -379,10 +379,10 @@ class REST_Controller extends CI_Controller
 	}
 
 	// --------------------------------------------------------------------------
-	
+
 	/**
 	 * add_debugging_info function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $data
 	 * @return void
@@ -412,12 +412,12 @@ class REST_Controller extends CI_Controller
 			'result' => $data
 		);
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * _guess_curl_command function.
-	 * 
+	 *
 	 * @access protected
 	 * @return void
 	 */
@@ -447,12 +447,12 @@ class REST_Controller extends CI_Controller
 
 		return $cmd;
 	}
-	
+
 	// --------------------------------------------------------------------------
 
 	/**
 	 * _calculate_signature function.
-	 * 
+	 *
 	 * @access protected
 	 * @param mixed $path
 	 * @param mixed $timestamp

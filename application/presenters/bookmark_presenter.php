@@ -6,10 +6,10 @@
  * @author Mike Funk
  * @email mfunk@christianpublishing.com
  *
- * @file bookmark_presenter.php
+ * @file Bookmark_presenter.php
  */
 
-require_once(APPPATH . 'libraries/presenter.php');
+require_once(APPPATH . 'libraries/Presenter.php');
 
 /**
  * Bookmark_presenter class.
@@ -163,5 +163,5 @@ class Bookmark_presenter extends Presenter
 
 	// --------------------------------------------------------------------------
 }
-/* End of file bookmark_presenter.php */
-/* Location: ./application/presenters/bookmark_presenter.php */
+/* End of file Bookmark_presenter.php */
+/* Location: ./application/presenters/Bookmark_presenter.php */

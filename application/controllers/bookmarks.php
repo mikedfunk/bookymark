@@ -9,8 +9,8 @@
  * @file bookmarks.php
  */
 
-require_once(APPPATH . 'presenters/bookmark_presenter.php');
-require_once(APPPATH . 'presenters/auth_presenter.php');
+require_once(APPPATH . 'presenters/Bookmark_presenter.php');
+require_once(APPPATH . 'presenters/Auth_presenter.php');
 
 class bookmarks extends MY_Controller
 {
