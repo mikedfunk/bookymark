@@ -19,4 +19,11 @@
     <logging>
             <log type="coverage-html" target="build/coverage" title="Bookymark" />
     </logging>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app/src/</directory>
+        </whitelist>
+    </filter>
+
 </phpunit>

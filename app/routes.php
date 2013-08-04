@@ -59,6 +59,58 @@ Route::post(
     )
 );
 
+// ----------------------------------------------------------------
+
+Route::get(
+    'auth/login',
+    array(
+        'as' => 'auth.login',
+        'uses' => 'Bookymark\Auth\AuthController@login',
+    )
+);
+
+Route::post(
+    'auth/login',
+    array(
+        'as' => 'auth.do_login',
+        'uses' => 'Bookymark\Auth\AuthController@doLogin',
+    )
+);
+
+Route::get(
+    'auth/remind',
+    array(
+        'as' => 'auth.remind',
+        'uses' => 'Bookymark\Auth\AuthController@remind',
+    )
+);
+
+Route::post(
+    'auth/remind',
+    array(
+        'as' => 'auth.do_remind',
+        'uses' => 'Bookymark\Auth\AuthController@doRemind',
+    )
+);
+
+Route::get(
+    'auth/reset/{token}',
+    array(
+        'as' => 'auth.reset',
+        'uses' => 'Bookymark\Auth\AuthController@reset',
+    )
+);
+
+Route::post(
+    'auth/reset/{token}',
+    array(
+        'as' => 'auth.do_reset',
+        'uses' => 'Bookymark\Auth\AuthController@doReset',
+    )
+);
+
+// ----------------------------------------------------------------
+
 Route::get(
     '/',
     array(
