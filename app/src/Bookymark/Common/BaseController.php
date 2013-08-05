@@ -23,6 +23,6 @@ class BaseController extends LaravelBaseController
      */
     public function __construct()
     {
-        View::share('is_logged_in', Auth::check());
+        View::share('logged_in_user', Auth::user());
     }
 }

@@ -22,6 +22,17 @@ use Validator;
 class AuthController extends BaseController
 {
     /**
+     * __construct
+     *
+     * @return void
+     */
+    public function __construct(UserRepository $user_repository)
+    {
+        parent::__construct();
+        $this->user_repository = $user_repository;
+    }
+
+    /**
      * login
      *
      * @return View
@@ -39,7 +50,8 @@ class AuthController extends BaseController
     public function doLogin()
     {
         // if login successful, notify and redirect
-        if (Auth::attempt(Input::all())) {
+        $input = Input::only(array('email', 'password'));
+        if (Auth::attempt($input)) {
             Notification::success('You have been logged in.');
             return Redirect::route('bookmarks.index');
         }
@@ -140,5 +152,46 @@ class AuthController extends BaseController
         // otherwise success
         Notification::success('Registration successful. Please log in.');
         return Redirect::route('auth.login');
+    }
+
+    /**
+     * profile
+     *
+     * @param int $id
+     * @return View
+     */
+    public function profile($id)
+    {
+        // get user, load view
+        $user = $this->user_repository->find($id);
+        return View::make('auth.profile', compact('user'));
+    }
+
+    /**
+     * updateProfile
+     *
+     * @param int $id
+     * @return Redirect
+     */
+    public function updateProfile($id)
+    {
+        // validation rules
+        $rules = array(
+            'email' => 'required|email|unique:users,email,'.$id,
+            'password' => 'confirmed',
+        );
+
+        // setup and check validator, set notification, redirect
+        $input = Input::all();
+        $validation = Validator::make($input, $rules);
+
+        if ($validation->fails()) {
+            Notification::error('Please correct the highlighted fields.');
+        } else {
+            $this->user_repository->update($input);
+            Notification::success('Profile updated.');
+        }
+        return Redirect::route('auth.profile', $id);
+
     }
 }

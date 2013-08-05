@@ -109,7 +109,7 @@ class BookmarkRepositoryTest extends BookymarkTest
     {
         // create record
         $old_values = array(
-            'id' => 1,
+            'id'    => 1,
             'title' => 'test_old',
         );
         $bookmark = BookmarkModel::create($old_values);

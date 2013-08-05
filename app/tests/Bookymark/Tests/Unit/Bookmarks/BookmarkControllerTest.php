@@ -12,6 +12,7 @@ use Input;
 use Notification;
 use Validator;
 use Bookymark\Bookmarks\BookmarkModel;
+use Auth;
 
 /**
  * test all bookmark controller methods
@@ -32,6 +33,12 @@ class BookmarkControllerTest extends BookymarkTest
         $this->bookmark_repository = Mockery::mock('Bookymark\Bookmarks\BookmarkRepository');
         $this->bookmark_model      = Mockery::mock('Eloquent', 'Bookymark\Bookmarks\BookmarkModel');
         $this->bookmark_model->shouldDeferMissing();
+
+        // mock common View::share call in base controller
+        Auth::shouldReceive('user');
+        View::shouldReceive('share')
+            ->once()
+            ->with('logged_in_user', Auth::user());
     }
 
     /**

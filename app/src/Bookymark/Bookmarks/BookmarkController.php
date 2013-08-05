@@ -27,6 +27,7 @@ class BookmarkController extends BaseController
     public function __construct(
         BookmarkRepository $bookmark_repository
     ) {
+        parent::__construct();
         $this->bookmark_repository = $bookmark_repository;
     }
 

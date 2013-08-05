@@ -37,10 +37,10 @@ class AuthControllerTest extends BookymarkTest
         $this->token = 'abc234';
 
         // mock common View::share call in base controller
-        Auth::shouldReceive('check');
+        Auth::shouldReceive('user');
         View::shouldReceive('share')
             ->once()
-            ->with('is_logged_in', Auth::check());
+            ->with('logged_in_user', Auth::user());
     }
 
     /**
@@ -249,5 +249,100 @@ class AuthControllerTest extends BookymarkTest
         // call and check
         $this->call('POST', 'auth/register', $values);
         $this->assertRedirectedToRoute('auth.register');
+    }
+
+    /**
+     * testAuthProfileOk
+     *
+     * @return void
+     */
+    public function testAuthProfileOk()
+    {
+        // mock user model
+        $user = Mockery::mock();
+
+        // mock user repository
+        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository->shouldReceive('find')
+            ->once()
+            ->with(1)
+            ->andReturn($user);
+        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+
+        // mock view
+        View::shouldReceive('make')
+            ->once()
+            ->with('auth.profile', compact('user'));
+
+        // call
+        $this->call('GET', 'auth/1/profile');
+
+        // assert ok
+        $this->assertResponseOk();
+    }
+
+    /**
+     * testAuthUpdateProfileOk
+     *
+     * @return void
+     */
+    public function testAuthUpdateProfileOk()
+    {
+        // mock input
+        $input = array(
+            'email'                 => 'test@test.com',
+            'password'              => 'abcsfsdf',
+            'password_confirmation' => 'abcsfsdf',
+        );
+
+        // mock user repository
+        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository->shouldReceive('update')
+            ->once()
+            ->with($input);
+        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+
+        // mock validator to succeed
+        $validator = Mockery::mock();
+        $validator->shouldReceive('fails')->once()->andReturn(false);
+        Validator::shouldReceive('make')->once()->andReturn($validator);
+
+        // mock notification success
+        Notification::shouldReceive('success')
+            ->once()
+            ->with('Profile updated.');
+
+        // call, ensure success
+        $this->call('POST', 'auth/1/profile', $input);
+        $this->assertRedirectedToRoute('auth.profile', '1');
+    }
+
+    /**
+     * testAuthUpdateProfileFailValidation
+     *
+     * @return void
+     */
+    public function testAuthUpdateProfileFailValidation()
+    {
+        // mock input
+        $input = array(
+            'email'                 => 'test@test.com',
+            'password'              => 'abcsfsdf',
+            'password_confirmation' => 'abcsfsdf',
+        );
+
+        // mock validator to fail
+        $validator = Mockery::mock();
+        $validator->shouldReceive('fails')->once()->andReturn(true);
+        Validator::shouldReceive('make')->once()->andReturn($validator);
+
+        // mock notification success
+        Notification::shouldReceive('error')
+            ->once()
+            ->with('Please correct the highlighted fields.');
+
+        // call, ensure success
+        $this->call('POST', 'auth/1/profile', $input);
+        $this->assertRedirectedToRoute('auth.profile', '1');
     }
 }

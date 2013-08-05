@@ -26,10 +26,10 @@ class HomeControllerTest extends BookymarkTest
     {
         parent::setUp();
         // mock common View::share call in base controller
-        Auth::shouldReceive('check');
+        Auth::shouldReceive('user');
         View::shouldReceive('share')
             ->once()
-            ->with('is_logged_in', Auth::check());
+            ->with('logged_in_user', Auth::user());
     }
 
     /**

@@ -126,6 +126,23 @@ Route::post(
     )
 );
 
+Route::get(
+    'auth/{id}/profile',
+    array(
+        'as'   => 'auth.profile',
+        'uses' => 'Bookymark\Auth\AuthController@profile',
+    )
+);
+
+Route::post(
+    'auth/{id}/profile',
+    array(
+        'as'     => 'auth.do_profile',
+        'uses'   => 'Bookymark\Auth\AuthController@updateProfile',
+        'before' => 'csrf',
+    )
+);
+
 // ----------------------------------------------------------------
 
 Route::get(

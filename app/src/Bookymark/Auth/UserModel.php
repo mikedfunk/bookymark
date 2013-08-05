@@ -14,4 +14,13 @@ use User;
  */
 class UserModel extends User
 {
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = array(
+        'email',
+        'password',
+    );
 }
