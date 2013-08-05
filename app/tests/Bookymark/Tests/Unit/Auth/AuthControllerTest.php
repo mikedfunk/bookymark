@@ -348,4 +348,24 @@ class AuthControllerTest extends BookymarkTest
         $this->call('POST', 'auth/1/profile', $input);
         $this->assertRedirectedToRoute('auth.profile', '1');
     }
+
+    /**
+     * testAuthLogout
+     *
+     * @return void
+     */
+    public function testAuthLogout()
+    {
+        // auth should receive logout
+        Auth::shouldReceive('logout')->once();
+
+        // notification should receive
+        Notification::shouldReceive('success')
+            ->once()
+            ->with(Lang::get('notifications.logged_out'));
+
+        // assert redirected
+        $this->call('GET', 'auth/logout');
+        $this->assertRedirectedToRoute('auth.login');
+    }
 }

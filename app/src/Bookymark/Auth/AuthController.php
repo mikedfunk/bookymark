@@ -63,6 +63,19 @@ class AuthController extends BaseController
     }
 
     /**
+     * logout
+     *
+     * @return Redirect
+     */
+    public function logout()
+    {
+        // logout, notify, redirect
+        Auth::logout();
+        Notification::success(Lang::get('notifications.logged_out'));
+        return Redirect::route('auth.login');
+    }
+
+    /**
      * reset
      *
      * @param string $token

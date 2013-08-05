@@ -29,14 +29,6 @@ return array(
     'collections' => array(
         'application' => function ($collection) {
 
-            // set filters
-            $collection->apply('CssMin')
-                ->apply('UriRewriteFilter')
-                ->whenAssetIsStylesheet();
-
-            $collection->apply('JsMin')
-                ->whenAssetIsJavascript();
-
             // in the assets dir...
             $collection->directory(
                 'assets',
@@ -44,13 +36,19 @@ return array(
 
                     // all stylesheets
                     $collection->stylesheet('components/bootstrap/dist/css/bootstrap.css');
-                    $collection->stylesheet('components/bootstrap-glyphicons/css/bootstrap-glyphicons.css');
+                    $collection
+                        ->stylesheet('components/bootstrap-glyphicons/css/bootstrap-glyphicons.css')
+                        ->apply('UriRewriteFilter');
                     $collection->stylesheet('less/styles.less')->apply('Less');
 
                     // all javascripts
                     $collection->javascript('components/jquery/jquery.js');
-                    $collection->javascript('components/bootstrap/dist/css/bootstrap.js');
+                    $collection->javascript('components/bootstrap/dist/js/bootstrap.js');
                     $collection->javascript('js/scripts.js');
+
+                    // set filters
+                    $collection->apply('CssMin');
+                    $collection->apply('JsMin');
                 }
             );
 

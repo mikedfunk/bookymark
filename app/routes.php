@@ -78,6 +78,14 @@ Route::post(
 );
 
 Route::get(
+    'auth/logout',
+    array(
+        'as' => 'auth.logout',
+        'uses' => 'Bookymark\Auth\AuthController@logout',
+    )
+);
+
+Route::get(
     'auth/remind',
     array(
         'as'   => 'auth.remind',
