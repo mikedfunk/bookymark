@@ -3,6 +3,6 @@
   "version": "3.0.0-rc1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/twitter/bootstrap.git"
+    "url": "git://github.com/twbs/bootstrap.git"
   }
 }

@@ -8,6 +8,7 @@ namespace Bookymark\Tests\Unit\Home;
 use Mockery;
 use Bookymark\Tests\BookymarkTest;
 use View;
+use Auth;
 
 /**
  * HomeControllerTest
@@ -16,6 +17,21 @@ use View;
  */
 class HomeControllerTest extends BookymarkTest
 {
+    /**
+     * setUp
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        parent::setUp();
+        // mock common View::share call in base controller
+        Auth::shouldReceive('check');
+        View::shouldReceive('share')
+            ->once()
+            ->with('is_logged_in', Auth::check());
+    }
+
     /**
      * testHomeCIndexOk
      *

@@ -5,13 +5,14 @@
  */
 namespace Bookymark\Auth;
 
-use BaseController;
+use Bookymark\Common\BaseController;
 use View;
 use Auth;
 use Notification;
 use Redirect;
 use Input;
 use Password;
+use Validator;
 
 /**
  * AuthController
@@ -103,5 +104,41 @@ class AuthController extends BaseController
     public function doRemind()
     {
         return Password::remind(Input::all());
+    }
+
+    /**
+     * register
+     *
+     * @return View
+     */
+    public function register()
+    {
+        return View::make('auth.register');
+    }
+
+    /**
+     * doRegister
+     *
+     * @return Redirect
+     */
+    public function doRegister()
+    {
+        // set rules, make validator
+        $rules = array(
+            'email'    => 'required|email|unique:users',
+            'password' => 'confirmed'
+        );
+        $validation = Validator::make(Input::all(), $rules);
+
+        if ($validation->fails()) {
+
+            // Send the $validation object to the redirected page
+            Notification::error('Please correct the highlighted errors.');
+            return Redirect::route('auth.register')->withErrors($validation);
+        }
+
+        // otherwise success
+        Notification::success('Registration successful. Please log in.');
+        return Redirect::route('auth.login');
     }
 }

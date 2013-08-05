@@ -5,7 +5,7 @@
  */
 namespace Bookymark\Home;
 
-use BaseController;
+use Bookymark\Common\BaseController;
 use View;
 
 /**

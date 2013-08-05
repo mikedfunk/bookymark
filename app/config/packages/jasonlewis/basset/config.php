@@ -28,18 +28,32 @@ return array(
 
     'collections' => array(
         'application' => function ($collection) {
+
+            // set filters
+            $collection->apply('CssMin')
+                ->apply('UriRewriteFilter')
+                ->whenAssetIsStylesheet();
+
+            $collection->apply('JsMin')
+                ->whenAssetIsJavascript();
+
+            // in the assets dir...
             $collection->directory(
                 'assets',
                 function ($collection) {
+
+                    // all stylesheets
                     $collection->stylesheet('components/bootstrap/dist/css/bootstrap.css');
+                    $collection->stylesheet('components/bootstrap-glyphicons/css/bootstrap-glyphicons.css');
                     $collection->stylesheet('less/styles.less')->apply('Less');
+
+                    // all javascripts
                     $collection->javascript('components/jquery/jquery.js');
                     $collection->javascript('components/bootstrap/dist/css/bootstrap.js');
                     $collection->javascript('js/scripts.js');
                 }
             );
-            $collection->apply('CssMinFilter')->apply('UriRewriteFilter')->whenAssetIsStylesheet();
-            $collection->apply('JsMinFilter')->whenAssetIsJavascript();
+
         }
 
         // 'application' => function($collection)

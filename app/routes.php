@@ -14,7 +14,7 @@
 Route::get(
     'bookmarks',
     array(
-        'as' => 'bookmarks.index',
+        'as'   => 'bookmarks.index',
         'uses' => 'Bookymark\Bookmarks\BookmarkController@index',
     )
 );
@@ -22,7 +22,7 @@ Route::get(
 Route::get(
     'bookmarks/create',
     array(
-        'as' => 'bookmarks.create',
+        'as'   => 'bookmarks.create',
         'uses' => 'Bookymark\Bookmarks\BookmarkController@create',
     )
 );
@@ -30,7 +30,7 @@ Route::get(
 Route::get(
     'bookmarks/{id}/edit',
     array(
-        'as' => 'bookmarks.edit',
+        'as'   => 'bookmarks.edit',
         'uses' => 'Bookymark\Bookmarks\BookmarkController@edit',
     )
 );
@@ -38,7 +38,7 @@ Route::get(
 Route::get(
     'bookmarks/{id}/destroy',
     array(
-        'as' => 'bookmarks.destroy',
+        'as'   => 'bookmarks.destroy',
         'uses' => 'Bookymark\Bookmarks\BookmarkController@destroy',
     )
 );
@@ -46,7 +46,7 @@ Route::get(
 Route::put(
     'bookmarks/{id}',
     array(
-        'as' => 'bookmarks.update',
+        'as'   => 'bookmarks.update',
         'uses' => 'Bookymark\Bookmarks\BookmarkController@update',
     )
 );
@@ -54,7 +54,7 @@ Route::put(
 Route::post(
     'bookmarks',
     array(
-        'as' => 'bookmarks.store',
+        'as'   => 'bookmarks.store',
         'uses' => 'Bookymark\Bookmarks\BookmarkController@store',
     )
 );
@@ -72,7 +72,7 @@ Route::get(
 Route::post(
     'auth/login',
     array(
-        'as' => 'auth.do_login',
+        'as'   => 'auth.do_login',
         'uses' => 'Bookymark\Auth\AuthController@doLogin',
     )
 );
@@ -80,7 +80,7 @@ Route::post(
 Route::get(
     'auth/remind',
     array(
-        'as' => 'auth.remind',
+        'as'   => 'auth.remind',
         'uses' => 'Bookymark\Auth\AuthController@remind',
     )
 );
@@ -88,7 +88,7 @@ Route::get(
 Route::post(
     'auth/remind',
     array(
-        'as' => 'auth.do_remind',
+        'as'   => 'auth.do_remind',
         'uses' => 'Bookymark\Auth\AuthController@doRemind',
     )
 );
@@ -96,7 +96,7 @@ Route::post(
 Route::get(
     'auth/reset/{token}',
     array(
-        'as' => 'auth.reset',
+        'as'   => 'auth.reset',
         'uses' => 'Bookymark\Auth\AuthController@reset',
     )
 );
@@ -104,8 +104,25 @@ Route::get(
 Route::post(
     'auth/reset/{token}',
     array(
-        'as' => 'auth.do_reset',
+        'as'   => 'auth.do_reset',
         'uses' => 'Bookymark\Auth\AuthController@doReset',
+    )
+);
+
+Route::get(
+    'auth/register',
+    array(
+        'as'   => 'auth.register',
+        'uses' => 'Bookymark\Auth\AuthController@register',
+    )
+);
+
+Route::post(
+    'auth/register',
+    array(
+        'as'     => 'auth.do_register',
+        'uses'   => 'Bookymark\Auth\AuthController@doRegister',
+        'before' => 'csrf',
     )
 );
 
@@ -114,7 +131,7 @@ Route::post(
 Route::get(
     '/',
     array(
-        'as' => 'home',
+        'as'   => 'home',
         'uses' => 'Bookymark\Home\HomeController@index',
     )
 );

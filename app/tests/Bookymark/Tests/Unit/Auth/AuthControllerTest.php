@@ -10,6 +10,8 @@ use View;
 use Notification;
 use Auth;
 use Password;
+use Mockery;
+use Validator;
 
 /**
  * AuthControllerTest
@@ -33,6 +35,12 @@ class AuthControllerTest extends BookymarkTest
             'password' => 'dfdfd',
         );
         $this->token = 'abc234';
+
+        // mock common View::share call in base controller
+        Auth::shouldReceive('check');
+        View::shouldReceive('share')
+            ->once()
+            ->with('is_logged_in', Auth::check());
     }
 
     /**
@@ -120,9 +128,23 @@ class AuthControllerTest extends BookymarkTest
     public function testAuthDoResetOk()
     {
         // mock password call and check response
+        $this->mockAuthDriver();
         Password::shouldReceive('reset')->once();
         $this->call('POST', 'auth/reset/' . $this->token, $this->credentials);
         $this->assertResponseOk();
+    }
+
+    /**
+     * mockAuthDriver
+     *
+     * @return void
+     */
+    private function mockAuthDriver()
+    {
+        $auth_provider = Mockery::mock('Illuminate\Auth\UserProviderInterface');
+        $auth_driver = Mockery::mock();
+        $auth_driver->shouldReceive('getProvider')->once()->andReturn($auth_provider);
+        Auth::shouldReceive('driver')->once()->andReturn($auth_driver);
     }
 
     /**
@@ -148,12 +170,84 @@ class AuthControllerTest extends BookymarkTest
     public function testAuthDoRemindOk()
     {
         // mock password
-        Password::shouldReceive('remind')
-            ->once()
-            ->with($this->credentials);
+        $this->mockAuthDriver();
+        Password::shouldReceive('remind')->once()->with($this->credentials);
 
         // call and check response
         $this->call('POST', 'auth/remind', $this->credentials);
         $this->assertResponseOk();
+    }
+
+    /**
+     * testAuthRegisterOk
+     *
+     * @return void
+     */
+    public function testAuthRegisterOk()
+    {
+        // mock view, call, ensure ok
+        View::shouldReceive('make')
+            ->once()
+            ->with('auth.register');
+        $this->call('GET', 'auth/register');
+        $this->assertResponseOk();
+    }
+
+    /**
+     * testAuthDoRegisterOk
+     *
+     * @return void
+     */
+    public function testAuthDoRegisterOk()
+    {
+        // form values
+        $values = array(
+            'email'                 => 'testeioruwer@test.com',
+            'password'              => 'kgroew',
+            'password_confirmation' => 'kgroew',
+        );
+
+        // mock validator to succeed
+        $validator = Mockery::mock();
+        $validator->shouldReceive('fails')->once()->andReturn(false);
+        Validator::shouldReceive('make')->once()->andReturn($validator);
+
+        // mock notification
+        Notification::shouldReceive('success')
+            ->once()
+            ->with('Registration successful. Please log in.');
+
+        // call and check
+        $this->call('POST', 'auth/register', $values);
+        $this->assertRedirectedToRoute('auth.login');
+    }
+
+    /**
+     * testAuthDoRegisterFailValidation
+     *
+     * @return void
+     */
+    public function testAuthDoRegisterFailValidation()
+    {
+        // form values
+        $values = array(
+            'email'                 => 'testeioruwer@test.com',
+            'password'              => 'kgroew',
+            'password_confirmation' => 'kgroew',
+        );
+
+        // mock validator to fail
+        $validator = Mockery::mock();
+        $validator->shouldReceive('fails')->once()->andReturn(true);
+        Validator::shouldReceive('make')->once()->andReturn($validator);
+
+        // mock notification
+        Notification::shouldReceive('error')
+            ->once()
+            ->with('Please correct the highlighted errors.');
+
+        // call and check
+        $this->call('POST', 'auth/register', $values);
+        $this->assertRedirectedToRoute('auth.register');
     }
 }

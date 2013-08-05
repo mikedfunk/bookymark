@@ -5,7 +5,7 @@
  */
 namespace Bookymark\Bookmarks;
 
-use BaseController;
+use Bookymark\Common\BaseController;
 use View;
 use Input;
 use Redirect;
