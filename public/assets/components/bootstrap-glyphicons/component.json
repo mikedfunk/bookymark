@@ -1,0 +1,9 @@
+{
+  "name": "bootstrap-glyphicons",
+  "version": "0.0.0",
+  "commit": "bdd2cbfba0ca407c6b7e45d84558de6aec010546",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twbs/bootstrap-glyphicons.git"
+  }
+}
