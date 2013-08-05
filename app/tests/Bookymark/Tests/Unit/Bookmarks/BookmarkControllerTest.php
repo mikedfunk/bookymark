@@ -37,9 +37,6 @@ class BookmarkControllerTest extends BookymarkTest
 
         // mock common View::share call in base controller
         Auth::shouldReceive('user');
-        View::shouldReceive('share')
-            ->once()
-            ->with('logged_in_user', Auth::user());
     }
 
     /**
@@ -50,9 +47,9 @@ class BookmarkControllerTest extends BookymarkTest
     public function testBookmarkIndexOk()
     {
         // call view make on index with the right params
-        View::shouldReceive('make')
-            ->once()
-            ->with('bookmarks.bookmarks_index');
+        // View::shouldReceive('make')
+            // ->once()
+            // ->with('bookmarks.bookmarks_index');
 
         $this->call('GET', 'bookmarks');
         $this->assertResponseOk();
@@ -67,9 +64,9 @@ class BookmarkControllerTest extends BookymarkTest
     {
         // call view make on index with the right params
         $edit = false;
-        View::shouldReceive('make')
-            ->once()
-            ->with('bookmarks.bookmarks_form', compact('edit'));
+        // View::shouldReceive('make')
+            // ->once()
+            // ->with('bookmarks.bookmarks_form', compact('edit'));
 
         $this->call('GET', 'bookmarks/create');
         $this->assertResponseOk();
@@ -100,9 +97,9 @@ class BookmarkControllerTest extends BookymarkTest
         // mock view make
         $bookmark = $this->bookmark_model;
         $edit = true;
-        View::shouldReceive('make')
-            ->with('bookmarks.bookmarks_form', compact('bookmark', 'edit'))
-            ->once();
+        // View::shouldReceive('make')
+            // ->with('bookmarks.bookmarks_form', compact('bookmark', 'edit'))
+            // ->once();
 
         // call the route
         $this->call('GET', 'bookmarks/1/edit');

@@ -39,9 +39,6 @@ class AuthControllerTest extends BookymarkTest
 
         // mock common View::share call in base controller
         Auth::shouldReceive('user');
-        View::shouldReceive('share')
-            ->once()
-            ->with('logged_in_user', Auth::user());
     }
 
     /**
@@ -52,9 +49,9 @@ class AuthControllerTest extends BookymarkTest
     public function testAuthLoginOk()
     {
         // mock view and call
-        View::shouldReceive('make')
-            ->once()
-            ->with('auth.login');
+        // View::shouldReceive('make')
+            // ->once()
+            // ->with('auth.login');
         $this->call('GET', 'auth/login');
         $this->assertResponseOk();
     }
@@ -114,9 +111,9 @@ class AuthControllerTest extends BookymarkTest
     {
         // mock view and call
         $token = $this->token;
-        View::shouldReceive('make')
-            ->once()
-            ->with('auth.reset', compact('token'));
+        // View::shouldReceive('make')
+            // ->once()
+            // ->with('auth.reset', compact('token'));
         $this->call('GET', 'auth/reset/' . $this->token);
         $this->assertResponseOk();
     }
@@ -158,9 +155,9 @@ class AuthControllerTest extends BookymarkTest
     public function testAuthRemindOk()
     {
         // mock view and call
-        View::shouldReceive('make')
-            ->once()
-            ->with('auth.remind');
+        // View::shouldReceive('make')
+            // ->once()
+            // ->with('auth.remind');
         $this->call('GET', 'auth/remind');
         $this->assertResponseOk();
     }
@@ -189,9 +186,9 @@ class AuthControllerTest extends BookymarkTest
     public function testAuthRegisterOk()
     {
         // mock view, call, ensure ok
-        View::shouldReceive('make')
-            ->once()
-            ->with('auth.register');
+        // View::shouldReceive('make')
+            // ->once()
+            // ->with('auth.register');
         $this->call('GET', 'auth/register');
         $this->assertResponseOk();
     }
@@ -273,9 +270,9 @@ class AuthControllerTest extends BookymarkTest
         $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
 
         // mock view
-        View::shouldReceive('make')
-            ->once()
-            ->with('auth.profile', compact('user'));
+        // View::shouldReceive('make')
+            // ->once()
+            // ->with('auth.profile', compact('user'));
 
         // call
         $this->call('GET', 'auth/1/profile');

@@ -27,9 +27,6 @@ class HomeControllerTest extends BookymarkTest
         parent::setUp();
         // mock common View::share call in base controller
         Auth::shouldReceive('user');
-        View::shouldReceive('share')
-            ->once()
-            ->with('logged_in_user', Auth::user());
     }
 
     /**
@@ -39,7 +36,7 @@ class HomeControllerTest extends BookymarkTest
      */
     public function testHomeIndexOk()
     {
-        View::shouldReceive('make')->once()->with('home.home_index');
+        // View::shouldReceive('make')->once()->with('home.home_index');
         $this->call('GET', '/');
         $this->assertResponseOk();
     }

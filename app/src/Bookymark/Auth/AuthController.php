@@ -83,7 +83,7 @@ class AuthController extends BaseController
      */
     public function reset($token)
     {
-        return View::make('auth.reset', compact('token'));
+        return View::make('auth.reset_password', compact('token'));
     }
 
     /**
