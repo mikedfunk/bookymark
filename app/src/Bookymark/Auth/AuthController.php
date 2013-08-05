@@ -13,6 +13,7 @@ use Redirect;
 use Input;
 use Password;
 use Validator;
+use Lang;
 
 /**
  * AuthController
@@ -52,12 +53,12 @@ class AuthController extends BaseController
         // if login successful, notify and redirect
         $input = Input::only(array('email', 'password'));
         if (Auth::attempt($input)) {
-            Notification::success('You have been logged in.');
+            Notification::success(Lang::get('notifications.logged_in'));
             return Redirect::route('bookmarks.index');
         }
 
         // if it fails, notify and redirect
-        Notification::error('Login failed.');
+        Notification::error(Lang::get('notifications.login_error'));
         return Redirect::route('auth.login');
     }
 
@@ -92,7 +93,7 @@ class AuthController extends BaseController
                 $user->save();
 
                 // notify and redirect
-                Notification::success('Password Reset.');
+                Notification::success(Lang::get('notifications.password_reset_success'));
                 return Redirect::route('auth.login');
             }
         );
@@ -150,7 +151,7 @@ class AuthController extends BaseController
         }
 
         // otherwise success
-        Notification::success('Registration successful. Please log in.');
+        Notification::success(Lang::get('notifications.register_success'));
         return Redirect::route('auth.login');
     }
 
@@ -186,10 +187,10 @@ class AuthController extends BaseController
         $validation = Validator::make($input, $rules);
 
         if ($validation->fails()) {
-            Notification::error('Please correct the highlighted fields.');
+            Notification::error(Lang::get('notifications.form_error'));
         } else {
             $this->user_repository->update($input);
-            Notification::success('Profile updated.');
+            Notification::success(Lang::get('notifications.profile_updated'));
         }
         return Redirect::route('auth.profile', $id);
 

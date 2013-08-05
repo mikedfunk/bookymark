@@ -11,6 +11,7 @@ use Input;
 use Redirect;
 use Notification;
 use Validator;
+use Lang;
 
 /**
  * test all bookmark controllers
@@ -77,13 +78,13 @@ class BookmarkController extends BaseController
         // if validation fails, set notification and redirect
         $validator = Validator::make(Input::all(), BookmarkModel::$rules);
         if ($validator->fails()) {
-            Notification::error('Errors were found.');
+            Notification::error(Lang::get('notifications.form_error'));
             return Redirect::route('bookmarks.create');
         }
 
         // else update, notify, and redirect
         $bookmark = $this->bookmark_repository->store(Input::all());
-        Notification::success('Record saved.');
+        Notification::success(Lang::get('notifications.form_success'));
         return Redirect::route('bookmarks.edit', $bookmark->id);
     }
     /**
@@ -97,13 +98,13 @@ class BookmarkController extends BaseController
         // if validation fails, set notification and redirect
         $validator = Validator::make(Input::all(), BookmarkModel::$rules);
         if ($validator->fails()) {
-            Notification::error('Errors were found.');
+            Notification::error(Lang::get('notifications.form_error'));
             return Redirect::route('bookmarks.edit', $id);
         }
 
         // else update, notify, and redirect
         $bookmark = $this->bookmark_repository->update(Input::all());
-        Notification::success('Record saved.');
+        Notification::success(Lang::get('notifications.form_success'));
         return Redirect::route('bookmarks.edit', $id);
     }
 }

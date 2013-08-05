@@ -12,6 +12,7 @@ use Auth;
 use Password;
 use Mockery;
 use Validator;
+use Lang;
 
 /**
  * AuthControllerTest
@@ -74,7 +75,7 @@ class AuthControllerTest extends BookymarkTest
         // notification should receive
         Notification::shouldReceive('success')
             ->once()
-            ->with('You have been logged in.');
+            ->with(Lang::get('notifications.logged_in'));
 
         // should redirect
         $this->call('POST', 'auth/login', $this->credentials);
@@ -97,7 +98,7 @@ class AuthControllerTest extends BookymarkTest
         // notification should receive
         Notification::shouldReceive('error')
             ->once()
-            ->with('Login failed.');
+            ->with(Lang::get('notifications.login_error'));
 
         // should redirect
         $this->call('POST', 'auth/login', $this->credentials);
@@ -128,6 +129,8 @@ class AuthControllerTest extends BookymarkTest
     public function testAuthDoResetOk()
     {
         // mock password call and check response
+        // @NOTE this is not a complete test, I haven't tested the closure
+        // in Password::reset() yet.
         $this->mockAuthDriver();
         Password::shouldReceive('reset')->once();
         $this->call('POST', 'auth/reset/' . $this->token, $this->credentials);
@@ -215,7 +218,7 @@ class AuthControllerTest extends BookymarkTest
         // mock notification
         Notification::shouldReceive('success')
             ->once()
-            ->with('Registration successful. Please log in.');
+            ->with(Lang::get('notifications.register_success'));
 
         // call and check
         $this->call('POST', 'auth/register', $values);
@@ -310,7 +313,7 @@ class AuthControllerTest extends BookymarkTest
         // mock notification success
         Notification::shouldReceive('success')
             ->once()
-            ->with('Profile updated.');
+            ->with(Lang::get('notifications.profile_updated'));
 
         // call, ensure success
         $this->call('POST', 'auth/1/profile', $input);
@@ -339,7 +342,7 @@ class AuthControllerTest extends BookymarkTest
         // mock notification success
         Notification::shouldReceive('error')
             ->once()
-            ->with('Please correct the highlighted fields.');
+            ->with(Lang::get('notifications.form_error'));
 
         // call, ensure success
         $this->call('POST', 'auth/1/profile', $input);

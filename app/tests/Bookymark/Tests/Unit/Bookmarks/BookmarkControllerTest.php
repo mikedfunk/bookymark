@@ -13,6 +13,7 @@ use Notification;
 use Validator;
 use Bookymark\Bookmarks\BookmarkModel;
 use Auth;
+use Lang;
 
 /**
  * test all bookmark controller methods
@@ -127,7 +128,9 @@ class BookmarkControllerTest extends BookymarkTest
             ->andReturn($this->bookmark_model);
 
         // mock notification
-        Notification::shouldReceive('success')->once()->with('Record saved.');
+        Notification::shouldReceive('success')
+            ->once()
+            ->with(Lang::get('notifications.form_success'));
 
         // bind instance to class
         $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
@@ -165,7 +168,7 @@ class BookmarkControllerTest extends BookymarkTest
         // mock notification
         Notification::shouldReceive('error')
             ->once()
-            ->andReturn('Errors were found.');
+            ->andReturn(Lang::get('notifications.form_error'));
 
         // call
         $this->call('POST', 'bookmarks', $values);
@@ -197,7 +200,9 @@ class BookmarkControllerTest extends BookymarkTest
             ->andReturn($this->bookmark_model);
 
         // mock notification
-        Notification::shouldReceive('success')->once()->with('Record saved.');
+        Notification::shouldReceive('success')
+            ->once()
+            ->with(Lang::get('notifications.form_success'));
 
         // bind instance to class
         $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
@@ -237,7 +242,7 @@ class BookmarkControllerTest extends BookymarkTest
         // mock notification
         Notification::shouldReceive('error')
             ->once()
-            ->andReturn('Errors were found.');
+            ->andReturn(Lang::get('notifications.form_error'));
 
         // call
         $this->call('PUT', 'bookmarks/' . $id, $values);
