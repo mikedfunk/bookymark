@@ -14,6 +14,8 @@ use Input;
 use Password;
 use Validator;
 use Lang;
+use Mail;
+use Hash;
 
 /**
  * AuthController
@@ -154,7 +156,8 @@ class AuthController extends BaseController
             'email'    => 'required|email|unique:users',
             'password' => 'confirmed'
         );
-        $validation = Validator::make(Input::all(), $rules);
+        $input = Input::all();
+        $validation = Validator::make($input, $rules);
 
         if ($validation->fails()) {
 
@@ -163,8 +166,49 @@ class AuthController extends BaseController
             return Redirect::route('auth.register')->withErrors($validation);
         }
 
-        // otherwise success
+        // set register_token
+        $input['register_token'] = uniqid();
+        $input['password'] = Hash::make($input['password']);
+        $user = $this->user_repository->create($input);
+
+        // send confirm registration email
+        Mail::send(
+            'emails.auth.confirm_registration',
+            compact('user'),
+            function ($message) use ($input) {
+                // @TODO figure out how to test this closure
+                $message
+                    ->to($input['email'], $input['email'])
+                    ->subject(Lang::get('emails.register_subject'));
+            }
+        );
+
+        // notify and redirect
         Notification::success(Lang::get('notifications.register_success'));
+        return Redirect::route('auth.login');
+    }
+
+    /**
+     * confirmRegistration
+     *
+     * @param string $token
+     * @return View|Redirect
+     */
+    public function confirmRegistration($token)
+    {
+        // look for user
+        $user = $this->user_repository->findByRegisterToken($token);
+
+        // if no user is found with that token
+        if (!$user) {
+            Notification::error(Lang::get('notifications.confirm_registration_error'));
+            return View::make('auth.confirm_registration_error');
+        }
+
+        // else notify and redirect to login
+        $user->register_token = '';
+        $user->save();
+        Notification::success(Lang::get('notifications.confirm_registration_success'));
         return Redirect::route('auth.login');
     }
 

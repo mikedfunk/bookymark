@@ -146,4 +146,61 @@ class UserRepositoryTest extends BookymarkTest
         $old_count     = count($records);
         $this->assertEquals($current_count, $old_count - 1);
     }
+
+    /**
+     * testUserFindByRegisterToken
+     *
+     * @return void
+     */
+    public function testUserFindByRegisterToken()
+    {
+        // set up test record
+        $values = array(
+            'email'          => 'test@test.com',
+            'register_token' => 'asd',
+        );
+
+        // insert into db
+        $user = UserModel::create($values);
+
+        // find by token, ensure 1 result
+        $user = $this->user_repository->findByRegisterToken($values['register_token']);
+        $this->assertEquals(1, count($user));
+    }
+
+    /**
+     * testUserFindByEmail
+     *
+     * @return void
+     */
+    public function testUserFindByEmail()
+    {
+        // set up test record, insert into db
+        $values = array('email' => 'lfdfd@test.com');
+        $user = UserModel::create($values);
+
+        // find by email ensure one result
+        $actual_count = $this->user_repository->findByEmail($values['email'])->count();
+        $this->assertEquals(1, $actual_count);
+    }
+
+    /**
+     * testUserCreate
+     *
+     * @return void
+     */
+    public function testUserCreate()
+    {
+        // set values
+        $values = array(
+            'email' => 'test@test.com',
+        );
+
+        // call create
+        $this->user_repository->create($values);
+
+        // ensure 1 row in db
+        $actual_count = UserModel::all()->count();
+        $this->assertEquals(1, $actual_count);
+    }
 }

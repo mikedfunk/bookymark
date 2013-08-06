@@ -22,5 +22,6 @@ class UserModel extends User
     protected $fillable = array(
         'email',
         'password',
+        'register_token',
     );
 }

@@ -14,48 +14,54 @@
 Route::get(
     'bookmarks',
     array(
-        'as'   => 'bookmarks.index',
-        'uses' => 'Bookymark\Bookmarks\BookmarkController@index',
+        'as'     => 'bookmarks.index',
+        'uses'   => 'Bookymark\Bookmarks\BookmarkController@index',
+        'before' => 'auth',
     )
 );
 
 Route::get(
     'bookmarks/create',
     array(
-        'as'   => 'bookmarks.create',
-        'uses' => 'Bookymark\Bookmarks\BookmarkController@create',
+        'as'     => 'bookmarks.create',
+        'uses'   => 'Bookymark\Bookmarks\BookmarkController@create',
+        'before' => 'auth',
     )
 );
 
 Route::get(
     'bookmarks/{id}/edit',
     array(
-        'as'   => 'bookmarks.edit',
-        'uses' => 'Bookymark\Bookmarks\BookmarkController@edit',
+        'as'     => 'bookmarks.edit',
+        'uses'   => 'Bookymark\Bookmarks\BookmarkController@edit',
+        'before' => 'auth',
     )
 );
 
 Route::get(
     'bookmarks/{id}/destroy',
     array(
-        'as'   => 'bookmarks.destroy',
-        'uses' => 'Bookymark\Bookmarks\BookmarkController@destroy',
+        'as'     => 'bookmarks.destroy',
+        'uses'   => 'Bookymark\Bookmarks\BookmarkController@destroy',
+        'before' => 'auth',
     )
 );
 
 Route::put(
     'bookmarks/{id}',
     array(
-        'as'   => 'bookmarks.update',
-        'uses' => 'Bookymark\Bookmarks\BookmarkController@update',
+        'as'     => 'bookmarks.update',
+        'uses'   => 'Bookymark\Bookmarks\BookmarkController@update',
+        'before' => 'auth',
     )
 );
 
 Route::post(
     'bookmarks',
     array(
-        'as'   => 'bookmarks.store',
-        'uses' => 'Bookymark\Bookmarks\BookmarkController@store',
+        'as'     => 'bookmarks.store',
+        'uses'   => 'Bookymark\Bookmarks\BookmarkController@store',
+        'before' => 'auth',
     )
 );
 
@@ -72,15 +78,16 @@ Route::get(
 Route::post(
     'auth/login',
     array(
-        'as'   => 'auth.do_login',
-        'uses' => 'Bookymark\Auth\AuthController@doLogin',
+        'as'     => 'auth.do_login',
+        'uses'   => 'Bookymark\Auth\AuthController@doLogin',
+        'before' => 'registration_confirmed',
     )
 );
 
 Route::get(
     'auth/logout',
     array(
-        'as' => 'auth.logout',
+        'as'   => 'auth.logout',
         'uses' => 'Bookymark\Auth\AuthController@logout',
     )
 );
@@ -131,6 +138,14 @@ Route::post(
         'as'     => 'auth.do_register',
         'uses'   => 'Bookymark\Auth\AuthController@doRegister',
         'before' => 'csrf',
+    )
+);
+
+Route::get(
+    'auth/{token}/confirm-registration',
+    array(
+        'as'     => 'auth.confirm_registration',
+        'uses'   => 'Bookymark\Auth\AuthController@confirmRegistration',
     )
 );
 

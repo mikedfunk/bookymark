@@ -34,6 +34,28 @@ class UserRepository
     }
 
     /**
+     * findByRegisterToken
+     *
+     * @param string $token
+     * @return UserModel|null
+     */
+    public function findByRegisterToken($token)
+    {
+        return UserModel::where('register_token', '=', $token)->get();
+    }
+
+    /**
+     * findByEmail
+     *
+     * @param string $email
+     * @return UserModel|null
+     */
+    public function findByEmail($email)
+    {
+        return UserModel::where('email', '=', $email)->get();
+    }
+
+    /**
      * findOrFail
      *
      * @param int $id
@@ -96,5 +118,16 @@ class UserRepository
     public function delete($id)
     {
         return UserModel::find($id)->delete();
+    }
+
+    /**
+     * create
+     *
+     * @param array $values
+     * @return Eloquent
+     */
+    public function create(array $values)
+    {
+        return UserModel::create($values);
     }
 }

@@ -13,13 +13,13 @@
 
 App::before(function($request)
 {
-	//
+    //
 });
 
 
 App::after(function($request, $response)
 {
-	//
+    //
 });
 
 /*
@@ -35,13 +35,16 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+    if (Auth::guest()) {
+        Notification::error(Lang::get('notifications.login_required'));
+        return Redirect::guest('auth/login');
+    }
 });
 
 
 Route::filter('auth.basic', function()
 {
-	return Auth::basic();
+    return Auth::basic();
 });
 
 /*
@@ -57,7 +60,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+    if (Auth::check()) return Redirect::to('/');
 });
 
 /*
@@ -73,8 +76,25 @@ Route::filter('guest', function()
 
 Route::filter('csrf', function()
 {
-	if (Session::token() != Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
-	}
+    if (Session::token() != Input::get('_token'))
+    {
+        throw new Illuminate\Session\TokenMismatchException;
+    }
 });
+
+Route::filter(
+    'registration_confirmed',
+    function () {
+        // get user by email
+        $user_repository = new Bookymark\Auth\UserRepository;
+        $user = $user_repository->findByEmail(Input::get('email'))->first();
+
+        // if user has register_token set, fail
+        if ($user) {
+            if ($user->register_token != '') {
+                Notification::error(Lang::get('notifications.registration_not_confirmed'));
+                return Redirect::route('auth.login');
+            }
+        }
+    }
+);

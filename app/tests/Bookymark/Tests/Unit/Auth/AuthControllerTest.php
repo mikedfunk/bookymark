@@ -13,6 +13,7 @@ use Password;
 use Mockery;
 use Validator;
 use Lang;
+use Mail;
 
 /**
  * AuthControllerTest
@@ -205,6 +206,7 @@ class AuthControllerTest extends BookymarkTest
             'email'                 => 'testeioruwer@test.com',
             'password'              => 'kgroew',
             'password_confirmation' => 'kgroew',
+            '_token'                => 'abc',
         );
 
         // mock validator to succeed
@@ -216,6 +218,33 @@ class AuthControllerTest extends BookymarkTest
         Notification::shouldReceive('success')
             ->once()
             ->with(Lang::get('notifications.register_success'));
+
+        // mock user
+        $user = Mockery::mock('Bookymark\Auth\UserModel');
+        $user->shouldDeferMissing();
+        unset($values['password_confirmation']);
+        $values['register_token'] = 'a';
+        $user->fill($values);
+
+        // mock user repository
+        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository->shouldReceive('create')
+            ->once()
+            // @TODO this includes a uniqid()... find a better way
+            // ->with($values)
+            ->andReturn($user);
+        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+
+        // mock mail send
+        Mail::shouldReceive('send')
+            ->once();
+            // @TODO test this closure
+            // ->with(
+                // 'emails.register',
+                // compact('user'),
+                // function () {
+                // }
+            // );
 
         // call and check
         $this->call('POST', 'auth/register', $values);
@@ -364,5 +393,62 @@ class AuthControllerTest extends BookymarkTest
         // assert redirected
         $this->call('GET', 'auth/logout');
         $this->assertRedirectedToRoute('auth.login');
+    }
+
+    /**
+     * testConfirmRegistrationFail
+     *
+     * @return void
+     */
+    public function testConfirmRegistrationFail()
+    {
+        // mock user query by token to return null
+        $register_token = 'abc123';
+        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository->shouldReceive('findByRegisterToken')
+            ->once()
+            ->with($register_token);
+        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+
+        // ensure notification error with notifications.confirm_registration_error
+        Notification::shouldReceive('error')
+            ->once()
+            ->with(Lang::get('notifications.confirm_registration_error'));
+
+        // it loads a view but don't mock it
+        $this->call('GET', 'auth/' . $register_token . '/confirm-registration');
+        $this->assertResponseOk();
+    }
+
+    /**
+     * testConfirmRegistrationSuccess
+     *
+     * @return void
+     */
+    public function testConfirmRegistrationSuccess()
+    {
+        // mock user query by token
+        $register_token = 'abc123';
+        $user = Mockery::mock('Bookymark\Auth\UserModel');
+        $user->shouldDeferMissing();
+        $user->shouldReceive('save')->once();
+
+        // mock user repo
+        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository->shouldReceive('findByRegisterToken')
+            ->once()
+            ->with($register_token)
+            ->andReturn($user);
+        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+
+        // ensure notification error with notifications.confirm_registration_error
+        Notification::shouldReceive('success')
+            ->once()
+            ->with(Lang::get('notifications.confirm_registration_success'));
+
+        // it loads a view but don't mock it
+        $this->call('GET', 'auth/' . $register_token . '/confirm-registration');
+        $this->assertRedirectedToRoute('auth.login');
+
     }
 }
