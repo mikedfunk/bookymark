@@ -12,13 +12,13 @@
     create, and delete bookmarks.</p>
   </div><!--col-->
   <div class="col-lg-3">
-<div class="panel panel-success text-center">
-<div class="panel-heading">
-Want to take it for a spin?
-</div><!--panel-heading-->
-<a class="btn btn-large btn-primary" href="{{ route('auth.register') }}">
-<span class="glyphicon glyphicon-user"></span> Register</a>
-</div><!--panel-->
+    <div class="panel panel-success text-center">
+      <div class="panel-heading">
+        Want to take it for a spin?
+      </div><!--panel-heading-->
+      <a class="btn btn-large btn-primary" href="{{ route('auth.register') }}">
+        <span class="glyphicon glyphicon-user"></span> Register</a>
+    </div><!--panel-->
   </div><!--col-->
 </div><!--row-->
 <div class="row">
@@ -28,11 +28,10 @@ Want to take it for a spin?
     project. It has authentication, pagination, and CRUD.</p>
   </div><!--col-->
   <div class="col-lg-3">
-    <h2>Basset</h2>
-    <p>In production: combine and minify css and js triggered by a build script.
-In development: keep them separate and pretty. Load the latest versions dynamically
-while busting the cache. <a href="https://github.com/jasonlewis/basset">It's
-      the best of both worlds</a>, and it's automated for both environments.</p>
+    <h2>PSR-2</h2>
+    <p>All classes are in app/src and are autoloaded by namespace. All other language
+    features comform to <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PSR-2</a>
+    standards. Code portability and defined standards FTW!</p>
   </div><!--col-->
   <div class="col-lg-3">
     <h2>Unit Tests</h2>
