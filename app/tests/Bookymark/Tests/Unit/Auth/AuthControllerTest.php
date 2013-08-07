@@ -14,6 +14,7 @@ use Mockery;
 use Validator;
 use Lang;
 use Mail;
+use Session;
 
 /**
  * AuthControllerTest
@@ -108,31 +109,56 @@ class AuthControllerTest extends BookymarkTest
      *
      * @return void
      */
-    public function testAuthResetOk()
+    public function testAuthResetPasswordOk()
     {
         // mock view and call
         $token = $this->token;
         // View::shouldReceive('make')
             // ->once()
             // ->with('auth.reset', compact('token'));
-        $this->call('GET', 'auth/reset/' . $this->token);
+        $this->call('GET', 'auth/' . $this->token . '/reset-password');
         $this->assertResponseOk();
     }
 
     /**
-     * testAuthDoResetOk
+     * testAuthDoResetPasswordOk
      *
      * @return void
      */
-    public function testAuthDoResetOk()
+    public function testAuthDoResetPasswordOk()
     {
+        // mock validator to succeed
+        $validator = Mockery::mock();
+        $validator->shouldReceive('fails')->once()->andReturn(false);
+        Validator::shouldReceive('make')->once()->andReturn($validator);
+
         // mock password call and check response
-        // @NOTE this is not a complete test, I haven't tested the closure
-        // in Password::reset() yet.
         $this->mockAuthDriver();
         Password::shouldReceive('reset')->once();
-        $this->call('POST', 'auth/reset/' . $this->token, $this->credentials);
+        $this->call('POST', 'auth/' . $this->token . '/reset-password', $this->credentials);
         $this->assertResponseOk();
+    }
+
+    /**
+     * testAuthDoResetPasswordFail
+     *
+     * @return void
+     */
+    public function testAuthDoResetPasswordFail()
+    {
+        $token = '123';
+
+        // mock validator to fail
+        $validator = Mockery::mock();
+        $validator->shouldReceive('fails')->once()->andReturn(true);
+        Validator::shouldReceive('make')->once()->andReturn($validator);
+
+        // mock notification and assert redirect
+        Notification::shouldReceive('error')
+            ->once()
+            ->with(Lang::get('notifications.form_error'));
+        $this->call('POST', 'auth/' . $token . '/reset-password', array());
+        $this->assertRedirectedToRoute('auth.reset_password', $token);
     }
 
     /**
@@ -170,13 +196,47 @@ class AuthControllerTest extends BookymarkTest
      */
     public function testAuthDoRemindOk()
     {
+        $credentials = array('email' => $this->credentials['email']);
+        // mock validator to succeed
+        $validator = Mockery::mock();
+        $validator->shouldReceive('fails')->once()->andReturn(false);
+        Validator::shouldReceive('make')->once()->andReturn($validator);
+
         // mock password
         $this->mockAuthDriver();
-        Password::shouldReceive('remind')->once()->with($this->credentials);
+        Password::shouldReceive('remind')->once();
+        Password::shouldDeferMissing();
+
+        // mock notification
+        Notification::shouldReceive('success')
+            ->once()
+            ->with(Lang::get('notifications.remind_success'));
+
+        // call and check response
+        $this->call('POST', 'auth/remind', $credentials);
+        $this->assertResponseOk();
+    }
+
+    /**
+     * testAuthDoRemindFailValidation
+     *
+     * @return void
+     */
+    public function testAuthDoRemindFailValidation()
+    {
+        // mock validator to fail
+        $validator = Mockery::mock();
+        $validator->shouldReceive('fails')->once()->andReturn(true);
+        Validator::shouldReceive('make')->once()->andReturn($validator);
+
+        // mock notification
+        Notification::shouldReceive('error')
+            ->once()
+            ->with(Lang::get('notifications.form_error'));
 
         // call and check response
         $this->call('POST', 'auth/remind', $this->credentials);
-        $this->assertResponseOk();
+        $this->assertRedirectedToRoute('auth.remind');
     }
 
     /**

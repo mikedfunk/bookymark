@@ -16,6 +16,7 @@ use Validator;
 use Lang;
 use Mail;
 use Hash;
+use Session;
 
 /**
  * AuthController
@@ -78,26 +79,39 @@ class AuthController extends BaseController
     }
 
     /**
-     * reset
+     * resetPassword
      *
      * @param string $token
      * @return View
      */
-    public function reset($token)
+    public function resetPassword($token)
     {
         return View::make('auth.reset_password', compact('token'));
     }
 
     /**
-     * doReset
+     * doResetPassword
      *
      * @param string $token automatically checked by the password class
      * @return Redirect
      */
-    public function doReset($token)
+    public function doResetPassword($token)
     {
+        // set rules, make validator
+        $rules = array(
+            'email'    => 'required|email',
+            'password' => 'confirmed'
+        );
+        $input = Input::all();
+        $validation = Validator::make($input, $rules);
+
+        // notify and redirect on fail
+        if ($validation->fails()) {
+            Notification::error(Lang::get('notifications.form_error'));
+            return Redirect::route('auth.reset_password', $token);
+        }
         // get credentials, reset password
-        $credentials = Input::all();
+        $credentials = Input::only('email');
         return Password::reset(
             $credentials,
             // @TODO figure out the best way to test this... or just skip it.
@@ -131,7 +145,26 @@ class AuthController extends BaseController
      */
     public function doRemind()
     {
-        return Password::remind(Input::all());
+        // set rules, make validator
+        $rules = array(
+            'email' => 'required|email',
+        );
+        $input = Input::only('email');
+        $validation = Validator::make($input, $rules);
+
+        if ($validation->fails()) {
+            Notification::error(Lang::get('notifications.form_error'));
+            return Redirect::route('auth.remind')->withErrors($validation);
+        }
+
+        // notify success and let laravel do it's thing.
+        Notification::success(Lang::get('notifications.remind_success'));
+        return Password::remind(
+            $input,
+            function ($message, $user) {
+                $message->subject(Lang::get('emails.reminder_subject'));
+            }
+        );
     }
 
     /**
@@ -249,7 +282,7 @@ class AuthController extends BaseController
             $this->user_repository->update($input);
             Notification::success(Lang::get('notifications.profile_updated'));
         }
-        return Redirect::route('auth.profile', $id);
+        return Redirect::route('auth.profile', $id)->withErrors($validation);
 
     }
 }

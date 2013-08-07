@@ -14,6 +14,7 @@ return array(
     'confirm_registration_success' => 'Registration confirmed. Please log in.',
     'confirm_registration_error'   => 'Registration failed.',
     'registration_not_confirmed'   => 'Please check your email for instructions to complete registration.',
+    'remind_success'               => 'Password reset link sent. Please check your email.',
     'password_reset_success'       => 'Password reset.',
     'profile_updated'              => 'Profile updated.',
 

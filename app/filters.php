@@ -80,6 +80,11 @@ Route::filter('csrf', function()
     {
         throw new Illuminate\Session\TokenMismatchException;
     }
+
+    // unset token once csrf passes
+    $input = Input::all();
+    unset($input['_token']);
+    Input::replace($input);
 });
 
 Route::filter(

@@ -52,7 +52,7 @@ Route::put(
     array(
         'as'     => 'bookmarks.update',
         'uses'   => 'Bookymark\Bookmarks\BookmarkController@update',
-        'before' => 'auth',
+        'before' => 'csrf|auth',
     )
 );
 
@@ -61,7 +61,7 @@ Route::post(
     array(
         'as'     => 'bookmarks.store',
         'uses'   => 'Bookymark\Bookmarks\BookmarkController@store',
-        'before' => 'auth',
+        'before' => 'csrf|auth',
     )
 );
 
@@ -80,7 +80,7 @@ Route::post(
     array(
         'as'     => 'auth.do_login',
         'uses'   => 'Bookymark\Auth\AuthController@doLogin',
-        'before' => 'registration_confirmed',
+        'before' => 'csrf|registration_confirmed',
     )
 );
 
@@ -103,24 +103,26 @@ Route::get(
 Route::post(
     'auth/remind',
     array(
-        'as'   => 'auth.do_remind',
-        'uses' => 'Bookymark\Auth\AuthController@doRemind',
+        'as'     => 'auth.do_remind',
+        'uses'   => 'Bookymark\Auth\AuthController@doRemind',
+        'before' => 'csrf',
     )
 );
 
 Route::get(
-    'auth/reset/{token}',
+    'auth/{token}/reset-password',
     array(
-        'as'   => 'auth.reset',
-        'uses' => 'Bookymark\Auth\AuthController@reset',
+        'as'   => 'auth.reset_password',
+        'uses' => 'Bookymark\Auth\AuthController@resetPassword',
     )
 );
 
 Route::post(
-    'auth/reset/{token}',
+    'auth/{token}/reset-password',
     array(
-        'as'   => 'auth.do_reset',
-        'uses' => 'Bookymark\Auth\AuthController@doReset',
+        'as'     => 'auth.do_reset_password',
+        'uses'   => 'Bookymark\Auth\AuthController@doResetPassword',
+        'before' => 'csrf',
     )
 );
 

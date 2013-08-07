@@ -20,6 +20,7 @@
       <label for="password_field" class="control-label">Password:</label>
       {{ Form::password('password', array('id' => 'password_field', 'class' => 'form-control')) }}
     </div><!--form-group-->
+    <a href="{{ route('auth.remind') }}" class="btn btn-link pull-right">Forgot Password</a>
     <button type="submit" class="btn btn-primary">Login</button>
   </form>
 </div><!--col-->

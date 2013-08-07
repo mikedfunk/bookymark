@@ -79,7 +79,7 @@ class BookmarkController extends BaseController
         $validator = Validator::make(Input::all(), BookmarkModel::$rules);
         if ($validator->fails()) {
             Notification::error(Lang::get('notifications.form_error'));
-            return Redirect::route('bookmarks.create');
+            return Redirect::route('bookmarks.create')->withErrors($validator);
         }
 
         // else update, notify, and redirect
@@ -99,7 +99,7 @@ class BookmarkController extends BaseController
         $validator = Validator::make(Input::all(), BookmarkModel::$rules);
         if ($validator->fails()) {
             Notification::error(Lang::get('notifications.form_error'));
-            return Redirect::route('bookmarks.edit', $id);
+            return Redirect::route('bookmarks.edit', $id)->withErrors($validator);
         }
 
         // else update, notify, and redirect
