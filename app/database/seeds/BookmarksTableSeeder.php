@@ -12,13 +12,13 @@ class BookmarksTableSeeder extends Seeder {
                 'title'       => 'bookmark1',
                 'description' => 'bookmark1',
                 'url'         => 'http://www.yahoo.com',
-                'user_id'     => 1,
+                'user_id'     => '1',
             ),
             array(
                 'title'       => 'bookmark2',
                 'description' => 'bookmark2',
                 'url'         => 'http://www.yahoo.com',
-                'user_id'     => 1,
+                'user_id'     => '1',
             ),
 
         );

@@ -6,9 +6,10 @@
 return array(
     'form_error'                   => 'Please correct the highlighted fields.',
     'form_success'                 => 'Record saved.',
+    'form_delete'                  => 'Record deleted.',
     'login_error'                  => 'Username or password incorrect.',
-    'login_success'                => 'You have been logged in.',
     'logged_out'                   => 'You have been logged out.',
+    'logged_in'                    => 'You have been logged in.',
     'login_required'               => 'You must login to do that.',
     'register_success'             => '<strong>Almost done!</strong> Please check your email for instructions to complete registration.',
     'confirm_registration_success' => 'Registration confirmed. Please log in.',

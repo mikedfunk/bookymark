@@ -5,6 +5,8 @@
  */
 namespace Bookymark\Bookmarks;
 
+use Config;
+
 /**
  * BookmarkRepository
  *
@@ -96,5 +98,16 @@ class BookmarkRepository
     public function delete($id)
     {
         return BookmarkModel::find($id)->delete();
+    }
+
+    /**
+     * getByUserId
+     *
+     * @return BookmarkModel
+     */
+    public function getByUserId($id)
+    {
+        return BookmarkModel::where('user_id', '=', $id)
+            ->paginate(Config::get('bookymark.per_page'));
     }
 }

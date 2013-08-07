@@ -39,10 +39,10 @@ Route::get(
 );
 
 Route::get(
-    'bookmarks/{id}/destroy',
+    'bookmarks/{id}/delete',
     array(
-        'as'     => 'bookmarks.destroy',
-        'uses'   => 'Bookymark\Bookmarks\BookmarkController@destroy',
+        'as'     => 'bookmarks.delete',
+        'uses'   => 'Bookymark\Bookmarks\BookmarkController@delete',
         'before' => 'auth',
     )
 );

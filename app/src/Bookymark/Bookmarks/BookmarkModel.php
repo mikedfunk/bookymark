@@ -31,6 +31,7 @@ class BookmarkModel extends Eloquent
         'title',
         'description',
         'url',
+        'user_id',
     );
 
     /**

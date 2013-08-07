@@ -12,6 +12,7 @@ use Redirect;
 use Notification;
 use Validator;
 use Lang;
+use Auth;
 
 /**
  * test all bookmark controllers
@@ -39,7 +40,8 @@ class BookmarkController extends BaseController
      */
     public function index()
     {
-        return View::make('bookmarks.bookmarks_index');
+        $bookmarks = $this->bookmark_repository->getByUserId(Auth::user()->id);
+        return View::make('bookmarks.bookmarks_index', compact('bookmarks'));
     }
 
     /**
@@ -106,5 +108,18 @@ class BookmarkController extends BaseController
         $bookmark = $this->bookmark_repository->update(Input::all());
         Notification::success(Lang::get('notifications.form_success'));
         return Redirect::route('bookmarks.edit', $id);
+    }
+
+    /**
+     * delete
+     *
+     * @param int $id
+     * @return Redirect
+     */
+    public function delete($id)
+    {
+        Notification::success(Lang::get('notifications.form_delete'));
+        $this->bookmark_repository->delete($id);
+        return Redirect::route('bookmarks.index');
     }
 }

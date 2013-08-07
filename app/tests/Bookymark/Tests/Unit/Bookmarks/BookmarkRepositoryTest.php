@@ -146,4 +146,27 @@ class BookmarkRepositoryTest extends BookymarkTest
         $old_count     = count($records);
         $this->assertEquals($current_count, $old_count - 1);
     }
+
+    /**
+     * testGetByUserId
+     *
+     * @return void
+     */
+    public function testGetByUserId()
+    {
+        // set up test records
+        $records = array(
+            array('user_id' => '1'),
+            array('user_id' => '2'),
+        );
+
+        // insert into db
+        foreach ($records as $record) {
+            BookmarkModel::create($record);
+        }
+
+        // get by user id, ensure count is one
+        $bookmarks = $this->bookmark_repository->getByUserId('2');
+        $this->assertEquals(1, $bookmarks->count());
+    }
 }

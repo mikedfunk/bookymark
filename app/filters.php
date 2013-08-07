@@ -92,7 +92,7 @@ Route::filter(
     function () {
         // get user by email
         $user_repository = new Bookymark\Auth\UserRepository;
-        $user = $user_repository->findByEmail(Input::get('email'))->first();
+        $user = $user_repository->findByEmail(Input::get('email'));
 
         // if user has register_token set, fail
         if ($user) {

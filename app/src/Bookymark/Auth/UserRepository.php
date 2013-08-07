@@ -52,7 +52,7 @@ class UserRepository
      */
     public function findByEmail($email)
     {
-        return UserModel::where('email', '=', $email)->get();
+        return UserModel::where('email', '=', $email)->first();
     }
 
     /**

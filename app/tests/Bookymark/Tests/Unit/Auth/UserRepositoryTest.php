@@ -180,8 +180,8 @@ class UserRepositoryTest extends BookymarkTest
         $user = UserModel::create($values);
 
         // find by email ensure one result
-        $actual_count = $this->user_repository->findByEmail($values['email'])->count();
-        $this->assertEquals(1, $actual_count);
+        $user = $this->user_repository->findByEmail($values['email']);
+        $this->assertNotNull($user);
     }
 
     /**

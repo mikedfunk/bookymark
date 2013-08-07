@@ -14,6 +14,7 @@ use Validator;
 use Bookymark\Bookmarks\BookmarkModel;
 use Auth;
 use Lang;
+use Illuminate\Support\Collection;
 
 /**
  * test all bookmark controller methods
@@ -35,8 +36,28 @@ class BookmarkControllerTest extends BookymarkTest
         $this->bookmark_model      = Mockery::mock('Eloquent', 'Bookymark\Bookmarks\BookmarkModel');
         $this->bookmark_model->shouldDeferMissing();
 
-        // mock common View::share call in base controller
-        Auth::shouldReceive('user');
+        // fill model to make views happy
+        $values = array(
+            'id'          => 1,
+            'title'       => 'adf',
+            'url'         => 'http://sdfd.dsf',
+            'description' => 'asdfdf',
+        );
+        $this->bookmark_model->fill($values);
+
+        // mock collection
+        $this->bookmark_collection = Mockery::mock('Illuminate\Support\Collection');
+        $this->bookmark_collection->shouldDeferMissing();
+        $this->bookmark_collection->shouldReceive('links');
+        for ($i = 1; $i < 20; $i++) {
+            $this->bookmark_collection[] = $this->bookmark_model;
+        }
+
+        // fake login as user
+        $this->user = Mockery::mock('Bookymark\Auth\UserModel');
+        $this->user->shouldDeferMissing();
+        $this->user->id = 1;
+        $this->be($this->user);
     }
 
     /**
@@ -46,6 +67,15 @@ class BookmarkControllerTest extends BookymarkTest
      */
     public function testBookmarkIndexOk()
     {
+        $this->bookmark_repository
+            ->shouldReceive('getByUserId')
+            ->once()
+            ->with($this->user->id)
+            ->andReturn($this->bookmark_collection);
+
+        // bind instance to class
+        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $this->app->instance($namespace, $this->bookmark_repository);
         // call view make on index with the right params
         // View::shouldReceive('make')
             // ->once()
@@ -239,12 +269,39 @@ class BookmarkControllerTest extends BookymarkTest
         // mock notification
         Notification::shouldReceive('error')
             ->once()
-            ->andReturn(Lang::get('notifications.form_error'));
+            ->with(Lang::get('notifications.form_error'));
 
         // call
         $this->call('PUT', 'bookmarks/' . $id, $values);
 
         // ensure redirected with errors
         $this->assertRedirectedToRoute('bookmarks.edit', $id);
+    }
+
+    /**
+     * testBookmarkDelete
+     *
+     * @return void
+     */
+    public function testBookmarkDelete()
+    {
+        // mock repository method
+        $this->bookmark_repository
+            ->shouldReceive('delete')
+            ->once()
+            ->with($this->user->id);
+
+        // bind instance to class
+        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $this->app->instance($namespace, $this->bookmark_repository);
+
+        // mock notification
+        Notification::shouldReceive('success')
+            ->once()
+            ->with(Lang::get('notifications.form_delete'));
+
+        // call and verify
+        $this->call('GET', 'bookmarks/1/delete');
+        $this->assertRedirectedToRoute('bookmarks.index');
     }
 }
