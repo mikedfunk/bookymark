@@ -143,6 +143,8 @@ class AuthControllerTest extends BookymarkTest
         Validator::shouldReceive('make')->once()->andReturn($validator);
 
         // mock password call and check response
+        // password reset prevents the closure from executing, hence no redirect
+        // or notification
         $this->mockAuthDriver();
         Password::shouldReceive('reset')->once();
         $this->call('POST', 'auth/' . $this->token . '/reset-password', $this->credentials);
@@ -347,15 +349,12 @@ class AuthControllerTest extends BookymarkTest
     {
         $this->login();
 
-        // mock user model
-        $user = Mockery::mock();
-
         // mock user repository
         $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
         $user_repository->shouldReceive('find')
             ->once()
-            ->with(1)
-            ->andReturn($user);
+            ->with($this->user->id)
+            ->andReturn($this->user);
         $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
 
         // call, assert ok
@@ -384,6 +383,7 @@ class AuthControllerTest extends BookymarkTest
 
         // tweak the input that gets sent to the repository
         $my_input = $input;
+        $my_input['id'] = $this->user->id;
         $my_input['password'] = 'lala';
         unset($my_input['password_confirmation']);
 

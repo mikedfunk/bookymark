@@ -12,11 +12,15 @@
 
     @section('main_content')
     {{ Form::open() }}
-    <div class="form-group">
+
+    <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
       <label for="email_field" class="control-label">Email Address:</label>
       {{ Form::text('email', null, array('id' => 'email_field', 'class' => 'form-control')) }}
+      @if($errors->has('email')) <span class="help-block">{{ $errors->first('email') }}</span> @endif
     </div><!--form-group-->
+
     <button type="submit" class="btn btn-primary">Send Reset Link</button>
+
   </form>
 </div><!--col-->
 </div><!--row-->

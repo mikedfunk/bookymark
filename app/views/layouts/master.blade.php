@@ -8,7 +8,7 @@
 <body>
   <div class="navbar navbar-static-top">
   <div class="container">
-    <a class="navbar-brand" href="">Bookymark</a>
+    <a class="navbar-brand" href="{{ route('home') }}">Bookymark</a>
     <p class="navbar-text pull-right">
     @if($logged_in_user)
     Logged in as <a href="{{ route('auth.profile') }}">

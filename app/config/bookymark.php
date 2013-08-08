@@ -4,6 +4,6 @@
  * some bookymark-specific defaults
  */
 return array(
-    'per_page' => 1,
+    'per_page' => 10,
 
 );

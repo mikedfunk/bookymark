@@ -16,7 +16,7 @@
 @stop
 
 @section('main_content')
-@if($bookmarks)
+@if($bookmarks->count())
 <table class="table">
   <thead>
     <tr>

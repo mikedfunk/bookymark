@@ -15,24 +15,34 @@
     <h1>{{ $edit ? 'Edit Bookmark' : 'Add Bookmark' }}</h1>
     @stop
 
-@section('main_content')
-{{ Form::model($bookmark, array('route' => 'bookmarks.store')) }}
+    @section('main_content')
+    @if($edit)
+    {{ Form::model($bookmark, array('route' => ['bookmarks.update', $bookmark->id], 'method' => 'put')) }}
+    @else
+    {{ Form::model($bookmark, array('route' => 'bookmarks.store')) }}
+    @endif
 
-<div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
-  <label for="title" class="control-label">Title:</label>
-  {{ Form::text('title', null, array('id' => 'title_field', 'class' => 'form-control')) }}
-</div><!--form-group-->
-<div class="form-group {{ $errors->has('url') ? 'has-error' : '' }}">
-  <label for="url" class="control-label">URL:</label>
-  {{ Form::text('url', null, array('id' => 'url_field', 'class' => 'form-control')) }}
-</div><!--form-group-->
-<div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
-  <label for="description" class="control-label">Description:</label>
-  {{ Form::textarea('description', null, array('id' => 'description_field', 'class' => 'form-control')) }}
-</div><!--form-group-->
-<button type="submit" class="btn btn-primary">Save</button>
+    <div class="form-group {{ $errors->has('title') ? 'has-error' : '' }}">
+      <label for="title" class="control-label">Title:</label>
+      {{ Form::text('title', null, array('id' => 'title_field', 'class' => 'form-control')) }}
+      @if($errors->has('title')) <span class="help-block">{{ $errors->first('title') }}</span> @endif
+    </div><!--form-group-->
 
-</form>
+    <div class="form-group {{ $errors->has('url') ? 'has-error' : '' }}">
+      <label for="url" class="control-label">URL:</label>
+      {{ Form::text('url', null, array('id' => 'url_field', 'class' => 'form-control')) }}
+      @if($errors->has('url')) <span class="help-block">{{ $errors->first('url') }}</span> @endif
+    </div><!--form-group-->
+
+    <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
+      <label for="description" class="control-label">Description:</label>
+      {{ Form::textarea('description', null, array('id' => 'description_field', 'class' => 'form-control')) }}
+      @if($errors->has('description')) <span class="help-block">{{ $errors->first('description') }}</span> @endif
+    </div><!--form-group-->
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+  </form>
 </div><!--col-->
-</div><!--row-->
-@stop
+    </div><!--row-->
+    @stop

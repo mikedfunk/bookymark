@@ -110,11 +110,12 @@ class BookmarkController extends BaseController
         }
 
         // set user_id to the logged in user
-        $input = Input::all();
+        $input            = Input::all();
+        $input['id']      = $id;
         $input['user_id'] = Auth::user()->id;
 
         // update, notify, and redirect
-        $bookmark = $this->bookmark_repository->update(Input::all());
+        $bookmark = $this->bookmark_repository->update($input);
         Notification::success(Lang::get('notifications.form_success'));
         return Redirect::route('bookmarks.edit', $id);
     }

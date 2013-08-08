@@ -41,7 +41,7 @@ class UserRepository
      */
     public function findByRegisterToken($token)
     {
-        return UserModel::where('register_token', '=', $token)->get();
+        return UserModel::where('register_token', '=', $token)->first();
     }
 
     /**

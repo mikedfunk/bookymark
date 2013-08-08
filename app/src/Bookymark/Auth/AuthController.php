@@ -108,7 +108,7 @@ class AuthController extends BaseController
         // notify and redirect on fail
         if ($validation->fails()) {
             Notification::error(Lang::get('notifications.form_error'));
-            return Redirect::route('auth.reset_password', $token);
+            return Redirect::route('auth.reset_password', $token)->withErrors($validation);
         }
         // get credentials, reset password
         $credentials = Input::only('email');
@@ -278,7 +278,9 @@ class AuthController extends BaseController
         if ($validation->fails()) {
             Notification::error(Lang::get('notifications.form_error'));
         } else {
-            // if the password isn't sent, don't change it
+
+            // tweak the input a bit for the repository
+            $input['id'] = Auth::user()->id;
             if ($input['password'] == '') {
                 unset($input['password']);
             } else {

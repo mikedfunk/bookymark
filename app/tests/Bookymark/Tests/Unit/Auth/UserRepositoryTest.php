@@ -165,7 +165,7 @@ class UserRepositoryTest extends BookymarkTest
 
         // find by token, ensure 1 result
         $user = $this->user_repository->findByRegisterToken($values['register_token']);
-        $this->assertEquals(1, count($user));
+        $this->assertNotNull($user);
     }
 
     /**

@@ -5,6 +5,10 @@
 @stop
 
 @section('title_content')
+<ul class="breadcrumb">
+  <li><a href="{{ route('home') }}">Home</a></li>
+  <li class="active">Register</li>
+</ul>
 <div class="row">
   <div class="col-lg-4 col-offset-4">
     <h1>Register</h1>
@@ -12,20 +16,28 @@
 
     @section('main_content')
     {{ Form::open() }}
-    <div class="form-group">
+
+    <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
       <label for="email_field" class="control-label">Email Address:</label>
-      {{ Form::text('email', null, array('id' => 'email_field', 'class' => 'form-control')) }}
+      {{ Form::text('email', Input::old('email'), array('id' => 'email_field', 'class' => 'form-control')) }}
+      @if($errors->has('email')) <span class="help-block">{{ $errors->first('email') }}</span> @endif
     </div><!--form-group-->
-    <div class="form-group">
+
+    <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
       <label for="password_field" class="control-label">Password:</label>
-      {{ Form::password('password', array('id' => 'password_field', 'class' => 'form-control')) }}
+      <input type="password" name="password" class="form-control" id="password_field" />
+      @if($errors->has('password')) <span class="help-block">{{ $errors->first('password') }}</span> @endif
     </div><!--form-group-->
-<div class="form-group">
-  <label for="confirm_password_field" class="control-label">Confirm Password:</label>
-  {{ Form::password('password_confirmation', array('id' => 'confirm_password_field', 'class' => 'form-control')) }}
-</div><!--form-group-->
+
+    <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+      <label for="confirm_password_field" class="control-label">Confirm Password:</label>
+      <input type="password" name="password_confirmation" class="form-control" id="password_confirmation_field" />
+      @if($errors->has('password_confirmation')) <span class="help-block">{{ $errors->first('password_confirmation') }}</span> @endif
+    </div><!--form-group-->
+
     <button type="submit" class="btn btn-primary">Register</button>
+
   </form>
 </div><!--col-->
-</div><!--row-->
-@stop
+    </div><!--row-->
+    @stop
