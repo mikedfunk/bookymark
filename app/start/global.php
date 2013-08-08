@@ -53,7 +53,7 @@ App::error(function(Exception $exception, $code)
     Log::error($exception);
 
     // send exceptions to the right view
-    if (App::environment() != 'local') {
+    if (App::environment() == 'production') {
         switch (get_class($exception)) {
             case 'Illuminate\Database\Eloquent\ModelNotFoundException':
                 return Redirect::route('errors.404');
