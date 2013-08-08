@@ -131,6 +131,7 @@ class BookmarkControllerTest extends BookymarkTest
         // set values, mock model
         $values = array(
             'title'   => 'test123',
+            'url'     => 'http://whatever.com',
             'user_id' => $this->user->id,
         );
         $this->bookmark_model->id = 99;
@@ -193,6 +194,44 @@ class BookmarkControllerTest extends BookymarkTest
     }
 
     /**
+     * bookmarkDataProvider
+     *
+     * @return array
+     */
+    public function bookmarkDataProvider()
+    {
+        $id = 99;
+        $user_id = 1;
+        return array(
+            array(
+                // no title
+                array(
+                    'id'      => $id,
+                    'title'   => '',
+                    'url'     => 'http://whatever.com',
+                    'user_id' => $user_id,
+                ),
+
+                // no url
+                array(
+                    'id'      => $id,
+                    'title'   => 'test123',
+                    'url'     => '',
+                    'user_id' => $user_id,
+                ),
+
+                // not a url
+                array(
+                    'id'      => $id,
+                    'title'   => 'test123',
+                    'url'     => 'sdf',
+                    'user_id' => $user_id,
+                ),
+            ),
+        );
+    }
+
+    /**
      * testBookmarkUpdateOk
      *
      * @return void
@@ -200,13 +239,13 @@ class BookmarkControllerTest extends BookymarkTest
     public function testBookmarkUpdateOk()
     {
         // set values, mock model
-        $id = '99';
         $values = array(
-            'id'      => $id,
+            'id'      => 99,
             'title'   => 'test123',
+            'url'     => 'http://whatever.com',
             'user_id' => $this->user->id,
         );
-        $this->bookmark_model->id = $id;
+        $this->bookmark_model->id = $values['id'];
 
         // mock repo store
         $this->bookmark_repository
@@ -225,20 +264,20 @@ class BookmarkControllerTest extends BookymarkTest
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // call update
-        $this->call('PUT', 'bookmarks/' . $id, $values);
+        $this->call('PUT', 'bookmarks/' . $values['id'], $values);
         $this->assertRedirectedToRoute('bookmarks.index');
     }
 
     /**
-     * testBookmarkUpdateNoTitle
+     * testBookmarkUpdateFailValidation
      *
+     * @dataProvider bookmarkDataProvider
+     * @param array $values comes from the data provider
      * @return void
      */
-    public function testBookmarkUpdateNoTitle()
+    public function testBookmarkUpdateFailValidation($values)
     {
         // set bad values
-        $id = '99';
-        $values = array('id' => $id);
         $rules = BookmarkModel::$rules;
 
         // mock validator instance
@@ -260,10 +299,10 @@ class BookmarkControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.form_error'));
 
         // call
-        $this->call('PUT', 'bookmarks/' . $id, $values);
+        $this->call('PUT', 'bookmarks/' . $values['id'], $values);
 
         // ensure redirected with errors
-        $this->assertRedirectedToRoute('bookmarks.edit', $id);
+        $this->assertRedirectedToRoute('bookmarks.edit', $values['id']);
     }
 
     /**

@@ -234,10 +234,7 @@ class AuthControllerTest extends BookymarkTest
      */
     public function testAuthDoRemindFailValidation()
     {
-        // mock validator to fail
-        $validator = Mockery::mock();
-        $validator->shouldReceive('fails')->once()->andReturn(true);
-        Validator::shouldReceive('make')->once()->andReturn($validator);
+        $input = array('email' => '');
 
         // mock notification
         Notification::shouldReceive('error')
@@ -245,7 +242,7 @@ class AuthControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.form_error'));
 
         // call and check response
-        $this->call('POST', 'auth/remind', $this->credentials);
+        $this->call('POST', 'auth/remind', $input);
         $this->assertRedirectedToRoute('auth.remind');
     }
 
@@ -325,7 +322,8 @@ class AuthControllerTest extends BookymarkTest
             'password_confirmation' => 'kgroew',
         );
 
-        // mock validator to fail
+        // mock validator to fail. If it's not mocked it will check
+        // for a unique user in the db.
         $validator = Mockery::mock();
         $validator->shouldReceive('fails')->once()->andReturn(true);
         Validator::shouldReceive('make')->once()->andReturn($validator);
@@ -405,38 +403,75 @@ class AuthControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.profile_updated'));
 
         // call, ensure success
-        $this->call('POST', 'auth/profile', $input);
+        $this->call('PUT', 'auth/profile', $input);
         $this->assertRedirectedToRoute('auth.profile');
+    }
+
+    /**
+     * userDataProvider
+     *
+     * @return array
+     */
+    public function userDataProvider()
+    {
+        return array(
+            array(
+
+                // missing email
+                array(
+                    'email'                 => '',
+                    'password'              => 'abcsfsdf',
+                    'password_confirmation' => 'abcsfsdf',
+                ),
+
+                // missing password
+                array(
+                    'email'                 => 'test@test.com',
+                    'password'              => '',
+                    'password_confirmation' => '',
+                ),
+
+                // missing password confirmation
+                array(
+                    'email'                 => 'test@test.com',
+                    'password'              => 'abcsfsdf',
+                    'password_confirmation' => '',
+                ),
+
+                // email not in email format
+                array(
+                    'email'                 => 'dfdf',
+                    'password'              => 'abcsfsdf',
+                    'password_confirmation' => '',
+                ),
+
+                // passwords don't match
+                array(
+                    'email'                 => 'test@test.com',
+                    'password'              => 'abcsfsdf',
+                    'password_confirmation' => 'rrrgfl',
+                ),
+            ),
+        );
     }
 
     /**
      * testAuthUpdateProfileFailValidation
      *
+     * @dataProvider userDataProvider
      * @return void
      */
-    public function testAuthUpdateProfileFailValidation()
+    public function testAuthUpdateProfileFailValidation($input)
     {
         $this->login();
 
-        // mock input
-        $input = array(
-            'email'                 => 'test@test.com',
-            'password'              => 'abcsfsdf',
-            'password_confirmation' => 'abcsfsdf',
-        );
-
-        // mock validator to fail
-        $validator = Mockery::mock();
-        $validator->shouldReceive('fails')->once()->andReturn(true);
-        Validator::shouldReceive('make')->once()->andReturn($validator);
-
-        // mock notification success
+        // mock notification error
         Notification::shouldReceive('error')
             ->once()
             ->with(Lang::get('notifications.form_error'));
 
-        // call, ensure success
-        $this->call('POST', 'auth/profile', $input);
+        // call, ensure error and redirected
+        $this->call('PUT', 'auth/profile', $input);
         $this->assertRedirectedToRoute('auth.profile');
     }
 

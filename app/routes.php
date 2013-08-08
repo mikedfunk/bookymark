@@ -159,7 +159,7 @@ Route::get(
     )
 );
 
-Route::post(
+Route::put(
     'auth/profile',
     array(
         'as'     => 'auth.do_profile',

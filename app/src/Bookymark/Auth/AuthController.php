@@ -187,7 +187,7 @@ class AuthController extends BaseController
         // set rules, make validator
         $rules = array(
             'email'    => 'required|email|unique:users',
-            'password' => 'confirmed'
+            'password' => 'required|confirmed'
         );
         $input = Input::all();
         $validation = Validator::make($input, $rules);
@@ -209,7 +209,6 @@ class AuthController extends BaseController
             'emails.auth.confirm_registration',
             compact('user'),
             function ($message) use ($input) {
-                // @TODO figure out how to test this closure
                 $message
                     ->to($input['email'], $input['email'])
                     ->subject(Lang::get('emails.register_subject'));

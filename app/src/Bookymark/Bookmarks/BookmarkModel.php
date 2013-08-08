@@ -41,5 +41,6 @@ class BookmarkModel extends Eloquent
      */
     public static $rules = array(
         'title' => 'required',
+        'url'   => 'required|url',
     );
 }

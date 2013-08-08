@@ -5,13 +5,17 @@
 @stop
 
 @section('title_content')
+<ul class="breadcrumb">
+  <li><a href="{{ route('home') }}">Home</a></li>
+  <li class="active">My Profile</li>
+</ul>
 <div class="row">
   <div class="col-lg-4 col-offset-4">
     <h1>My Profile</h1>
     @stop
 
     @section('main_content')
-    {{ Form::model($user) }}
+    {{ Form::model($user, array('method' => 'put')) }}
 
     <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
       <label for="email_field" class="control-label">Email Address:</label>
