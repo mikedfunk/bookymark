@@ -17,7 +17,7 @@
 
     @section('main_content')
     @if($edit)
-    {{ Form::model($bookmark, array('route' => ['bookmarks.update', $bookmark->id], 'method' => 'put')) }}
+    {{ Form::model($bookmark, array('route' => array('bookmarks.update', $bookmark->id), 'method' => 'put')) }}
     @else
     {{ Form::model($bookmark, array('route' => 'bookmarks.store')) }}
     @endif
