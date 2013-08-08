@@ -6,7 +6,9 @@
         "laravel/framework": "4.0.*",
         "jasonlewis/basset": "dev-master",
         "leafo/lessphp": "0.3.*@dev",
-        "edvinaskrucas/notification": "1.*"
+        "edvinaskrucas/notification": "1.*",
+        "natxet/CssMin": "*",
+        "linkorb/jsmin-php": "*"
 
     },
     "require-dev": {

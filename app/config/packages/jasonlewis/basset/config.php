@@ -34,21 +34,36 @@ return array(
                 'assets',
                 function ($collection) {
 
+                    // ------------------------------------------------------------------------
+
                     // all stylesheets
-                    $collection->stylesheet('components/bootstrap/dist/css/bootstrap.css');
+
+                    // breaks with Less php
+                    // $collection->stylesheet('components/bootstrap/less/bootstrap.less')
+                        // ->apply('Less');
+
+                    $collection->stylesheet('components/bootstrap/dist/css/bootstrap.css')
+                        ->apply('CssMin');
+
                     $collection
-                        ->stylesheet('components/bootstrap-glyphicons/css/bootstrap-glyphicons.css')
-                        ->apply('UriRewriteFilter');
-                    $collection->stylesheet('less/styles.less')->apply('Less');
+                        // ->stylesheet('components/bootstrap-glyphicons/css/bootstrap-glyphicons.css')
+                        ->stylesheet('components/bootstrap-glyphicons/less/bootstrap-glyphicons.less')
+                        ->apply('Less')
+                        ->apply('UriRewriteFilter')
+                        ->apply('CssMin');
+
+                    $collection->stylesheet('less/styles.less')
+                        ->apply('Less')
+                        ->apply('CssMin');
+
+                    // ------------------------------------------------------------------------
 
                     // all javascripts
-                    $collection->javascript('components/jquery/jquery.js');
-                    $collection->javascript('components/bootstrap/dist/js/bootstrap.js');
-                    $collection->javascript('js/scripts.js');
+                    $collection->javascript('components/jquery/jquery.js')->apply('JsMin');
+                    $collection->javascript('components/bootstrap/dist/js/bootstrap.js')->apply('JsMin');
+                    $collection->javascript('js/scripts.js')->apply('JsMin');
 
-                    // set filters
-                    $collection->apply('CssMin');
-                    $collection->apply('JsMin');
+                    // ------------------------------------------------------------------------
                 }
             );
 
@@ -159,7 +174,7 @@ return array(
     |
     */
 
-    'gzip' => false,
+    'gzip' => true,
 
     /*
     |--------------------------------------------------------------------------
