@@ -92,7 +92,7 @@ class BookmarkController extends BaseController
         // update, notify, and redirect
         $bookmark = $this->bookmark_repository->store($input);
         Notification::success(Lang::get('notifications.form_success'));
-        return Redirect::route('bookmarks.edit', $bookmark->id);
+        return Redirect::route('bookmarks.index');
     }
     /**
      * update
@@ -117,7 +117,7 @@ class BookmarkController extends BaseController
         // update, notify, and redirect
         $bookmark = $this->bookmark_repository->update($input);
         Notification::success(Lang::get('notifications.form_success'));
-        return Redirect::route('bookmarks.edit', $id);
+        return Redirect::route('bookmarks.index');
     }
 
     /**

@@ -153,7 +153,7 @@ class BookmarkControllerTest extends BookymarkTest
 
         // call store
         $this->call('POST', 'bookmarks', $values);
-        $this->assertRedirectedToRoute('bookmarks.edit', '99');
+        $this->assertRedirectedToRoute('bookmarks.index');
     }
 
     /**
@@ -226,7 +226,7 @@ class BookmarkControllerTest extends BookymarkTest
 
         // call update
         $this->call('PUT', 'bookmarks/' . $id, $values);
-        $this->assertRedirectedToRoute('bookmarks.edit', $id);
+        $this->assertRedirectedToRoute('bookmarks.index');
     }
 
     /**
