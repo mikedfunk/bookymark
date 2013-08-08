@@ -1,0 +1,16 @@
+global:
+  env:
+    - APP_NAME: bookymark
+    - ENV: production
+web1:
+  php_version: 5.4.14
+  php_date_timezone: "America/New_York"
+  php_display_errors: "0"
+  shared_writable_dirs:
+    - /public/assets/builds
+    - /app/storage
+  document_root: public/
+  after_build:
+    - "composer install"
+    - "php artisan migrate"
+    - "php artisan basset:build --production"

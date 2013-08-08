@@ -28,7 +28,8 @@ $app->redirectIfTrailingSlash();
 
 $env = $app->detectEnvironment(
     array(
-        'local' => array('localhost', 'bookymark.local'),
+        'local'      => array('localhost', 'bookymark.local'),
+        'production' => array('bookymark.com', 'bookymark.gopagoda.com'),
     )
 );
 
