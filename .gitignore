@@ -6,3 +6,4 @@ composer.lock
 /build
 /public/assets/builds
 _ide_helper.php
+tags
