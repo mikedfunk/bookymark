@@ -152,7 +152,7 @@ Route::get(
 );
 
 Route::get(
-    'auth/{id}/profile',
+    'auth/profile',
     array(
         'as'   => 'auth.profile',
         'uses' => 'Bookymark\Auth\AuthController@profile',
@@ -160,7 +160,7 @@ Route::get(
 );
 
 Route::post(
-    'auth/{id}/profile',
+    'auth/profile',
     array(
         'as'     => 'auth.do_profile',
         'uses'   => 'Bookymark\Auth\AuthController@updateProfile',

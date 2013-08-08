@@ -11,7 +11,7 @@
     <a class="navbar-brand" href="">Bookymark</a>
     <p class="navbar-text pull-right">
     @if($logged_in_user)
-    Logged in as <a href="{{ route('auth.profile', $logged_in_user->id) }}">
+    Logged in as <a href="{{ route('auth.profile') }}">
 {{ $logged_in_user->email }}</a> <a href="{{ route('auth.logout') }}">Logout</a>
     @else
     <a href="{{ route('auth.login') }}">Login</a>

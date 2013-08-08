@@ -5,8 +5,12 @@
 @stop
 
 @section('title_content')
+<ul class="breadcrumb">
+  <li><a href="{{ route('home') }}">Home</a></li>
+  <li class="active">Bookmarks</li>
+</ul>
 <h1>
-  <a href="" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus"></span> New Bookmark</a>
+  <a href="{{ route('bookmarks.create') }}" class="btn btn-success pull-right"><span class="glyphicon glyphicon-plus"></span> New Bookmark</a>
   My Bookmarks
 </h1>
 @stop

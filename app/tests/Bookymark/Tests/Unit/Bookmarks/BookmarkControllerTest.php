@@ -76,10 +76,6 @@ class BookmarkControllerTest extends BookymarkTest
         // bind instance to class
         $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
-        // call view make on index with the right params
-        // View::shouldReceive('make')
-            // ->once()
-            // ->with('bookmarks.bookmarks_index');
 
         $this->call('GET', 'bookmarks');
         $this->assertResponseOk();
@@ -94,10 +90,6 @@ class BookmarkControllerTest extends BookymarkTest
     {
         // call view make on index with the right params
         $edit = false;
-        // View::shouldReceive('make')
-            // ->once()
-            // ->with('bookmarks.bookmarks_form', compact('edit'));
-
         $this->call('GET', 'bookmarks/create');
         $this->assertResponseOk();
     }
@@ -112,8 +104,6 @@ class BookmarkControllerTest extends BookymarkTest
     public function testBookmarkEditOk()
     {
         // mock the repo call
-        $this->bookmark_model = Mockery::mock('Bookymark\Bookmarks\BookmarkModel');
-        $this->bookmark_model->shouldDeferMissing();
         $this->bookmark_repository
             ->shouldReceive('findOrFail')
             ->once()
@@ -124,14 +114,9 @@ class BookmarkControllerTest extends BookymarkTest
         $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
-        // mock view make
+        // call the route
         $bookmark = $this->bookmark_model;
         $edit = true;
-        // View::shouldReceive('make')
-            // ->with('bookmarks.bookmarks_form', compact('bookmark', 'edit'))
-            // ->once();
-
-        // call the route
         $this->call('GET', 'bookmarks/1/edit');
         $this->assertResponseOk();
     }
@@ -144,7 +129,10 @@ class BookmarkControllerTest extends BookymarkTest
     public function testBookmarkStoreOk()
     {
         // set values, mock model
-        $values = array('title' => 'test123');
+        $values = array(
+            'title'   => 'test123',
+            'user_id' => $this->user->id,
+        );
         $this->bookmark_model->id = 99;
 
         // mock repo store
@@ -214,8 +202,9 @@ class BookmarkControllerTest extends BookymarkTest
         // set values, mock model
         $id = '99';
         $values = array(
-            'id'    => $id,
-            'title' => 'test123',
+            'id'      => $id,
+            'title'   => 'test123',
+            'user_id' => $this->user->id,
         );
         $this->bookmark_model->id = $id;
 
@@ -238,7 +227,6 @@ class BookmarkControllerTest extends BookymarkTest
         // call update
         $this->call('PUT', 'bookmarks/' . $id, $values);
         $this->assertRedirectedToRoute('bookmarks.edit', $id);
-
     }
 
     /**

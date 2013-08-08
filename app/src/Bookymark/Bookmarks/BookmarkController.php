@@ -52,8 +52,9 @@ class BookmarkController extends BaseController
     public function create()
     {
         // load the view
+        $bookmark = new BookmarkModel;
         $edit = false;
-        return View::make('bookmarks.bookmarks_form', compact('edit'));
+        return View::make('bookmarks.bookmarks_form', compact('edit', 'bookmark'));
     }
 
     /**
@@ -84,8 +85,12 @@ class BookmarkController extends BaseController
             return Redirect::route('bookmarks.create')->withErrors($validator);
         }
 
-        // else update, notify, and redirect
-        $bookmark = $this->bookmark_repository->store(Input::all());
+        // set user_id to the logged in user
+        $input = Input::all();
+        $input['user_id'] = Auth::user()->id;
+
+        // update, notify, and redirect
+        $bookmark = $this->bookmark_repository->store($input);
         Notification::success(Lang::get('notifications.form_success'));
         return Redirect::route('bookmarks.edit', $bookmark->id);
     }
@@ -104,7 +109,11 @@ class BookmarkController extends BaseController
             return Redirect::route('bookmarks.edit', $id)->withErrors($validator);
         }
 
-        // else update, notify, and redirect
+        // set user_id to the logged in user
+        $input = Input::all();
+        $input['user_id'] = Auth::user()->id;
+
+        // update, notify, and redirect
         $bookmark = $this->bookmark_repository->update(Input::all());
         Notification::success(Lang::get('notifications.form_success'));
         return Redirect::route('bookmarks.edit', $id);

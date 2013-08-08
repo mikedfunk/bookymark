@@ -15,6 +15,7 @@ use Validator;
 use Lang;
 use Mail;
 use Session;
+use Hash;
 
 /**
  * AuthControllerTest
@@ -39,8 +40,21 @@ class AuthControllerTest extends BookymarkTest
         );
         $this->token = 'abc234';
 
-        // mock common View::share call in base controller
-        Auth::shouldReceive('user');
+        // user for logging in
+        $this->user = Mockery::mock('Bookymark\Auth\UserModel');
+        $this->user->shouldDeferMissing();
+        $this->user->id = 1;
+    }
+
+    /**
+     * login
+     *
+     * @return void
+     */
+    private function login()
+    {
+        // fake login as user
+        $this->be($this->user);
     }
 
     /**
@@ -51,9 +65,6 @@ class AuthControllerTest extends BookymarkTest
     public function testAuthLoginOk()
     {
         // mock view and call
-        // View::shouldReceive('make')
-            // ->once()
-            // ->with('auth.login');
         $this->call('GET', 'auth/login');
         $this->assertResponseOk();
     }
@@ -70,6 +81,7 @@ class AuthControllerTest extends BookymarkTest
             ->once()
             ->with($this->credentials)
             ->andReturn(true);
+        Auth::shouldReceive('user')->once()->andReturn($this->user);
 
         // notification should receive
         Notification::shouldReceive('success')
@@ -93,6 +105,7 @@ class AuthControllerTest extends BookymarkTest
             ->once()
             ->with($this->credentials)
             ->andReturn(false);
+        Auth::shouldReceive('user')->once()->andReturn($this->user);
 
         // notification should receive
         Notification::shouldReceive('error')
@@ -113,9 +126,6 @@ class AuthControllerTest extends BookymarkTest
     {
         // mock view and call
         $token = $this->token;
-        // View::shouldReceive('make')
-            // ->once()
-            // ->with('auth.reset', compact('token'));
         $this->call('GET', 'auth/' . $this->token . '/reset-password');
         $this->assertResponseOk();
     }
@@ -172,6 +182,7 @@ class AuthControllerTest extends BookymarkTest
         $auth_driver = Mockery::mock();
         $auth_driver->shouldReceive('getProvider')->once()->andReturn($auth_provider);
         Auth::shouldReceive('driver')->once()->andReturn($auth_driver);
+        Auth::shouldReceive('user')->once()->andReturn($this->user);
     }
 
     /**
@@ -182,9 +193,6 @@ class AuthControllerTest extends BookymarkTest
     public function testAuthRemindOk()
     {
         // mock view and call
-        // View::shouldReceive('make')
-            // ->once()
-            // ->with('auth.remind');
         $this->call('GET', 'auth/remind');
         $this->assertResponseOk();
     }
@@ -246,10 +254,7 @@ class AuthControllerTest extends BookymarkTest
      */
     public function testAuthRegisterOk()
     {
-        // mock view, call, ensure ok
-        // View::shouldReceive('make')
-            // ->once()
-            // ->with('auth.register');
+        // call, assert ok
         $this->call('GET', 'auth/register');
         $this->assertResponseOk();
     }
@@ -298,13 +303,6 @@ class AuthControllerTest extends BookymarkTest
         // mock mail send
         Mail::shouldReceive('send')
             ->once();
-            // @TODO test this closure
-            // ->with(
-                // 'emails.register',
-                // compact('user'),
-                // function () {
-                // }
-            // );
 
         // call and check
         $this->call('POST', 'auth/register', $values);
@@ -347,6 +345,8 @@ class AuthControllerTest extends BookymarkTest
      */
     public function testAuthProfileOk()
     {
+        $this->login();
+
         // mock user model
         $user = Mockery::mock();
 
@@ -358,15 +358,8 @@ class AuthControllerTest extends BookymarkTest
             ->andReturn($user);
         $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
 
-        // mock view
-        // View::shouldReceive('make')
-            // ->once()
-            // ->with('auth.profile', compact('user'));
-
-        // call
-        $this->call('GET', 'auth/1/profile');
-
-        // assert ok
+        // call, assert ok
+        $this->call('GET', 'auth/profile');
         $this->assertResponseOk();
     }
 
@@ -377,6 +370,8 @@ class AuthControllerTest extends BookymarkTest
      */
     public function testAuthUpdateProfileOk()
     {
+        $this->login();
+
         // mock input
         $input = array(
             'email'                 => 'test@test.com',
@@ -384,11 +379,19 @@ class AuthControllerTest extends BookymarkTest
             'password_confirmation' => 'abcsfsdf',
         );
 
+        // mock hash so it always returns the same thing
+        Hash::shouldReceive('make')->andReturn('lala');
+
+        // tweak the input that gets sent to the repository
+        $my_input = $input;
+        $my_input['password'] = 'lala';
+        unset($my_input['password_confirmation']);
+
         // mock user repository
         $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
         $user_repository->shouldReceive('update')
             ->once()
-            ->with($input);
+            ->with($my_input);
         $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
 
         // mock validator to succeed
@@ -402,8 +405,8 @@ class AuthControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.profile_updated'));
 
         // call, ensure success
-        $this->call('POST', 'auth/1/profile', $input);
-        $this->assertRedirectedToRoute('auth.profile', '1');
+        $this->call('POST', 'auth/profile', $input);
+        $this->assertRedirectedToRoute('auth.profile');
     }
 
     /**
@@ -413,6 +416,8 @@ class AuthControllerTest extends BookymarkTest
      */
     public function testAuthUpdateProfileFailValidation()
     {
+        $this->login();
+
         // mock input
         $input = array(
             'email'                 => 'test@test.com',
@@ -431,8 +436,8 @@ class AuthControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.form_error'));
 
         // call, ensure success
-        $this->call('POST', 'auth/1/profile', $input);
-        $this->assertRedirectedToRoute('auth.profile', '1');
+        $this->call('POST', 'auth/profile', $input);
+        $this->assertRedirectedToRoute('auth.profile');
     }
 
     /**
@@ -444,6 +449,7 @@ class AuthControllerTest extends BookymarkTest
     {
         // auth should receive logout
         Auth::shouldReceive('logout')->once();
+        Auth::shouldReceive('user')->once();
 
         // notification should receive
         Notification::shouldReceive('success')
@@ -477,7 +483,7 @@ class AuthControllerTest extends BookymarkTest
 
         // it loads a view but don't mock it
         $this->call('GET', 'auth/' . $register_token . '/confirm-registration');
-        $this->assertResponseOk();
+        $this->assertRedirectedToRoute('auth.register');
     }
 
     /**
@@ -489,16 +495,14 @@ class AuthControllerTest extends BookymarkTest
     {
         // mock user query by token
         $register_token = 'abc123';
-        $user = Mockery::mock('Bookymark\Auth\UserModel');
-        $user->shouldDeferMissing();
-        $user->shouldReceive('save')->once();
+        $this->user->shouldReceive('save')->once();
 
         // mock user repo
         $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
         $user_repository->shouldReceive('findByRegisterToken')
             ->once()
             ->with($register_token)
-            ->andReturn($user);
+            ->andReturn($this->user);
         $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
 
         // ensure notification error with notifications.confirm_registration_error

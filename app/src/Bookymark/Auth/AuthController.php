@@ -235,7 +235,7 @@ class AuthController extends BaseController
         // if no user is found with that token
         if (!$user) {
             Notification::error(Lang::get('notifications.confirm_registration_error'));
-            return View::make('auth.confirm_registration_error');
+            return Redirect::route('auth.register');
         }
 
         // else notify and redirect to login
@@ -248,25 +248,24 @@ class AuthController extends BaseController
     /**
      * profile
      *
-     * @param int $id
      * @return View
      */
-    public function profile($id)
+    public function profile()
     {
         // get user, load view
-        $user = $this->user_repository->find($id);
+        $user = $this->user_repository->find(Auth::user()->id);
         return View::make('auth.profile', compact('user'));
     }
 
     /**
      * updateProfile
      *
-     * @param int $id
      * @return Redirect
      */
-    public function updateProfile($id)
+    public function updateProfile()
     {
         // validation rules
+        $id = Auth::user()->id;
         $rules = array(
             'email' => 'required|email|unique:users,email,'.$id,
             'password' => 'confirmed',
@@ -279,10 +278,19 @@ class AuthController extends BaseController
         if ($validation->fails()) {
             Notification::error(Lang::get('notifications.form_error'));
         } else {
+            // if the password isn't sent, don't change it
+            if ($input['password'] == '') {
+                unset($input['password']);
+            } else {
+                // otherwise hash it
+                $input['password'] = Hash::make($input['password']);
+            }
+            unset($input['password_confirmation']);
+
+            // update , notify, and redirect
             $this->user_repository->update($input);
             Notification::success(Lang::get('notifications.profile_updated'));
         }
-        return Redirect::route('auth.profile', $id)->withErrors($validation);
-
+        return Redirect::route('auth.profile')->withErrors($validation);
     }
 }
