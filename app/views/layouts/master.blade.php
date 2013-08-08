@@ -2,7 +2,6 @@
 <html>
 <head>
 @stylesheets('application')
-@javascripts('application')
 @yield('html_head_content')
 </head>
 <body>
@@ -31,5 +30,6 @@
 <a href="https://github.com/bookymark/bookymark">
   <img class="fork_me" height="149" width="149" src="{{ asset('assets/img/forkme_right_orange_ff7600.png') }}" alt="Fork me on GitHub">
 </a>
+@javascripts('application')
 </body>
 </html>
