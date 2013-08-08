@@ -168,7 +168,25 @@ Route::put(
     )
 );
 
-// ----------------------------------------------------------------
+// ------------------------------------------------------------------------
+
+Route::get(
+    'errors/404',
+    array(
+        'as'   => 'errors.404',
+        'uses' => 'Bookymark\Errors\ErrorController@error404',
+    )
+);
+
+Route::get(
+    'errors/500',
+    array(
+        'as'   => 'errors.500',
+        'uses' => 'Bookymark\Errors\ErrorController@error500',
+    )
+);
+
+// ------------------------------------------------------------------------
 
 Route::get(
     '/',

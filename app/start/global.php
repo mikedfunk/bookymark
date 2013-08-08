@@ -13,10 +13,10 @@
 
 ClassLoader::addDirectories(array(
 
-	app_path().'/commands',
-	app_path().'/controllers',
-	app_path().'/models',
-	app_path().'/database/seeds',
+    app_path().'/commands',
+    app_path().'/controllers',
+    app_path().'/models',
+    app_path().'/database/seeds',
 
 ));
 
@@ -50,7 +50,20 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
+    Log::error($exception);
+
+    // send exceptions to the right view
+        switch (get_class($exception)) {
+            case 'Illuminate\Database\Eloquent\ModelNotFoundException':
+                return Redirect::route('errors.404');
+                break;
+            case 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException':
+                return Redirect::route('errors.404');
+                break;
+            default:
+                return Redirect::route('errors.500');
+                break;
+        }
 });
 
 /*
@@ -66,7 +79,7 @@ App::error(function(Exception $exception, $code)
 
 App::down(function()
 {
-	return Response::make("Be right back!", 503);
+    return Response::make("Be right back!", 503);
 });
 
 /*
