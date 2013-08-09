@@ -26,11 +26,16 @@ $app->redirectIfTrailingSlash();
 |
 */
 
-$env = $app->detectEnvironment(
-    array(
-        'local'      => array('localhost', 'bookymark.local'),
-        'production' => array('bookymark.com', 'bookymark.gopagoda.com'),
-    )
+// $env = $app->detectEnvironment(
+    // array(
+        // 'local'      => array('localhost', 'bookymark.local'),
+        // 'production' => array('bookymark.com', 'bookymark.gopagoda.com'),
+    // )
+// );
+$env = $app->deteceEnvironment(
+    function () {
+        return isset($_SERVER['LARAVEL_ENV']) ? $_SERVER['LARAVEL_ENV'] : 'local';
+    }
 );
 
 /*

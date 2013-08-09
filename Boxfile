@@ -1,7 +1,7 @@
 global:
   env:
     - APP_NAME: bookymark
-    - ENV: production
+    - LARAVEL_ENV: production
 web1:
   php_version: 5.4.14
   php_date_timezone: "America/New_York"
@@ -14,7 +14,11 @@ web1:
     - mbstring
   shared_writable_dirs:
     - /public/assets/builds
-    - /app/storage
+    - app/storage/cache
+    - app/storage/logs
+    - app/storage/meta
+    - app/storage/sessions
+    - app/storage/views
   document_root: public/
   after_build:
     - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install"
