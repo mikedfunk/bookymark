@@ -11,6 +11,6 @@ web1:
     - /app/storage
   document_root: public/
   after_build:
-    - "composer install"
+    - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install"
     - "php artisan migrate"
     - "php artisan basset:build --production"
