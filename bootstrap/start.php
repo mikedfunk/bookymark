@@ -32,7 +32,7 @@ $app->redirectIfTrailingSlash();
         // 'production' => array('bookymark.com', 'bookymark.gopagoda.com'),
     // )
 // );
-$env = $app->deteceEnvironment(
+$env = $app->detectEnvironment(
     function () {
         return isset($_SERVER['LARAVEL_ENV']) ? $_SERVER['LARAVEL_ENV'] : 'local';
     }
