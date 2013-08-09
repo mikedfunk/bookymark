@@ -18,5 +18,5 @@ web1:
   document_root: public/
   after_build:
     - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install"
-    - "php artisan migrate"
+#    - "php artisan migrate" # doesn't work on pagodabox due to ram
     - "php artisan basset:build --production"
