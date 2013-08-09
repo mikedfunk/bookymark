@@ -21,4 +21,3 @@ Bookymark exists to:
 * showcase a code example
 
 Get in touch with me at [MikeFunk.com](http://mikefunk.com)
-
