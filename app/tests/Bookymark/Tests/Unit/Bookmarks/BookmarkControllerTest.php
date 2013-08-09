@@ -95,6 +95,25 @@ class BookmarkControllerTest extends BookymarkTest
     }
 
     /**
+     * This is called in the filter for edit and update. By default it should
+     * return the same user_id as the auth user. But we need to ensure it fails
+     * when it should too.
+     *
+     * @param int $user_id
+     * @param int $id (default: 1)
+     * @return void
+     */
+    private function mockMyBookmarkFilter($user_id = 1, $id = 1)
+    {
+        $this->bookmark_model['user_id'] = $user_id;
+        $this->bookmark_repository
+            ->shouldReceive('findOrFail')
+            ->once()
+            ->with($id)
+            ->andReturn($this->bookmark_model);
+    }
+
+    /**
      * testBookmarkEditOk
      *
      * findOrFail should not be tested here, it's a repository responsibility.
@@ -103,12 +122,7 @@ class BookmarkControllerTest extends BookymarkTest
      */
     public function testBookmarkEditOk()
     {
-        // mock the repo call
-        $this->bookmark_repository
-            ->shouldReceive('findOrFail')
-            ->once()
-            ->with('1')
-            ->andReturn($this->bookmark_model);
+        $this->mockMyBookmarkFilter();
 
         // bind instance to class
         $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
@@ -119,6 +133,30 @@ class BookmarkControllerTest extends BookymarkTest
         $edit = true;
         $this->call('GET', 'bookmarks/1/edit');
         $this->assertResponseOk();
+    }
+
+    /**
+     * testBookmarkEditFailMyBookmarkFilter
+     *
+     * @return void
+     */
+    public function testBookmarkEditFailMyBookmarkFilter()
+    {
+        // uh oh, the bookmark user id is different from the logged in user
+        $this->mockMyBookmarkFilter('99');
+
+        // bind instance to class
+        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $this->app->instance($namespace, $this->bookmark_repository);
+
+        // mock notification
+        Notification::shouldReceive('error')
+            ->once()
+            ->with(Lang::get('notifications.not_my_bookmark'));
+
+        // call and check redirect
+        $this->call('GET', 'bookmarks/1/edit');
+        $this->assertRedirectedToRoute('bookmarks.index');
     }
 
     /**
@@ -200,8 +238,7 @@ class BookmarkControllerTest extends BookymarkTest
      */
     public function bookmarkDataProvider()
     {
-        $id = 99;
-        $user_id = 1;
+        $id = 1;
         return array(
             array(
                 // no title
@@ -209,7 +246,6 @@ class BookmarkControllerTest extends BookymarkTest
                     'id'      => $id,
                     'title'   => '',
                     'url'     => 'http://whatever.com',
-                    'user_id' => $user_id,
                 ),
 
                 // no url
@@ -217,7 +253,6 @@ class BookmarkControllerTest extends BookymarkTest
                     'id'      => $id,
                     'title'   => 'test123',
                     'url'     => '',
-                    'user_id' => $user_id,
                 ),
 
                 // not a url
@@ -225,7 +260,6 @@ class BookmarkControllerTest extends BookymarkTest
                     'id'      => $id,
                     'title'   => 'test123',
                     'url'     => 'sdf',
-                    'user_id' => $user_id,
                 ),
             ),
         );
@@ -238,9 +272,11 @@ class BookmarkControllerTest extends BookymarkTest
      */
     public function testBookmarkUpdateOk()
     {
+        $this->mockMyBookmarkFilter();
+
         // set values, mock model
         $values = array(
-            'id'      => 99,
+            'id'      => 1,
             'title'   => 'test123',
             'url'     => 'http://whatever.com',
             'user_id' => $this->user->id,
@@ -253,6 +289,10 @@ class BookmarkControllerTest extends BookymarkTest
             ->once()
             ->with($values)
             ->andReturn($this->bookmark_model);
+
+        // bind instance to class
+        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $this->app->instance($namespace, $this->bookmark_repository);
 
         // mock notification
         Notification::shouldReceive('success')
@@ -269,6 +309,32 @@ class BookmarkControllerTest extends BookymarkTest
     }
 
     /**
+     * testBookmarkUpdateFailMyBookmarkFilter
+     *
+     * @return void
+     */
+    public function testBookmarkUpdateFailMyBookmarkFilter()
+    {
+        // uh oh, the bookmark user id is different from the logged in user
+        $this->mockMyBookmarkFilter(99);
+
+        // bind instance to class
+        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $this->app->instance($namespace, $this->bookmark_repository);
+
+        // mock notification
+        Notification::shouldReceive('error')
+            ->once()
+            ->with(Lang::get('notifications.not_my_bookmark'));
+
+        $bookmark = $this->bookmark_model;
+
+        // call and check redirect
+        $this->call('PUT', 'bookmarks/1', compact('bookmark'));
+        $this->assertRedirectedToRoute('bookmarks.index');
+    }
+
+    /**
      * testBookmarkUpdateFailValidation
      *
      * @dataProvider bookmarkDataProvider
@@ -277,6 +343,12 @@ class BookmarkControllerTest extends BookymarkTest
      */
     public function testBookmarkUpdateFailValidation($values)
     {
+        $this->mockMyBookmarkFilter();
+
+        // bind instance to class
+        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $this->app->instance($namespace, $this->bookmark_repository);
+
         // set bad values
         $rules = BookmarkModel::$rules;
 

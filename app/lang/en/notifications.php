@@ -18,5 +18,6 @@ return array(
     'remind_success'               => 'Password reset link sent. Please check your email.',
     'password_reset_success'       => 'Password reset.',
     'profile_updated'              => 'Profile updated.',
+    'not_my_bookmark'              => 'Not your bookmark.',
 
 );

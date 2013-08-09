@@ -87,6 +87,9 @@ Route::filter('csrf', function()
     Input::replace($input);
 });
 
+/**
+ * ensure the user has confirmed their registration before logging in
+ */
 Route::filter(
     'registration_confirmed',
     function () {

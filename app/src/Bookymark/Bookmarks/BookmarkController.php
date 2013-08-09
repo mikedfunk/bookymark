@@ -68,6 +68,14 @@ class BookmarkController extends BaseController
         // get the record, send it to the view
         $edit = true;
         $bookmark = $this->bookmark_repository->findOrFail($id);
+
+        // ensure the auth user id is the same as the bookmark user_id
+        // if not, notify and redirect to the list
+        if ($bookmark->user_id != Auth::user()->id) {
+            Notification::error(Lang::get('notifications.not_my_bookmark'));
+            return Redirect::route('bookmarks.index');
+        }
+
         return View::make('bookmarks.bookmarks_form', compact('bookmark', 'edit'));
     }
 
@@ -102,6 +110,16 @@ class BookmarkController extends BaseController
      */
     public function update($id)
     {
+        // get the bookmark for this id
+        $bookmark = $this->bookmark_repository->findOrFail($id);
+
+        // ensure the auth user id is the same as the bookmark user_id
+        // if not, notify and redirect to the list
+        if ($bookmark->user_id != Auth::user()->id) {
+            Notification::error(Lang::get('notifications.not_my_bookmark'));
+            return Redirect::route('bookmarks.index');
+        }
+
         // if validation fails, set notification and redirect
         $validator = Validator::make(Input::all(), BookmarkModel::$rules);
         if ($validator->fails()) {
