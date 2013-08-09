@@ -11,6 +11,7 @@ web1:
     - pdo_mysql
     - zip
     - mcrypt
+    - mbstring
   shared_writable_dirs:
     - /public/assets/builds
     - /app/storage
