@@ -146,6 +146,16 @@ class BookmarkController extends BaseController
      */
     public function delete($id)
     {
+        // get the bookmark for this id
+        $bookmark = $this->bookmark_repository->findOrFail($id);
+
+        // ensure the auth user id is the same as the bookmark user_id
+        // if not, notify and redirect to the list
+        if ($bookmark->user_id != Auth::user()->id) {
+            Notification::error(Lang::get('notifications.not_my_bookmark'));
+            return Redirect::route('bookmarks.index');
+        }
+
         Notification::success(Lang::get('notifications.form_delete'));
         $this->bookmark_repository->delete($id);
         return Redirect::route('bookmarks.index');

@@ -384,6 +384,8 @@ class BookmarkControllerTest extends BookymarkTest
      */
     public function testBookmarkDelete()
     {
+        $this->mockMyBookmarkFilter();
+
         // mock repository method
         $this->bookmark_repository
             ->shouldReceive('delete')
@@ -400,6 +402,32 @@ class BookmarkControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.form_delete'));
 
         // call and verify
+        $this->call('GET', 'bookmarks/1/delete');
+        $this->assertRedirectedToRoute('bookmarks.index');
+    }
+
+    /**
+     * testBookmarkDeleteFailMyBookmarkFilter
+     *
+     * @return void
+     */
+    public function testBookmarkDeleteFailMyBookmarkFilter()
+    {
+        // uh oh, the bookmark user id is different from the logged in user
+        $this->mockMyBookmarkFilter(8878);
+
+        // bind instance to class
+        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $this->app->instance($namespace, $this->bookmark_repository);
+
+        // mock notification
+        Notification::shouldReceive('error')
+            ->once()
+            ->with(Lang::get('notifications.not_my_bookmark'));
+
+        $bookmark = $this->bookmark_model;
+
+        // call and check redirect
         $this->call('GET', 'bookmarks/1/delete');
         $this->assertRedirectedToRoute('bookmarks.index');
     }
