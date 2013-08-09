@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Bookymark
- * @copyright 2013 Xulon Press, Inc. All Rights Reserved.
+ * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
 namespace Tests\Bookymark;
 
