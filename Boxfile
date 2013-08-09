@@ -6,6 +6,10 @@ web1:
   php_version: 5.4.14
   php_date_timezone: "America/New_York"
   php_display_errors: "0"
+  php_extensions:
+    - mysql
+    - pdo_mysql
+    - zip
   shared_writable_dirs:
     - /public/assets/builds
     - /app/storage
