@@ -3,9 +3,9 @@
  * @package Bookymark
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
-namespace Bookymark\Auth;
+namespace MikeFunk\Bookymark\Auth;
 
-use Bookymark\Common\BaseController;
+use MikeFunk\Bookymark\Common\BaseController;
 use View;
 use Auth;
 use Notification;

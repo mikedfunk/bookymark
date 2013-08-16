@@ -3,7 +3,7 @@
  * @package Bookymark
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
-namespace Bookymark\Common;
+namespace MikeFunk\Bookymark\Common;
 
 use BaseController as LaravelBaseController;
 use View;

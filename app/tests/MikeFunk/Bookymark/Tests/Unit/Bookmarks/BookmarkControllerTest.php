@@ -3,15 +3,15 @@
  * @package Bookymark
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
-namespace Bookymark\Tests\Unit;
+namespace MikeFunk\Bookymark\Tests\Unit;
 
-use Bookymark\Tests\BookymarkTest;
+use MikeFunk\Bookymark\Tests\BookymarkTest;
 use View;
 use Mockery;
 use Input;
 use Notification;
 use Validator;
-use Bookymark\Bookmarks\BookmarkModel;
+use MikeFunk\Bookymark\Bookmarks\BookmarkModel;
 use Auth;
 use Lang;
 use Illuminate\Support\Collection;
@@ -32,8 +32,8 @@ class BookmarkControllerTest extends BookymarkTest
     {
         // reuse these mocks for tests below
         parent::setUp();
-        $this->bookmark_repository = Mockery::mock('Bookymark\Bookmarks\BookmarkRepository');
-        $this->bookmark_model      = Mockery::mock('Eloquent', 'Bookymark\Bookmarks\BookmarkModel');
+        $this->bookmark_repository = Mockery::mock('MikeFunk\Bookymark\Bookmarks\BookmarkRepository');
+        $this->bookmark_model      = Mockery::mock('Eloquent', 'MikeFunk\Bookymark\Bookmarks\BookmarkModel');
         $this->bookmark_model->shouldDeferMissing();
 
         // fill model to make views happy
@@ -54,7 +54,7 @@ class BookmarkControllerTest extends BookymarkTest
         }
 
         // fake login as user
-        $this->user = Mockery::mock('Bookymark\Auth\UserModel');
+        $this->user = Mockery::mock('MikeFunk\Bookymark\Auth\UserModel');
         $this->user->shouldDeferMissing();
         $this->user->id = 1;
         $this->be($this->user);
@@ -74,7 +74,7 @@ class BookmarkControllerTest extends BookymarkTest
             ->andReturn($this->bookmark_collection);
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         $this->call('GET', 'bookmarks');
@@ -125,7 +125,7 @@ class BookmarkControllerTest extends BookymarkTest
         $this->mockMyBookmarkFilter();
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // call the route
@@ -146,7 +146,7 @@ class BookmarkControllerTest extends BookymarkTest
         $this->mockMyBookmarkFilter('99');
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // mock notification
@@ -187,7 +187,7 @@ class BookmarkControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.form_success'));
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // call store
@@ -291,7 +291,7 @@ class BookmarkControllerTest extends BookymarkTest
             ->andReturn($this->bookmark_model);
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // mock notification
@@ -300,7 +300,7 @@ class BookmarkControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.form_success'));
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // call update
@@ -319,7 +319,7 @@ class BookmarkControllerTest extends BookymarkTest
         $this->mockMyBookmarkFilter(99);
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // mock notification
@@ -346,7 +346,7 @@ class BookmarkControllerTest extends BookymarkTest
         $this->mockMyBookmarkFilter();
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // set bad values
@@ -393,7 +393,7 @@ class BookmarkControllerTest extends BookymarkTest
             ->with($this->user->id);
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // mock notification
@@ -417,7 +417,7 @@ class BookmarkControllerTest extends BookymarkTest
         $this->mockMyBookmarkFilter(8878);
 
         // bind instance to class
-        $namespace = 'Bookymark\Bookmarks\BookmarkRepository';
+        $namespace = 'MikeFunk\Bookymark\Bookmarks\BookmarkRepository';
         $this->app->instance($namespace, $this->bookmark_repository);
 
         // mock notification

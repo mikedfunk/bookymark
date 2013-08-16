@@ -12,7 +12,7 @@
 >
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>./app/tests/Bookymark/Tests/Unit/*/</directory>
+            <directory>./app/tests/MikeFunk/Bookymark/Tests/Unit/*/</directory>
         </testsuite>
     </testsuites>
 

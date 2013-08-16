@@ -3,9 +3,9 @@
  * @package Bookymark
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
-namespace Bookymark\Home;
+namespace MikeFunk\Bookymark\Home;
 
-use Bookymark\Common\BaseController;
+use MikeFunk\Bookymark\Common\BaseController;
 use View;
 
 /**

@@ -3,7 +3,7 @@
  * @package Bookymark
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
-namespace Tests\Bookymark;
+namespace MikeFunk\Bookymark\Tests;
 
 /**
  * ErrorControllerTest

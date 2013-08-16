@@ -3,11 +3,11 @@
  * @package Bookymark
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
-namespace Bookymark\Tests\Unit;
+namespace MikeFunk\Bookymark\Tests\Unit;
 
-use Bookymark\Tests\BookymarkTest;
-use Bookymark\Bookmarks\BookmarkModel;
-use Bookymark\Bookmarks\BookmarkRepository;
+use MikeFunk\Bookymark\Tests\BookymarkTest;
+use MikeFunk\Bookymark\Bookmarks\BookmarkModel;
+use MikeFunk\Bookymark\Bookmarks\BookmarkRepository;
 use Artisan;
 use Mockery;
 

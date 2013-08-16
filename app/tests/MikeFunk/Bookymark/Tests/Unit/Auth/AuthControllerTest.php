@@ -3,9 +3,9 @@
  * @package Bookymark
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
-namespace Bookymark;
+namespace MikeFunk\Bookymark;
 
-use Bookymark\Tests\BookymarkTest;
+use MikeFunk\Bookymark\Tests\BookymarkTest;
 use View;
 use Notification;
 use Auth;
@@ -41,7 +41,7 @@ class AuthControllerTest extends BookymarkTest
         $this->token = 'abc234';
 
         // user for logging in
-        $this->user = Mockery::mock('Bookymark\Auth\UserModel');
+        $this->user = Mockery::mock('MikeFunk\Bookymark\Auth\UserModel');
         $this->user->shouldDeferMissing();
         $this->user->id = 1;
     }
@@ -284,20 +284,20 @@ class AuthControllerTest extends BookymarkTest
             ->with(Lang::get('notifications.register_success'));
 
         // mock user
-        $user = Mockery::mock('Bookymark\Auth\UserModel');
+        $user = Mockery::mock('MikeFunk\Bookymark\Auth\UserModel');
         $user->shouldDeferMissing();
         unset($values['password_confirmation']);
         $values['register_token'] = 'a';
         $user->fill($values);
 
         // mock user repository
-        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository = Mockery::mock('MikeFunk\Bookymark\Auth\UserRepository');
         $user_repository->shouldReceive('create')
             ->once()
             // @TODO this includes a uniqid()... find a better way
             // ->with($values)
             ->andReturn($user);
-        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+        $this->app->instance('MikeFunk\Bookymark\Auth\UserRepository', $user_repository);
 
         // mock mail send
         Mail::shouldReceive('send')
@@ -348,12 +348,12 @@ class AuthControllerTest extends BookymarkTest
         $this->login();
 
         // mock user repository
-        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository = Mockery::mock('MikeFunk\Bookymark\Auth\UserRepository');
         $user_repository->shouldReceive('find')
             ->once()
             ->with($this->user->id)
             ->andReturn($this->user);
-        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+        $this->app->instance('MikeFunk\Bookymark\Auth\UserRepository', $user_repository);
 
         // call, assert ok
         $this->call('GET', 'auth/profile');
@@ -386,11 +386,11 @@ class AuthControllerTest extends BookymarkTest
         unset($my_input['password_confirmation']);
 
         // mock user repository
-        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository = Mockery::mock('MikeFunk\Bookymark\Auth\UserRepository');
         $user_repository->shouldReceive('update')
             ->once()
             ->with($my_input);
-        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+        $this->app->instance('MikeFunk\Bookymark\Auth\UserRepository', $user_repository);
 
         // mock validator to succeed
         $validator = Mockery::mock();
@@ -505,11 +505,11 @@ class AuthControllerTest extends BookymarkTest
     {
         // mock user query by token to return null
         $register_token = 'abc123';
-        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository = Mockery::mock('MikeFunk\Bookymark\Auth\UserRepository');
         $user_repository->shouldReceive('findByRegisterToken')
             ->once()
             ->with($register_token);
-        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+        $this->app->instance('MikeFunk\Bookymark\Auth\UserRepository', $user_repository);
 
         // ensure notification error with notifications.confirm_registration_error
         Notification::shouldReceive('error')
@@ -533,12 +533,12 @@ class AuthControllerTest extends BookymarkTest
         $this->user->shouldReceive('save')->once();
 
         // mock user repo
-        $user_repository = Mockery::mock('Bookymark\Auth\UserRepository');
+        $user_repository = Mockery::mock('MikeFunk\Bookymark\Auth\UserRepository');
         $user_repository->shouldReceive('findByRegisterToken')
             ->once()
             ->with($register_token)
             ->andReturn($this->user);
-        $this->app->instance('Bookymark\Auth\UserRepository', $user_repository);
+        $this->app->instance('MikeFunk\Bookymark\Auth\UserRepository', $user_repository);
 
         // ensure notification error with notifications.confirm_registration_error
         Notification::shouldReceive('success')

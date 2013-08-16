@@ -3,10 +3,10 @@
  * @package Bookymark
  * @license MIT License <http://opensource.org/licenses/mit-license.html>
  */
-namespace Bookymark\Tests\Unit\Home;
+namespace MikeFunk\Bookymark\Tests\Unit\Home;
 
 use Mockery;
-use Bookymark\Tests\BookymarkTest;
+use MikeFunk\Bookymark\Tests\BookymarkTest;
 use View;
 use Auth;
 
