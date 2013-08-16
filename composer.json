@@ -14,7 +14,8 @@
     "require-dev": {
         "way/generators": "dev-master",
         "mockery/mockery": "dev-master@dev",
-        "barryvdh/laravel-ide-helper": "1.*"
+        "barryvdh/laravel-ide-helper": "1.*",
+        "satooshi/php-coveralls": "dev-master"
 
     },
     "autoload": {

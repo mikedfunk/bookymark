@@ -18,6 +18,7 @@
 
     <logging>
             <log type="coverage-html" target="build/coverage" title="Bookymark" />
+            <log type="coverage-clover" target="build/logs/clover.xml" />
     </logging>
 
     <filter>
