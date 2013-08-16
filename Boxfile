@@ -7,6 +7,7 @@ web1:
   php_date_timezone: "America/New_York"
   php_display_errors: "0"
   php_extensions:
+    - curl
     - mysql
     - pdo_mysql
     - zip
