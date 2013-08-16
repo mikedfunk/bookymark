@@ -29,7 +29,7 @@ return array(
     */
 
     // 'model' => 'User',
-    'model' => 'Bookymark\Auth\UserModel',
+    'model' => 'MikeFunk\Bookymark\Auth\UserModel',
 
     /*
     |--------------------------------------------------------------------------
