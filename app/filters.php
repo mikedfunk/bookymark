@@ -94,7 +94,7 @@ Route::filter(
     'registration_confirmed',
     function () {
         // get user by email
-        $user_repository = new Bookymark\Auth\UserRepository;
+        $user_repository = new MikeFunk\Bookymark\Auth\UserRepository;
         $user = $user_repository->findByEmail(Input::get('email'));
 
         // if user has register_token set, fail
