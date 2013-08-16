@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mikedfunk/bookymark.png?branch=master)](https://travis-ci.org/mikedfunk/bookymark) [![Coverage Status](https://coveralls.io/repos/mikedfunk/bookymark/badge.png?branch=master)](https://coveralls.io/r/mikedfunk/bookymark)
+[![Build Status](https://travis-ci.org/bookymark/bookymark.png?branch=master)](https://travis-ci.org/bookymark/bookymark) [![Coverage Status](https://coveralls.io/repos/bookymark/bookymark/badge.png?branch=master)](https://coveralls.io/r/bookymark/bookymark)
 
 # Bookymark
 
