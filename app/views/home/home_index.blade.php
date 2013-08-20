@@ -16,8 +16,10 @@
       <div class="panel-heading">
         Want to take it for a spin?
       </div><!--panel-heading-->
-      <a class="btn btn-large btn-primary" href="{{ route('auth.register') }}">
-        <span class="glyphicon glyphicon-user"></span> Register</a>
+      <div class="panel-body">
+        <a class="btn btn-large btn-primary" href="{{ route('auth.register') }}">
+          <span class="glyphicon glyphicon-user"></span> Register</a>
+      </div><!--panel-body-->
     </div><!--panel-->
   </div><!--col-->
 </div><!--row-->

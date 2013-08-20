@@ -5,10 +5,10 @@
  */
 namespace MikeFunk\Bookymark\Tests\Unit;
 
+use Artisan;
 use MikeFunk\Bookymark\Tests\BookymarkTest;
 use MikeFunk\Bookymark\Auth\UserModel;
 use MikeFunk\Bookymark\Auth\UserRepository;
-use Artisan;
 use Mockery;
 
 /**

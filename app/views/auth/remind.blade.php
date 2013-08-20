@@ -6,7 +6,7 @@
 
 @section('title_content')
 <div class="row">
-  <div class="col-lg-6 col-offset-3">
+  <div class="col-lg-4 col-lg-offset-4 col-md-8 col-md-offset-2">
     <h1>Request New Password</h1>
     @stop
 

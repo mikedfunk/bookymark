@@ -5,7 +5,7 @@
 @yield('html_head_content')
 </head>
 <body>
-  <div class="navbar navbar-static-top">
+  <div class="navbar navbar-default navbar-static-top">
   <div class="container">
     <a class="navbar-brand" href="{{ route('home') }}">Bookymark</a>
     <p class="navbar-text pull-right">

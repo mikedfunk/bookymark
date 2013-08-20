@@ -10,7 +10,7 @@
   <li class="active">Reset Password</li>
 </ul>
 <div class="row">
-  <div class="col-lg-4 col-offset-4">
+  <div class="col-lg-4 col-lg-offset-4 col-md-8 col-md-offset-2">
     <h1>Reset Password</h1>
     @stop
 

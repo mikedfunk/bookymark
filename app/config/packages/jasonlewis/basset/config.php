@@ -39,18 +39,16 @@ return array(
                     // all stylesheets
 
                     // breaks with Less php
-                    // $collection->stylesheet('components/bootstrap/less/bootstrap.less')
-                        // ->apply('Less');
-
-                    $collection->stylesheet('components/bootstrap/dist/css/bootstrap.css')
-                        ->apply('CssMin');
-
-                    $collection
-                        // ->stylesheet('components/bootstrap-glyphicons/css/bootstrap-glyphicons.css')
-                        ->stylesheet('components/bootstrap-glyphicons/less/bootstrap-glyphicons.less')
-                        ->apply('Less')
+                    $collection->stylesheet('bower_components/bootstrap/less/bootstrap.less')
                         ->apply('UriRewriteFilter')
-                        ->apply('CssMin');
+                        ->apply('Less');
+
+                    // $collection->stylesheet('bower_components/bootstrap/dist/css/bootstrap.css')
+                        // ->apply('UriRewriteFilter')
+                        // ->apply('CssMin');
+
+                    // $collection->stylesheet('bower_components/bootstrap/dist/css/bootstrap-theme.css')
+                        // ->apply('CssMin');
 
                     $collection->stylesheet('less/styles.less')
                         ->apply('Less')
@@ -59,8 +57,8 @@ return array(
                     // ------------------------------------------------------------------------
 
                     // all javascripts
-                    $collection->javascript('components/jquery/jquery.js')->apply('JsMin');
-                    $collection->javascript('components/bootstrap/dist/js/bootstrap.js')->apply('JsMin');
+                    $collection->javascript('bower_components/jquery/jquery.js')->apply('JsMin');
+                    $collection->javascript('bower_components/bootstrap/dist/js/bootstrap.js')->apply('JsMin');
                     $collection->javascript('js/scripts.js')->apply('JsMin');
 
                     // ------------------------------------------------------------------------
