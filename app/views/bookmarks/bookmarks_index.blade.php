@@ -31,8 +31,8 @@
       <td>{{ $bookmark->title }}</td>
       <td>{{ $bookmark->url }}</td>
       <td class="text-right">
-        <a href="{{ route('bookmarks.edit', $bookmark->id) }}" class="btn btn-default btn-small"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
-        <a href="{{ route('bookmarks.delete', $bookmark->id) }}" class="btn btn-danger btn-small"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+        <a href="{{ route('bookmarks.edit', $bookmark->id) }}" class="btn btn-xs btn-default btn-small"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+        <a href="{{ route('bookmarks.delete', $bookmark->id) }}" class="btn btn-xs btn-default btn_delete btn-small"><span class="glyphicon glyphicon-trash"></span> Delete</a>
       </td>
     </tr>
     @endforeach

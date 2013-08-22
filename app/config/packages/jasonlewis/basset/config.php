@@ -27,6 +27,19 @@ return array(
     */
 
     'collections' => array(
+        'ie' => function ($collection) {
+            $directory = $collection->directory(
+                'assets',
+                function ($collection) {
+                    $collection
+                        ->javascript('bower_components/bootstrap/assets/js/respond.min.js')
+                        ->apply('JsMin');
+                    $collection
+                        ->javascript('bower_components/bootstrap/assets/js//html5shiv.js')
+                        ->apply('JsMin');
+                }
+            );
+        },
         'application' => function ($collection) {
 
             // in the assets dir...
