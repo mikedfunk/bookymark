@@ -12,12 +12,11 @@ script:
   - phpunit
 
 after_script:
-  - echo $PAGODABOX_USERNAME
   - php vendor/bin/coveralls
   - gem install pagoda
-  # - echo -e "Host git.pagodabox.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo -e "Host git.pagodabox.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - ssh-keygen -f ~/.ssh/pagoda -N ""
   - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD key:push --file=$HOME/.ssh/pagoda.pub
-  - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD deploy -a bookymark
-  # - git remote add pagoda git@git.pagodabox.com:bookymark.git
-  # - git push pagoda master
+  # - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD deploy -a bookymark
+  - git remote add pagoda git@git.pagodabox.com:bookymark.git
+  - git push pagoda master
