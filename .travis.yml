@@ -15,4 +15,4 @@ after_script:
   - secure: "cc1Rl6/ga+l6Edy74Q90O3bZ4SdzKIrYPOx1NqX+yAL7uvgimmasA6cWV85TQZ9FeXkc9H+QSB7WNTVQ3sTa5aceHg0eXj79xSBOcnSKUhUttrgfjQ74+UOyWnIS3kKkkFzhG/x5YPyrw3nOUGBrt4A1xdgKPtb/P9tXjQEkVYo="
   - ssh-keygen -f ~/.ssh/pagoda -N ""
   - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD key:push --file=$HOME/.ssh/pagoda.pub
-  - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD deploy
+  - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD deploy -a bookymark
