@@ -10,4 +10,8 @@ after_script:
   - php vendor/bin/coveralls
   - gem install pagoda
   - pagoda key:gen
-  - pagoda deploy
+  # PAGODABOX_USERNAME
+  - secure: "oL/UPKX64knAVZkBfQ7DR5XadXXIh0bY/ioXbtJb47XoivBIgUoFekrC4gq9qYabORj9PTaUpkGM2h3xtEL2n/DzILsuL+fHhKVD6WWNkj7IgtsFW616gKTC4oQ6a+F1hWbF0cxaC7M2QWwYdheSEaNO3RvhGoltKzMKwcSq9Es="
+  # PAGODABOX_PASSWORD
+  - secure: "cc1Rl6/ga+l6Edy74Q90O3bZ4SdzKIrYPOx1NqX+yAL7uvgimmasA6cWV85TQZ9FeXkc9H+QSB7WNTVQ3sTa5aceHg0eXj79xSBOcnSKUhUttrgfjQ74+UOyWnIS3kKkkFzhG/x5YPyrw3nOUGBrt4A1xdgKPtb/P9tXjQEkVYo="
+  - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD deploy
