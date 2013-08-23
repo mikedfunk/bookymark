@@ -17,6 +17,6 @@ after_script:
   - echo -e "Host git.pagodabox.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - ssh-keygen -f ~/.ssh/pagoda -N ""
   - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD key:push --file=$HOME/.ssh/pagoda.pub
-  - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD deploy -a bookymark -b master
+  - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD --app=bookymark --branch=master deploy
   # - git remote add pagoda git@git.pagodabox.com:bookymark.git
   # - git push pagoda master
