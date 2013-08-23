@@ -11,6 +11,7 @@ secure: "oL/UPKX64knAVZkBfQ7DR5XadXXIh0bY/ioXbtJb47XoivBIgUoFekrC4gq9qYabORj9PTa
 secure: "cc1Rl6/ga+l6Edy74Q90O3bZ4SdzKIrYPOx1NqX+yAL7uvgimmasA6cWV85TQZ9FeXkc9H+QSB7WNTVQ3sTa5aceHg0eXj79xSBOcnSKUhUttrgfjQ74+UOyWnIS3kKkkFzhG/x5YPyrw3nOUGBrt4A1xdgKPtb/P9tXjQEkVYo="
 
 after_script:
+  - echo $PAGODABOX_USERNAME
   - php vendor/bin/coveralls
   - gem install pagoda
   # - echo -e "Host git.pagodabox.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
