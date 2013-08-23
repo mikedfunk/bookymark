@@ -114,8 +114,6 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Basset\BassetServiceProvider',
-        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Way\Generators\GeneratorsServiceProvider',
         'Krucas\Notification\NotificationServiceProvider',
 
     ),
