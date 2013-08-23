@@ -1,3 +1,8 @@
+env:
+  global:
+    - secure: "oL/UPKX64knAVZkBfQ7DR5XadXXIh0bY/ioXbtJb47XoivBIgUoFekrC4gq9qYabORj9PTaUpkGM2h3xtEL2n/DzILsuL+fHhKVD6WWNkj7IgtsFW616gKTC4oQ6a+F1hWbF0cxaC7M2QWwYdheSEaNO3RvhGoltKzMKwcSq9Es="
+    - secure: "cc1Rl6/ga+l6Edy74Q90O3bZ4SdzKIrYPOx1NqX+yAL7uvgimmasA6cWV85TQZ9FeXkc9H+QSB7WNTVQ3sTa5aceHg0eXj79xSBOcnSKUhUttrgfjQ74+UOyWnIS3kKkkFzhG/x5YPyrw3nOUGBrt4A1xdgKPtb/P9tXjQEkVYo="
+
 language: php
 
 before_script:
@@ -5,10 +10,6 @@ before_script:
 
 script:
   - phpunit
-
-secure: "oL/UPKX64knAVZkBfQ7DR5XadXXIh0bY/ioXbtJb47XoivBIgUoFekrC4gq9qYabORj9PTaUpkGM2h3xtEL2n/DzILsuL+fHhKVD6WWNkj7IgtsFW616gKTC4oQ6a+F1hWbF0cxaC7M2QWwYdheSEaNO3RvhGoltKzMKwcSq9Es="
-
-secure: "cc1Rl6/ga+l6Edy74Q90O3bZ4SdzKIrYPOx1NqX+yAL7uvgimmasA6cWV85TQZ9FeXkc9H+QSB7WNTVQ3sTa5aceHg0eXj79xSBOcnSKUhUttrgfjQ74+UOyWnIS3kKkkFzhG/x5YPyrw3nOUGBrt4A1xdgKPtb/P9tXjQEkVYo="
 
 after_script:
   - echo $PAGODABOX_USERNAME
