@@ -9,7 +9,7 @@ script:
 after_script:
   - php vendor/bin/coveralls
   - gem install pagoda
-  - pagoda key:gen
+  - pagoda --username=$PAGODABOX_USERNAME --password=$PAGODABOX_PASSWORD key:gen
   # PAGODABOX_USERNAME
   - secure: "oL/UPKX64knAVZkBfQ7DR5XadXXIh0bY/ioXbtJb47XoivBIgUoFekrC4gq9qYabORj9PTaUpkGM2h3xtEL2n/DzILsuL+fHhKVD6WWNkj7IgtsFW616gKTC4oQ6a+F1hWbF0cxaC7M2QWwYdheSEaNO3RvhGoltKzMKwcSq9Es="
   # PAGODABOX_PASSWORD
