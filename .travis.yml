@@ -11,10 +11,10 @@ before_script:
   - phpenv rehash
 
 script:
-  - phpcs app/src app/tests/MikeFunk
+  - phpcs --standard=psr2 app/src app/tests/MikeFunk
   - phpunit
 
-after_script:
+after_success:
   - php vendor/bin/coveralls
   - gem install pagoda
   - echo -e "Host git.pagodabox.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
