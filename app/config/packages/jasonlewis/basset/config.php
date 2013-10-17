@@ -52,13 +52,13 @@ return array(
                     // all stylesheets
 
                     // breaks with Less php
-                    $collection->stylesheet('bower_components/bootstrap/less/bootstrap.less')
-                        ->apply('UriRewriteFilter')
-                        ->apply('Less');
-
-                    // $collection->stylesheet('bower_components/bootstrap/dist/css/bootstrap.css')
+                    // $collection->stylesheet('bower_components/bootstrap/less/bootstrap.less')
                         // ->apply('UriRewriteFilter')
-                        // ->apply('CssMin');
+                        // ->apply('Less');
+
+                    $collection->stylesheet('bower_components/bootstrap/dist/css/bootstrap.css')
+                        ->apply('UriRewriteFilter')
+                        ->apply('CssMin');
 
                     // $collection->stylesheet('bower_components/bootstrap/dist/css/bootstrap-theme.css')
                         // ->apply('CssMin');

@@ -39,9 +39,9 @@ class BookmarkRepositoryTest extends BookymarkTest
     {
         // set up test records
         $records = array(
-            array('title' => 'test1'),
-            array('title' => 'test1'),
-            array('title' => 'test1'),
+            ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
+            ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
+            ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
         );
 
         // insert into db
@@ -63,7 +63,7 @@ class BookmarkRepositoryTest extends BookymarkTest
     public function testBookmarkFind()
     {
         // create record
-        $values   = array('title' => 'test1');
+        $values = ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1];
         $bookmark = BookmarkModel::create($values);
 
         // find record, ensure it exists
@@ -79,7 +79,7 @@ class BookmarkRepositoryTest extends BookymarkTest
     public function testBookmarkFindOrFail()
     {
         // create record
-        $values   = array('title' => 'test1');
+        $values = ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1];
         $bookmark = BookmarkModel::create($values);
 
         // find record, ensure it exists
@@ -95,7 +95,7 @@ class BookmarkRepositoryTest extends BookymarkTest
     public function testBookmarkStore()
     {
         // create record, ensure it got saved
-        $values   = array('title' => 'test1');
+        $values = ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1];
         $bookmark = $this->bookmark_repository->store($values);
         $this->assertNotNull($bookmark);
     }
@@ -108,14 +108,11 @@ class BookmarkRepositoryTest extends BookymarkTest
     public function testBookmarkUpdate()
     {
         // create record
-        $old_values = array(
-            'id'    => 1,
-            'title' => 'test_old',
-        );
+        $old_values = ['id' => 1, 'title' => 'test_old', 'url' => 'http://a.com', 'user_id' => 1];
         $bookmark = BookmarkModel::create($old_values);
 
         // update, ensure successful
-        $new_values     = array('id' => 1, 'title' => 'test_new');
+        $new_values = ['id' => 1, 'title' => 'test_new', 'url' => 'http://a.com', 'user_id' => 1];
         $new_bookmark   = $this->bookmark_repository->update($new_values);
         $expected_title = $new_values['title'];
         $actual_title   = $new_bookmark->title;
@@ -131,8 +128,8 @@ class BookmarkRepositoryTest extends BookymarkTest
     {
         // set up test records
         $records = array(
-            array('title' => 'test1'),
-            array('title' => 'test1'),
+            ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
+            ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
         );
 
         // insert into db
@@ -156,8 +153,8 @@ class BookmarkRepositoryTest extends BookymarkTest
     {
         // set up test records
         $records = array(
-            array('user_id' => '1'),
-            array('user_id' => '2'),
+            ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
+            ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 2],
         );
 
         // insert into db

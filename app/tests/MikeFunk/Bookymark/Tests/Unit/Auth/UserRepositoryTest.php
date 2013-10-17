@@ -39,9 +39,9 @@ class UserRepositoryTest extends BookymarkTest
     {
         // set up test records
         $records = array(
-            array('email' => 'test1@test.com'),
-            array('email' => 'test1@test.com'),
-            array('email' => 'test1@test.com'),
+            ['email' => 'a@a.a', 'password' => 'a'],
+            ['email' => 'a@a.a', 'password' => 'a'],
+            ['email' => 'a@a.a', 'password' => 'a'],
         );
 
         // insert into db
@@ -63,7 +63,7 @@ class UserRepositoryTest extends BookymarkTest
     public function testUserFind()
     {
         // create record
-        $values = array('email' => 'test1@test.com');
+        $values = ['email' => 'a@a.a', 'password' => 'a'];
         $user   = UserModel::create($values);
 
         // find record, ensure it exists
@@ -79,7 +79,7 @@ class UserRepositoryTest extends BookymarkTest
     public function testUserFindOrFail()
     {
         // create record
-        $values = array('email' => 'test1@test.com');
+        $values = ['email' => 'a@a.a', 'password' => 'a'];
         $user   = UserModel::create($values);
 
         // find record, ensure it exists
@@ -95,7 +95,7 @@ class UserRepositoryTest extends BookymarkTest
     public function testUserStore()
     {
         // create record, ensure it got saved
-        $values = array('email' => 'test1@test.com');
+        $values = ['email' => 'a@a.a', 'password' => 'a'];
         $user   = $this->user_repository->store($values);
         $this->assertNotNull($user);
     }
@@ -108,14 +108,11 @@ class UserRepositoryTest extends BookymarkTest
     public function testUserUpdate()
     {
         // create record
-        $old_values = array(
-            'id'    => 1,
-            'email' => 'test_old@test.com',
-        );
+        $old_values = ['id' => 1, 'email' => 'a@a.a', 'password' => 'a'];
         $user = UserModel::create($old_values);
 
         // update, ensure successful
-        $new_values     = array('id' => 1, 'email' => 'test_new@test.com');
+        $new_values = ['id' => 1, 'email' => 'b@b.b', 'password' => 'a'];
         $new_user       = $this->user_repository->update($new_values);
         $expected_email = $new_values['email'];
         $actual_email   = $new_user->email;
@@ -131,9 +128,10 @@ class UserRepositoryTest extends BookymarkTest
     {
         // set up test records
         $records = array(
-            array('email' => 'test1@test.com'),
-            array('email' => 'test1@test.com'),
+            ['email' => 'a@a.a', 'password' => 'a'],
+            ['email' => 'a@a.a', 'password' => 'a'],
         );
+
 
         // insert into db
         foreach ($records as $record) {
@@ -155,10 +153,7 @@ class UserRepositoryTest extends BookymarkTest
     public function testUserFindByRegisterToken()
     {
         // set up test record
-        $values = array(
-            'email'          => 'test@test.com',
-            'register_token' => 'asd',
-        );
+        $values = ['email' => 'a@a.a', 'password' => 'a', 'register_token' => 'asd'];
 
         // insert into db
         $user = UserModel::create($values);
@@ -176,7 +171,7 @@ class UserRepositoryTest extends BookymarkTest
     public function testUserFindByEmail()
     {
         // set up test record, insert into db
-        $values = array('email' => 'lfdfd@test.com');
+        $values = ['email' => 'za@a.a', 'password' => 'a'];
         $user = UserModel::create($values);
 
         // find by email ensure one result
@@ -192,9 +187,7 @@ class UserRepositoryTest extends BookymarkTest
     public function testUserCreate()
     {
         // set values
-        $values = array(
-            'email' => 'test@test.com',
-        );
+        $values = ['email' => 'za@a.a', 'password' => 'a'];
 
         // call create
         $this->user_repository->create($values);
