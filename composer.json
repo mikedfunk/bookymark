@@ -25,8 +25,7 @@
             "app/models",
             "app/database/migrations",
             "app/database/seeds",
-            "app/tests/TestCase.php",
-            "app/tests/MikeFunk"
+            "app/tests/TestCase.php"
         ],
         "psr-0" : {
             "MikeFunk\\" : "app/src/"

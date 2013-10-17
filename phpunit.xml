@@ -12,7 +12,7 @@
 >
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>./app/tests/MikeFunk/Bookymark/Tests/Unit/*/</directory>
+            <directory>./app/src/MikeFunk/Bookymark/Tests/Unit/*/</directory>
         </testsuite>
     </testsuites>
 
@@ -24,6 +24,9 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app/src/</directory>
+            <exclude>
+                <directory suffix=".php">./app/src/MikeFunk/Bookymark/Tests/</directory>
+            </exclude>
         </whitelist>
     </filter>
 
