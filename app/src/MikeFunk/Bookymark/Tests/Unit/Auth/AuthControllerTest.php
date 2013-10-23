@@ -361,20 +361,40 @@ class AuthControllerTest extends BookymarkTest
     }
 
     /**
+     * goodUserDataProvider
+     *
+     * @return array
+     */
+    public function goodUserDataProvider()
+    {
+        return array(
+            array(
+                array(
+                    'email'                 => 'test@test.com',
+                    'password'              => 'abcsfsdf',
+                    'password_confirmation' => 'abcsfsdf',
+                ),
+            ),
+            array(
+                array(
+                    'email'                 => 'test@test.com',
+                    'password'              => '',
+                    'password_confirmation' => '',
+                ),
+            ),
+        );
+    }
+
+    /**
      * testAuthUpdateProfileOk
      *
+     * @dataProvider goodUserDataProvider
+     * @param array $input
      * @return void
      */
-    public function testAuthUpdateProfileOk()
+    public function testAuthUpdateProfileOk(array $input)
     {
         $this->login();
-
-        // mock input
-        $input = array(
-            'email'                 => 'test@test.com',
-            'password'              => 'abcsfsdf',
-            'password_confirmation' => 'abcsfsdf',
-        );
 
         // mock hash so it always returns the same thing
         Hash::shouldReceive('make')->andReturn('lala');
@@ -382,7 +402,11 @@ class AuthControllerTest extends BookymarkTest
         // tweak the input that gets sent to the repository
         $my_input = $input;
         $my_input['id'] = $this->user->id;
-        $my_input['password'] = 'lala';
+        if ($my_input['password'] == '') {
+            unset($my_input['password']);
+        } else {
+            $my_input['password'] = 'lala';
+        }
         unset($my_input['password_confirmation']);
 
         // mock user repository
@@ -408,11 +432,11 @@ class AuthControllerTest extends BookymarkTest
     }
 
     /**
-     * userDataProvider
+     * badUserDataProvider
      *
      * @return array
      */
-    public function userDataProvider()
+    public function badUserDataProvider()
     {
         return array(
             array(
@@ -458,7 +482,7 @@ class AuthControllerTest extends BookymarkTest
     /**
      * testAuthUpdateProfileFailValidation
      *
-     * @dataProvider userDataProvider
+     * @dataProvider badUserDataProvider
      * @return void
      */
     public function testAuthUpdateProfileFailValidation($input)

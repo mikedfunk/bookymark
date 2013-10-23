@@ -5,7 +5,10 @@
  */
 namespace MikeFunk\Bookymark\Bookmarks;
 
+use Auth;
+use Cache;
 use Config;
+use Event;
 
 /**
  * BookmarkRepository
@@ -56,7 +59,9 @@ class BookmarkRepository
         // instantiate a new bookmark model, insert the passed values, save and
         // return the new model
         $bookmark = new BookmarkModel;
-        return $this->save($bookmark, $values);
+        $bookmark = $this->save($bookmark, $values);
+        Event::fire('bookmarks.change');
+        return $bookmark;
     }
 
     /**
@@ -70,7 +75,9 @@ class BookmarkRepository
         // instantiate a bookmark model, insert the passed values, save and
         // return the model
         $bookmark = BookmarkModel::find($values['id']);
-        return $this->save($bookmark, $values);
+        $bookmark = $this->save($bookmark, $values);
+        Event::fire('bookmarks.change');
+        return $bookmark;
     }
 
     /**
@@ -97,7 +104,9 @@ class BookmarkRepository
      */
     public function delete($id)
     {
-        return BookmarkModel::find($id)->delete();
+        $bookmark = BookmarkModel::find($id)->delete();
+        Event::fire('bookmarks.change');
+        return $bookmark;
     }
 
     /**
@@ -107,7 +116,17 @@ class BookmarkRepository
      */
     public function getByUserId($id)
     {
-        return BookmarkModel::where('user_id', '=', $id)
-            ->paginate(Config::get('bookymark.per_page'));
+        // get either the cached version or the db version
+        return Cache::section($id)
+            ->get(
+                'bookmarks',
+                function () use ($id) {
+                    // get the record, put it in the cache, return it
+                    $bookmarks = BookmarkModel::where('user_id', '=', $id)
+                        ->paginate(Config::get('bookymark.per_page'));
+                    Cache::section($id)->put('bookmarks', $bookmarks, 999);
+                    return $bookmarks;
+                }
+            );
     }
 }

@@ -5,10 +5,13 @@
  */
 namespace MikeFunk\Bookymark\Tests\Unit\Bookmarks;
 
-use MikeFunk\Bookymark\Tests\BookymarkTest;
+use Artisan;
+use Auth;
+use Event;
+use MikeFunk\Bookymark\Auth\UserModel;
 use MikeFunk\Bookymark\Bookmarks\BookmarkModel;
 use MikeFunk\Bookymark\Bookmarks\BookmarkRepository;
-use Artisan;
+use MikeFunk\Bookymark\Tests\BookymarkTest;
 use Mockery;
 
 /**
@@ -25,9 +28,16 @@ class BookmarkRepositoryTest extends BookymarkTest
      */
     public function setUp()
     {
+        // migrate and set repo
         parent::setUp();
         Artisan::call('migrate');
         $this->bookmark_repository = new BookmarkRepository;
+
+        // fake login
+        $user = new UserModel;
+        $user->id = 1;
+        $user->email = 'test@test.com';
+        $this->be($user);
     }
 
     /**
@@ -94,10 +104,13 @@ class BookmarkRepositoryTest extends BookymarkTest
      */
     public function testBookmarkStore()
     {
-        // create record, ensure it got saved
+        // mock event firing, create record, ensure it got saved
+        Event::shouldReceive('fire')->once();
         $values = ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1];
         $bookmark = $this->bookmark_repository->store($values);
-        $this->assertNotNull($bookmark);
+
+        // check result
+        $this->assertNotNull(BookmarkModel::where('id', $bookmark->id));
     }
 
     /**
@@ -107,7 +120,8 @@ class BookmarkRepositoryTest extends BookymarkTest
      */
     public function testBookmarkUpdate()
     {
-        // create record
+        // mock event firing, create record
+        Event::shouldReceive('fire')->once();
         $old_values = ['id' => 1, 'title' => 'test_old', 'url' => 'http://a.com', 'user_id' => 1];
         $bookmark = BookmarkModel::create($old_values);
 
@@ -126,7 +140,8 @@ class BookmarkRepositoryTest extends BookymarkTest
      */
     public function testBookmarkDelete()
     {
-        // set up test records
+        // mock event firing, set up test record
+        Event::shouldReceive('fire')->once();
         $records = array(
             ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
             ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],

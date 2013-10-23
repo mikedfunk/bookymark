@@ -115,6 +115,7 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Basset\BassetServiceProvider',
         'Krucas\Notification\NotificationServiceProvider',
+        'MikeFunk\Bookymark\Common\EventServiceProvider',
 
     ),
 
