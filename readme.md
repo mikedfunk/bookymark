@@ -11,6 +11,8 @@ An example Laravel 4 project.
 * Migrations and example seeds in ```app/database```
 * [Basset](http://jasonlewis.me/code/basset/4.0) asset processing
 * Basic CRUD application with authentication
+* Event firing and listening in ```Common/EventServiceProvider```
+* Cache implementation with Memcached driver
 
 Bookymark exists to:
 
