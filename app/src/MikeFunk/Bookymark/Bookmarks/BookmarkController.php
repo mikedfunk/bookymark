@@ -41,7 +41,8 @@ class BookmarkController extends BaseController
      */
     public function index()
     {
-        $bookmarks = $this->bookmark_model->getByUserId(Auth::user()->id);
+        $user_id = Auth::user()->id;
+        $bookmarks = $this->bookmark_model->getByUserId($user_id);
         return View::make('bookmarks.bookmarks_index', compact('bookmarks'));
     }
 

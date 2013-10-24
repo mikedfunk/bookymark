@@ -123,8 +123,6 @@ class BookmarkControllerTest extends BookymarkTest
     /**
      * testBookmarkEditOk
      *
-     * findOrFail should not be tested here, it's a repository responsibility.
-     *
      * @return void
      */
     public function testBookmarkEditOk()
@@ -361,7 +359,7 @@ class BookmarkControllerTest extends BookymarkTest
     {
         $this->mockMyBookmarkFilter();
 
-        // mock repository methods
+        // mock model methods
         $this->bookmark_model
             ->shouldReceive('doDelete')
             ->once()

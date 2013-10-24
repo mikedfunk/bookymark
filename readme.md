@@ -13,7 +13,6 @@ An example Laravel 4 project.
 * Basic CRUD application with authentication
 * Event firing and listening in ```Common/EventServiceProvider```
 * Interface-based dependency injection. Interfaces in ```MikeFunk/Bookymark/Interfaces``` and bindings in ``` MikeFunk/Bookymark/Common/BindingServiceProvider.php```
-* Cache implementation with Memcached driver
 
 Bookymark exists to:
 

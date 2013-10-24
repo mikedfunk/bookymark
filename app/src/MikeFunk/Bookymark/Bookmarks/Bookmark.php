@@ -144,18 +144,8 @@ class Bookmark extends Eloquent implements BookmarkModelInterface
      */
     public function getByUserId($id)
     {
-        // get either the cached version or the db version
-        return Cache::section($id)
-            ->get(
-                'bookmarks',
-                function () use ($id) {
-
-                    // get the record, put it in the cache, return it
-                    $bookmarks = self::where('user_id', '=', $id)
-                        ->paginate(Config::get('bookymark.per_page'));
-                    Cache::section($id)->put('bookmarks', $bookmarks, 999);
-                    return $bookmarks;
-                }
-            );
+        // get the record, put it in the cache, return it
+        return self::where('user_id', '=', $id)
+            ->paginate(Config::get('bookymark.per_page'));
     }
 }

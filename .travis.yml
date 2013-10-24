@@ -11,7 +11,7 @@ before_script:
   - phpenv rehash
 
 script:
-  - phpcs --standard=psr2 app/src app/tests/MikeFunk
+  - phpcs --standard=psr2 app/src
   - phpunit
 
 after_success:
