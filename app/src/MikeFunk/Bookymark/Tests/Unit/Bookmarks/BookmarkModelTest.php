@@ -5,6 +5,7 @@
  */
 namespace MikeFunk\Bookymark\Tests\Unit\Bookmarks;
 
+use App;
 use Artisan;
 use Auth;
 use Event;
@@ -31,13 +32,23 @@ class BookmarkModelTest extends BookymarkTest
         // migrate and set repo
         parent::setUp();
         Artisan::call('migrate');
-        $this->bookmark_model = new BookmarkModel;
+        $this->bookmark_model = $this->getBookmarkModel();
 
         // fake login
-        $user = new UserModel;
+        $user = App::make('MikeFunk\Bookymark\Interfaces\UserModelInterface');
         $user->id = 1;
         $user->email = 'test@test.com';
         $this->be($user);
+    }
+
+    /**
+     * getBookmarkModel
+     *
+     * @return BookmarkModelInterface
+     */
+    public function getBookmarkModel()
+    {
+        return App::make('MikeFunk\Bookymark\Interfaces\BookmarkModelInterface');
     }
 
     /**
@@ -56,7 +67,7 @@ class BookmarkModelTest extends BookymarkTest
 
         // insert into db
         foreach ($records as $record) {
-            BookmarkModel::create($record);
+            $this->bookmark_model->create($record);
         }
 
         // get all records, check count
@@ -74,7 +85,7 @@ class BookmarkModelTest extends BookymarkTest
     {
         // create record
         $values = ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1];
-        $bookmark = BookmarkModel::create($values);
+        $bookmark = $this->bookmark_model->create($values);
 
         // find record, ensure it exists
         $found = $this->bookmark_model->getById($bookmark->id);
@@ -98,11 +109,11 @@ class BookmarkModelTest extends BookymarkTest
     }
 
     /**
-     * testBookmarkModelDoStore
+     * testBookmarkModelDoStoreSuccess
      *
      * @return void
      */
-    public function testBookmarkModelDoStore()
+    public function testBookmarkModelDoStoreSuccess()
     {
         // mock event firing, create record, ensure it got saved
         Event::shouldReceive('fire')->once();
@@ -110,7 +121,7 @@ class BookmarkModelTest extends BookymarkTest
         $bookmark = $this->bookmark_model->doStore($values);
 
         // check result
-        $this->assertNotNull(BookmarkModel::where('id', $bookmark->id));
+        $this->assertNotNull($this->bookmark_model->where('id', $bookmark->id));
     }
 
     /**
@@ -123,14 +134,14 @@ class BookmarkModelTest extends BookymarkTest
         // mock event firing, create record
         Event::shouldReceive('fire')->once();
         $old_values = ['id' => 1, 'title' => 'test_old', 'url' => 'http://a.com', 'user_id' => 1];
-        $bookmark = BookmarkModel::create($old_values);
+        $bookmark = $this->bookmark_model->create($old_values);
 
         // update, ensure successful
         $new_values = ['id' => 1, 'title' => 'test_new', 'url' => 'http://a.com', 'user_id' => 1];
         $new_bookmark   = $this->bookmark_model->doUpdate($new_values);
         $expected_title = $new_values['title'];
         $actual_title   = $new_bookmark->title;
-        $this->assertEquals($expected_title, $actual_title);
+        $this->assertequals($expected_title, $actual_title);
     }
 
     /**
@@ -143,7 +154,7 @@ class BookmarkModelTest extends BookymarkTest
     {
         // create test bookmark
         $old_values = ['id' => 1, 'title' => 'test_old', 'url' => 'http://a.com', 'user_id' => 1];
-        $bookmark = BookmarkModel::create($old_values);
+        $bookmark = $this->bookmark_model->create($old_values);
 
         // update, expect exception
         $new_values = ['title' => 'test_new', 'url' => 'http://a.com', 'user_id' => 1];
@@ -179,12 +190,12 @@ class BookmarkModelTest extends BookymarkTest
 
         // insert into db
         foreach ($records as $record) {
-            $bookmark = BookmarkModel::create($record);
+            $bookmark = $this->bookmark_model->create($record);
         }
 
         // delete one, check count of all records
         $this->bookmark_model->doDelete($bookmark->id);
-        $current_count = BookmarkModel::all()->count();
+        $current_count = $this->bookmark_model->all()->count();
         $old_count     = count($records);
         $this->assertEquals($current_count, $old_count - 1);
     }
@@ -204,7 +215,7 @@ class BookmarkModelTest extends BookymarkTest
 
         // insert into db
         foreach ($records as $record) {
-            BookmarkModel::create($record);
+            $this->bookmark_model->create($record);
         }
 
         // get by user id, ensure count is one

@@ -7,17 +7,17 @@ namespace MikeFunk\Bookymark\Tests\Unit\Auth;
 
 use Artisan;
 use MikeFunk\Bookymark\Tests\BookymarkTest;
-use MikeFunk\Bookymark\Auth\UserModel;
-use MikeFunk\Bookymark\Auth\UserRepository;
+use MikeFunk\Bookymark\Auth\User as UserModel;
 use Mockery;
 
 /**
- * UserRepositoryTest
+ * UserModelTest
  *
  * @author Michael Funk <mfunk@christianpublishing.com>
  */
-class UserRepositoryTest extends BookymarkTest
+class UserModelTest extends BookymarkTest
 {
+
     /**
      * setUp
      *
@@ -27,22 +27,22 @@ class UserRepositoryTest extends BookymarkTest
     {
         parent::setUp();
         Artisan::call('migrate');
-        $this->user_repository = new UserRepository;
+        $this->user_model = new UserModel;
     }
 
     /**
-     * testAll
+     * testUserModelGetAll
      *
      * @return void
      */
-    public function testUserAll()
+    public function testUserModelGetAll()
     {
         // set up test records
-        $records = array(
+        $records = [
             ['email' => 'a@a.a', 'password' => 'a'],
             ['email' => 'a@a.a', 'password' => 'a'],
             ['email' => 'a@a.a', 'password' => 'a'],
-        );
+        ];
 
         // insert into db
         foreach ($records as $record) {
@@ -51,61 +51,61 @@ class UserRepositoryTest extends BookymarkTest
 
         // get all records, check count
         $expected_count = count($records);
-        $actual_count   = $this->user_repository->all()->count();
+        $actual_count   = $this->user_model->getAll()->count();
         $this->assertEquals($expected_count, $actual_count);
     }
 
     /**
-     * testUserFind
+     * testUserModelGetById
      *
      * @return void
      */
-    public function testUserFind()
+    public function testUserModelGetById()
     {
         // create record
         $values = ['email' => 'a@a.a', 'password' => 'a'];
         $user   = UserModel::create($values);
 
         // find record, ensure it exists
-        $found = $this->user_repository->find($user->id);
+        $found = $this->user_model->getById($user->id);
         $this->assertNotNull($found);
     }
 
     /**
-     * testUserFindOrFail
+     * testUserModelGetByIdOrFail
      *
      * @return void
      */
-    public function testUserFindOrFail()
+    public function testUserModelGetByIdOrFail()
     {
         // create record
         $values = ['email' => 'a@a.a', 'password' => 'a'];
         $user   = UserModel::create($values);
 
         // find record, ensure it exists
-        $found = $this->user_repository->findOrFail($user->id);
+        $found = $this->user_model->getByIdOrFail($user->id);
         $this->assertNotNull($found);
     }
 
     /**
-     * testUserStore
+     * testUserModelDoStore
      *
      * @return void
      */
-    public function testUserStore()
+    public function testUserModelDoStore()
     {
         // create record, ensure it got saved
         $values = ['email' => 'a@a.a', 'password' => 'a'];
-        $user   = $this->user_repository->store($values);
+        $user   = $this->user_model->doStore($values);
         $this->assertNotNull($user);
     }
 
     /**
-     * testUserUpdate
+     * testUserModelDoUpdate
      *
      * @return void
      */
-    public function testUserUpdate()
+    public function testUserModelDoUpdate()
     {
         // create record
         $old_values = ['id' => 1, 'email' => 'a@a.a', 'password' => 'a'];
@@ -113,18 +113,50 @@ class UserRepositoryTest extends BookymarkTest
 
         // update, ensure successful
         $new_values = ['id' => 1, 'email' => 'b@b.b', 'password' => 'a'];
-        $new_user       = $this->user_repository->update($new_values);
+        $this->user_model->doUpdate($new_values);
+
+        $new_user       = UserModel::find(1);
         $expected_email = $new_values['email'];
         $actual_email   = $new_user->email;
         $this->assertEquals($expected_email, $actual_email);
     }
 
     /**
-     * testUserDelete
+     * testUserModelDoUpdateFailNoId
+     *
+     * @expectedException UnexpectedValueException
+     * @return void
+     */
+    public function testUserModelDoUpdateFailNoId()
+    {
+        // create test user
+        $old_values = ['id' => 1, 'email' => 'a@a.a', 'password' => 'a'];
+        $user = UserModel::create($old_values);
+
+        // update, expect exception
+        $new_values = ['email' => 'a@a.a', 'password' => 'a'];
+        $this->user_model->doUpdate($new_values);
+    }
+
+    /**
+     * testUserModelDoUpdateFailNotFound
+     *
+     * @expectedException Exception
+     * @return void
+     */
+    public function testUserModelDoUpdateFailNotFound()
+    {
+        // update, ensure successful
+        $new_values = ['id' => 3053, 'email' => 'a@a.a', 'password' => 'a'];
+        $this->user_model->doUpdate($new_values);
+    }
+
+    /**
+     * testUserModelDoDelete
      *
      * @return void
      */
-    public function testUserDelete()
+    public function testUserModelDoDelete()
     {
         // set up test records
         $records = array(
@@ -139,18 +171,18 @@ class UserRepositoryTest extends BookymarkTest
         }
 
         // delete one, check count of all records
-        $this->user_repository->delete($user->id);
+        $this->user_model->doDelete($user->id);
         $current_count = UserModel::all()->count();
         $old_count     = count($records);
         $this->assertEquals($current_count, $old_count - 1);
     }
 
     /**
-     * testUserFindByRegisterToken
+     * testUserModelGetByRegisterToken
      *
      * @return void
      */
-    public function testUserFindByRegisterToken()
+    public function testUserModelGetByRegisterToken()
     {
         // set up test record
         $values = ['email' => 'a@a.a', 'password' => 'a', 'register_token' => 'asd'];
@@ -159,41 +191,23 @@ class UserRepositoryTest extends BookymarkTest
         $user = UserModel::create($values);
 
         // find by token, ensure 1 result
-        $user = $this->user_repository->findByRegisterToken($values['register_token']);
+        $user = $this->user_model->getByRegisterToken($values['register_token']);
         $this->assertNotNull($user);
     }
 
     /**
-     * testUserFindByEmail
+     * testUserModelGetByEmail
      *
      * @return void
      */
-    public function testUserFindByEmail()
+    public function testUserModelGetByEmail()
     {
         // set up test record, insert into db
         $values = ['email' => 'za@a.a', 'password' => 'a'];
         $user = UserModel::create($values);
 
         // find by email ensure one result
-        $user = $this->user_repository->findByEmail($values['email']);
+        $user = $this->user_model->getByEmail($values['email']);
         $this->assertNotNull($user);
-    }
-
-    /**
-     * testUserCreate
-     *
-     * @return void
-     */
-    public function testUserCreate()
-    {
-        // set values
-        $values = ['email' => 'za@a.a', 'password' => 'a'];
-
-        // call create
-        $this->user_repository->create($values);
-
-        // ensure 1 row in db
-        $actual_count = UserModel::all()->count();
-        $this->assertEquals(1, $actual_count);
     }
 }

@@ -131,6 +131,7 @@ class Bookmark extends Eloquent implements BookmarkModelInterface
      */
     public function doDelete($id)
     {
+        // @TODO throw exception on bookmark not found
         $bookmark = self::find($id)->delete();
         Event::fire('bookmarks.change');
         return $bookmark;

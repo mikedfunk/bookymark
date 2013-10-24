@@ -30,5 +30,9 @@ class BindingServiceProvider extends ServiceProvider
             'MikeFunk\Bookymark\Interfaces\BookmarkModelInterface',
             'MikeFunk\Bookymark\Bookmarks\Bookmark'
         );
+        App::bind(
+            'MikeFunk\Bookymark\Interfaces\UserModelInterface',
+            'MikeFunk\Bookymark\Auth\User'
+        );
     }
 }

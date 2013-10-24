@@ -6,6 +6,7 @@
 namespace MikeFunk\Bookymark\Auth;
 
 use MikeFunk\Bookymark\Common\BaseController;
+use MikeFunk\Bookymark\Interfaces\UserModelInterface;
 use View;
 use Auth;
 use Notification;
@@ -25,15 +26,16 @@ use Session;
  */
 class AuthController extends BaseController
 {
+
     /**
-     * __construct
+     * dependency injection
      *
-     * @return void
+     * @param UserModelInterface $user_model
      */
-    public function __construct(UserRepository $user_repository)
+    public function __construct(UserModelInterface $user_model)
     {
         parent::__construct();
-        $this->user_repository = $user_repository;
+        $this->user_model = $user_model;
     }
 
     /**
@@ -202,7 +204,7 @@ class AuthController extends BaseController
         // set register_token
         $input['register_token'] = uniqid();
         $input['password'] = Hash::make($input['password']);
-        $user = $this->user_repository->create($input);
+        $user = $this->user_model->create($input);
 
         // send confirm registration email
         Mail::send(
@@ -229,7 +231,7 @@ class AuthController extends BaseController
     public function confirmRegistration($token)
     {
         // look for user
-        $user = $this->user_repository->findByRegisterToken($token);
+        $user = $this->user_model->findByRegisterToken($token);
 
         // if no user is found with that token
         if (!$user) {
@@ -252,7 +254,7 @@ class AuthController extends BaseController
     public function profile()
     {
         // get user, load view
-        $user = $this->user_repository->find(Auth::user()->id);
+        $user = $this->user_model->find(Auth::user()->id);
         return View::make('auth.profile', compact('user'));
     }
 
@@ -278,7 +280,7 @@ class AuthController extends BaseController
             Notification::error(Lang::get('notifications.form_error'));
         } else {
 
-            // tweak the input a bit for the repository
+            // tweak the input a bit for the model
             $input['id'] = Auth::user()->id;
             if ($input['password'] == '') {
                 unset($input['password']);
@@ -289,7 +291,7 @@ class AuthController extends BaseController
             unset($input['password_confirmation']);
 
             // update , notify, and redirect
-            $this->user_repository->update($input);
+            $this->user_model->update($input);
             Notification::success(Lang::get('notifications.profile_updated'));
         }
         return Redirect::route('auth.profile')->withErrors($validation);

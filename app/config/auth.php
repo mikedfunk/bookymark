@@ -29,7 +29,8 @@ return array(
     */
 
     // 'model' => 'User',
-    'model' => 'MikeFunk\Bookymark\Auth\UserModel',
+    // 'model' => 'MikeFunk\Bookymark\Auth\User',
+    'model' => App::make('MikeFunk\Bookymark\Interfaces\UserModelInterface'),
 
     /*
     |--------------------------------------------------------------------------

@@ -62,9 +62,10 @@ class BookmarkControllerTest extends BookymarkTest
         }
 
         // fake login as user
-        $this->user = Mockery::mock('MikeFunk\Bookymark\Auth\UserModel');
+        $this->user = Mockery::mock('MikeFunk\Bookymark\Interfaces\UserModelInterface, Illuminate\Auth\UserInterface');
         $this->user->shouldDeferMissing();
         $this->user->id = 1;
+        $this->user->email = 'test@test.com';
         $this->be($this->user);
     }
 
@@ -82,6 +83,7 @@ class BookmarkControllerTest extends BookymarkTest
             ->with($this->user->id)
             ->andReturn($this->bookmark_collection);
 
+        // call and assert ok
         $this->call('GET', 'bookmarks');
         $this->assertResponseOk();
     }

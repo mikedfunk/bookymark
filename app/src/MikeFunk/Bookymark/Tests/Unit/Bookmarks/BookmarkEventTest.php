@@ -28,7 +28,7 @@ class BookmarkEventTest extends BookymarkTest
     public function testBookmarkChangeEventListener()
     {
         // fake login
-        $user = new UserModel;
+        $user = Mockery::mock('Illuminate\Auth\UserInterface');
         $user->id = 1;
         $user->email = 'test@test.com';
         $this->be($user);
