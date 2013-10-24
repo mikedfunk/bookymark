@@ -116,6 +116,7 @@ return array(
         'Basset\BassetServiceProvider',
         'Krucas\Notification\NotificationServiceProvider',
         'MikeFunk\Bookymark\Common\EventServiceProvider',
+        'MikeFunk\Bookymark\Common\BindingServiceProvider',
 
     ),
 

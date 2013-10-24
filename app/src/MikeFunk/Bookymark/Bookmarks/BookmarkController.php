@@ -6,6 +6,7 @@
 namespace MikeFunk\Bookymark\Bookmarks;
 
 use MikeFunk\Bookymark\Common\BaseController;
+use MikeFunk\Bookymark\Interfaces\BookmarkModelInterface;
 use View;
 use Input;
 use Redirect;
@@ -24,13 +25,13 @@ class BookmarkController extends BaseController
     /**
      * dependency injection
      *
-     * @param BookmarkRepository $bookmark_repository
+     * @param BookmarkModelInterface $bookmark_model
      */
     public function __construct(
-        BookmarkRepository $bookmark_repository
+        BookmarkModelInterface $bookmark_model
     ) {
         parent::__construct();
-        $this->bookmark_repository = $bookmark_repository;
+        $this->bookmark_model = $bookmark_model;
     }
 
     /**
@@ -40,7 +41,7 @@ class BookmarkController extends BaseController
      */
     public function index()
     {
-        $bookmarks = $this->bookmark_repository->getByUserId(Auth::user()->id);
+        $bookmarks = $this->bookmark_model->getByUserId(Auth::user()->id);
         return View::make('bookmarks.bookmarks_index', compact('bookmarks'));
     }
 
@@ -52,7 +53,7 @@ class BookmarkController extends BaseController
     public function create()
     {
         // load the view
-        $bookmark = new BookmarkModel;
+        $bookmark = $this->bookmark_model;
         $edit = false;
         return View::make('bookmarks.bookmarks_form', compact('edit', 'bookmark'));
     }
@@ -67,7 +68,7 @@ class BookmarkController extends BaseController
     {
         // get the record, send it to the view
         $edit = true;
-        $bookmark = $this->bookmark_repository->findOrFail($id);
+        $bookmark = $this->bookmark_model->getByIdOrFail($id);
 
         // ensure the auth user id is the same as the bookmark user_id
         // if not, notify and redirect to the list
@@ -87,7 +88,7 @@ class BookmarkController extends BaseController
     public function store()
     {
         // if validation fails, set notification and redirect
-        $validator = Validator::make(Input::all(), BookmarkModel::$rules);
+        $validator = Validator::make(Input::all(), $this->bookmark_model->rules);
         if ($validator->fails()) {
             Notification::error(Lang::get('notifications.form_error'));
             return Redirect::route('bookmarks.create')->withErrors($validator);
@@ -98,7 +99,7 @@ class BookmarkController extends BaseController
         $input['user_id'] = Auth::user()->id;
 
         // update, notify, and redirect
-        $bookmark = $this->bookmark_repository->store($input);
+        $bookmark = $this->bookmark_model->doStore($input);
         Notification::success(Lang::get('notifications.form_success'));
         return Redirect::route('bookmarks.index');
     }
@@ -111,7 +112,7 @@ class BookmarkController extends BaseController
     public function update($id)
     {
         // get the bookmark for this id
-        $bookmark = $this->bookmark_repository->findOrFail($id);
+        $bookmark = $this->bookmark_model->getByIdOrFail($id);
 
         // ensure the auth user id is the same as the bookmark user_id
         // if not, notify and redirect to the list
@@ -121,7 +122,7 @@ class BookmarkController extends BaseController
         }
 
         // if validation fails, set notification and redirect
-        $validator = Validator::make(Input::all(), BookmarkModel::$rules);
+        $validator = Validator::make(Input::all(), $this->bookmark_model->rules);
         if ($validator->fails()) {
             Notification::error(Lang::get('notifications.form_error'));
             return Redirect::route('bookmarks.edit', $id)->withErrors($validator);
@@ -133,7 +134,7 @@ class BookmarkController extends BaseController
         $input['user_id'] = Auth::user()->id;
 
         // update, notify, and redirect
-        $bookmark = $this->bookmark_repository->update($input);
+        $bookmark = $this->bookmark_model->doUpdate($input);
         Notification::success(Lang::get('notifications.form_success'));
         return Redirect::route('bookmarks.index');
     }
@@ -147,7 +148,7 @@ class BookmarkController extends BaseController
     public function delete($id)
     {
         // get the bookmark for this id
-        $bookmark = $this->bookmark_repository->findOrFail($id);
+        $bookmark = $this->bookmark_model->getByIdOrFail($id);
 
         // ensure the auth user id is the same as the bookmark user_id
         // if not, notify and redirect to the list
@@ -157,7 +158,7 @@ class BookmarkController extends BaseController
         }
 
         Notification::success(Lang::get('notifications.form_delete'));
-        $this->bookmark_repository->delete($id);
+        $this->bookmark_model->doDelete($id);
         return Redirect::route('bookmarks.index');
     }
 }

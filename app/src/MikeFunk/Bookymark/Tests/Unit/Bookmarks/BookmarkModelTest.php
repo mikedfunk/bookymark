@@ -9,18 +9,18 @@ use Artisan;
 use Auth;
 use Event;
 use MikeFunk\Bookymark\Auth\UserModel;
-use MikeFunk\Bookymark\Bookmarks\BookmarkModel;
-use MikeFunk\Bookymark\Bookmarks\BookmarkRepository;
+use MikeFunk\Bookymark\Bookmarks\Bookmark as BookmarkModel;
 use MikeFunk\Bookymark\Tests\BookymarkTest;
 use Mockery;
 
 /**
- * BookmarkRepositoryTest
+ * BookmarkModelTest
  *
  * @author Michael Funk <mfunk@christianpublishing.com>
  */
-class BookmarkRepositoryTest extends BookymarkTest
+class BookmarkModelTest extends BookymarkTest
 {
+
     /**
      * setUp
      *
@@ -31,7 +31,7 @@ class BookmarkRepositoryTest extends BookymarkTest
         // migrate and set repo
         parent::setUp();
         Artisan::call('migrate');
-        $this->bookmark_repository = new BookmarkRepository;
+        $this->bookmark_model = new BookmarkModel;
 
         // fake login
         $user = new UserModel;
@@ -41,18 +41,18 @@ class BookmarkRepositoryTest extends BookymarkTest
     }
 
     /**
-     * testAll
+     * testBookmarkModelGetAll
      *
      * @return void
      */
-    public function testBookmarkAll()
+    public function testBookmarkModelGetAll()
     {
         // set up test records
-        $records = array(
+        $records = [
             ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
             ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
             ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1],
-        );
+        ];
 
         // insert into db
         foreach ($records as $record) {
@@ -61,64 +61,64 @@ class BookmarkRepositoryTest extends BookymarkTest
 
         // get all records, check count
         $expected_count = count($records);
-        $actual_count   = $this->bookmark_repository->all()->count();
+        $actual_count   = $this->bookmark_model->getAll()->count();
         $this->assertEquals($expected_count, $actual_count);
     }
 
     /**
-     * testBookmarkFind
+     * testBookmarkModelGetById
      *
      * @return void
      */
-    public function testBookmarkFind()
+    public function testBookmarkModelGetById()
     {
         // create record
         $values = ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1];
         $bookmark = BookmarkModel::create($values);
 
         // find record, ensure it exists
-        $found = $this->bookmark_repository->find($bookmark->id);
+        $found = $this->bookmark_model->getById($bookmark->id);
         $this->assertNotNull($found);
     }
 
     /**
-     * testBookmarkFindOrFail
+     * testBookmarkGetByIdOrFail
      *
      * @return void
      */
-    public function testBookmarkFindOrFail()
+    public function testBookmarkGetByIdOrFail()
     {
         // create record
         $values = ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1];
         $bookmark = BookmarkModel::create($values);
 
-        // find record, ensure it exists
-        $found = $this->bookmark_repository->findOrFail($bookmark->id);
+        // get_by_id record, ensure it exists
+        $found = $this->bookmark_model->getByIdOrFail($bookmark->id);
         $this->assertNotNull($found);
     }
 
     /**
-     * testBookmarkStore
+     * testBookmarkModelDoStore
      *
      * @return void
      */
-    public function testBookmarkStore()
+    public function testBookmarkModelDoStore()
     {
         // mock event firing, create record, ensure it got saved
         Event::shouldReceive('fire')->once();
         $values = ['title' => 'a', 'url' => 'http://a.com', 'user_id' => 1];
-        $bookmark = $this->bookmark_repository->store($values);
+        $bookmark = $this->bookmark_model->doStore($values);
 
         // check result
         $this->assertNotNull(BookmarkModel::where('id', $bookmark->id));
     }
 
     /**
-     * testBookmarkUpdate
+     * testBookmarkModelDoUpdateSuccess
      *
      * @return void
      */
-    public function testBookmarkUpdate()
+    public function testBookmarkModelDoUpdateSuccess()
     {
         // mock event firing, create record
         Event::shouldReceive('fire')->once();
@@ -127,18 +127,48 @@ class BookmarkRepositoryTest extends BookymarkTest
 
         // update, ensure successful
         $new_values = ['id' => 1, 'title' => 'test_new', 'url' => 'http://a.com', 'user_id' => 1];
-        $new_bookmark   = $this->bookmark_repository->update($new_values);
+        $new_bookmark   = $this->bookmark_model->doUpdate($new_values);
         $expected_title = $new_values['title'];
         $actual_title   = $new_bookmark->title;
         $this->assertEquals($expected_title, $actual_title);
     }
 
     /**
-     * testBookmarkDelete
+     * testBookmarkModelDoUpdateFailNoId
+     *
+     * @expectedException UnexpectedValueException
+     * @return void
+     */
+    public function testBookmarkModelDoUpdateFailNoId()
+    {
+        // create test bookmark
+        $old_values = ['id' => 1, 'title' => 'test_old', 'url' => 'http://a.com', 'user_id' => 1];
+        $bookmark = BookmarkModel::create($old_values);
+
+        // update, expect exception
+        $new_values = ['title' => 'test_new', 'url' => 'http://a.com', 'user_id' => 1];
+        $this->bookmark_model->doUpdate($new_values);
+    }
+
+    /**
+     * testBookmarkModelDoUpdateFailNotFound
+     *
+     * @expectedException Exception
+     * @return void
+     */
+    public function testBookmarkModelDoUpdateFailNotFound()
+    {
+        // update, ensure successful
+        $new_values = ['id' => '48291', 'title' => 'test_new', 'url' => 'http://a.com', 'user_id' => 1];
+        $this->bookmark_model->doUpdate($new_values);
+    }
+
+    /**
+     * testBookmarkModelDoDelete
      *
      * @return void
      */
-    public function testBookmarkDelete()
+    public function testBookmarkModelDoDelete()
     {
         // mock event firing, set up test record
         Event::shouldReceive('fire')->once();
@@ -153,18 +183,18 @@ class BookmarkRepositoryTest extends BookymarkTest
         }
 
         // delete one, check count of all records
-        $this->bookmark_repository->delete($bookmark->id);
+        $this->bookmark_model->doDelete($bookmark->id);
         $current_count = BookmarkModel::all()->count();
         $old_count     = count($records);
         $this->assertEquals($current_count, $old_count - 1);
     }
 
     /**
-     * testGetByUserId
+     * testBookmarkModelGetByUserId
      *
      * @return void
      */
-    public function testGetByUserId()
+    public function testBookmarkModelGetByUserId()
     {
         // set up test records
         $records = array(
@@ -178,7 +208,7 @@ class BookmarkRepositoryTest extends BookymarkTest
         }
 
         // get by user id, ensure count is one
-        $bookmarks = $this->bookmark_repository->getByUserId('2');
+        $bookmarks = $this->bookmark_model->getByUserId('2');
         $this->assertEquals(1, $bookmarks->count());
     }
 }
