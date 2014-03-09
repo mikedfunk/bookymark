@@ -1,30 +1,30 @@
-web1: #component type & number
-  name: bookymark            #component settings
-  shared_writable_dirs:
-    - /public/assets/cache
-    - /application/db_cache
-    - /application/cache
-    - /application/logs
-  document_root: public/
-  php_version: 5.3.10
-  php_display_errors: "1"
+global:
+  env:
+    - APP_NAME: bookymark
+    - LARAVEL_ENV: production
+web1:
+  php_version: 5.4.14
   php_date_timezone: "America/New_York"
-  php_max_input_time: 999
-  php_max_execution_time: 999
+  php_display_errors: "0"
   php_extensions:
-    - curl
-    - gd
-    - imagick
-    - json
     - memcached
-    - mysqli
+    - curl
     - mysql
     - pdo_mysql
-    - pdo
-    - phar
-    - session
-    - simplexml
-    - soap
-    - xml
-  zend_extensions:
-    - xdebug
+    - zip
+    - mcrypt
+    - mbstring
+  shared_writable_dirs:
+    - /public/assets/builds
+    - app/storage/cache
+    - app/storage/logs
+    - app/storage/meta
+    - app/storage/sessions
+    - app/storage/views
+  document_root: public/
+  after_build:
+    - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install --no-dev"
+    - "php artisan dump-autoload"
+    - "php artisan optimize"
+#    - "php artisan migrate" # doesn't work on pagodabox due to ram
+    - "php artisan basset:build --production"
