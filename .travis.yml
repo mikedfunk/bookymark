@@ -1,13 +1,10 @@
 language: php
 
-phps:
+php:
+  - 5.3.3
   - 5.3
   - 5.4
 
-before_script:
-  - mysql -e 'create database bookymark_test;'
-  - mysql -u root bookymark_test < setup.sql
+before_script: composer install -n
 
-script:
-  - cd tests
-  - phpunit
+script: phpunit -c app

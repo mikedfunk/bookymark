@@ -6,9 +6,9 @@ parameters:
     database_name: bookymark
     database_user: root
     database_password: null
-    mailer_transport: smtp
+    mailer_transport: mail
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
     locale: en
-    secret: 32y4oi2u3y423oiu
+    secret: sdfoi5oi34sdf
