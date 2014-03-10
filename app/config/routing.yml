@@ -1,0 +1,4 @@
+mike_funk_bookymark_bookmarks:
+    resource: "@MikeFunkBookymarkBookmarksBundle/Resources/config/routing.yml"
+    prefix:   /bookmarks/
+
