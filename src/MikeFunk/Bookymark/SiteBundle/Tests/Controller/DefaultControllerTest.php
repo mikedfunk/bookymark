@@ -4,8 +4,8 @@ namespace MikeFunk\Bookymark\SiteBundle\Tests\Controller;
 
 class DefaultControllerTest extends \PHPUnit_Framework_TestCase
 {
-    public function testIndex()
+    public function testIndexOk()
     {
-        $this->assertTrue(true);
+        $this->assertEquals(true, true);
     }
 }
