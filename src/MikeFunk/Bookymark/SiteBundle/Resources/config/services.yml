@@ -1,7 +1,0 @@
-parameters:
-#    mike_funk_bookymark_site.example.class: MikeFunk\Bookymark\SiteBundle\Example
-
-services:
-#    mike_funk_bookymark_site.example:
-#        class: %mike_funk_bookymark_site.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

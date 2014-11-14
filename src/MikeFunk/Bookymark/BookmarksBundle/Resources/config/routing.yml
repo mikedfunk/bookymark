@@ -1,3 +1,0 @@
-mike_funk_bookymark_bookmarks_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MikeFunkBookymarkBookmarksBundle:Default:index }
