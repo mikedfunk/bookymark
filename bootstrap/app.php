@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -12,7 +14,7 @@
 */
 
 $app = new Illuminate\Foundation\Application(
-    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
+    $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__),
 );
 
 /*
@@ -26,19 +28,13 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
-$app->singleton(
-    Illuminate\Contracts\Http\Kernel::class,
-    Bookymark\Http\Kernel::class
-);
+$app->singleton(Illuminate\Contracts\Http\Kernel::class, Bookymark\Http\Kernel::class);
 
-$app->singleton(
-    Illuminate\Contracts\Console\Kernel::class,
-    Bookymark\Console\Kernel::class
-);
+$app->singleton(Illuminate\Contracts\Console\Kernel::class, Bookymark\Console\Kernel::class);
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Bookymark\Exceptions\Handler::class
+    Bookymark\Exceptions\Handler::class,
 );
 
 /*

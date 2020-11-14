@@ -4,7 +4,7 @@
 
   <description>Mike's coding standard for php 7.4+</description>
 
-  <!-- <arg name="basepath" value="." /> -->
+  <arg name="basepath" value="." />
   <!-- NOTE this can only be declared once!! if you do it multiple times it will override the previous one. comma-delimited. -->
   <!-- <config name="installed_paths" value="/Users/mikefunk/Code/bookymark/vendor/slevomat/coding-standard" /> -->
 
@@ -45,6 +45,9 @@
     <exclude name="Generic.PHP.ClosingPHPTag" />
     <exclude name="Generic.PHP.UpperCaseConstant" />
     <exclude name="Generic.WhiteSpace.DisallowSpaceIndent" />
+    <!-- overlaps with slevomat which is fixable -->
+    <exclude name="Generic.PHP.RequireStrictTypes.MissingDeclaration" />
+    <exclude name="SlevomatCodingStandard.Numbers.DisallowNumericLiteralSeparator" />
   </rule>
 
   <rule ref="Generic.Formatting.SpaceAfterNot">
@@ -111,10 +114,16 @@
     <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
     <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
     <exclude name="PEAR.Formatting.MultiLineAssignment.EqualSignLine" />
+    <exclude name="PEAR.Files.IncludingFile" />
   </rule>
 
   <!-- PSR1 -->
-  <rule ref="PSR1" />
+  <rule ref="PSR1">
+  </rule>
+
+  <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+    <exclude-pattern>./database/migrations</exclude-pattern>
+  </rule>
 
   <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
     <exclude-pattern>spec/*</exclude-pattern>
@@ -161,6 +170,10 @@
     <exclude name="Squiz.ControlStructures.ElseIfDeclaration" />
     <!-- this rule does not allow even \stdClass->my_var, which is fine -->
     <exclude name="Squiz.NamingConventions.ValidVariableName.NotCamelCaps" />
+  </rule>
+
+  <rule ref="Squiz.Classes.ClassFileName.NoMatch">
+    <exclude-pattern>./database/migrations</exclude-pattern>
   </rule>
 
   <rule ref="Squiz.WhiteSpace.MemberVarSpacing">
@@ -213,6 +226,11 @@
     <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly" />
     <exclude name="SlevomatCodingStandard.Commenting.DisallowCommentAfterCode" />
     <exclude name="SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint" />
+    <exclude name="SlevomatCodingStandard.Files.TypeNameMatchesFileName" />
+    <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEmpty" />
+    <exclude name="SlevomatCodingStandard.ControlStructures.DisallowShortTernaryOperator" />
+    <exclude name="SlevomatCodingStandard.Functions.DisallowArrowFunction" />
+    <exclude name="SlevomatCodingStandard.ControlStructures.RequireYodaComparison.RequiredYodaComparison" />
   </rule>
 
   <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
@@ -230,14 +248,90 @@
     </properties>
   </rule>
 
-  <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
-    <exclude-pattern>database/*</exclude-pattern>
-  </rule>
+  <!-- I can't get this to work -->
+  <!-- <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName"> -->
+  <!--   <property name="rootNamespaces" type="array"> -->
+  <!--     <element key="src" value="" /> -->
+  <!--   </property> -->
+  <!-- </rule> -->
 
   <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
     <properties>
       <property name="linesCountAfterOpeningBrace" value="0" />
       <property name="linesCountBeforeClosingBrace" value = "0" />
+    </properties>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Classes.TraitUseSpacing">
+    <properties>
+      <property name="linesCountBeforeFirstUse" value = "0" />
+    </properties>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint">
+    <exclude-pattern>./src/Bookymark/Http/Middleware/Authenticate.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Http/Middleware/RedirectIfAuthenticated.php</exclude-pattern>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint">
+    <exclude-pattern>./src/Bookymark/Http/Middleware/Authenticate.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Console/Kernel.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Http/Kernel.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Http/Middleware/TrustHosts.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Exceptions/Handler.php</exclude-pattern>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
+    <properties>
+      <property name="linesCountBeforeFirstContent" value="0" />
+      <property name="linesCountBetweenDescriptionAndAnnotations" value="1" />
+      <property name="linesCountBetweenDifferentAnnotationsTypes" value="1" />
+      <property name="linesCountAfterLastContent" value="0" />
+    </properties>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint">
+    <exclude-pattern>./src/Bookymark/Http/Middleware/TrustProxies.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Console/Kernel.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Http/Middleware/EncryptCookies.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Http/Middleware/PreventRequestsDuringMaintenance.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Http/Middleware/TrimStrings.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Http/Middleware/VerifyCsrfToken.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Http/Kernel.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Exceptions/Handler.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Models/User.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Providers/AuthServiceProvider.php</exclude-pattern>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.ControlStructures.RequireMultiLineTernaryOperator">
+    <properties>
+      <property name="lineLengthLimit" value="80" />
+    </properties>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Classes.ClassMemberSpacing">
+    <exclude-pattern>./src/Bookymark/Providers/RouteServiceProvider.php</exclude-pattern>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Functions.ArrowFunctionDeclaration">
+    <properties>
+      <property name="allowMultiLine" value="true" />
+    </properties>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Functions.StaticClosure">
+    <exclude-pattern>./routes/*.php</exclude-pattern>
+    <exclude-pattern>./database/migrations</exclude-pattern>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable">
+    <exclude-pattern>./bootstrap/app.php</exclude-pattern>
+    <exclude-pattern>./server.php</exclude-pattern>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Functions.RequireSingleLineCall">
+    <properties>
+      <property name="maxLineLength" value="80" />
     </properties>
   </rule>
 

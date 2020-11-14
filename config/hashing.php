@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     /*
@@ -44,7 +46,7 @@ return [
     */
 
     'argon' => [
-        'memory' => 1024,
+        'memory' => 1_024,
         'threads' => 2,
         'time' => 2,
     ],

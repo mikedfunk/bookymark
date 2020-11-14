@@ -1,28 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bookymark\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
+    /** {@inheritdoc} */
     public function register()
     {
-        //
+        // intentionally blank
     }
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
+        // intentionally blank
     }
 }

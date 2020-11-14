@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bookymark\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -9,16 +11,14 @@ class Handler extends ExceptionHandler
     /**
      * A list of the exception types that are not reported.
      *
-     * @var array
+     * @var array<string>
      */
-    protected $dontReport = [
-        //
-    ];
+    protected $dontReport = [];
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
-     * @var array
+     * @var array<string>
      */
     protected $dontFlash = [
         'password',
@@ -32,6 +32,6 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+        // intentionally left blank
     }
 }

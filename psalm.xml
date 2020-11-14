@@ -12,6 +12,7 @@
         <directory name="database/seeders"/>
         <ignoreFiles>
             <directory name="vendor"/>
+            <file name="./public/index.php"/>
         </ignoreFiles>
     </projectFiles>
 </psalm>

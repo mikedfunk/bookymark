@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Bookymark\Http\Middleware;
 
 use Fideloper\Proxy\TrustProxies as Middleware;
@@ -9,6 +11,8 @@ class TrustProxies extends Middleware
 {
     /**
      * The trusted proxies for this application.
+     *
+     * phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingTraversableTypeHintSpecification
      *
      * @var array|string|null
      */

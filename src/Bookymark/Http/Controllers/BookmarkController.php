@@ -6,5 +6,4 @@ namespace Bookymark\Http\Controllers;
 
 final class BookmarkController
 {
-
 }
