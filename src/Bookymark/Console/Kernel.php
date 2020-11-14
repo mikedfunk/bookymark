@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Console;
+declare(strict_types=1);
+
+namespace Bookymark\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Bookymark\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

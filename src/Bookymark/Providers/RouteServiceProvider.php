@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Bookymark\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -26,7 +26,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string|null
      */
-    // protected $namespace = 'App\\Http\\Controllers';
+    // protected $namespace = 'Bookymark\\Http\\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

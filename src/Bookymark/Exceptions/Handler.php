@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace Bookymark\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
