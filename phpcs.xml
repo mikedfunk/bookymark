@@ -279,6 +279,7 @@
     <exclude-pattern>./src/Bookymark/Http/Kernel.php</exclude-pattern>
     <exclude-pattern>./src/Bookymark/Http/Middleware/TrustHosts.php</exclude-pattern>
     <exclude-pattern>./src/Bookymark/Exceptions/Handler.php</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Providers/TelescopeServiceProvider.php</exclude-pattern>
   </rule>
 
   <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
@@ -322,6 +323,7 @@
   <rule ref="SlevomatCodingStandard.Functions.StaticClosure">
     <exclude-pattern>./routes/*.php</exclude-pattern>
     <exclude-pattern>./database/migrations</exclude-pattern>
+    <exclude-pattern>./src/Bookymark/Providers/TelescopeServiceProvider.php</exclude-pattern>
   </rule>
 
   <rule ref="SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable">
