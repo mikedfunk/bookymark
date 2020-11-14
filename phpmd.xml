@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!-- vim:set sw=2 ts=2 et: -->
+
+<ruleset name="Mike's PHPMD Ruleset">
+
+  <description>Mike's PHPMD ruleset for php 7.4+</description>
+
+  <arg name="ansi" />
+
+  <exclude-pattern>_ide_helper.php</exclude-pattern>
+  <exclude-pattern>bootstrap/cache</exclude-pattern>
+  <exclude-pattern>composer.phar</exclude-pattern>
+  <exclude-pattern>coverage/*</exclude-pattern>
+  <exclude-pattern>resources/views*</exclude-pattern>
+  <exclude-pattern>spec/*</exclude-pattern>
+  <exclude-pattern>storage/*</exclude-pattern>
+  <exclude-pattern>tags</exclude-pattern>
+  <exclude-pattern>tests/*</exclude-pattern>
+  <exclude-pattern>vendor/*</exclude-pattern>
+  <exclude-pattern>database/seeds/*</exclude-pattern>
+
+  <rule ref="rulesets/cleancode.xml">
+    <!-- ignore error on e.g. \UnexpectedValueException -->
+    <exclude name="MissingImport" />
+  </rule>
+
+  <rule ref="rulesets/codesize.xml" />
+
+  <rule ref="rulesets/codesize.xml/ExcessiveMethodLength" >
+    <properties>
+      <property name="minimum" value="80" />
+      <property name="ignore-whitespace" value="false" />
+    </properties>
+  </rule>
+
+  <rule ref="rulesets/controversial.xml" />
+
+  <rule ref="rulesets/design.xml" />
+
+  <rule ref="rulesets/naming.xml">
+    <!-- https://stackoverflow.com/a/29433750/557215 -->
+    <!-- ^ The only way I have found to achieve this is using the exclude element, including all rules from the ruleset except the one you want to customize, and then including it separately. -->
+    <exclude name="LongVariable" />
+    <exclude name="ShortMethodName" />
+    <exclude name="ShortVariable" />
+  </rule>
+
+  <rule ref="rulesets/naming.xml/LongVariable">
+    <properties>
+      <property name="maximum" value="50" />
+    </properties>
+  </rule>
+
+  <rule ref="rulesets/naming.xml/ShortVariable">
+    <properties>
+      <property name="minimum" value="2" />
+    </properties>
+  </rule>
+
+  <rule ref="rulesets/naming.xml/ShortMethodName">
+    <properties>
+      <property name="minimum" value="2" />
+    </properties>
+  </rule>
+
+  <rule ref="rulesets/unusedcode.xml" />
+
+</ruleset>

@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<!-- vim:set sw=2 ts=2 et: -->
+<ruleset name="Mike's Coding Standard">
+
+  <description>Mike's coding standard for php 7.4+</description>
+
+  <!-- ensure php code is compatible with this version -->
+  <config name="testVersion" value="7.4.7" />
+
+  <arg name="extensions" value="php" />
+  <arg name="colors" />
+  <ini name="memory_limit" value="1024M"/>
+
+  <exclude-pattern>vendor/*</exclude-pattern>
+  <exclude-pattern>tests/*</exclude-pattern>
+  <exclude-pattern>spec/*</exclude-pattern>
+  <exclude-pattern>coverage/*</exclude-pattern>
+  <exclude-pattern>resources/views*</exclude-pattern>
+  <exclude-pattern>bootstrap/cache</exclude-pattern>
+  <exclude-pattern>composer.phar</exclude-pattern>
+  <exclude-pattern>tags</exclude-pattern>
+  <exclude-pattern>_ide_helper.php</exclude-pattern>
+  <exclude-pattern>storage/*</exclude-pattern>
+
+  <!-- Generic -->
+  <rule ref="Generic">
+    <exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+    <exclude name="Generic.Classes.OpeningBraceSameLine" />
+    <exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch" />
+    <exclude name="Generic.Commenting.DocComment" />
+    <exclude name="Generic.Commenting.Todo" />
+    <exclude name="Generic.Files.EndFileNoNewline" />
+    <exclude name="Generic.Files.LowercasedFilename" />
+    <exclude name="Generic.Formatting.MultipleStatementAlignment" />
+    <exclude name="Generic.Formatting.NoSpaceAfterCast" />
+    <exclude name="Generic.Formatting.SpaceAfterNot" />
+    <exclude name="Generic.Formatting.SpaceBeforeCast" />
+    <exclude name="Generic.Functions.FunctionCallArgumentSpacing.NoSpaceAfterComma" />
+    <exclude name="Generic.Functions.OpeningFunctionBraceBsdAllman" />
+    <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
+    <exclude name="Generic.PHP.ClosingPHPTag" />
+    <exclude name="Generic.PHP.UpperCaseConstant" />
+    <exclude name="Generic.WhiteSpace.DisallowSpaceIndent" />
+  </rule>
+
+  <rule ref="Generic.Formatting.SpaceAfterNot">
+    <properties>
+      <property name="spacing" value="0" />
+    </properties>
+  </rule>
+
+  <rule ref="Generic.Strings.UnnecessaryStringConcat">
+    <properties>
+      <property name="allowMultiline" value="true" />
+      <!-- warning instead of error -->
+      <property name="error" value="false" />
+    </properties>
+  </rule>
+
+  <rule ref="Generic.PHP.ForbiddenFunctions">
+    <properties>
+      <!-- warning instead of error -->
+      <property name="error" value="false" />
+    </properties>
+  </rule>
+
+  <rule ref="Generic.NamingConventions.CamelCapsFunctionName.ScopeNotCamelCaps">
+    <exclude-pattern>spec/*</exclude-pattern>
+  </rule>
+
+  <!-- MySource -->
+  <rule ref="MySource">
+
+    <rule ref="Squiz.Strings.ConcatenationSpacing">
+      <properties>
+        <property name="ignoreNewlines" value="true" />
+        <property name="spacing" value="1" />
+      </properties>
+    </rule>
+
+    <exclude name="MySource.CSS.BrowserSpecificStyles" />
+    <exclude name="MySource.Channels.DisallowSelfActions" />
+    <exclude name="MySource.Channels.IncludeOwnSystem" />
+    <exclude name="MySource.Channels.IncludeSystem" />
+    <exclude name="MySource.Channels.UnusedSystem" />
+    <exclude name="MySource.Commenting.FunctionComment" />
+    <exclude name="MySource.Debug.DebugCode" />
+    <exclude name="MySource.Debug.FirebugConsole" />
+    <exclude name="MySource.Objects.AssignThis" />
+    <exclude name="MySource.Objects.CreateWidgetTypeCallback" />
+    <exclude name="MySource.Objects.DisallowNewWidget" />
+    <exclude name="MySource.PHP.ReturnFunctionValue.NotAssigned" />
+    <exclude name="MySource.Strings.JoinStrings" />
+  </rule>
+
+  <!-- PEAR -->
+  <rule ref="PEAR">
+    <exclude name="PEAR.Functions.FunctionCallSignature" />
+    <exclude name="PEAR.NamingConventions.ValidVariableName" />
+    <exclude name="PEAR.NamingConventions.ValidFunctionName" />
+    <exclude name="Generic.Files.LineLength" />
+    <exclude name="PEAR.Commenting.FileComment" />
+    <exclude name="PEAR.Commenting.ClassComment" />
+    <exclude name="PEAR.Commenting.FunctionComment" />
+    <exclude name="PEAR.WhiteSpace.ObjectOperatorIndent" />
+    <exclude name="PEAR.WhiteSpace.ScopeIndent" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket" />
+    <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine" />
+    <exclude name="PEAR.Formatting.MultiLineAssignment.EqualSignLine" />
+  </rule>
+
+  <!-- PSR1 -->
+  <rule ref="PSR1" />
+
+  <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
+    <exclude-pattern>spec/*</exclude-pattern>
+  </rule>
+
+  <!-- PSR2 -->
+  <rule ref="PSR2" />
+
+  <!-- PSR12 -->
+  <rule ref="PSR12" />
+
+  <!-- Squiz -->
+  <rule ref="Squiz">
+    <exclude name="Squiz.PHP.DisallowMultipleAssignments" />
+    <exclude name="Squiz.PHP.DisallowBooleanStatement" />
+    <exclude name="Squiz.WhiteSpace.MemberVarSpacing" />
+    <!-- this is a great rule but it doesn't respect {@inheritDoc} :( -->
+    <!-- <exclude name="Squiz.Commenting.FunctionCommentThrowTag.Missing" /> -->
+    <!-- <exclude name="Squiz.PHP.CommentedOutCode" /> -->
+    <exclude name="Squiz.Strings.DoubleQuoteUsage" />
+    <exclude name="Squiz.Commenting.LongConditionClosingComment" />
+    <exclude name="Squiz.Commenting.PostStatementComment.Found" />
+    <exclude name="Squiz.Commenting.VariableComment" />
+    <exclude name="Squiz.Commenting.BlockComment" />
+    <exclude name="Squiz.Commenting.ClassComment" />
+    <exclude name="Squiz.Files.FileExtension" />
+    <exclude name="Squiz.Commenting.FileComment" />
+    <exclude name="Squiz.Operators.ComparisonOperatorUsage" />
+    <exclude name="Squiz.PHP.DisallowInlineIf" />
+    <exclude name="Squiz.PHP.DisallowComparisonAssignment" />
+    <exclude name="Squiz.WhiteSpace.ObjectOperatorSpacing" />
+    <exclude name="Squiz.ControlStructures.InlineIfDeclaration" />
+    <exclude name="Squiz.ControlStructures.SwitchDeclaration.BreakIndent" />
+    <exclude name="Generic.ControlStructures.DisallowYodaConditions" />
+    <exclude name="Squiz.Commenting.InlineComment" />
+    <exclude name="Squiz.Arrays.ArrayDeclaration" />
+    <exclude name="Squiz.Objects.ObjectInstantiation" />
+    <exclude name="Squiz.Commenting.ClosingDeclarationComment" />
+    <exclude name="Squiz.Commenting.FunctionComment" />
+    <!-- this conflicts with Mike's multiline ternary style -->
+    <exclude name="Squiz.WhiteSpace.FunctionClosingBraceSpace.SpacingBeforeClose" />
+    <!-- this doesn't take into account ?? >:( -->
+    <exclude name="Squiz.Formatting.OperatorBracket" />
+    <exclude name="Squiz.ControlStructures.ElseIfDeclaration" />
+    <!-- this rule does not allow even \stdClass->my_var, which is fine -->
+    <exclude name="Squiz.NamingConventions.ValidVariableName.NotCamelCaps" />
+  </rule>
+
+  <rule ref="Squiz.WhiteSpace.MemberVarSpacing">
+    <properties>
+      <property name="spacingBeforeFirst" value="0" />
+    </properties>
+  </rule>
+
+  <!-- phpspec uses it_does_this() format for functions -->
+  <rule ref="Squiz.NamingConventions.ValidFunctionName.ScopeNotCamelCaps">
+    <exclude-pattern>spec/*</exclude-pattern>
+  </rule>
+
+  <rule ref="Squiz.WhiteSpace.FunctionSpacing">
+    <properties>
+      <property name="spacing" value="1" />
+      <property name="spacingBeforeFirst" value="0" />
+      <property name="spacingAfterLast" value="0" />
+    </properties>
+  </rule>
+
+  <rule ref="Squiz.Strings.ConcatenationSpacing">
+    <properties>
+      <property name="ignoreNewlines" value="true" />
+      <property name="spacing" value="1" />
+    </properties>
+  </rule>
+
+  <rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
+    <properties>
+      <property name="ignoreNewlines" value="true" />
+    </properties>
+  </rule>
+
+  <rule ref="Squiz.WhiteSpace.OperatorSpacing">
+    <properties>
+      <property name="ignoreNewlines" value="true" />
+    </properties>
+  </rule>
+
+  <!-- Zend -->
+  <rule ref="Zend">
+    <exclude name="Zend.NamingConventions.ValidVariableName" />
+    <exclude name="Zend.Debug.CodeAnalyzer" />
+  </rule>
+
+  <!-- Slevomat Coding Standard -->
+  <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements" />
+  <!-- NOTE this is unreliable when it comes to importing constants and functions -->
+  <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses" />
+  <rule ref="SlevomatCodingStandard.Exceptions.DeadCatch" />
+  <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma" />
+  <rule ref="SlevomatCodingStandard.Namespaces.DisallowGroupUse" />
+  <rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants" />
+  <rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions" />
+  <rule ref="SlevomatCodingStandard.Namespaces.MultipleUsesPerLine" />
+  <!-- NOTE this has proven to result in false positives -->
+  <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements.WriteOnlyProperty" />
+  <rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints" />
+
+  <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
+    <properties>
+      <property name="enableNullableTypeHints" value="false" />
+      <property name="enableVoidTypeHint" value="false" />
+      <property name="enableEachParameterAndReturnInspection" value="false" />
+      <!-- <property name="enableEachParameterAndReturnInspection" value="true" /> -->
+    </properties>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+    <properties>
+      <property name="spacesCountAroundEqualsSign" value="0" />
+    </properties>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
+    <properties>
+      <property name="allowFullyQualifiedNameForCollidingClasses" value="true" />
+      <property name="allowFullyQualifiedGlobalClasses" value="true" />
+      <property name="allowFullyQualifiedExceptions" value="true" />
+      <property name="allowFullyQualifiedGlobalFunctions" value="true" />
+      <property name="allowFullyQualifiedGlobalConstants" value="true" />
+    </properties>
+  </rule>
+
+</ruleset>
