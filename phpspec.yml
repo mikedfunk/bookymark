@@ -1,0 +1,5 @@
+suites:
+  main:
+    namespace: Bookymark
+    psr4_prefix: Bookymark
+    src_path: src

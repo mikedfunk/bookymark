@@ -4,6 +4,10 @@
 
   <description>Mike's coding standard for php 7.4+</description>
 
+  <!-- <arg name="basepath" value="." /> -->
+  <!-- NOTE this can only be declared once!! if you do it multiple times it will override the previous one. comma-delimited. -->
+  <!-- <config name="installed_paths" value="/Users/mikefunk/Code/bookymark/vendor/slevomat/coding-standard" /> -->
+
   <!-- ensure php code is compatible with this version -->
   <config name="testVersion" value="7.4.7" />
 
@@ -204,41 +208,36 @@
   </rule>
 
   <!-- Slevomat Coding Standard -->
-  <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements" />
-  <!-- NOTE this is unreliable when it comes to importing constants and functions -->
-  <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses" />
-  <rule ref="SlevomatCodingStandard.Exceptions.DeadCatch" />
-  <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma" />
-  <rule ref="SlevomatCodingStandard.Namespaces.DisallowGroupUse" />
-  <rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalConstants" />
-  <rule ref="SlevomatCodingStandard.Namespaces.FullyQualifiedGlobalFunctions" />
-  <rule ref="SlevomatCodingStandard.Namespaces.MultipleUsesPerLine" />
-  <!-- NOTE this has proven to result in false positives -->
-  <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements.WriteOnlyProperty" />
-  <rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints" />
+  <rule ref="SlevomatCodingStandard">
+    <exclude name="SlevomatCodingStandard.Namespaces.UseOnlyWhitelistedNamespaces" />
+    <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly" />
+    <exclude name="SlevomatCodingStandard.Commenting.DisallowCommentAfterCode" />
+    <exclude name="SlevomatCodingStandard.TypeHints.DisallowMixedTypeHint" />
+  </rule>
 
-  <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
+  <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
     <properties>
-      <property name="enableNullableTypeHints" value="false" />
-      <property name="enableVoidTypeHint" value="false" />
-      <property name="enableEachParameterAndReturnInspection" value="false" />
-      <!-- <property name="enableEachParameterAndReturnInspection" value="true" /> -->
+      <property name="allowFullyQualifiedGlobalConstants" value="true" />
+      <property name="allowFullyQualifiedGlobalFunctions" value="true" />
     </properties>
   </rule>
 
   <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
     <properties>
-      <property name="spacesCountAroundEqualsSign" value="0" />
+      <property name="newlinesCountBetweenOpenTagAndDeclare" value="2" />
+      <property name="newlinesCountAfterDeclare" value = "2" />
+      <property name="spacesCountAroundEqualsSign" value = "0" />
     </properties>
   </rule>
 
-  <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly">
+  <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+    <exclude-pattern>database/*</exclude-pattern>
+  </rule>
+
+  <rule ref="SlevomatCodingStandard.Classes.EmptyLinesAroundClassBraces">
     <properties>
-      <property name="allowFullyQualifiedNameForCollidingClasses" value="true" />
-      <property name="allowFullyQualifiedGlobalClasses" value="true" />
-      <property name="allowFullyQualifiedExceptions" value="true" />
-      <property name="allowFullyQualifiedGlobalFunctions" value="true" />
-      <property name="allowFullyQualifiedGlobalConstants" value="true" />
+      <property name="linesCountAfterOpeningBrace" value="0" />
+      <property name="linesCountBeforeClosingBrace" value = "0" />
     </properties>
   </rule>
 
