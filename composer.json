@@ -19,6 +19,7 @@
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
+        "laravel/telescope": "^4.3",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpmd/phpmd": "^2.9",
@@ -39,7 +40,7 @@
     },
     "autoload": {
         "psr-4": {
-            "": "src/",
+            "Bookymark\\": "src/Bookymark/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

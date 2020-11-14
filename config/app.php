@@ -176,6 +176,7 @@ return [
         // Bookymark\Providers\BroadcastServiceProvider::class,
         Bookymark\Providers\EventServiceProvider::class,
         Bookymark\Providers\RouteServiceProvider::class,
+        Bookymark\Providers\TelescopeServiceProvider::class,
 
     ],
 
